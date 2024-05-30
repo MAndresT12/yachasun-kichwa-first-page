@@ -1,20 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
+import Main from './src/components/Main';
+//Ojo cualquier cosa que sea tocable (onClick por ejm) en react native, usar ejm Touchable usar import TouchableWithoutFeedback
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <>
       <StatusBar style="auto" />
-    </View>
+      <Main />
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
