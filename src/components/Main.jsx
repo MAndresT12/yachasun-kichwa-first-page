@@ -1,57 +1,68 @@
 import React from 'react';
-import { Text, View, StyleSheet, ScrollView, StatusBar, TouchableWithoutFeedback, Alert } from 'react-native';
-import Constants from 'expo-constants';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { styles } from '../../styles/globalStyles';
+import { VocabularyColumn } from './VocabularyColumn';
+import { Card } from './Card';
 
-const VocabularyColumn = ({ title, items }) => (
-    <View style={styles.vocabularyColumn}>
-        <Text style={styles.vocabularyHeader}>{title}</Text>
-        {items.map((item, index) => (
-            <TouchableWithoutFeedback key={index} onPress={() => Alert.alert('¡Hola kichuanos!')}>
-                <View style={styles.pill}>
-                    <Text style={styles.pillText}>{item}</Text>
-                </View>
-            </TouchableWithoutFeedback>
-        ))}
-    </View>
-);
+const numberData = [
+    { numero: "1000", kichwa: "shuk waranka", castellano: "mil" },
+    { numero: "1001", kichwa: "shuk waranka shuk", castellano: "mil uno" },
+    { numero: "1010", kichwa: "shuk waranka chunka", castellano: "mil diez" },
+    { numero: "1100", kichwa: "shuk waranka patsak", castellano: "mil cien" },
+    { numero: "1200", kichwa: "shuk waranka ishkay patsak", castellano: "mil doscientos" },
+    { numero: "2000", kichwa: "ishkay waranka", castellano: "dos mil" },
+    { numero: "3000", kichwa: "kimsa waranka", castellano: "tres mil" },
+    { numero: "4000", kichwa: "chunka waranka", castellano: "cuatro mil" },
+    { numero: "5000", kichwa: "pichka waranka", castellano: "cinco mil" },
+    { numero: "10000", kichwa: "chunka waranka", castellano: "diez mil" },
+    { numero: "20000", kichwa: "ishkay chunka waranka", castellano: "veinte mil" },
+    { numero: "100000", kichwa: "patsak waranka", castellano: "cien mil" },
+    { numero: "500000", kichwa: "pichka patsak waranka", castellano: "quinientos mil" },
+    { numero: "1000000", kichwa: "hunu", castellano: "millón" },
+];
 
-const Card = ({ title, content }) => (
-    <View style={styles.cardContainer}>
-        <View style={styles.card}>
-            <Text style={styles.cardTitle}>{title}</Text>
-            <Text style={styles.cardContent}>{content}</Text>
+const renderNumberRows = () => {
+    return numberData.map((item, index) => (
+        <View key={index} style={styles.tableRow}>
+            <Text style={styles.tableCell}>{item.numero}</Text>
+            <Text style={styles.tableCell}>{item.kichwa}</Text>
+            <Text style={styles.tableCell}>{item.castellano}</Text>
         </View>
-    </View>
-);
+    ));
+};
 
 const Main = () => {
-    const loremContent = "Lorem ipsum dolor sit amet consectetur. Faucibus mattis tincidunt nunc leo lectus cras risus. Euismod netus amet erat nisl elementum faucibus. Eu lectus vulputate lorem egestas aliquam in ante. Rutrum auctor ut semper us.";
+    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
             <StatusBar barStyle="default" backgroundColor="#5B4D28" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>XXXX⭐ X ❤️</Text>
+                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
                 <View style={styles.header}>
-                    <Text style={styles.titleTema}>Tema</Text>
+                    <Text style={styles.titleTema}>Los números</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="Lorem" content={loremContent} />
-                    <View style={[styles.cardContainer, styles.vocabulary]}>
-                        <View style={[styles.card]}>
-                            <Text style={styles.vocabularyTitle}>Vocabulario</Text>
-                            <View style={styles.vocabularyTable}>
-                                <VocabularyColumn title="Esp" items={['Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem']} />
-                                <VocabularyColumn title="Ing" items={['Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem']} />
-                                <VocabularyColumn title="Kichwa" items={['Lorem', 'Lorem', 'Lorem', 'Lorem', 'Lorem']} />
+                    <Card title="Números en Kichwa">
+                        <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en Castellano.</Text>
+                    </Card>
+                    <Card>
+                        <Text style={styles.vocabularyTitle}>Vocabulario</Text>
+                        <View style={styles.vocabularyTable}>
+                            <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Número</Text>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                                <Text style={styles.tableHeaderCell}>Castellano</Text>
                             </View>
+                            {renderNumberRows()}
                         </View>
-                    </View>
+                    </Card>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { }}>
+                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Food'); }}>
                         <View style={styles.footerButton}>
                             <Text style={styles.footerButtonText}>Siguiente</Text>
                         </View>
@@ -61,115 +72,5 @@ const Main = () => {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        marginTop: Constants.statusBarHeight,
-        backgroundColor: '#9FC516',
-    },
-    scrollView: {
-        flexGrow: 1,
-    },
-    header: {
-        backgroundColor: '#5B4D28',
-        padding: 10,
-        alignItems: 'flex-start'
-    },
-    headerText: {
-        color: '#fff',
-        fontSize: 18,
-    },
-    body: {
-        padding: 10,
-        alignItems: 'center',
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    titleTema: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#fff'
-    },
-    cardContainer: {
-        width: '100%',
-        alignItems: 'center',
-    },
-    card: {
-        backgroundColor: '#fff',
-        borderRadius: 30,
-        padding: 15,
-        marginVertical: 10,
-        width: 342,
-        height: 271,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        elevation: 5,
-    },
-    cardTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    cardContent: {
-        marginTop: 10,
-        fontSize: 16,
-    },
-    vocabulary: {
-        marginTop: 20,
-    },
-    vocabularyTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    vocabularyTable: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: 10,
-    },
-    vocabularyColumn: {
-        alignItems: 'center',
-    },
-    vocabularyHeader: {
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    pill: {
-        backgroundColor: '#e0e0e0',
-        borderRadius: 8,
-        width: 70,
-        height: 17,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginVertical: 5,
-        borderWidth: 1,
-        borderColor: '#000',
-    },
-    pillText: {
-        fontSize: 12,
-    },
-    footer: {
-        marginTop: 20,
-        alignItems: 'flex-end',
-        marginRight: 10,
-    },
-    footerButton: {
-        backgroundColor: '#822929',
-        borderRadius: 3,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        width: 86,
-        height: 27,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    footerButtonText: {
-        color: '#fff',
-        fontSize: 16,
-    },
-});
 
 export default Main;
