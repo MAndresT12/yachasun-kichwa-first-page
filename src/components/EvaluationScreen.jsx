@@ -31,6 +31,12 @@ const EvaluationScreen = ({ route }) => {
                     >
                         <Text style={localStyles.buttonText}>Volver al Inicio</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity
+                        style={localStyles.button}
+                        onPress={() => navigation.navigate('ParticlesPart2')}
+                    >
+                        <Text style={localStyles.buttonText}>Siguiente</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </View>

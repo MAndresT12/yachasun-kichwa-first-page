@@ -9,6 +9,8 @@ import AnimalsScreen from './src/components/AnimalsScreen';
 import ParticlesScreen from './src/components/ParticlesScreen';
 import GameScreen from './src/components/GameScreen';
 import EvaluationScreen from './src/components/EvaluationScreen';
+import ParticlesPart2Screen from './src/components/ParticlesPart2Screen';
+import ParticlesPart3Screen from './src/components/ParticlesPart3Screen';
 
 
 
@@ -31,7 +33,7 @@ export default function App() {
         <Stack.Screen
           name="Main"
           component={Main}
-          options={{ title: 'Yachasun Kichwa' }}
+          options={{ title: 'Yachasun Kichwa - Los Numeros' }}
         />
         <Stack.Screen
           name="Food"
@@ -58,6 +60,16 @@ export default function App() {
           name="Evaluation"
           component={EvaluationScreen}
           options={{ title: 'Evaluación' }}
+        />
+        <Stack.Screen
+          name="ParticlesPart2"
+          component={ParticlesPart2Screen}
+          options={{ title: 'Las Partículas en Kichwa Parte 2' }}
+        />
+        <Stack.Screen
+          name="ParticlesPart3"
+          component={ParticlesPart3Screen}
+          options={{ title: 'Las Partículas en Kichwa Parte 3' }}
         />
       </Stack.Navigator>
 
