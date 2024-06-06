@@ -3,16 +3,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
+import Login from './src/components/Login';
 import Main from './src/components/Main';
 import FoodScreen from './src/components/FoodScreen';
-import AnimalsScreen from './src/components/AnimalsScreen';
-import ParticlesScreen from './src/components/ParticlesScreen';
-import GameScreen from './src/components/GameScreen';
-import EvaluationScreen from './src/components/EvaluationScreen';
-import ParticlesPart2Screen from './src/components/ParticlesPart2Screen';
-import ParticlesPart3Screen from './src/components/ParticlesPart3Screen';
-
-
 
 const Stack = createStackNavigator();
 
@@ -21,7 +14,7 @@ export default function App() {
     <NavigationContainer>
       <StatusBar style="auto" />
       <Stack.Navigator
-        initialRouteName="Main"
+        initialRouteName="Login"
         screenOptions={{
           headerStyle: { backgroundColor: '#5B4D28' },
           headerTintColor: '#fff',
@@ -30,6 +23,21 @@ export default function App() {
         }}
       >
         {/*Aca Main debe ir otra pag pero por el momento dejarle la pag de los numeros */}
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ title: 'Aprender con amigos' }}
+        />
+        <Stack.Screen
+          name="Levels"
+          component={Levels}
+          options={{ title: 'Niveles' }}
+        />
+        <Stack.Screen
+          name="Instructions"
+          component={Instructions}
+          options={{ title: 'Instrucciones' }}
+        />
         <Stack.Screen
           name="Main"
           component={Main}
