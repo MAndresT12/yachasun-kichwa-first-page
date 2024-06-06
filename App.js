@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import Login from './src/components/Login';
 import Main from './src/components/Main';
 import FoodScreen from './src/components/FoodScreen';
+import Levels from './src/components/Levels';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,11 @@ export default function App() {
           name="Login"
           component={Login}
           options={{ title: 'Aprender con amigos' }}
+        />
+        <Stack.Screen
+          name="Levels"
+          component={Levels}
+          options={{ title: 'Niveles' }}
         />
         <Stack.Screen
           name="Main"

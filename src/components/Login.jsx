@@ -10,7 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        navigation.navigate('Main');
+        navigation.navigate('Levels');
     };
 
     const image = require('../../assets/diablo-prototype.png');
