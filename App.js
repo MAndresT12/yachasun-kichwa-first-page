@@ -6,7 +6,12 @@ import { StatusBar } from 'expo-status-bar';
 import Login from './src/components/Login';
 import Main from './src/components/Main';
 import FoodScreen from './src/components/FoodScreen';
-
+import AnimalsScreen from './src/components/AnimalsScreen';
+import ParticlesScreen from './src/components/ParticlesScreen';
+import GameScreen from './src/components/GameScreen';
+import EvaluationScreen from './src/components/EvaluationScreen';
+import ParticlesPart2Screen from './src/components/ParticlesPart2Screen';
+import ParticlesPart3Screen from './src/components/ParticlesPart3Screen';
 const Stack = createStackNavigator();
 
 export default function App() {
