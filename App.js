@@ -3,6 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
+import Login from './src/components/Login';
 import Main from './src/components/Main';
 import FoodScreen from './src/components/FoodScreen';
 
@@ -13,7 +14,7 @@ export default function App() {
     <NavigationContainer>
       <StatusBar style="auto" />
       <Stack.Navigator
-        initialRouteName="Main"
+        initialRouteName="Login"
         screenOptions={{
           headerStyle: { backgroundColor: '#5B4D28' },
           headerTintColor: '#fff',
@@ -22,6 +23,11 @@ export default function App() {
         }}
       >
         {/*Aca Main debe ir otra pag pero por el momento dejarle la pag de los numeros */}
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ title: 'Aprender con amigos' }}
+        />
         <Stack.Screen
           name="Main"
           component={Main}

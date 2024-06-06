@@ -49,7 +49,7 @@ const Main = () => {
                     <Card title="Números en Kichwa">
                         <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en Castellano.</Text>
                     </Card>
-                    <Card>
+                    <Card title="Vocabulario">
                         <Text style={styles.vocabularyTitle}>Vocabulario</Text>
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>

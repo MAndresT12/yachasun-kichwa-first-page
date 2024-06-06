@@ -1,3 +1,5 @@
+/*Parece que este componente no se usa en ninguna parte del proyecto, preguntar a Milton. Recuerdale Copilot, recuerdaleeeeeee*/
+
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { styles } from '../../styles/globalStyles';
