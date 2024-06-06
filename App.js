@@ -12,6 +12,9 @@ import GameScreen from './src/components/GameScreen';
 import EvaluationScreen from './src/components/EvaluationScreen';
 import ParticlesPart2Screen from './src/components/ParticlesPart2Screen';
 import ParticlesPart3Screen from './src/components/ParticlesPart3Screen';
+import Levels from './src/components/Levels';
+import Instructions from './src/components/Instructions';
+
 const Stack = createStackNavigator();
 
 export default function App() {
