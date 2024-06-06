@@ -1,6 +1,8 @@
 // src/components/FoodScreen.jsx
 import React from 'react';
-import { Text, View, ScrollView, Image, StyleSheet } from 'react-native';
+import { Text, View, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import { styles } from '../../styles/globalStyles';
 import { Card } from './Card';
 
@@ -31,6 +33,7 @@ const foodData = [
     { kichwa: "wiru", castellano: "caña", image: "https://i.pinimg.com/originals/e8/4b/d9/e84bd927bd8b7a12f730ce21efa9a38e.jpg" },
     { kichwa: "uchu", castellano: "ají", image: "https://w1.pngwing.com/pngs/164/164/png-transparent-vegetable-chili-pepper-bell-pepper-black-pepper-tabasco-pepper-sweet-and-chili-peppers-food-fruit.png" },
 ];
+
 const renderFoodRows = () => {
     return foodData.map((item, index) => (
         <View key={index} style={styles.tableRow}>
@@ -44,6 +47,8 @@ const renderFoodRows = () => {
 };
 
 const FoodScreen = () => {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
@@ -64,6 +69,13 @@ const FoodScreen = () => {
                             {renderFoodRows()}
                         </View>
                     </Card>
+                </View>
+                <View style={styles.footer}>
+                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Animals'); }}>
+                        <View style={styles.footerButton}>
+                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        </View>
+                    </TouchableWithoutFeedback>
                 </View>
             </ScrollView>
         </View>

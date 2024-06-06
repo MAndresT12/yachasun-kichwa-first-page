@@ -1,5 +1,6 @@
+// src/components/Card.jsx
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { styles } from '../../styles/globalStyles';
 
 export const Card = ({ title, children, style }) => (

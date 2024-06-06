@@ -5,6 +5,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import Main from './src/components/Main';
 import FoodScreen from './src/components/FoodScreen';
+import AnimalsScreen from './src/components/AnimalsScreen';
+import ParticlesScreen from './src/components/ParticlesScreen';
+import GameScreen from './src/components/GameScreen';
+import EvaluationScreen from './src/components/EvaluationScreen';
+
+
 
 const Stack = createStackNavigator();
 
@@ -32,7 +38,29 @@ export default function App() {
           component={FoodScreen}
           options={{ title: 'Los Alimentos' }}
         />
+        <Stack.Screen
+          name="Animals"
+          component={AnimalsScreen}
+          options={{ title: 'Los Animales' }}
+        />
+        {/*Combinacion de particulas pak, nkapak y tak, ta*/}
+        <Stack.Screen
+          name="Particles"
+          component={ParticlesScreen}
+          options={{ title: 'Las Partículas en Kichwa Parte 1' }}
+        />
+        <Stack.Screen
+          name="Game"
+          component={GameScreen}
+          options={{ title: 'Juego de Repaso' }}
+        />
+        <Stack.Screen
+          name="Evaluation"
+          component={EvaluationScreen}
+          options={{ title: 'Evaluación' }}
+        />
       </Stack.Navigator>
+
     </NavigationContainer>
   );
 }

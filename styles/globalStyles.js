@@ -101,7 +101,7 @@ export const styles = StyleSheet.create({
         borderRadius: 3,
         paddingHorizontal: 10,
         paddingVertical: 5,
-        width: 86,
+        width: 95,
         justifyContent: 'center',
         alignItems: 'center',
     },
