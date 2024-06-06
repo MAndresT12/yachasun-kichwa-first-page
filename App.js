@@ -7,6 +7,7 @@ import Login from './src/components/Login';
 import Main from './src/components/Main';
 import FoodScreen from './src/components/FoodScreen';
 import Levels from './src/components/Levels';
+import Instructions from './src/components/Instructions';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,11 @@ export default function App() {
           name="Levels"
           component={Levels}
           options={{ title: 'Niveles' }}
+        />
+        <Stack.Screen
+          name="Instructions"
+          component={Instructions}
+          options={{ title: 'Instrucciones' }}
         />
         <Stack.Screen
           name="Main"

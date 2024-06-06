@@ -8,7 +8,7 @@ const Levels = () => {
     const navigation = useNavigation();
 
     const handlePress = () => {
-        navigation.navigate('Main');
+        navigation.navigate('Instructions');
     };
 
     return (
