@@ -1,3 +1,4 @@
+// src/components/Instructions.jsx
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -7,7 +8,7 @@ const Instructions = () => {
     const navigation = useNavigation();
 
     const handlePressContinue = () => {
-        navigation.navigate('Main');
+        navigation.navigate('CaminoLevels');
     };
 
     const handlePressReturn = () => {

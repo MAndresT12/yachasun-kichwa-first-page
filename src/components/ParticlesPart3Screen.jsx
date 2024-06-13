@@ -163,7 +163,7 @@ const ParticlesPart3Screen = () => {
                 </View>
 
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game'); }}>
+                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('ParticlesPart4'); }}>
                         <View style={styles.footerButton}>
                             <Text style={styles.footerButtonText}>Siguiente</Text>
                         </View>

@@ -1,4 +1,4 @@
-// src/components/GameScreen.jsx
+// src/components/GameScreen3.jsx
 
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Alert } from 'react-native';
@@ -8,33 +8,33 @@ import { Card } from './Card';
 
 const questions = [
     {
-        question: "¿Cómo se dice 'dos' en Kichwa?",
-        options: ["Shuk", "Ishkay", "Kimsa", "Chusku"],
-        answer: "Ishkay"
+        question: "¿Cómo se dice 'leer' en Kichwa?",
+        options: ["killkana", "apana", "killkakatina", "tikrana"],
+        answer: "killkakatina"
     },
     {
-        question: "¿Cuál es la palabra para 'pan' en Kichwa?",
-        options: ["Tanta", "Wira", "Sara", "Kachi"],
-        answer: "Tanta"
+        question: "¿Cuál es la palabra para 'escribir' en Kichwa?",
+        options: ["tikrana", "killkana", "shuyuna", "kallarina"],
+        answer: "killkana"
     },
     {
-        question: "¿Cómo se dice 'gato' en Kichwa?",
-        options: ["Allku", "Atallpa", "Misi", "Kuy"],
-        answer: "Misi"
+        question: "¿Qué significa 'mikuna'?",
+        options: ["comer", "beber", "caminar", "descansar"],
+        answer: "comer"
     },
     {
-        question: "¿Qué partícula se usa para formular preguntas?",
-        options: ["-ta", "-pak", "-nkapak", "tak"],
-        answer: "tak"
+        question: "¿Qué significa 'tiyarina'?",
+        options: ["empujar", "sentarse", "saludar", "venir"],
+        answer: "sentarse"
     },
     {
-        question: "¿Cuál es la partícula para indicar pertenencia?",
-        options: ["tak", "-ta", "-pak", "-nkapak"],
-        answer: "-pak"
+        question: "¿Cuál es la palabra para 'ayudar' en Kichwa?",
+        options: ["yuyana", "napana", "yanapana", "rantina"],
+        answer: "yanapana"
     }
 ];
 
-const GameScreen = () => {
+const GameScreen3 = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
     const navigation = useNavigation();
@@ -50,7 +50,7 @@ const GameScreen = () => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         } else {
-            navigation.navigate('Evaluation', { score: score + 1, totalQuestions: questions.length });
+            navigation.navigate('Evaluation3', { score: score + 1, totalQuestions: questions.length });
         }
     };
 
@@ -61,7 +61,7 @@ const GameScreen = () => {
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
                 <View style={styles.header}>
-                    <Text style={styles.titleTema}>Juego de Repaso</Text>
+                    <Text style={styles.titleTema}>Juego de Repaso - Parte 3</Text>
                 </View>
                 <View style={styles.body}>
                     <Card title={`Pregunta ${currentQuestionIndex + 1}`}>
@@ -101,4 +101,4 @@ const localStyles = StyleSheet.create({
     },
 });
 
-export default GameScreen;
+export default GameScreen3;
