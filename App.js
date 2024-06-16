@@ -25,6 +25,24 @@ import VocabularioLaCiudadScreen from './src/components/VocabularioLaCiudadScree
 import GameScreen3 from './src/components/GameScreen3.jsx';
 import EvaluationScreen3 from './src/components/EvaluationScren3.jsx';
 import CaminoLevelsScreen from './src/components/CaminoLevelsScreen.jsx';
+import VocabularioLaCocinaScreen from './src/components/VocabularioLaCocinaScreen.jsx';
+import LosAdjetivosScreen2 from './src/components/LosAdjetivosScreen2.jsx';
+import VocabularioElDormitorioScreen from './src/components/VocabularioElDormitorioScreen.jsx';
+import VocabularioLaUbicacionScreen from './src/components/VocabularioLaUbicacionScreen.jsx';
+import GameScreen4 from './src/components/GameScreen4.jsx';
+import EvaluationScreen4 from './src/components/EvaluationScreen4.jsx';
+import VocabularioElTiempoScreen from './src/components/VocabularioElTiempoScreen.jsx';
+import ElPasadoSimpleScreen from './src/components/ElPasadoSimpleScreen.jsx';
+import ElParticipioPasadoScreen from './src/components/ElParticipioPasadoScreen.jsx';
+import ElPasadoProgresivoScreen from './src/components/ElPasadoProgresivoScreen.jsx';
+import LosVerbosScreen2 from './src/components/LosVerbosScreen2.jsx';
+import GameScreen5 from './src/components/GameScreen5.jsx';
+import EvaluationScreen5 from './src/components/EvaluationScreen5.jsx';
+import ConjugacionTiempoPresenteProgresivoScreen from './src/components/ConjugacionTiempoPresenteProgresivoScreen.jsx';
+import ElFuturoProximoScreen from './src/components/ElFuturoProximoScreen.jsx';
+import ElFuturoSimpleScreen from './src/components/ElFuturoSimpleScreen.jsx';
+import GameScreen6 from './src/components/GameScreen6.jsx';
+import EvaluationScreen6 from './src/components/EvaluationScreen6.jsx';
 
 
 const Stack = createStackNavigator();
@@ -36,7 +54,7 @@ export default function App() {
       <Stack.Navigator
         initialRouteName="Login"
         screenOptions={{
-          headerStyle: { backgroundColor: '#5B4D28' },
+          headerStyle: { backgroundColor: '#003366' }, //5B4D28
           headerTintColor: '#fff',
           headerTitleStyle: { fontWeight: 'bold' },
           cardStyle: { backgroundColor: '#9FC516' },
@@ -138,7 +156,7 @@ export default function App() {
         <Stack.Screen
           name="LosAdjetivos1"
           component={LosAdjetivosScreen1}
-          options={{ title: 'Los Adjevitos - Parte 1' }}
+          options={{ title: 'Los Adjetivos - Parte 1' }}
         />
         <Stack.Screen
           name="LaCiudad"
@@ -154,6 +172,99 @@ export default function App() {
           name="Evaluation3"
           component={EvaluationScreen3}
           options={{ title: 'Evaluación - Parte 3' }}
+        />
+        {/*Modulo 4*/}
+        <Stack.Screen
+          name="LaCocina"
+          component={VocabularioLaCocinaScreen}
+          options={{ title: 'Vocabulario - La Cocina' }}
+        />
+        <Stack.Screen
+          name="LosVerbos2"
+          component={LosVerbosScreen2}
+          options={{ title: 'Los Verbos - Parte 2' }}
+        />
+        <Stack.Screen
+          name="LosAdjetivos2"
+          component={LosAdjetivosScreen2}
+          options={{ title: 'Los Adjetivos - Parte 2' }}
+        />
+        <Stack.Screen
+          name="ElDormitorio"
+          component={VocabularioElDormitorioScreen}
+          options={{ title: 'Vocabulario - El Dormitorio' }}
+        />
+        <Stack.Screen
+          name="Game4"
+          component={GameScreen4}
+          options={{ title: 'Juego de Repaso - Parte 4' }}
+        />
+        <Stack.Screen
+          name="Evaluation4"
+          component={EvaluationScreen4}
+          options={{ title: 'Evaluación - Parte 4' }}
+        />
+        {/*Modulo 5*/}
+        <Stack.Screen
+          name="LaUbicacion"
+          component={VocabularioLaUbicacionScreen}
+          options={{ title: 'Vocabulario - La Ubicación' }}
+        />
+        <Stack.Screen
+          name="ElTiempo"
+          component={VocabularioElTiempoScreen}
+          options={{ title: 'Vocabulario - El Tiempo' }}
+        />
+        <Stack.Screen
+          name="ElPasadoSimple"
+          component={ElPasadoSimpleScreen}
+          options={{ title: 'El Pasado Simple' }}
+        />
+        <Stack.Screen
+          name="ElParticipioPasado"
+          component={ElParticipioPasadoScreen}
+          options={{ title: 'El Participio Pasado' }}
+        />
+        <Stack.Screen
+          name="Game5"
+          component={GameScreen5}
+          options={{ title: 'Juego de Repaso - Parte 5' }}
+        />
+        <Stack.Screen
+          name="Evaluation5"
+          component={EvaluationScreen5}
+          options={{ title: 'Evaluación - Parte 5' }}
+        />
+        {/*Modulo 6*/}
+        <Stack.Screen
+          name="ElPasadoProgresivo"
+          component={ElPasadoProgresivoScreen}
+          options={{ title: 'El Pasado Progresivo' }}
+        />
+        <Stack.Screen
+          name="ConjugacionPresenteProgresivo"
+          component={ConjugacionTiempoPresenteProgresivoScreen}
+          options={{ title: 'Conjugación Presente Progresivo' }}
+        />
+        <Stack.Screen
+          name="FuturoProximo"
+          component={ElFuturoProximoScreen}
+          options={{ title: 'Futuro Próximo' }}
+        />
+        <Stack.Screen
+          name="FuturoSimple"
+          component={ElFuturoSimpleScreen}
+          options={{ title: 'Futuro Simple' }}
+        />
+        <Stack.Screen
+          name="Game6"
+          component={GameScreen6}
+          options={{ title: 'Juego de Repaso - Parte 6' }}
+        />
+        <Stack.Screen
+          name="Evaluation6"
+          component={EvaluationScreen6}
+          options={{ title: 'Evaluación - Parte 6' }}
         />
       </Stack.Navigator>
 

@@ -1,11 +1,11 @@
-// src/components/EvaluationScreen3.jsx
+// src/components/EvaluationScreen4.jsx
 
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../styles/globalStyles';
 
-const EvaluationScreen3 = ({ route }) => {
+const EvaluationScreen4 = ({ route }) => {
     const { score, totalQuestions } = route.params;
     const navigation = useNavigation();
 
@@ -16,7 +16,7 @@ const EvaluationScreen3 = ({ route }) => {
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
                 <View style={styles.header}>
-                    <Text style={styles.titleTema}>Evaluación Final - Parte 3</Text>
+                    <Text style={styles.titleTema}>Evaluación Final - Parte 4</Text>
                 </View>
                 <View style={styles.body}>
                     <View style={localStyles.resultContainer}>
@@ -35,7 +35,7 @@ const EvaluationScreen3 = ({ route }) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={localStyles.button}
-                        onPress={() => navigation.navigate('LaCocina')}
+                        onPress={() => navigation.navigate('LaUbicacion')}
                     >
                         <Text style={localStyles.buttonText}>Siguiente</Text>
                     </TouchableOpacity>
@@ -68,4 +68,4 @@ const localStyles = StyleSheet.create({
     },
 });
 
-export default EvaluationScreen3;
+export default EvaluationScreen4;

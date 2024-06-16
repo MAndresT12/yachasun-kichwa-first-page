@@ -5,13 +5,13 @@ import Constants from 'expo-constants';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#9FC516',
+        backgroundColor: '#18a7ac', //9FC516 //15d19c
     },
     scrollView: {
         flexGrow: 1,
     },
     header: {
-        backgroundColor: '#5B4D28',
+        backgroundColor: '#223bb8',
         padding: 10,
         alignItems: 'flex-start',
         width: '100%',

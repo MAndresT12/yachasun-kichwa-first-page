@@ -1,7 +1,7 @@
 // src/components/CaminoLevelsScreen.jsx
 
 import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../styles/globalStyles';
 
@@ -14,6 +14,7 @@ const CaminoLevelsScreen = () => {
                 <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
             </View>
             <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
+                <Image source={require('../../assets/huma3.png')} style={localStyles.islandImage} />
                 {/*Modulo 1 */}
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -51,6 +52,7 @@ const CaminoLevelsScreen = () => {
                         onPress={() => navigation.navigate('Game')}
                     />
                 </View>
+                <Image source={require('../../assets/diablo-prototype.png')} style={localStyles.islandImage} />
                 {/*Modulo 2 */}
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -88,6 +90,7 @@ const CaminoLevelsScreen = () => {
                         onPress={() => navigation.navigate('Game2')}
                     />
                 </View>
+                <Image source={require('../../assets/huma2.png')} style={localStyles.islandImage} />
                 {/*Modulo 3 */}
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -125,8 +128,120 @@ const CaminoLevelsScreen = () => {
                         onPress={() => navigation.navigate('Evaluation3')}
                     />
                 </View>
-
-
+                <Image source={require('../../assets/huma4.png')} style={localStyles.islandImage} />
+                {/*Modulo 4 */}
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('LaCocina')}
+                    />
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('LosVerbos2')}
+                    />
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('LosAdjetivos2')}
+                    />
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ElDormitorio')}
+                    />
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circleLevel, localStyles.game]}
+                        onPress={() => navigation.navigate('Game4')}
+                    />
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.evaluation]}
+                        onPress={() => navigation.navigate('Evaluation4')}
+                    />
+                </View>
+                <Image source={require('../../assets/huma5.png')} style={localStyles.islandImage} />
+                {/*Modulo 5 */}
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('LaUbicacion')}
+                    />
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ElTiempo')}
+                    />
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ElPasadoSimple')}
+                    />
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ElParticipioPasado')}
+                    />
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circleLevel, localStyles.game]}
+                        onPress={() => navigation.navigate('Game5')}
+                    />
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.evaluation]}
+                        onPress={() => navigation.navigate('Evaluation5')}
+                    />
+                </View>
+                <Image source={require('../../assets/huma6.png')} style={localStyles.islandImage} />
+                {/*Modulo 6 */}
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ElPasadoProgresivo')}
+                    />
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ConjugacionPresenteProgresivo')}
+                    />
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('FuturoProximo')}
+                    />
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('FuturoSimple')}
+                    />
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circleLevel, localStyles.game]}
+                        onPress={() => navigation.navigate('Game6')}
+                    />
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.evaluation]}
+                        onPress={() => navigation.navigate('Evaluation6')}
+                    />
+                </View>
             </ScrollView>
         </View>
     );
@@ -175,6 +290,12 @@ const localStyles = StyleSheet.create({
     },
     evaluation: {
         backgroundColor: '#000',
+    },
+    islandImage: {
+        width: '100%',
+        height: 200,
+        resizeMode: 'contain',
+        marginVertical: 20,
     },
 });
 
