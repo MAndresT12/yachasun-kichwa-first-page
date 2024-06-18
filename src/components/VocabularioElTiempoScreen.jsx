@@ -7,52 +7,52 @@ import { styles } from '../../styles/globalStyles';
 import { Card } from './Card';
 
 const timeVocabulary = [
-    { kichwa: "puncha", castellano: "día" },
-    { kichwa: "hunkay", castellano: "semana" },
-    { kichwa: "killa", castellano: "mes" },
-    { kichwa: "wata", castellano: "año" },
-    { kichwa: "chishi", castellano: "tarde" },
-    { kichwa: "tuta", castellano: "noche" },
-    { kichwa: "pakari", castellano: "amanecer" },
-    { kichwa: "chawpi puncha", castellano: "medio día" },
-    { kichwa: "chawpi tuta", castellano: "media noche" },
-    { kichwa: "kayna", castellano: "ayer" },
-    { kichwa: "kunan", castellano: "hoy" },
-    { kichwa: "kaya", castellano: "mañana" },
-    { kichwa: "mincha", castellano: "pasado mañana" },
-    { kichwa: "sarun", castellano: "antes de ayer" },
+    { kichwa: "puncha", spanish: "día" },
+    { kichwa: "hunkay", spanish: "semana" },
+    { kichwa: "killa", spanish: "mes" },
+    { kichwa: "wata", spanish: "año" },
+    { kichwa: "chishi", spanish: "tarde" },
+    { kichwa: "tuta", spanish: "noche" },
+    { kichwa: "pakari", spanish: "amanecer" },
+    { kichwa: "chawpi puncha", spanish: "medio día" },
+    { kichwa: "chawpi tuta", spanish: "media noche" },
+    { kichwa: "kayna", spanish: "ayer" },
+    { kichwa: "kunan", spanish: "hoy" },
+    { kichwa: "kaya", spanish: "mañana" },
+    { kichwa: "mincha", spanish: "pasado mañana" },
+    { kichwa: "sarun", spanish: "antes de ayer" },
 ];
 
 const daysOfWeek = [
-    { kichwa: "awaki", castellano: "lunes" },
-    { kichwa: "awkari", castellano: "martes" },
-    { kichwa: "chillay", castellano: "miércoles" },
-    { kichwa: "kullka", castellano: "jueves" },
-    { kichwa: "chaska", castellano: "viernes" },
-    { kichwa: "wacha", castellano: "sábado" },
-    { kichwa: "inti", castellano: "domingo" },
+    { kichwa: "awaki", spanish: "lunes" },
+    { kichwa: "awkari", spanish: "martes" },
+    { kichwa: "chillay", spanish: "miércoles" },
+    { kichwa: "kullka", spanish: "jueves" },
+    { kichwa: "chaska", spanish: "viernes" },
+    { kichwa: "wacha", spanish: "sábado" },
+    { kichwa: "inti", spanish: "domingo" },
 ];
 
 const months = [
-    { kichwa: "kulla", castellano: "enero" },
-    { kichwa: "panchi", castellano: "febrero" },
-    { kichwa: "pawkar", castellano: "marzo" },
-    { kichwa: "ayriwa", castellano: "abril" },
-    { kichwa: "aymuray", castellano: "mayo" },
-    { kichwa: "raymi", castellano: "junio" },
-    { kichwa: "situwa", castellano: "julio" },
-    { kichwa: "karwa", castellano: "agosto" },
-    { kichwa: "kuski", castellano: "septiembre" },
-    { kichwa: "wayra", castellano: "octubre" },
-    { kichwa: "sasi", castellano: "noviembre" },
-    { kichwa: "kapak", castellano: "diciembre" },
+    { kichwa: "kulla", spanish: "enero" },
+    { kichwa: "panchi", spanish: "febrero" },
+    { kichwa: "pawkar", spanish: "marzo" },
+    { kichwa: "ayriwa", spanish: "abril" },
+    { kichwa: "aymuray", spanish: "mayo" },
+    { kichwa: "raymi", spanish: "junio" },
+    { kichwa: "situwa", spanish: "julio" },
+    { kichwa: "karwa", spanish: "agosto" },
+    { kichwa: "kuski", spanish: "septiembre" },
+    { kichwa: "wayra", spanish: "octubre" },
+    { kichwa: "sasi", spanish: "noviembre" },
+    { kichwa: "kapak", spanish: "diciembre" },
 ];
 
 const renderRows = (data) => {
     return data.map((item, index) => (
         <View key={index} style={styles.tableRow}>
             <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.castellano}</Text>
+            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
         </View>
     ));
 };
@@ -74,7 +74,7 @@ const VocabularioElTiempoScreen = () => {
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Castellano</Text>
+                                <Text style={styles.tableHeaderCell}>spanish</Text>
                             </View>
                             {renderRows(timeVocabulary)}
                         </View>
@@ -83,7 +83,7 @@ const VocabularioElTiempoScreen = () => {
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Castellano</Text>
+                                <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderRows(daysOfWeek)}
                         </View>
@@ -92,7 +92,7 @@ const VocabularioElTiempoScreen = () => {
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Castellano</Text>
+                                <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderRows(months)}
                         </View>

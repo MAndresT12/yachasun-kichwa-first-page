@@ -7,20 +7,20 @@ import { styles } from '../../styles/globalStyles';
 import { Card } from './Card';
 
 const locationVocabulary = [
-    { kichwa: "karu", castellano: "lejos, distante, lejano", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kuchulla", castellano: "cerca", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kaypi", castellano: "aquí", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "chaypi", castellano: "allí", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "chayninpi", castellano: "más allá", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "manya", castellano: "lado", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "chawpi", castellano: "mitad, medio, centro", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "chinchaysuyu", castellano: "norte", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kullasuyu", castellano: "sur", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "antisuyu", castellano: "este", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kuntisuyu", castellano: "oeste", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kuska", castellano: "lugar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "suyu", castellano: "región", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "llakta", castellano: "comunidad, pueblo", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "karu", spanish: "lejos, distante, lejano", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "kuchulla", spanish: "cerca", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "kaypi", spanish: "aquí", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "chaypi", spanish: "allí", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "chayninpi", spanish: "más allá", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "manya", spanish: "lado", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "chawpi", spanish: "mitad, medio, centro", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "chinchaysuyu", spanish: "norte", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "kullasuyu", spanish: "sur", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "antisuyu", spanish: "este", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "kuntisuyu", spanish: "oeste", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "kuska", spanish: "lugar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "suyu", spanish: "región", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "llakta", spanish: "comunidad, pueblo", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
 ];
 
 const renderLocationRows = () => {
@@ -30,7 +30,7 @@ const renderLocationRows = () => {
             <View style={localStyles.imageContainer}>
                 <Image source={{ uri: item.image }} style={localStyles.vocabImage} />
             </View>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.castellano}</Text>
+            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
         </View>
     ));
 };
@@ -53,7 +53,7 @@ const VocabularioLaUbicacionScreen = () => {
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
                                 <Text style={styles.tableHeaderCell}>Imagen</Text>
-                                <Text style={styles.tableHeaderCell}>Castellano</Text>
+                                <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderLocationRows()}
                         </View>

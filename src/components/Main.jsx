@@ -7,20 +7,20 @@ import { VocabularyColumn } from './VocabularyColumn';
 import { Card } from './Card';
 
 const numberData = [
-    { numero: "1000", kichwa: "shuk waranka", castellano: "mil" },
-    { numero: "1001", kichwa: "shuk waranka shuk", castellano: "mil uno" },
-    { numero: "1010", kichwa: "shuk waranka chunka", castellano: "mil diez" },
-    { numero: "1100", kichwa: "shuk waranka patsak", castellano: "mil cien" },
-    { numero: "1200", kichwa: "shuk waranka ishkay patsak", castellano: "mil doscientos" },
-    { numero: "2000", kichwa: "ishkay waranka", castellano: "dos mil" },
-    { numero: "3000", kichwa: "kimsa waranka", castellano: "tres mil" },
-    { numero: "4000", kichwa: "chunka waranka", castellano: "cuatro mil" },
-    { numero: "5000", kichwa: "pichka waranka", castellano: "cinco mil" },
-    { numero: "10000", kichwa: "chunka waranka", castellano: "diez mil" },
-    { numero: "20000", kichwa: "ishkay chunka waranka", castellano: "veinte mil" },
-    { numero: "100000", kichwa: "patsak waranka", castellano: "cien mil" },
-    { numero: "500000", kichwa: "pichka patsak waranka", castellano: "quinientos mil" },
-    { numero: "1000000", kichwa: "hunu", castellano: "millón" },
+    { numero: "1000", kichwa: "shuk waranka", spanish: "mil" },
+    { numero: "1001", kichwa: "shuk waranka shuk", spanish: "mil uno" },
+    { numero: "1010", kichwa: "shuk waranka chunka", spanish: "mil diez" },
+    { numero: "1100", kichwa: "shuk waranka patsak", spanish: "mil cien" },
+    { numero: "1200", kichwa: "shuk waranka ishkay patsak", spanish: "mil doscientos" },
+    { numero: "2000", kichwa: "ishkay waranka", spanish: "dos mil" },
+    { numero: "3000", kichwa: "kimsa waranka", spanish: "tres mil" },
+    { numero: "4000", kichwa: "chunka waranka", spanish: "cuatro mil" },
+    { numero: "5000", kichwa: "pichka waranka", spanish: "cinco mil" },
+    { numero: "10000", kichwa: "chunka waranka", spanish: "diez mil" },
+    { numero: "20000", kichwa: "ishkay chunka waranka", spanish: "veinte mil" },
+    { numero: "100000", kichwa: "patsak waranka", spanish: "cien mil" },
+    { numero: "500000", kichwa: "pichka patsak waranka", spanish: "quinientos mil" },
+    { numero: "1000000", kichwa: "hunu", spanish: "millón" },
 ];
 
 const renderNumberRows = () => {
@@ -28,7 +28,7 @@ const renderNumberRows = () => {
         <View key={index} style={styles.tableRow}>
             <Text style={styles.tableCell}>{item.numero}</Text>
             <Text style={styles.tableCell}>{item.kichwa}</Text>
-            <Text style={styles.tableCell}>{item.castellano}</Text>
+            <Text style={styles.tableCell}>{item.spanish}</Text>
         </View>
     ));
 };
@@ -48,7 +48,7 @@ const Main = () => {
                 </View>
                 <View style={styles.body}>
                     <Card title="Números en Kichwa">
-                        <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en Castellano.</Text>
+                        <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en spanish.</Text>
                     </Card>
                     <Card title="Vocabulario">
                         <Text style={styles.vocabularyTitle}>Vocabulario</Text>
@@ -56,7 +56,7 @@ const Main = () => {
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Número</Text>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Castellano</Text>
+                                <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderNumberRows()}
                         </View>
