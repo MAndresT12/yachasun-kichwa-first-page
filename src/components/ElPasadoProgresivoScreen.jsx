@@ -11,11 +11,11 @@ const pasadoProgresivoData = [
         title: "Karana",
         image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
         data: [
-            ["Nuka", "kara", "ku", "rka", "ni", "karakurkani", "Yo estaba dando"],
+            ["Ñuka", "kara", "ku", "rka", "ni", "karakurkani", "Yo estaba dando"],
             ["Kan", "kara", "ku", "rka", "nki", "karakurkanki", "Tú estabas dando"],
             ["Kikin", "kara", "ku", "rka", "nki", "karakurkanki", "Usted estaba dando"],
             ["Pay", "kara", "ku", "rka", "n", "karakurka", "Él/Ella estaba dando"],
-            ["Nukanchik", "kara", "ku", "rka", "nchik", "karakurkanchik", "Nosotros estábamos dando"],
+            ["Ñukanchik", "kara", "ku", "rka", "nchik", "karakurkanchik", "Nosotros estábamos dando"],
             ["Kankuna", "kara", "ku", "rka", "nkichik", "karakurkankichik", "Ustedes estaban dando"],
             ["Kiinkuna", "kara", "ku", "rka", "nkichik", "karakurkankichik", "Ustedes estaban dando"],
             ["Paykuna", "kara", "ku", "rka", "kuna", "karakurkakuna", "Ellos/Ellas estaban dando"]
@@ -25,11 +25,11 @@ const pasadoProgresivoData = [
         title: "Mikuna",
         image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
         data: [
-            ["Nuka", "miku", "ku", "rka", "ni", "mikukurkani", "Yo estaba comiendo"],
+            ["Ñuka", "miku", "ku", "rka", "ni", "mikukurkani", "Yo estaba comiendo"],
             ["Kan", "miku", "ku", "rka", "nki", "mikukurkanki", "Tú estabas comiendo"],
             ["Kikin", "miku", "ku", "rka", "nki", "mikukurkanki", "Usted estaba comiendo"],
             ["Pay", "miku", "ku", "rka", "n", "mikukurka", "Él/Ella estaba comiendo"],
-            ["Nukanchik", "miku", "ku", "rka", "nchik", "mikukurkanchik", "Nosotros estábamos comiendo"],
+            ["Ñukanchik", "miku", "ku", "rka", "nchik", "mikukurkanchik", "Nosotros estábamos comiendo"],
             ["Kankuna", "miku", "ku", "rka", "nkichik", "mikukurkankichik", "Ustedes estaban comiendo"],
             ["Kiinkuna", "miku", "ku", "rka", "nkichik", "mikukurkankichik", "Ustedes estaban comiendo"],
             ["Paykuna", "miku", "ku", "rka", "kuna", "mikukurkakuna", "Ellos/Ellas estaban comiendo"]

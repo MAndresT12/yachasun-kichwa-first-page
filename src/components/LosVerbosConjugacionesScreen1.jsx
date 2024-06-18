@@ -11,10 +11,10 @@ const conjugationsData = [
         title: "Kuyana",
         image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
         data: [
-            ["Nuka", "kuya", "ni", "kuyani", "Yo amo"],
+            ["Ñuka", "kuya", "ni", "kuyani", "Yo amo"],
             ["Kan", "kuya", "nki", "kuyanki", "Tú amas"],
             ["Pay", "kuya", "n", "kuyan", "Él o Ella ama"],
-            ["Nukanchik", "kuya", "nchik", "kuyanchik", "Nosotros amamos"],
+            ["Ñukanchik", "kuya", "nchik", "kuyanchik", "Nosotros amamos"],
             ["Kankuna", "kuya", "nkichik", "kuyankichik", "Ustedes aman"],
             ["Paykuna", "kuya", "nkun", "kuyankuna", "Ellos o ellas aman"]
         ]
@@ -23,10 +23,10 @@ const conjugationsData = [
         title: "Mikuna (Presente progresiva)",
         image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
         data: [
-            ["Nuka", "miku", "ku", "ni", "mikukunichu", "Yo estoy comiendo"],
+            ["Ñuka", "miku", "ku", "ni", "mikukunichu", "Yo estoy comiendo"],
             ["Kan", "miku", "ku", "nki", "mikukunichu", "Tú estás comiendo"],
             ["Pay", "miku", "ku", "n", "mikukunichu", "Él/Ella está comiendo"],
-            ["Nukanchik", "miku", "ku", "nchik", "mikukunichu", "Nosotros estamos comiendo"],
+            ["Ñukanchik", "miku", "ku", "nchik", "mikukunichu", "Nosotros estamos comiendo"],
             ["Kankuna", "miku", "ku", "nkichik", "mikukunichu", "Ustedes están comiendo"],
             ["Paykuna", "miku", "ku", "nkun", "mikukunichu", "Ellos/ellas están comiendo"]
         ]
@@ -37,7 +37,7 @@ const conjugationsData = [
         data: [
             ["Kan", "tanka", "-", "pa", "tankay", "Empuja"],
             ["Kikin", "tanka", "-", "pa", "tankapay", "Empuja"],
-            ["Nukanchik", "tanka", "-", "shun", "tankashun", "Empujemos"],
+            ["Ñukanchik", "tanka", "-", "shun", "tankashun", "Empujemos"],
             ["Kankuna", "tanka", "-", "y", "tankaychi", "Empujen"],
             ["Kikinkuna", "tanka", "-", "pa", "tankapaychi", "Empujen"]
         ]
