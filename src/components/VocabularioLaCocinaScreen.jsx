@@ -1,7 +1,7 @@
 // src/components/VocabularioLaCocinaScreen.jsx
 
 import React from 'react';
-import { View, Text, ScrollView, Image, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../styles/globalStyles';
 import { Card } from './Card';
