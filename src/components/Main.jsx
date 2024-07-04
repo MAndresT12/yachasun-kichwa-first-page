@@ -6,6 +6,7 @@ import { styles } from '../../styles/globalStyles';
 import { VocabularyColumn } from './VocabularyColumn';
 import { Card } from './Card';
 
+{/*lecture NUMBER::::::number int */ }
 const numberData = [
     { numero: "1000", kichwa: "shuk waranka", spanish: "mil" },
     { numero: "1001", kichwa: "shuk waranka shuk", spanish: "mil uno" },
@@ -75,3 +76,78 @@ const Main = () => {
 }
 
 export default Main;
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback } from 'react-native';
+// import { useNavigation } from '@react-navigation/native';
+// import { styles } from '../../styles/globalStyles';
+// import { Card } from './Card';
+// import { WORDS_ENDPOINT } from "../../constants"
+
+// const Main = () => {
+//     const navigation = useNavigation();
+//     const [numberData, setNumberData] = useState([]);
+
+//     useEffect(() => {
+//         fetch(WORDS_ENDPOINT)
+//             .then(response => response.json())
+//             .then(data => {
+//                 setNumberData(data); // piloski API debe retornar un array similar al numberData
+//             })
+//             .catch(error => {
+//                 console.error('Error fetching data:', error);
+//             });
+//     }, []);
+
+//     const renderNumberRows = () => {
+//         return numberData.map((item, index) => (
+//             <View key={index} style={styles.tableRow}>
+//                 <Text style={styles.tableCell}>{item.numero}</Text>
+//                 <Text style={styles.tableCell}>{item.kichwa}</Text>
+//                 <Text style={styles.tableCell}>{item.spanish}</Text>
+//             </View>
+//         ));
+//     };
+
+//     return (
+//         <View style={styles.container}>
+//             <StatusBar barStyle="default" backgroundColor="#5B4D28" />
+//             <ScrollView style={styles.scrollView}>
+//                 <View style={styles.header}>
+//                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+//                 </View>
+//                 <View style={styles.header}>
+//                     <Text style={styles.titleTema}>Los números</Text>
+//                 </View>
+//                 <View style={styles.body}>
+//                     <Card title="Números en Kichwa">
+//                         <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en español.</Text>
+//                     </Card>
+//                     <Card title="Vocabulario">
+//                         <Text style={styles.vocabularyTitle}>Vocabulario</Text>
+//                         <View style={styles.vocabularyTable}>
+//                             <View style={styles.tableHeader}>
+//                                 <Text style={styles.tableHeaderCell}>Número</Text>
+//                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
+//                                 <Text style={styles.tableHeaderCell}>Spanish</Text>
+//                             </View>
+//                             {renderNumberRows()}
+//                         </View>
+//                     </Card>
+//                 </View>
+//                 <View style={styles.footer}>
+//                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('Food'); }}>
+//                         <View style={styles.footerButton}>
+//                             <Text style={styles.footerButtonText}>Siguiente</Text>
+//                         </View>
+//                     </TouchableWithoutFeedback>
+//                 </View>
+//             </ScrollView>
+//         </View>
+//     );
+// }
+
+// export default Main;

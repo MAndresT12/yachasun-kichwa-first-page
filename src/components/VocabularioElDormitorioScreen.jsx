@@ -5,6 +5,7 @@ import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } f
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../styles/globalStyles';
 import { Card } from './Card';
+import { WORDS_ENDPOINT } from "../../constants"
 
 const bedroomVocabulary = [
     { kichwa: "puñuna uku", spanish: "dormitorio", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
