@@ -1,33 +1,23 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../styles/globalStyles';
 import { Card } from './Card';
+const { width } = Dimensions.get('window');
+
 
 const futuroProximoData = {
     title: "El futuro próximo",
     subtitle: "Ña shamuk pacha",
     particle: "-kri",
     description: "Para formar el futuro próximo, tomamos la raíz del verbo, añadimos la partícula -kri, y al final, ponemos las terminaciones del presente.",
-    terminationsTitle: "Puchukay shimikkuna",
-    terminationsSubtitle: "Terminaciones",
-    terminations: [
-        { subject: "Ñuka", ending: "krini" },
-        { subject: "Kan", ending: "krinki" },
-        { subject: "Kikin", ending: "krinki" },
-        { subject: "Pay", ending: "krin" },
-        { subject: "Ñukanchik", ending: "krinchik" },
-        { subject: "Kankuna", ending: "krinkichik" },
-        { subject: "Kiinkuna", ending: "krinkichik" },
-        { subject: "Paykuna", ending: "krinkuna" },
-    ],
-    examplesTitle: "Shinakuna",
-    examplesSubtitle: "Ejemplos",
     examples: [
         {
-            verb: "Mikuna",
+            verb: "Mikuna (Comer)",
             root: "miku",
-            image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
+            image: "https://st.depositphotos.com/1526816/4648/v/450/depositphotos_46488037-stock-illustration-a-little-girl-eating-her.jpg",
             conjugations: [
                 { subject: "Ñuka", root: "miku", particle: "kri", ending: "ni", verb: "mikukrini", translation: "Yo voy a comer" },
                 { subject: "Kan", root: "miku", particle: "kri", ending: "nki", verb: "mikukrinki", translation: "Tú vas a comer" },
@@ -40,9 +30,9 @@ const futuroProximoData = {
             ],
         },
         {
-            verb: "Rimana",
+            verb: "Rimana (Hablar)",
             root: "rima",
-            image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
+            image: "https://img.freepik.com/vector-gratis/nino-nina-mensaje-burbuja-chat_24877-53848.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1713139200&semt=ais",
             conjugations: [
                 { subject: "Ñuka", root: "rima", particle: "kri", ending: "ni", verb: "rimakrini", translation: "Yo voy a hablar" },
                 { subject: "Kan", root: "rima", particle: "kri", ending: "nki", verb: "rimakrinki", translation: "Tú vas a hablar" },
@@ -57,42 +47,31 @@ const futuroProximoData = {
     ],
 };
 
-const renderTerminationsRows = () => {
-    return futuroProximoData.terminations.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.subject}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.ending}</Text>
-        </View>
-    ));
-};
+const renderConjugationCard = (conjugation) => (
+    <View style={styles.carouselCard}>
+        <Text style={styles.carouselSubject}>{conjugation.subject}</Text>
+        <Text style={styles.carouselDetail}>Raíz: {conjugation.root}</Text>
+        <Text style={styles.carouselDetail}>Partícula: {conjugation.particle}</Text>
+        <Text style={styles.carouselDetail}>Terminación: {conjugation.ending}</Text>
+        <Text style={styles.carouselDetail}>Verbo conjugado: {conjugation.verb}</Text>
+        <Text style={styles.carouselDetail}>Traducción: {conjugation.translation}</Text>
+    </View>
+);
 
-const renderExamples = (examples) => {
-    return examples.map((example, index) => (
-        <Card key={index} title={example.verb}>
-            <Image source={{ uri: example.image }} style={localStyles.exampleImage} />
-            <View style={styles.vocabularyTable}>
-                <View style={styles.tableHeader}>
-                    <Text style={styles.tableHeaderCell}>Sujeto</Text>
-                    <Text style={styles.tableHeaderCell}>Raíz</Text>
-                    <Text style={styles.tableHeaderCell}>Partícula</Text>
-                    <Text style={styles.tableHeaderCell}>Terminación</Text>
-                    <Text style={styles.tableHeaderCell}>Verbo conjugado</Text>
-                    <Text style={styles.tableHeaderCell}>Traducción</Text>
-                </View>
-                {example.conjugations.map((conjugation, index) => (
-                    <View key={index} style={styles.tableRow}>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.subject}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.root}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.particle}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.ending}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.verb}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.translation}</Text>
-                    </View>
-                ))}
-            </View>
-        </Card>
-    ));
-};
+const renderExampleCard = (example) => (
+    <View style={styles.carouselExampleCard}>
+        <Text style={styles.carouselVerbTitle}>{example.verb}</Text>
+        <Image source={{ uri: example.image }} style={styles.carouselExampleImage} />
+        <Carousel
+            width={width * 0.8}
+            height={200}
+            data={example.conjugations}
+            renderItem={({ item }) => renderConjugationCard(item)}
+            mode="parallax"
+            pagingEnabled={true}
+        />
+    </View>
+);
 
 const ElFuturoProximoScreen = () => {
     const navigation = useNavigation();
@@ -107,22 +86,21 @@ const ElFuturoProximoScreen = () => {
                     <Text style={styles.titleTema}>{futuroProximoData.title}</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title={futuroProximoData.subtitle}>
-                        <Text style={localStyles.particleText}>{futuroProximoData.particle}</Text>
-                        <Text style={localStyles.descriptionText}>{futuroProximoData.description}</Text>
+                    <Card title={futuroProximoData.title}>
+                        <Text style={styles.carouselSubtitle}>{futuroProximoData.subtitle}</Text>
+                        <Text style={styles.carouselParticleText}>{futuroProximoData.particle}</Text>
+                        <Text style={styles.carouselDescriptionText}>{futuroProximoData.description}</Text>
                     </Card>
-                    <Card title={futuroProximoData.terminationsTitle}>
-                        <Text style={localStyles.subtitle}>{futuroProximoData.terminationsSubtitle}</Text>
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Sujeto</Text>
-                                <Text style={styles.tableHeaderCell}>Terminación</Text>
-                            </View>
-                            {renderTerminationsRows()}
-                        </View>
-                    </Card>
-                    {renderExamples(futuroProximoData.examples)}
+                    <Carousel
+                        width={width}
+                        height={500}
+                        data={futuroProximoData.examples}
+                        renderItem={({ item }) => renderExampleCard(item)}
+                        mode="parallax"
+                        pagingEnabled={true}
+                    />
                 </View>
+
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('FuturoSimple'); }}>
                         <View style={styles.footerButton}>
@@ -130,39 +108,9 @@ const ElFuturoProximoScreen = () => {
                         </View>
                     </TouchableWithoutFeedback>
                 </View>
-            </ScrollView>
-        </View>
+            </ScrollView >
+        </View >
     );
 };
-
-const localStyles = StyleSheet.create({
-    particleText: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginVertical: 10,
-        color: 'red',
-    },
-    descriptionText: {
-        fontSize: 16,
-        textAlign: 'center',
-        marginVertical: 10,
-    },
-    subtitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginVertical: 10,
-    },
-    exampleImage: {
-        width: '100%',
-        height: 150,
-        marginVertical: 10,
-    },
-    textCenter: {
-        textAlign: 'center',
-        flex: 1,
-    },
-});
 
 export default ElFuturoProximoScreen;

@@ -1,12 +1,11 @@
-// src/compontens/Main.jsx
-import React from 'react';
+// src/components/Main.jsx
+import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../styles/globalStyles';
-import { VocabularyColumn } from './VocabularyColumn';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { Card } from './Card';
 
-{/*lecture NUMBER::::::number int */ }
 const numberData = [
     { numero: "1000", kichwa: "shuk waranka", spanish: "mil" },
     { numero: "1001", kichwa: "shuk waranka shuk", spanish: "mil uno" },
@@ -24,14 +23,38 @@ const numberData = [
     { numero: "1000000", kichwa: "hunu", spanish: "millón" },
 ];
 
-const renderNumberRows = () => {
-    return numberData.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <Text style={styles.tableCell}>{item.numero}</Text>
-            <Text style={styles.tableCell}>{item.kichwa}</Text>
-            <Text style={styles.tableCell}>{item.spanish}</Text>
-        </View>
-    ));
+const FlipCard = ({ item }) => {
+    const [flipped, setFlipped] = useState(false);
+    const rotateY = useSharedValue(0);
+
+    const animatedStyleFront = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value}deg` }],
+    }));
+
+    const animatedStyleBack = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
+    }));
+
+    const handleFlip = () => {
+        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        setFlipped(!flipped);
+    };
+
+    return (
+        <TouchableWithoutFeedback onPress={handleFlip}>
+            <View style={styles.flipCard}>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
+                    <Text style={styles.numberText}>{item.numero}</Text>
+                </Animated.View>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.translationText}>{item.kichwa}</Text>
+                    <Text style={styles.translationLabel}>Español:</Text>
+                    <Text style={styles.translationText}>{item.spanish}</Text>
+                </Animated.View>
+            </View>
+        </TouchableWithoutFeedback>
+    );
 };
 
 const Main = () => {
@@ -49,19 +72,13 @@ const Main = () => {
                 </View>
                 <View style={styles.body}>
                     <Card title="Números en Kichwa">
-                        <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en spanish.</Text>
+                        <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en español.</Text>
                     </Card>
-                    <Card title="Vocabulario">
-                        <Text style={styles.vocabularyTitle}>Vocabulario</Text>
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Número</Text>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Spanish</Text>
-                            </View>
-                            {renderNumberRows()}
-                        </View>
-                    </Card>
+                    <View style={styles.gridContainer}>
+                        {numberData.map((item, index) => (
+                            <FlipCard key={index} item={item} />
+                        ))}
+                    </View>
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('Food'); }}>
@@ -73,9 +90,13 @@ const Main = () => {
             </ScrollView>
         </View>
     );
-}
+};
 
 export default Main;
+
+
+
+
 
 
 

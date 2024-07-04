@@ -1,34 +1,22 @@
 // src/components/ElFuturoSimpleScreen.jsx
-
 import React from 'react';
-import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../styles/globalStyles';
 import { Card } from './Card';
+
+const { width } = Dimensions.get('window');
 
 const futuroSimpleData = {
     title: "El futuro simple",
     subtitle: "Shamuk pacha",
     description: "Para formar el futuro simple, tomamos la raíz del verbo y añadimos las terminaciones del futuro simple.",
-    terminationsTitle: "Puchukay shimikkuna",
-    terminationsSubtitle: "Terminaciones",
-    terminations: [
-        { subject: "Ñuka", ending: "sha" },
-        { subject: "Kan", ending: "nki" },
-        { subject: "Kikin", ending: "nki" },
-        { subject: "Pay", ending: "nka" },
-        { subject: "Ñukanchik", ending: "shun" },
-        { subject: "Kankuna", ending: "nkichik" },
-        { subject: "Kiinkuna", ending: "nkichik" },
-        { subject: "Paykuna", ending: "nkakuna" },
-    ],
-    examplesTitle: "Shinakuna",
-    examplesSubtitle: "Ejemplos",
     examples: [
         {
-            verb: "Llamkana",
+            verb: "Llamkana (Trabajar)",
             root: "llamka",
-            image: require('../../assets/diablo-prototype.png'),
+            image: "https://w7.pngwing.com/pngs/452/534/png-transparent-agriculture-work-rural-field-farmer-poultry-thumbnail.png",
             conjugations: [
                 { subject: "Ñuka", root: "llamka", ending: "sha", verb: "llamkasha", translation: "Yo trabajaré" },
                 { subject: "Kan", root: "llamka", ending: "nki", verb: "llamkanki", translation: "Tú trabajarás" },
@@ -41,9 +29,9 @@ const futuroSimpleData = {
             ],
         },
         {
-            verb: "Shamuna",
+            verb: "Shamuna (Venir)",
             root: "shamu",
-            image: require('../../assets/diablo-prototype.png'),
+            image: "https://globalsymbols.com/uploads/production/image/imagefile/14842/17_14843_c0fad635-a90c-40c3-aff1-50b9fc2c9306.png",
             conjugations: [
                 { subject: "Ñuka", root: "shamu", ending: "sha", verb: "shamusha", translation: "Yo vendré" },
                 { subject: "Kan", root: "shamu", ending: "nki", verb: "shamunki", translation: "Tú vendrás" },
@@ -58,47 +46,38 @@ const futuroSimpleData = {
     ],
 };
 
-const renderTerminationsRows = () => {
-    return futuroSimpleData.terminations.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.subject}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.ending}</Text>
-        </View>
-    ));
-};
+const renderConjugationCard = (conjugation) => (
+    <View style={styles.carouselCard}>
+        <Text style={styles.carouselSubject}>{conjugation.subject}</Text>
+        <Text style={styles.carouselDetail}>Raíz: {conjugation.root}</Text>
+        <Text style={styles.carouselDetail}>Terminación: {conjugation.ending}</Text>
+        <Text style={styles.carouselDetail}>Verbo conjugado: {conjugation.verb}</Text>
+        <Text style={styles.carouselDetail}>Traducción: {conjugation.translation}</Text>
+    </View>
+);
 
-const renderExamples = (examples) => {
-    return examples.map((example, index) => (
-        <Card key={index} title={example.verb}>
-            <Image source={example.image} style={localStyles.exampleImage} />
-            <View style={styles.vocabularyTable}>
-                <View style={styles.tableHeader}>
-                    <Text style={styles.tableHeaderCell}>Sujeto</Text>
-                    <Text style={styles.tableHeaderCell}>Raíz</Text>
-                    <Text style={styles.tableHeaderCell}>Terminación</Text>
-                    <Text style={styles.tableHeaderCell}>Verbo conjugado</Text>
-                    <Text style={styles.tableHeaderCell}>Traducción</Text>
-                </View>
-                {example.conjugations.map((conjugation, index) => (
-                    <View key={index} style={styles.tableRow}>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.subject}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.root}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.ending}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.verb}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.translation}</Text>
-                    </View>
-                ))}
-            </View>
-        </Card>
-    ));
-};
+const renderExampleCard = (example) => (
+    <View style={styles.carouselExampleCard}>
+        <Text style={styles.carouselVerbTitle}>{example.verb}</Text>
+        <Image source={{ uri: example.image }} style={styles.carouselExampleImage} />
+        <Carousel
+            width={width * 0.8}
+            height={200}
+            data={example.conjugations}
+            renderItem={({ item }) => renderConjugationCard(item)}
+            mode="parallax"
+            pagingEnabled={true}
+        />
+    </View>
+);
 
 const ElFuturoSimpleScreen = () => {
     const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
-            <ScrollView style={styles.scrollView}>
+
+            <ScrollView>
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
@@ -106,20 +85,20 @@ const ElFuturoSimpleScreen = () => {
                     <Text style={styles.titleTema}>{futuroSimpleData.title}</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title={futuroSimpleData.subtitle}>
-                        <Text style={localStyles.descriptionText}>{futuroSimpleData.description}</Text>
+
+                    <Card title={futuroSimpleData.title}>
+                        <Text style={styles.carouselSubtitle}>{futuroSimpleData.subtitle}</Text>
+                        <Text style={styles.carouselDescriptionText}>{futuroSimpleData.description}</Text>
                     </Card>
-                    <Card title={futuroSimpleData.terminationsTitle}>
-                        <Text style={localStyles.subtitle}>{futuroSimpleData.terminationsSubtitle}</Text>
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Sujeto</Text>
-                                <Text style={styles.tableHeaderCell}>Terminación</Text>
-                            </View>
-                            {renderTerminationsRows()}
-                        </View>
-                    </Card>
-                    {renderExamples(futuroSimpleData.examples)}
+
+                    <Carousel
+                        width={width}
+                        height={500}
+                        data={futuroSimpleData.examples}
+                        renderItem={({ item }) => renderExampleCard(item)}
+                        mode="parallax"
+                        pagingEnabled={true}
+                    />
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('EvaluationScreen5'); }}>
@@ -128,31 +107,9 @@ const ElFuturoSimpleScreen = () => {
                         </View>
                     </TouchableWithoutFeedback>
                 </View>
-            </ScrollView>
+            </ScrollView >
         </View>
     );
 };
-
-const localStyles = StyleSheet.create({
-    descriptionText: {
-        fontSize: 16,
-        marginVertical: 10,
-    },
-    subtitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginVertical: 10,
-    },
-    exampleImage: {
-        width: '100%',
-        height: 150,
-        marginVertical: 10,
-    },
-    textCenter: {
-        textAlign: 'center',
-        flex: 1,
-    },
-});
 
 export default ElFuturoSimpleScreen;

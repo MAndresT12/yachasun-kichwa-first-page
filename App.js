@@ -47,6 +47,7 @@ import GameScreen6 from './src/components/GameScreen6.jsx';
 import EvaluationScreen6 from './src/components/EvaluationScreen6.jsx';
 import { View, Text } from 'react-native';
 import { styles } from './styles/globalStyles';
+import HangmanGame from './src/components/HangmanGame.jsx';
 import ProgresoScreen from './src/components/ProgresoScreen.jsx';
 import CarouselExampleScreen from './src/components/CarouselExampleScreen.jsx';
 const Stack = createStackNavigator();
@@ -90,7 +91,7 @@ function HomeStack() {
       />
       <Stack.Screen
         name="Food"
-        component={CarouselExampleScreen}
+        component={FoodScreen}
         options={{ title: 'Los Alimentos' }}
       />
       <Stack.Screen
@@ -104,10 +105,16 @@ function HomeStack() {
         options={{ title: 'Las Partículas en Kichwa Parte 1' }}
       />
       <Stack.Screen
+        name="HangmanGame"
+        component={HangmanGame}
+        options={{ title: 'Ahorcado - Parte 1' }}
+      />
+      <Stack.Screen
         name="Game"
         component={GameScreen}
         options={{ title: 'Juego de Repaso - Parte 1' }}
       />
+
       <Stack.Screen
         name="Evaluation"
         component={EvaluationScreen}
@@ -295,7 +302,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Progreso"
-        component={ProgresoScreen}
+        component={CaminoLevelsScreen}
         options={{
           headerStyle: { backgroundColor: '#003366' }, //5B4D28
           headerTintColor: '#fff',
