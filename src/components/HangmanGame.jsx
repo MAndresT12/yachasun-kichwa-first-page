@@ -102,7 +102,7 @@ const HangmanGame = () => {
                 {showConfetti && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} fadeOut />}
                 {gameWon && (
                     <View >
-                        <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game'); }}>
+                        <TouchableWithoutFeedback onPress={() => { navigation.navigate('MatchGame'); }}>
                             <View style={styles.footerButton}>
                                 <Text style={styles.footerButtonText}>Siguiente</Text>
                             </View>

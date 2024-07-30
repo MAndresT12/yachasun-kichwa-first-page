@@ -48,8 +48,11 @@ import EvaluationScreen6 from './src/components/EvaluationScreen6.jsx';
 import { View, Text } from 'react-native';
 import { styles } from './styles/globalStyles';
 import HangmanGame from './src/components/HangmanGame.jsx';
+import MatchGame from './src/components/MatchGame.jsx';
 import ProgresoScreen from './src/components/ProgresoScreen.jsx';
 import CarouselExampleScreen from './src/components/CarouselExampleScreen.jsx';
+
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -108,6 +111,11 @@ function HomeStack() {
         name="HangmanGame"
         component={HangmanGame}
         options={{ title: 'Ahorcado - Parte 1' }}
+      />
+      <Stack.Screen
+        name="MatchGame"
+        component={MatchGame}
+        options={{ title: 'Emparejar - Parte 1' }}
       />
       <Stack.Screen
         name="Game"
