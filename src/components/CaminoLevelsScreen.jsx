@@ -44,7 +44,7 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('HangmanGame')}
+                        onPress={() => navigation.navigate('Module1')}
                     />
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>

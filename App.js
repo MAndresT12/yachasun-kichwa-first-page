@@ -49,6 +49,7 @@ import { View, Text } from 'react-native';
 import { styles } from './styles/globalStyles';
 import HangmanGame from './src/components/HangmanGame.jsx';
 import MatchGame from './src/components/MatchGame.jsx';
+import Module1 from './src/components/Module1.jsx';
 import ProgresoScreen from './src/components/ProgresoScreen.jsx';
 import CarouselExampleScreen from './src/components/CarouselExampleScreen.jsx';
 
@@ -108,6 +109,11 @@ function HomeStack() {
         options={{ title: 'Las Partículas en Kichwa Parte 1' }}
       />
       <Stack.Screen
+        name="Module1"
+        component={Module1}
+        options={{ title: 'Games - Parte 1' }}
+      />
+      <Stack.Screen
         name="HangmanGame"
         component={HangmanGame}
         options={{ title: 'Ahorcado - Parte 1' }}
@@ -120,7 +126,7 @@ function HomeStack() {
       <Stack.Screen
         name="Game"
         component={GameScreen}
-        options={{ title: 'Juego de Repaso - Parte 1' }}
+        options={{ title: 'Juego de Repaso Evaluación - Parte 1' }}
       />
 
       <Stack.Screen

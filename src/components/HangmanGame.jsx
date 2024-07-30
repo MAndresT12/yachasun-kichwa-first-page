@@ -3,16 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView, TouchableW
 import ConfettiCannon from 'react-native-confetti-cannon';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../styles/globalStyles';
-
-const words = [
-    { word: 'shuk', translation: 'uno' },
-    { word: 'ishkay', translation: 'dos' },
-    { word: 'kimsa', translation: 'tres' },
-    { word: 'chusku', translation: 'cuatro' },
-    { word: 'pichka', translation: 'cinco' },
-];
-
-const HangmanGame = () => {
+const HangmanGame = ({ words, onNext }) => {
     const navigation = useNavigation();
 
     const [selectedWord, setSelectedWord] = useState(words[Math.floor(Math.random() * words.length)]);
@@ -101,8 +92,8 @@ const HangmanGame = () => {
                 </TouchableOpacity>
                 {showConfetti && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} fadeOut />}
                 {gameWon && (
-                    <View >
-                        <TouchableWithoutFeedback onPress={() => { navigation.navigate('MatchGame'); }}>
+                    <View>
+                        <TouchableWithoutFeedback onPress={onNext}>
                             <View style={styles.footerButton}>
                                 <Text style={styles.footerButtonText}>Siguiente</Text>
                             </View>
