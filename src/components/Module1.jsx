@@ -1,7 +1,9 @@
+// src/components/Module1.jsx
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import HangmanGame from './HangmanGame';
 import MatchGame from './MatchGame';
+import ImageWordMatchGame from './ImageWordMatchGame';
 import { useNavigation } from '@react-navigation/native';
 const wordsModule1 = [
     { word: 'shuk', translation: 'uno' },
@@ -19,13 +21,31 @@ const foodModule1 = [
     { kichwa: "kachi", spanish: "sal", image: "https://img.freepik.com/vector-gratis/ilustracion-dibujos-animados-sal-dibujada-mano_52683-131168.jpg?size=338&ext=jpg&ga=GA1.1.44546679.1716854400&semt=ais_user" },
     { kichwa: "haku", spanish: "harina", image: "https://cdn-icons-png.flaticon.com/512/817/817293.png" },
 ];
+
+
+const animalsModule1 = [
+    { kichwa: "allku", spanish: "perro", image: "https://img.freepik.com/vector-premium/lindo-vector-caricatura-perro-cachorro-sabueso_549857-8253.jpg?w=360" },
+    { kichwa: "misi", spanish: "gato", image: "https://img.freepik.com/vector-gratis/ilustracion-icono-vector-dibujos-animados-lindo-gato-sentado-concepto-icono-naturaleza-animal-aislado-premium-vector-estilo-dibujos-animados-plana_138676-4148.jpg?size=338&ext=jpg&ga=GA1.1.34264412.1717545600&semt=ais_user" },
+    { kichwa: "atallpa", spanish: "gallina", image: "https://st2.depositphotos.com/1967477/8228/v/450/depositphotos_82289790-stock-illustration-chicken-hen-waving-hand.jpg" },
+    { kichwa: "kulta", spanish: "pato", image: "https://img.freepik.com/vector-premium/pato-dibujos-animados-lindo_160606-389.jpg" },
+    { kichwa: "kuy", spanish: "cuy", image: "https://st5.depositphotos.com/11953928/65218/v/450/depositphotos_652183978-stock-illustration-fluffy-rodent-hamster-sitting-icon.jpg" },
+    { kichwa: "kuchi", spanish: "chancho", image: "https://img.freepik.com/vector-premium/cerdo-feliz-dibujos-animados-aislado-sobre-fondo-blanco_29190-2671.jpg" },
+    { kichwa: "ukucha", spanish: "ratón", image: "https://img.freepik.com/vector-gratis/lindo-ratoncito-personaje-dibujos-animados-orejas-grandes_1308-133011.jpg" },
+    { kichwa: "piki", spanish: "pulga", image: "https://st.depositphotos.com/1967477/3507/v/450/depositphotos_35078763-stock-illustration-flea-cartoon.jpg" },
+    { kichwa: "wallinku", spanish: "conejo", image: "https://img.freepik.com/vector-premium/conejo-feliz-dibujos-animados-zanahoria_29190-8319.jpg" },
+];
+
 const Module1 = () => {
     const navigation = useNavigation();
     const [currentGame, setCurrentGame] = useState(0);
 
     const games = [
-        <HangmanGame key="hangman" words={wordsModule1} onNext={() => setCurrentGame(currentGame + 1)} />,
+        <ImageWordMatchGame key="matching" data={animalsModule1} onNext={() => navigation.navigate('Game')} />,
+
         <MatchGame key="match" data={foodModule1} onNext={() => navigation.navigate('Game')} />,
+
+
+        <HangmanGame key="hangman" words={wordsModule1} onNext={() => setCurrentGame(currentGame + 1)} />,
         //Aca iran mas juegos, en el ultimo juego colocar el navigation.navigate('Game') para que diriga a pantalla de evaluacion
         //Caso contrario setCurrentGame(currentGame + 1) para que siga pasando por todos los juegos
     ];

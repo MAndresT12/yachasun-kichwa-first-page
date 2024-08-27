@@ -1,3 +1,4 @@
+// src/components/HangmanGame.jsx
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import ConfettiCannon from 'react-native-confetti-cannon';

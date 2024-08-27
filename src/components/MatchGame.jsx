@@ -1,32 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+// src/components/MatchGame.jsx
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
 import ConfettiCannon from 'react-native-confetti-cannon';
-import { styles } from '../../styles/globalStyles';
-const shuffleArray = (array) => {
-    return array.sort(() => Math.random() - 0.5);
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+
+const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+
+const Card = ({ card, isFlipped, onPress }) => {
+    const rotateY = useSharedValue(0);
+
+    const animatedStyleFront = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value}deg` }],
+    }));
+
+    const animatedStyleBack = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
+    }));
+
+    useEffect(() => {
+        rotateY.value = withTiming(isFlipped ? 180 : 0, { duration: 400 });
+    }, [isFlipped]);
+
+    return (
+        <TouchableOpacity onPress={onPress}>
+            <View style={stylesMatch.cardContainer}>
+                <Animated.View style={[stylesMatch.cardFace, animatedStyleFront]}>
+                    <Image source={{ uri: "https://i.pinimg.com/originals/14/02/72/1402722b43c3c92d51ae2ec0eebdf93a.jpg" }} style={stylesMatch.cardImage} />
+                </Animated.View>
+                <Animated.View style={[stylesMatch.cardFace, animatedStyleBack, stylesMatch.cardBack]}>
+                    <Text style={stylesMatch.cardText}>{card.spanish}</Text>
+                    <Image source={{ uri: card.image }} style={stylesMatch.cardImage} />
+                    <Text style={stylesMatch.cardText}>{card.kichwa}</Text>
+                </Animated.View>
+            </View>
+        </TouchableOpacity>
+    );
 };
 
 const MatchGame = ({ data, onNext }) => {
-    const navigation = useNavigation();
     const [cards, setCards] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
     const [matchedPairs, setMatchedPairs] = useState([]);
     const [showConfetti, setShowConfetti] = useState(false);
     const [showNextButton, setShowNextButton] = useState(false);
 
-    useEffect(() => {
-        resetGame();
-    }, [data]);
-
-    const resetGame = () => {
+    const resetGame = useCallback(() => {
         const shuffledCards = shuffleArray([...data, ...data]);
         setCards(shuffledCards);
         setSelectedCard(null);
         setMatchedPairs([]);
         setShowConfetti(false);
         setShowNextButton(false);
-    };
+    }, [data]);
+
+    useEffect(() => {
+        resetGame();
+    }, [resetGame]);
 
     const handleCardPress = (index) => {
         if (selectedCard === null) {
@@ -42,33 +71,26 @@ const MatchGame = ({ data, onNext }) => {
                 }, 500);
             }
         } else {
-            setSelectedCard(null);
+            const previousSelectedCard = selectedCard;
+            setSelectedCard(index);
+            setTimeout(() => {
+                setSelectedCard(null);
+            }, 500);
         }
-    };
-
-    const renderCard = (card, index) => {
-        const isFlipped = matchedPairs.includes(index) || selectedCard === index;
-        return (
-            <TouchableOpacity key={index} style={stylesMatch.card} onPress={() => handleCardPress(index)} disabled={matchedPairs.includes(index)}>
-                {isFlipped ? (
-                    <View style={stylesMatch.cardContent}>
-                        <Image source={{ uri: card.image }} style={stylesMatch.cardImage} />
-                        <Text style={stylesMatch.cardText}>{card.spanish}</Text>
-                    </View>
-                ) : (
-                    <View style={stylesMatch.cardContent}>
-                        <Image source={{ uri: "https://i.pinimg.com/originals/14/02/72/1402722b43c3c92d51ae2ec0eebdf93a.jpg" }} style={stylesMatch.cardImage} />
-                    </View>
-                )}
-            </TouchableOpacity>
-        );
     };
 
     return (
         <ScrollView contentContainerStyle={stylesMatch.container}>
             <Text style={stylesMatch.title}>Emparejar</Text>
             <View style={stylesMatch.grid}>
-                {cards.map((card, index) => renderCard(card, index))}
+                {cards.map((card, index) => (
+                    <Card
+                        key={index}
+                        card={card}
+                        isFlipped={matchedPairs.includes(index) || selectedCard === index}
+                        onPress={() => handleCardPress(index)}
+                    />
+                ))}
             </View>
             <TouchableOpacity style={stylesMatch.resetButton} onPress={resetGame}>
                 <Text style={stylesMatch.resetButtonText}>Reiniciar</Text>
@@ -101,18 +123,23 @@ const stylesMatch = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'center',
     },
-    card: {
-        width: 100,
-        height: 150,
-        margin: 10,
+    cardContainer: {
+        width: 120,
+        height: 170,
+        margin: 15,
+    },
+    cardFace: {
+        width: '100%',
+        height: '100%',
+        backfaceVisibility: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
         backgroundColor: '#ddd',
         borderRadius: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
-    cardContent: {
-        justifyContent: 'center',
-        alignItems: 'center',
+    cardBack: {
+        transform: [{ rotateY: '180deg' }],
     },
     cardImage: {
         width: 80,
