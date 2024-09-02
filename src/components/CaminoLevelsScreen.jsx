@@ -14,7 +14,7 @@ const CaminoLevelsScreen = () => {
                 <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
             </View>
             <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
-                <Image source={require('../../assets/huma3.png')} style={localStyles.islandImage} />
+                <Image source={require('../../assets/images/myths/huma3.png')} style={localStyles.islandImage} />
                 {/*Modulo 1 */}
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -53,7 +53,7 @@ const CaminoLevelsScreen = () => {
                         onPress={() => navigation.navigate('Game')}
                     />
                 </View>
-                <Image source={require('../../assets/diablo-prototype.png')} style={localStyles.islandImage} />
+                <Image source={require('../../assets/images/prototype/diablo-prototype.png')} style={localStyles.islandImage} />
                 {/*Modulo 2 */}
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -91,7 +91,7 @@ const CaminoLevelsScreen = () => {
                         onPress={() => navigation.navigate('Game2')}
                     />
                 </View>
-                <Image source={require('../../assets/huma2.png')} style={localStyles.islandImage} />
+                <Image source={require('../../assets/images/myths/huma2.png')} style={localStyles.islandImage} />
                 {/*Modulo 3 */}
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -129,7 +129,7 @@ const CaminoLevelsScreen = () => {
                         onPress={() => navigation.navigate('Evaluation3')}
                     />
                 </View>
-                <Image source={require('../../assets/huma4.png')} style={localStyles.islandImage} />
+                <Image source={require('../../assets/images/myths/huma4.png')} style={localStyles.islandImage} />
                 {/*Modulo 4 */}
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -167,7 +167,7 @@ const CaminoLevelsScreen = () => {
                         onPress={() => navigation.navigate('Evaluation4')}
                     />
                 </View>
-                <Image source={require('../../assets/huma5.png')} style={localStyles.islandImage} />
+                <Image source={require('../../assets/images/myths/huma5.png')} style={localStyles.islandImage} />
                 {/*Modulo 5 */}
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -205,7 +205,7 @@ const CaminoLevelsScreen = () => {
                         onPress={() => navigation.navigate('Evaluation5')}
                     />
                 </View>
-                <Image source={require('../../assets/huma6.png')} style={localStyles.islandImage} />
+                <Image source={require('../../assets/images/myths/huma6.png')} style={localStyles.islandImage} />
                 {/*Modulo 6 */}
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity

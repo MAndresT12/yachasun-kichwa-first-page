@@ -10,7 +10,7 @@ const participioData = [
     {
         title: "Yallishka pacha",
         description: "Para formar el participio pasado, después de la raíz del verbo ponemos la partícula -shka y las terminaciones del presente.",
-        image: require('../../assets/diablo-prototype.png'),
+        image: require('../../assets/images/prototype/diablo-prototype.png'),
     },
     {
         title: "Shinakuna",
@@ -18,7 +18,7 @@ const participioData = [
         data: [
             {
                 verb: "Rimana",
-                image: require('../../assets/diablo-prototype.png'),
+                image: require('../../assets/images/prototype/diablo-prototype.png'),
                 table: [
                     ["Ñuka", "rima", "shka", "ni", "rimashkani", "Yo he hablado"],
                     ["Kan", "rima", "shka", "nki", "rimashkanki", "Tú has hablado"],
@@ -32,7 +32,7 @@ const participioData = [
             },
             {
                 verb: "Mikuna",
-                image: require('../../assets/diablo-prototype.png'),
+                image: require('../../assets/images/prototype/diablo-prototype.png'),
                 table: [
                     ["Ñuka", "miku", "shka", "ni", "mikushkani", "Yo he comido"],
                     ["Kan", "miku", "shka", "nki", "mikushkanki", "Tú has comido"],

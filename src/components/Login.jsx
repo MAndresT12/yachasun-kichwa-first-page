@@ -13,7 +13,7 @@ const Login = () => {
         navigation.navigate('Levels');
     };
 
-    const image = require('../../assets/diablo-prototype.png');
+    const image = require('../../assets/images/prototype/diablo-prototype.png');
 
     return (
         <View style={[styles.container, localStyles.loginContainer]}>

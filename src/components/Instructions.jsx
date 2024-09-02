@@ -25,7 +25,7 @@ const Instructions = () => {
             </View>
             <View style={localStyles.imageContainer}>
                 <Image
-                    source={require('../../assets/diablo-prototype.png')}
+                    source={require('../../assets/images/prototype/diablo-prototype.png')}
                     style={localStyles.image}
                 />
             </View>
