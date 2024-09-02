@@ -12,12 +12,16 @@ const Login = () => {
     const handleLogin = () => {
         navigation.navigate('Levels');
     };
-
+  
     const image = require('../../assets/images/prototype/diablo-prototype.png');
 
     return (
         <View style={[styles.container, localStyles.loginContainer]}>
-            <Image source={image} style={localStyles.image} />
+            <Image 
+                source={image}
+                style={localStyles.image} 
+                resizeMode="contain"
+            />
             <Card style={styles.cardContent}>
                 <Text style={localStyles.title}>Welcome to YACHASUN KICHWA</Text>
                 <TextInput
@@ -61,7 +65,7 @@ const localStyles = StyleSheet.create({
         padding: 10,
         marginVertical: 10,
         borderWidth: 1,
-        borderColor: '#822929',
+        borderColor: '#481a0c',
         borderRadius: 5,
     },
     buttonContainer: {
@@ -72,7 +76,7 @@ const localStyles = StyleSheet.create({
         width: '50%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#822929',
+        backgroundColor: '#481a0c',
         padding: 10,
         borderRadius: 40,
         marginTop: 20,
