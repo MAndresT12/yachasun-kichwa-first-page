@@ -71,7 +71,7 @@ function HomeStack() {
       <Stack.Screen
         name="Login"
         component={Login}
-        options={{ title: 'Aprender con amigos' }}
+        options={{ title: 'Aprender con enemigos' }}
       />
       <Stack.Screen
         name="Levels"
