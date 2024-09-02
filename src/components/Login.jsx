@@ -12,8 +12,8 @@ const Login = () => {
     const handleLogin = () => {
         navigation.navigate('Levels');
     };
-
-    const image = require('../../assets/huma-happy.png');
+  
+    const image = require('../../assets/images/prototype/diablo-prototype.png');
 
     return (
         <View style={[styles.container, localStyles.loginContainer]}>
