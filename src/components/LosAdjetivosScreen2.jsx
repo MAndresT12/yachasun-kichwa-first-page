@@ -1,7 +1,7 @@
 // src/components/LosAdjetivosScreen2.jsx
 
 import React from 'react';
-import { Text, View, ScrollView, Image, StyleSheet } from 'react-native';
+import { Text, View, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../styles/globalStyles';
 import { Card } from './Card';

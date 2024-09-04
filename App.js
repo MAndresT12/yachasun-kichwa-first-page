@@ -316,7 +316,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Progreso"
-        component={CaminoLevelsScreen}
+        component={ProgresoScreen}
         options={{
           headerStyle: { backgroundColor: '#003366' }, //5B4D28
           headerTintColor: '#fff',
