@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { styles } from '../../../styles/globalStylesEx';
+import { styles } from '../../../../styles/globalStylesEx';
 
 export const CardEx = ({ title, content }) => (
     <View style={styles.cardContainer}>

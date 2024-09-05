@@ -119,8 +119,8 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                 {gameWon && (
                     <View>
                         <TouchableWithoutFeedback onPress={onNext}>
-                            <View style={styles.footerButton}>
-                                <Text style={styles.footerButtonText}>Siguiente</Text>
+                            <View style={styles.buttonDefault}>
+                                <Text style={styles.buttonText}>Siguiente</Text>
                             </View>
                         </TouchableWithoutFeedback>
                     </View>

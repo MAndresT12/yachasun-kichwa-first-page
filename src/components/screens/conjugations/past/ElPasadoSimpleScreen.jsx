@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
-import { Card } from '../../../ui/Card';
+import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const pasadoSimpleData = {
     title: "El pasado simple",
@@ -70,7 +70,7 @@ const renderTerminationsRows = () => {
 
 const renderExamples = (examples) => {
     return examples.map((example, index) => (
-        <Card key={index} title={example.verb}>
+        <CardDefault key={index} title={example.verb}>
             <Image source={{ uri: example.image }} style={localStyles.exampleImage} />
             <View style={styles.vocabularyTable}>
                 <View style={styles.tableHeader}>
@@ -92,7 +92,7 @@ const renderExamples = (examples) => {
                     </View>
                 ))}
             </View>
-        </Card>
+        </CardDefault>
     ));
 };
 
@@ -109,11 +109,11 @@ const ElPasadoSimpleScreen = () => {
                     <Text style={styles.titleTema}>{pasadoSimpleData.title}</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title={pasadoSimpleData.subtitle}>
+                    <CardDefault title={pasadoSimpleData.subtitle}>
                         <Text style={localStyles.particleText}>{pasadoSimpleData.particle}</Text>
                         <Text style={localStyles.descriptionText}>{pasadoSimpleData.description}</Text>
-                    </Card>
-                    <Card title={pasadoSimpleData.terminationsTitle}>
+                    </CardDefault>
+                    <CardDefault title={pasadoSimpleData.terminationsTitle}>
                         <Text style={localStyles.subtitle}>{pasadoSimpleData.terminationsSubtitle}</Text>
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
@@ -122,13 +122,13 @@ const ElPasadoSimpleScreen = () => {
                             </View>
                             {renderTerminationsRows()}
                         </View>
-                    </Card>
+                    </CardDefault>
                     {renderExamples(pasadoSimpleData.examples)}
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('ElParticipioPasado'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

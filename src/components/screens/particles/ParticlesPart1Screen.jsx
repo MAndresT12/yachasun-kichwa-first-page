@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles'
 import { useNavigation } from '@react-navigation/native';
 
@@ -19,19 +19,19 @@ const ParticlesPart1Screen = () => {
                     <Text style={styles.titleTema}>Las Partículas en Kichwa Parte 1</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="Para Preguntar">
+                    <CardDefault title="Para Preguntar">
                         <Text style={localStyles.text}>
                             <Text style={localStyles.highlight}>tak</Text> se utiliza para formular preguntas.
                         </Text>
                         <Text style={localStyles.example}>Imatatak mikunki = ¿Qué comes?</Text>
-                    </Card>
-                    <Card title="Para Afirmar o Dar Énfasis">
+                    </CardDefault>
+                    <CardDefault title="Para Afirmar o Dar Énfasis">
                         <Text style={localStyles.text}>
                             <Text style={localStyles.highlight}>-ta</Text> se utiliza para afirmar o dar énfasis.
                         </Text>
                         <Text style={localStyles.example}>Tantata mikuni = Como pan</Text>
-                    </Card>
-                    <Card title="Ejemplos con tak y ta">
+                    </CardDefault>
+                    <CardDefault title="Ejemplos con tak y ta">
                         <View style={localStyles.table}>
                             <View style={localStyles.tableRow}>
                                 <Text style={localStyles.tableCell}>Imatatak yanunki</Text>
@@ -50,8 +50,8 @@ const ParticlesPart1Screen = () => {
                                 <Text style={localStyles.tableCell}>Traigo el gato</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="Para Indicar Pertenencia">
+                    </CardDefault>
+                    <CardDefault title="Para Indicar Pertenencia">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-pak</Text> se utiliza para indicar pertenencia o posición.
                         </Text>
@@ -105,8 +105,8 @@ const ParticlesPart1Screen = () => {
                                 <Text style={localStyles.tableCell}>paykunapak</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="Ejemplos con -pak">
+                    </CardDefault>
+                    <CardDefault title="Ejemplos con -pak">
                         <View style={localStyles.exampleContainer}>
                             <View style={localStyles.exampleBox}>
                                 <Text style={localStyles.exampleText}>Ñukapak tayta</Text>
@@ -129,8 +129,8 @@ const ParticlesPart1Screen = () => {
                                 <Text style={localStyles.exampleText}>su nombre (el nombre de usted)</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="Para Indicar Objetivo o Razón">
+                    </CardDefault>
+                    <CardDefault title="Para Indicar Objetivo o Razón">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-nkapak</Text> se utiliza para indicar objetivo o razón de una acción.
                         </Text>
@@ -146,13 +146,13 @@ const ParticlesPart1Screen = () => {
                                 <Text style={localStyles.exampleText}>nos vamos a bailar</Text>
                             </View>
                         </View>
-                    </Card>
+                    </CardDefault>
                 </View>
 
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game1'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

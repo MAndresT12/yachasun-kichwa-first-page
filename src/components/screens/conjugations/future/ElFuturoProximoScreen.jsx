@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
-import { Card } from '../../../ui/Card';
+import { CardDefault } from '../../../ui/cards/CardDefault';
 const { width } = Dimensions.get('window');
 
 
@@ -86,11 +86,11 @@ const ElFuturoProximoScreen = () => {
                     <Text style={styles.titleTema}>{futuroProximoData.title}</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title={futuroProximoData.title}>
+                    <CardDefault title={futuroProximoData.title}>
                         <Text style={styles.carouselSubtitle}>{futuroProximoData.subtitle}</Text>
                         <Text style={styles.carouselParticleText}>{futuroProximoData.particle}</Text>
                         <Text style={styles.carouselDescriptionText}>{futuroProximoData.description}</Text>
-                    </Card>
+                    </CardDefault>
                     <Carousel
                         width={width}
                         height={500}
@@ -103,8 +103,8 @@ const ElFuturoProximoScreen = () => {
 
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('FuturoSimple'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

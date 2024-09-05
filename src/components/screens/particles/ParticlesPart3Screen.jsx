@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles'
 import { useNavigation } from '@react-navigation/native';
 
@@ -19,7 +19,7 @@ const ParticlesPart3Screen = () => {
                     <Text style={styles.titleTema}>Partículas de Pregunta y Respuesta</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="-tak">
+                    <CardDefault title="-tak">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-tak</Text> se utiliza para hacer preguntas. En Kichwa no utilizamos signos de pregunta, por lo que la partícula <Text style={localStyles.highlight}>-tak</Text> debe ir después de las palabras de pregunta.
                         </Text>
@@ -30,8 +30,8 @@ const ParticlesPart3Screen = () => {
                                 <Text style={localStyles.exampleText}>¿En dónde vives?</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="-ka">
+                    </CardDefault>
+                    <CardDefault title="-ka">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-ka</Text> también se utiliza para hacer preguntas.
                         </Text>
@@ -42,8 +42,8 @@ const ParticlesPart3Screen = () => {
                                 <Text style={localStyles.exampleText}>¿Y el chancho?</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="-chu">
+                    </CardDefault>
+                    <CardDefault title="-chu">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-chu</Text> también se utiliza para hacer preguntas, especialmente con pronombres personales.
                         </Text>
@@ -69,8 +69,8 @@ const ParticlesPart3Screen = () => {
                                 <Text style={localStyles.exampleText}>No, yo no vine</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="-mi">
+                    </CardDefault>
+                    <CardDefault title="-mi">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-mi</Text> da más fuerza de afirmación a una respuesta afirmativa.
                         </Text>
@@ -91,8 +91,8 @@ const ParticlesPart3Screen = () => {
                                 <Text style={localStyles.exampleText}>No, él no vino</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="Preguntas en Kichwa">
+                    </CardDefault>
+                    <CardDefault title="Preguntas en Kichwa">
                         <View style={localStyles.table}>
                             <View style={localStyles.tableRow}>
                                 <Text style={localStyles.tableCell}>Maypitak</Text>
@@ -159,13 +159,13 @@ const ParticlesPart3Screen = () => {
                                 <Text style={localStyles.tableCell}>¿Cuántos?</Text>
                             </View>
                         </View>
-                    </Card>
+                    </CardDefault>
                 </View>
 
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('ParticlesPart4'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

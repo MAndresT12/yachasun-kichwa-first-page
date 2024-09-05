@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 
@@ -19,7 +19,7 @@ const LaNegacionScreen = () => {
                     <Text style={styles.titleTema}>La Negación en Kichwa</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="Mana ninkapak">
+                    <CardDefault title="Mana ninkapak">
                         <Text style={localStyles.text}>
                             En kichwa para transformar un adjetivo al negativo anteponemos la palabra de negación <Text style={localStyles.highlight}>mana</Text>.
                         </Text>
@@ -35,8 +35,8 @@ const LaNegacionScreen = () => {
                                 <Text style={localStyles.exampleText}>No es bonito</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="Negación con verbos">
+                    </CardDefault>
+                    <CardDefault title="Negación con verbos">
                         <Text style={localStyles.text}>
                             Para transformar un verbo al negativo anteponemos la palabra de negación <Text style={localStyles.highlight}>mana</Text> seguido del verbo con la partícula <Text style={localStyles.highlight}>chu</Text>.
                         </Text>
@@ -80,13 +80,13 @@ const LaNegacionScreen = () => {
                                 </View>
                             </View>
                         </View>
-                    </Card>
+                    </CardDefault>
                 </View>
 
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game2'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

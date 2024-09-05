@@ -5,6 +5,8 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#18a7ac',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     scrollView: {
         flexGrow: 1,
@@ -34,8 +36,9 @@ export const styles = StyleSheet.create({
         color: '#fff',
     },
     cardContainer: {
-        width: '100%',
+        justifyContent: 'center',
         alignItems: 'center',
+        width: '100%',
     },
     card: {
         backgroundColor: '#fff',
@@ -96,7 +99,12 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-end',
         marginRight: 10,
     },
-    footerButton: {
+    buttonContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonDefault: {
         backgroundColor: '#822929',
         borderRadius: 3,
         paddingHorizontal: 10,
@@ -105,7 +113,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    footerButtonText: {
+    buttonText: {
         color: '#fff',
         fontSize: 16,
     },

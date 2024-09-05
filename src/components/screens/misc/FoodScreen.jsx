@@ -4,7 +4,7 @@ import { Text, View, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } f
 import { useNavigation } from '@react-navigation/native';
 
 import { styles } from '../../../../styles/globalStyles';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 
 const foodData = [
     { kichwa: "tutamanta mikuna", spanish: "desayuno", image: "https://img.freepik.com/vector-premium/dibujos-animados-delicioso-desayuno-sabroso_24640-53952.jpg?w=1060" },
@@ -59,7 +59,7 @@ const FoodScreen = () => {
                     <Text style={styles.titleTema}>Los Alimentos</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="Vocabulario">
+                    <CardDefault title="Vocabulario">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Imagen</Text>
@@ -68,12 +68,12 @@ const FoodScreen = () => {
                             </View>
                             {renderFoodRows()}
                         </View>
-                    </Card>
+                    </CardDefault>
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('Animals'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>
