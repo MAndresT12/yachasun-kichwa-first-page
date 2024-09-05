@@ -101,7 +101,7 @@ const ElFuturoSimpleScreen = () => {
                     />
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('EvaluationScreen5'); }}>
+                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Evaluation5'); }}>
                         <View style={styles.footerButton}>
                             <Text style={styles.footerButtonText}>Siguiente</Text>
                         </View>

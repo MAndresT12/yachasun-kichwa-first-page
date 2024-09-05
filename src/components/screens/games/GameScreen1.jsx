@@ -50,7 +50,7 @@ const GameScreen1 = () => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         } else {
-            navigation.navigate('Evaluation', { score: score + 1, totalQuestions: questions.length });
+            navigation.navigate('Evaluation1', { score: score + 1, totalQuestions: questions.length });
         }
     };
 
