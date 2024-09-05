@@ -35,6 +35,10 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#fff',
     },
+
+
+
+
     cardContainer: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -60,6 +64,14 @@ export const styles = StyleSheet.create({
         marginTop: 10,
         fontSize: 16,
     },
+    cardInGrid: {
+        width: '30%',
+        marginBottom: 20,
+    },
+
+
+
+
     vocabulary: {
         marginTop: 20,
     },
@@ -99,6 +111,10 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-end',
         marginRight: 10,
     },
+
+
+
+
     buttonContainer: {
         flex: 1,
         justifyContent: 'center',
@@ -116,7 +132,63 @@ export const styles = StyleSheet.create({
     buttonText: {
         color: '#fff',
         fontSize: 16,
+        textAlign: 'center',
     },
+    closeButton: {
+        backgroundColor: '#822929',
+        padding: 10,
+        borderRadius: 5,
+    },
+
+
+
+
+
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    modalContent: {
+        width: 300,
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        padding: 20,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 5,
+    },
+    imageModal: {
+        width: 150,
+        height: 150,
+        marginBottom: 10,
+        resizeMode: 'contain',
+    },
+    pronunciation: {
+        fontSize: 18,
+        marginBottom: 10,
+    },
+    translationContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+        marginBottom: 20,
+    },
+    kichwaText: {
+        fontSize: 16,
+        color: 'green',
+    },
+    spanishText: {
+        fontSize: 16,
+        color: 'blue',
+    },
+
+
+
     carouselHeaderText: {
         fontSize: 24,
         fontWeight: 'bold',

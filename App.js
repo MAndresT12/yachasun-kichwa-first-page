@@ -56,6 +56,8 @@ import IntroduccionJuegoScreen from './src/components/screens/misc/IntroduccionJ
 import ProgresoScreen from './src/components/menus/ProgresoScreen.jsx';
 import CarouselExampleScreen from './src/components/ui/CarouselExampleScreen.jsx';
 
+import Alphabet from './src/components/screens/basic/module1/Alphabet.jsx';
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -100,6 +102,11 @@ function HomeStack() {
         name="CaminoLevelsBasic"
         component={CaminoLevelsBasicScreen}
         options={{ title: 'Niveles kichuanos' }}
+      />
+      <Stack.Screen
+        name="Alphabet"
+        component={Alphabet}
+        options={{ title: 'Yachasun Kichwa - El Alfabeto' }}
       />
       <Stack.Screen
         name="Main"

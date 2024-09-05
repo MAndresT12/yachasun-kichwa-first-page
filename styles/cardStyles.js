@@ -31,9 +31,23 @@ export const cardStyles = StyleSheet.create({
     cardTitle: {
         fontSize: 18,
         fontWeight: 'bold',
+        textAlign: 'center',
     },
     cardContent: {
         marginTop: 10,
         fontSize: 16,
+    },
+    cardPopUp: {
+        backgroundColor: '#fff',
+        borderRadius: 30,
+        padding: 15,
+        marginVertical: 10,
+        width: 'auto',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 5,
+        textAlign: 'center',
     },
 });
