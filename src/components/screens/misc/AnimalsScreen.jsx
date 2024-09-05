@@ -77,7 +77,7 @@ const AnimalsScreen = () => {
                     </Card>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Particles'); }}>
+                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('ParticlesPart1'); }}>
                         <View style={styles.footerButton}>
                             <Text style={styles.footerButtonText}>Siguiente</Text>
                         </View>

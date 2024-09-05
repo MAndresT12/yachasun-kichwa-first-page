@@ -150,7 +150,7 @@ const ParticlesPart1Screen = () => {
                 </View>
 
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game'); }}>
+                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game1'); }}>
                         <View style={styles.footerButton}>
                             <Text style={styles.footerButtonText}>Siguiente</Text>
                         </View>
