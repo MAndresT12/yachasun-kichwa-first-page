@@ -1,4 +1,3 @@
-// src/components/Main.jsx
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
