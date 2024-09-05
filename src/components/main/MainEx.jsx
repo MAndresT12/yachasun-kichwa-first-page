@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, StatusBar, TouchableWithoutFeedback, Alert } from 'react-native';
 import { styles } from '../../../styles/globalStylesEx';
 import { VocabularyColumnEx } from './VocabularyColumnEx';
-import { CardEx } from '../ui/CardEx';
+import { CardEx } from '../ui/cards/CardEx';
 
 const MainEx = () => {
     const loremContent = "Lorem ipsum dolor sit amet consectetur. Faucibus mattis tincidunt nunc leo lectus cras risus. Euismod netus amet erat nisl elementum faucibus. Eu lectus vulputate lorem egestas aliquam in ante. Rutrum auctor ut semper us.";

@@ -2,38 +2,34 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles as globalStyles } from '../../../styles/globalStyles';
-import { Card } from '../ui/Card';
+import { styles } from '../../../styles/globalStyles';
+import { imageStyles } from '../../../styles/imageStyles';
+import { CardDefault } from '../ui/cards/CardDefault';
+import { ButtonDefault } from '../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../ui/imageContainers/ImageContainer';
 
 const Levels = () => {
     const navigation = useNavigation();
 
-    const handlePress = () => {
-        navigation.navigate('Instructions');
+    const handlePressBasic = () => {
+        navigation.navigate('InstructionsBasic');
+    };
+
+    const handlePressMid = () => {
+        navigation.navigate('InstructionsMid');
     };
 
     return (
-        <View style={[globalStyles.container, localStyles.container]}>
-            <Text style={localStyles.title}>YACHASUN KICHWA</Text>
-            <View style={localStyles.cardContainer}>
-                <Card style={localStyles.card}>
-                    <Image
-                        source={{ uri: 'https://static.wikia.nocookie.net/johnnyotgs/images/6/6e/WTNO_BJ_BKAT.jpg/revision/latest?cb=20140801043745' }}
-                        style={localStyles.image}
-                    />
-                    <TouchableOpacity onPress={handlePress} style={localStyles.button}>
-                        <Text style={localStyles.buttonText}>Level 1</Text>
-                    </TouchableOpacity>
-                </Card>
-                <Card style={localStyles.card}>
-                    <Image
-                        source={{ uri: 'https://static.wikia.nocookie.net/johnnyotgs/images/0/0f/WTNO_BJ_BKAT_2.jpg/revision/latest?cb=20140801043755' }}
-                        style={localStyles.image}
-                    />
-                    <TouchableOpacity onPress={handlePress} style={localStyles.button}>
-                        <Text style={localStyles.buttonText}>Level 2</Text>
-                    </TouchableOpacity>
-                </Card>
+        <View style={[styles.container]}>
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                <CardDefault style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <ImageContainer uri={'https://static.wikia.nocookie.net/johnnyotgs/images/6/6e/WTNO_BJ_BKAT.jpg/revision/latest?cb=20140801043745'}/>
+                    <ButtonDefault label="Básico" onPress={handlePressBasic} />
+                </CardDefault>
+                <CardDefault>
+                    <ImageContainer uri={'https://static.wikia.nocookie.net/johnnyotgs/images/0/0f/WTNO_BJ_BKAT_2.jpg/revision/latest?cb=20140801043755'}/>
+                    <ButtonDefault label="Intermedio" onPress={handlePressMid} />
+                </CardDefault>
             </View>
         </View>
     );

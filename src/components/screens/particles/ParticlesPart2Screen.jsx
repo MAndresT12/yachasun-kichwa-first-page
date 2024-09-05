@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles'
 import { useNavigation } from '@react-navigation/native';
 
@@ -19,7 +19,7 @@ const ParticlesPart2Screen = () => {
                     <Text style={styles.titleTema}>Las Partículas en Kichwa Parte 2</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="-manta">
+                    <CardDefault title="-manta">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-manta</Text> indica origen o procedencia, iniciación de tiempo, o inicio de lugar. También es causativo, indicando el motivo, causa o razón de algo, y puede significar por o a causa de.
                         </Text>
@@ -45,8 +45,8 @@ const ParticlesPart2Screen = () => {
                                 <Text style={localStyles.exampleText}>por mí</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="-kaman">
+                    </CardDefault>
+                    <CardDefault title="-kaman">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-kaman</Text> indica límite de lugar, tiempo o acción.
                         </Text>
@@ -67,8 +67,8 @@ const ParticlesPart2Screen = () => {
                                 <Text style={localStyles.exampleText}>hasta que venga el carro esperaré</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="-wan">
+                    </CardDefault>
+                    <CardDefault title="-wan">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-wan</Text> indica compañía, y va con sujetos personales.
                         </Text>
@@ -94,13 +94,13 @@ const ParticlesPart2Screen = () => {
                                 <Text style={localStyles.exampleText}>No, yo no vine</Text>
                             </View>
                         </View>
-                    </Card>
+                    </CardDefault>
                 </View>
 
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('ParticlesPart3'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

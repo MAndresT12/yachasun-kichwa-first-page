@@ -1,7 +1,7 @@
 // src/components/ParticulesPart4Screen.jsx
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles'
 import { useNavigation } from '@react-navigation/native';
 
@@ -19,7 +19,7 @@ const ParticlesPart4Screen = () => {
                     <Text style={styles.titleTema}>Las Partículas en Kichwa Parte 4</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="-pi">
+                    <CardDefault title="-pi">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-pi</Text> indica localización y tiempo exacto.
                         </Text>
@@ -45,8 +45,8 @@ const ParticlesPart4Screen = () => {
                                 <Text style={localStyles.exampleText}>Aquí vivíamos</Text>
                             </View>
                         </View>
-                    </Card>
-                    <Card title="-man">
+                    </CardDefault>
+                    <CardDefault title="-man">
                         <Text style={localStyles.text}>
                             La partícula <Text style={localStyles.highlight}>-man</Text> indica dirección, límite, tiempo o destinatario.
                         </Text>
@@ -72,12 +72,12 @@ const ParticlesPart4Screen = () => {
                                 <Text style={localStyles.exampleText}>A papi</Text>
                             </View>
                         </View>
-                    </Card>
+                    </CardDefault>
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('LaNegacion'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

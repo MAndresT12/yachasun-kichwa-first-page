@@ -30,8 +30,8 @@ const IntroduccionJuegoScreen = () => {
 
             <View style={globalStyles.footer}>
                 <TouchableOpacity onPress={() => navigation.navigate('Module1')}>
-                    <View style={globalStyles.footerButton}>
-                        <Text style={globalStyles.footerButtonText}>Siguiente</Text>
+                    <View style={globalStyles.buttonDefault}>
+                        <Text style={globalStyles.buttonText}>Siguiente</Text>
                     </View>
                 </TouchableOpacity>
             </View>

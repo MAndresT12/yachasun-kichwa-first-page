@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 
 const timeVocabulary = [
     { kichwa: "puncha", spanish: "día" },
@@ -70,7 +70,7 @@ const VocabularioElTiempoScreen = () => {
                     <Text style={styles.titleTema}>El Tiempo</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="Pacha (El tiempo)">
+                    <CardDefault title="Pacha (El tiempo)">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
@@ -78,8 +78,8 @@ const VocabularioElTiempoScreen = () => {
                             </View>
                             {renderRows(timeVocabulary)}
                         </View>
-                    </Card>
-                    <Card title="Hunkay punchakuna (Los días de la semana)">
+                    </CardDefault>
+                    <CardDefault title="Hunkay punchakuna (Los días de la semana)">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
@@ -87,8 +87,8 @@ const VocabularioElTiempoScreen = () => {
                             </View>
                             {renderRows(daysOfWeek)}
                         </View>
-                    </Card>
-                    <Card title="Killakuna (Los meses)">
+                    </CardDefault>
+                    <CardDefault title="Killakuna (Los meses)">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
@@ -96,12 +96,12 @@ const VocabularioElTiempoScreen = () => {
                             </View>
                             {renderRows(months)}
                         </View>
-                    </Card>
+                    </CardDefault>
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('ElPasadoSimple'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

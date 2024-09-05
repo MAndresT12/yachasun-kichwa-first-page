@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 
 const questions = [
     {
@@ -62,7 +62,7 @@ const GameScreen5 = () => {
                     <Text style={styles.titleTema}>Juego de Repaso - Parte 5</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title={`Pregunta ${currentQuestionIndex + 1}`}>
+                    <CardDefault title={`Pregunta ${currentQuestionIndex + 1}`}>
                         <Text style={localStyles.questionText}>{questions[currentQuestionIndex].question}</Text>
                         {questions[currentQuestionIndex].options.map((option, index) => (
                             <TouchableOpacity
@@ -73,7 +73,7 @@ const GameScreen5 = () => {
                                 <Text style={localStyles.optionText}>{option}</Text>
                             </TouchableOpacity>
                         ))}
-                    </Card>
+                    </CardDefault>
                 </View>
             </ScrollView>
         </View>

@@ -15,7 +15,8 @@ import EvaluationScreen1 from './src/components/screens/evaluations/EvaluationSc
 import ParticlesPart2Screen from './src/components/screens/particles/ParticlesPart2Screen';
 import ParticlesPart3Screen from './src/components/screens/particles/ParticlesPart3Screen';
 import Levels from './src/components/menus/Levels';
-import Instructions from './src/components/main/Instructions';
+import InstructionsBasic from './src/components/main/InstructionsBasic.jsx';
+import InstructionsMid from './src/components/main/InstructionsMid.jsx';
 import ParticlesPart4Screen from './src/components/screens/particles/ParticlesPart4Screen';
 import LaNegacionScreen from './src/components/screens/misc/LaNegacionScreen.jsx';
 import GameScreen2 from './src/components/screens/games/GameScreen2';
@@ -26,7 +27,8 @@ import LosAdjetivosScreen1 from './src/components/screens/adjectives/LosAdjetivo
 import VocabularioLaCiudadScreen from './src/components/screens/vocabulary/VocabularioLaCiudadScreen.jsx';
 import GameScreen3 from './src/components/screens/games/GameScreen3.jsx';
 import EvaluationScreen3 from './src/components/screens/evaluations/EvaluationScreen3.jsx';
-import CaminoLevelsScreen from './src/components/screens/misc/CaminoLevelsScreen.jsx';
+import CaminoLevelsScreen from './src/components/screens/scrollPaths/CaminoLevelsScreen.jsx';
+import CaminoLevelsBasicScreen from './src/components/screens/scrollPaths/CaminoLevelsBasicScreen.jsx';
 import VocabularioLaCocinaScreen from './src/components/screens/vocabulary/VocabularioLaCocinaScreen.jsx';
 import LosAdjetivosScreen2 from './src/components/screens/adjectives/LosAdjetivosScreen2.jsx';
 import VocabularioElDormitorioScreen from './src/components/screens/vocabulary/VocabularioElDormitorioScreen.jsx';
@@ -80,13 +82,23 @@ function HomeStack() {
         options={{ title: 'Niveles' }}
       />
       <Stack.Screen
-        name="Instructions"
-        component={Instructions}
-        options={{ title: 'Instrucciones' }}
+        name="InstructionsBasic"
+        component={InstructionsBasic}
+        options={{ title: 'Instrucciones Básicas' }}
+      />
+      <Stack.Screen
+        name="InstructionsMid"
+        component={InstructionsMid}
+        options={{ title: 'Instrucciones Básicas' }}
       />
       <Stack.Screen
         name="CaminoLevels"
         component={CaminoLevelsScreen}
+        options={{ title: 'Niveles kichuanos' }}
+      />
+      <Stack.Screen
+        name="CaminoLevelsBasic"
+        component={CaminoLevelsBasicScreen}
         options={{ title: 'Niveles kichuanos' }}
       />
       <Stack.Screen

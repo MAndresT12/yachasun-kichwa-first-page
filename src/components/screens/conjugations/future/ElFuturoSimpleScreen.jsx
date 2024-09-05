@@ -4,7 +4,7 @@ import { View, Text, ScrollView, Image, Dimensions, TouchableWithoutFeedback } f
 import { useNavigation } from '@react-navigation/native';
 import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
-import { Card } from '../../../ui/Card';
+import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const { width } = Dimensions.get('window');
 
@@ -86,10 +86,10 @@ const ElFuturoSimpleScreen = () => {
                 </View>
                 <View style={styles.body}>
 
-                    <Card title={futuroSimpleData.title}>
+                    <CardDefault title={futuroSimpleData.title}>
                         <Text style={styles.carouselSubtitle}>{futuroSimpleData.subtitle}</Text>
                         <Text style={styles.carouselDescriptionText}>{futuroSimpleData.description}</Text>
-                    </Card>
+                    </CardDefault>
 
                     <Carousel
                         width={width}
@@ -102,8 +102,8 @@ const ElFuturoSimpleScreen = () => {
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('Evaluation5'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

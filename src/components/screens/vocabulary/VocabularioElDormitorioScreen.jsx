@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 import { WORDS_ENDPOINT } from "../../../../constants"
 
 const bedroomVocabulary = [
@@ -59,7 +59,7 @@ const VocabularioElDormitorioScreen = () => {
                     <Text style={styles.titleTema}>El Dormitorio</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="Vocabulario del Dormitorio">
+                    <CardDefault title="Vocabulario del Dormitorio">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
@@ -68,8 +68,8 @@ const VocabularioElDormitorioScreen = () => {
                             </View>
                             {renderVocabularyRows()}
                         </View>
-                    </Card>
-                    <Card title="Verbos">
+                    </CardDefault>
+                    <CardDefault title="Verbos">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
@@ -77,12 +77,12 @@ const VocabularioElDormitorioScreen = () => {
                             </View>
                             {renderVerbRows()}
                         </View>
-                    </Card>
+                    </CardDefault>
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game4'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

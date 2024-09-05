@@ -4,7 +4,7 @@ import React from 'react';
 import { Text, View, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
-import { Card } from '../../ui/Card';
+import { CardDefault } from '../../ui/cards/CardDefault';
 
 const locationVocabulary = [
     { kichwa: "karu", spanish: "lejos, distante, lejano", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
@@ -48,7 +48,7 @@ const VocabularioLaUbicacionScreen = () => {
                     <Text style={styles.titleTema}>La Ubicación</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="Vocabulario de la Ubicación">
+                    <CardDefault title="Vocabulario de la Ubicación">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
@@ -57,12 +57,12 @@ const VocabularioLaUbicacionScreen = () => {
                             </View>
                             {renderLocationRows()}
                         </View>
-                    </Card>
+                    </CardDefault>
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('ElTiempo'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>

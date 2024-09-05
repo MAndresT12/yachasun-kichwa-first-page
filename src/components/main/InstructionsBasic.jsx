@@ -3,12 +3,18 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles as globalStyles } from '../../../styles/globalStyles';
+import { buttonStyles } from '../../../styles/buttonStyles';
+import { cardStyles } from '../../../styles/cardStyles';
+import { imageStyles } from '../../../styles/imageStyles';
+import { CardDefault } from '../ui/cards/CardDefault';
+import { ButtonDefault } from '../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../ui/imageContainers/ImageContainer';
 
 const Instructions = () => {
     const navigation = useNavigation();
 
     const handlePressContinue = () => {
-        navigation.navigate('CaminoLevels');
+        navigation.navigate('CaminoLevelsBasic');
     };
 
     const handlePressReturn = () => {
@@ -16,26 +22,25 @@ const Instructions = () => {
     };
 
     return (
-        <View style={[globalStyles.container, localStyles.container]}>
-            <Text style={localStyles.title}>INSTRUCCIONES</Text>
-            <View style={localStyles.content}>
-                <Text style={localStyles.title}>BASICO</Text>
-                <Text style={localStyles.instructionsText}>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </Text>
-
-            </View>
-            <View style={localStyles.imageContainer}>
-                <Image
-                    source={require('../../../assets/images/prototype/diablo-prototype.png')}
-                    style={localStyles.image}
+        <View style={globalStyles.container}>
+            <View style={imageStyles.halfImageContainer}>
+                <ImageContainer
+                    path={require('../../../assets/images/prototype/diablo-prototype.png')}
+                    style={imageStyles.halfImage}
                 />
             </View>
-            <View style={localStyles.buttonsContainer}>
-                <TouchableOpacity onPress={handlePressContinue} style={localStyles.button}>
-                    <Text style={localStyles.buttonText}>Continuar</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={handlePressReturn} style={localStyles.button}>
-                    <Text style={localStyles.buttonText}>Regresar</Text>
-                </TouchableOpacity>
+            <View style={cardStyles.cardContainerInstructions}>
+
+                <CardDefault 
+                title="Básico" 
+                style={cardStyles.instructionsCardStyle}
+                content="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+                >
+                </CardDefault>
+            </View>
+            <View style={buttonStyles.buttonContainerSpaceAround}>
+                <ButtonDefault label="Continuar" onPress={handlePressContinue} />
+                <ButtonDefault label="Regresar" onPress={handlePressReturn} />
             </View>
         </View>
     );

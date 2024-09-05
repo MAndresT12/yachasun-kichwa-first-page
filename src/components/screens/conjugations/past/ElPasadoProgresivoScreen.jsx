@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
-import { Card } from '../../../ui/Card';
+import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const pasadoProgresivoData = [
     {
@@ -77,18 +77,18 @@ const ElPasadoProgresivoScreen = () => {
                     <Text style={styles.titleTema}>El Pasado Progresivo</Text>
                 </View>
                 <View style={styles.body}>
-                    <Card title="Yallirka katiy pacha">
+                    <CardDefault title="Yallirka katiy pacha">
                         <Text style={localStyles.descriptionText}>
                             Con esta manera de tiempo vamos a ver que la aglutinación continúa, ahora son dos partículas (ku - del progresivo, y -rka - del pasado) que intervienen en el medio del verbo, manteniendo las terminaciones de los verbos del presente.
                         </Text>
                         <Text style={localStyles.particulaText}>-kurka</Text>
-                    </Card>
+                    </CardDefault>
                     {pasadoProgresivoData.map(conjugation => renderConjugationTable(conjugation))}
                 </View>
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('ConjugacionPresenteProgresivo'); }}>
-                        <View style={styles.footerButton}>
-                            <Text style={styles.footerButtonText}>Siguiente</Text>
+                        <View style={styles.buttonDefault}>
+                            <Text style={styles.buttonText}>Siguiente</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>
