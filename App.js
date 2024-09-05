@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -5,58 +6,81 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
-import Login from './src/components/Login';
-import Main from './src/components/Main';
-import FoodScreen from './src/components/FoodScreen';
-import AnimalsScreen from './src/components/AnimalsScreen';
-import ParticlesScreen from './src/components/ParticlesScreen';
-import GameScreen from './src/components/GameScreen';
-import EvaluationScreen from './src/components/EvaluationScreen';
-import ParticlesPart2Screen from './src/components/ParticlesPart2Screen';
-import ParticlesPart3Screen from './src/components/ParticlesPart3Screen';
-import Levels from './src/components/Levels';
-import Instructions from './src/components/Instructions';
-import ParticlesPart4Screen from './src/components/ParticlesPart4Screen';
-import LaNegacionScreen from './src/components/LaNegacionScreen.jsx';
-import GameScreen2 from './src/components/GameScreen2';
-import EvaluationScreen2 from './src/components/EvaluationScreen2';
-import LosVerbosScreen1 from './src/components/LosVerbosScreen1.jsx';
-import LosVerbosConjugacionesScreen1 from './src/components/LosVerbosConjugacionesScreen1.jsx';
-import LosAdjetivosScreen1 from './src/components/LosAdjetivosScreen1.jsx';
-import VocabularioLaCiudadScreen from './src/components/VocabularioLaCiudadScreen.jsx';
-import GameScreen3 from './src/components/GameScreen3.jsx';
-import EvaluationScreen3 from './src/components/EvaluationScreen3.jsx';
-import CaminoLevelsScreen from './src/components/CaminoLevelsScreen.jsx';
-import VocabularioLaCocinaScreen from './src/components/VocabularioLaCocinaScreen.jsx';
-import LosAdjetivosScreen2 from './src/components/LosAdjetivosScreen2.jsx';
-import VocabularioElDormitorioScreen from './src/components/VocabularioElDormitorioScreen.jsx';
-import VocabularioLaUbicacionScreen from './src/components/VocabularioLaUbicacionScreen.jsx';
-import GameScreen4 from './src/components/GameScreen4.jsx';
-import EvaluationScreen4 from './src/components/EvaluationScreen4.jsx';
-import VocabularioElTiempoScreen from './src/components/VocabularioElTiempoScreen.jsx';
-import ElPasadoSimpleScreen from './src/components/ElPasadoSimpleScreen.jsx';
-import ElParticipioPasadoScreen from './src/components/ElParticipioPasadoScreen.jsx';
-import ElPasadoProgresivoScreen from './src/components/ElPasadoProgresivoScreen.jsx';
-import LosVerbosScreen2 from './src/components/LosVerbosScreen2.jsx';
-import GameScreen5 from './src/components/GameScreen5.jsx';
-import EvaluationScreen5 from './src/components/EvaluationScreen5.jsx';
-import ConjugacionTiempoPresenteProgresivoScreen from './src/components/ConjugacionTiempoPresenteProgresivoScreen.jsx';
-import ElFuturoProximoScreen from './src/components/ElFuturoProximoScreen.jsx';
-import ElFuturoSimpleScreen from './src/components/ElFuturoSimpleScreen.jsx';
-import GameScreen6 from './src/components/GameScreen6.jsx';
-import EvaluationScreen6 from './src/components/EvaluationScreen6.jsx';
+import Login from './src/components/screens/Login.jsx';
+import Main from './src/components/main/Main';
+import FoodScreen from './src/components/screens/misc/FoodScreen';
+import AnimalsScreen from './src/components/screens/misc/AnimalsScreen.jsx';
+import ParticlesPart1Screen from './src/components/screens/particles/ParticlesPart1Screen.jsx';
+import ParticlesPart2Screen from './src/components/screens/particles/ParticlesPart2Screen.jsx';
+import ParticlesPart3Screen from './src/components/screens/particles/ParticlesPart3Screen.jsx';
+import Levels from './src/components/screens/Levels.jsx';
+import Instructions from './src/components/main/Instructions';
+import ParticlesPart4Screen from './src/components/screens/particles/ParticlesPart4Screen.jsx';
+import LaNegacionScreen from './src/components/screens/misc/LaNegacionScreen.jsx';
+import GameScreen2 from './src/components/screens/games/GameScreen2.jsx';
+import EvaluationScreen2 from './src/components/screens/evaluations/EvaluationScreen2.jsx';
+import LosVerbosScreen1 from './src/components/screens/verbs/LosVerbosScreen1.jsx';
+import LosVerbosConjugacionesScreen1 from './src/components/screens/verbs/LosVerbosConjugacionesScreen1.jsx';
+import LosAdjetivosScreen1 from './src/components/screens/adjectives/LosAdjetivosScreen1.jsx';
+import VocabularioLaCiudadScreen from './src/components/screens/vocabulary/VocabularioLaCiudadScreen.jsx';
+import GameScreen3 from './src/components/screens/games/GameScreen3.jsx';
+import EvaluationScreen3 from './src/components/screens/evaluations/EvaluationScreen3.jsx';
+import CaminoLevelsScreen from './src/components/screens/misc/CaminoLevelsScreen.jsx';
+import VocabularioLaCocinaScreen from './src/components/screens/vocabulary/VocabularioLaCocinaScreen.jsx';
+import LosAdjetivosScreen2 from './src/components/screens/adjectives/LosAdjetivosScreen2.jsx';
+import VocabularioElDormitorioScreen from './src/components/screens/vocabulary/VocabularioElDormitorioScreen.jsx';
+import VocabularioLaUbicacionScreen from './src/components/screens/vocabulary/VocabularioLaUbicacionScreen.jsx';
+import GameScreen4 from './src/components/screens/games/GameScreen4.jsx';
+import EvaluationScreen4 from './src/components/screens/evaluations/EvaluationScreen4.jsx';
+import VocabularioElTiempoScreen from './src/components/screens/vocabulary/VocabularioElTiempoScreen.jsx';
+import ElPasadoSimpleScreen from './src/components/screens/conjugations/past/ElPasadoSimpleScreen.jsx';
+import ElParticipioPasadoScreen from './src/components/screens/conjugations/past/ElParticipioPasadoScreen.jsx';
+import ElPasadoProgresivoScreen from './src/components/screens/conjugations/past/ElPasadoProgresivoScreen.jsx';
+import LosVerbosScreen2 from './src/components/screens/verbs/LosVerbosScreen2.jsx';
+import GameScreen5 from './src/components/screens/games/GameScreen5.jsx';
+import EvaluationScreen5 from './src/components/screens/evaluations/EvaluationScreen5.jsx';
+import ConjugacionTiempoPresenteProgresivoScreen from './src/components/screens/conjugations/present/ConjugacionTiempoPresenteProgresivoScreen.jsx';
+import ElFuturoProximoScreen from './src/components/screens/conjugations/future/ElFuturoProximoScreen.jsx';
+import ElFuturoSimpleScreen from './src/components/screens/conjugations/future/ElFuturoSimpleScreen.jsx';
+import GameScreen6 from './src/components/screens/games/GameScreen6.jsx';
+import EvaluationScreen6 from './src/components/screens/evaluations/EvaluationScreen6.jsx';
 import { View, Text } from 'react-native';
 import { styles } from './styles/globalStyles';
-import HangmanGame from './src/components/HangmanGame.jsx';
-import MatchGame from './src/components/MatchGame.jsx';
-import Module1 from './src/components/Module1.jsx';
-import ProgresoScreen from './src/components/ProgresoScreen.jsx';
-import CarouselExampleScreen from './src/components/CarouselExampleScreen.jsx';
+import HangmanGame from './src/components/ui/HangmanGame.jsx';
+import MatchGame from './src/components/ui/MatchGame.jsx';
+import Module1 from './src/components/modules/Module1.jsx';
+import ProgresoScreen from './src/components/screens/ProgresoScreen.jsx';
+import CarouselExampleScreen from './src/components/ui/CarouselExampleScreen.jsx';
+import EvaluationScreen1 from './src/components/screens/evaluations/EvaluationScreen1.jsx';
+import GameScreen1 from './src/components/screens/games/GameScreen1.jsx';
 
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+*/
 
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import Test from './src/components/screens/AnimalsScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+
+  return (
+    <NavigationContainer>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Test/>
+      </View>
+    </NavigationContainer>
+  );
+}
+
+/*
 function HomeStack() {
   return (
     <Stack.Navigator
@@ -104,8 +128,8 @@ function HomeStack() {
         options={{ title: 'Los Animales' }}
       />
       <Stack.Screen
-        name="Particles"
-        component={ParticlesScreen}
+        name="ParticlesPart1"
+        component={ParticlesPart1Screen}
         options={{ title: 'Las Partículas en Kichwa Parte 1' }}
       />
       <Stack.Screen
@@ -124,14 +148,14 @@ function HomeStack() {
         options={{ title: 'Emparejar - Parte 1' }}
       />
       <Stack.Screen
-        name="Game"
-        component={GameScreen}
+        name="Game1"
+        component={GameScreen1}
         options={{ title: 'Juego de Repaso Evaluación - Parte 1' }}
       />
 
       <Stack.Screen
-        name="Evaluation"
-        component={EvaluationScreen}
+        name="Evaluation1"
+        component={EvaluationScreen1}
         options={{ title: 'Evaluación - Parte 1' }}
       />
       <Stack.Screen
@@ -352,3 +376,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+  
+*/
