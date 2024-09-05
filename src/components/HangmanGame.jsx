@@ -1,10 +1,12 @@
 // src/components/HangmanGame.jsx
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView, TouchableWithoutFeedback, Modal, Image } from 'react-native';
 import ConfettiCannon from 'react-native-confetti-cannon';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../styles/globalStyles';
-const HangmanGame = ({ words, onNext }) => {
+import { FontAwesome } from '@expo/vector-icons';
+
+const HangmanGame = ({ words, onNext, helpText }) => {
     const navigation = useNavigation();
 
     const [selectedWord, setSelectedWord] = useState(words[Math.floor(Math.random() * words.length)]);
@@ -12,6 +14,7 @@ const HangmanGame = ({ words, onNext }) => {
     const [wrongGuesses, setWrongGuesses] = useState(0);
     const [showConfetti, setShowConfetti] = useState(false);
     const [gameWon, setGameWon] = useState(false);
+    const [showHelp, setShowHelp] = useState(false);  // Estado para mostrar la ayuda del juego
 
     const handleGuess = (letter) => {
         if (selectedWord.word.includes(letter)) {
@@ -73,6 +76,10 @@ const HangmanGame = ({ words, onNext }) => {
     return (
         <ScrollView>
             <View style={stylesHangman.container}>
+                {/* Icono de ayuda */}
+                <TouchableOpacity style={stylesHangman.helpIcon} onPress={() => setShowHelp(true)}>
+                    <FontAwesome name="question-circle" size={40} color="#fff" />
+                </TouchableOpacity>
                 <Text style={stylesHangman.title}>Ahorcado Kichuano</Text>
                 <Text style={stylesHangman.translation}>Traducción: {selectedWord.translation}</Text>
                 {renderHangman()}
@@ -91,6 +98,23 @@ const HangmanGame = ({ words, onNext }) => {
                 >
                     <Text style={stylesHangman.restartButtonText}>Reiniciar</Text>
                 </TouchableOpacity>
+                {/* Modal de ayuda */}
+                <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
+                    <View style={stylesHangman.modalContainer}>
+                        <View style={stylesHangman.modalContent}>
+                            <View style={stylesHangman.contentContainer}>
+                                <Image source={require('../../assets/images/myths/huma2.png')} style={stylesHangman.image} />
+                                <View style={stylesHangman.speechBubble}>
+                                    <Text style={stylesHangman.bubbleText}>{helpText}</Text>
+                                    <View style={stylesHangman.bubbleTail} />
+                                </View>
+                            </View>
+                            <TouchableOpacity onPress={() => setShowHelp(false)}>
+                                <Text style={stylesHangman.closeButtonText}>Cerrar</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </Modal>
                 {showConfetti && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} fadeOut />}
                 {gameWon && (
                     <View>
@@ -254,6 +278,71 @@ const stylesHangman = StyleSheet.create({
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    helpIcon: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    modalContent: {
+        width: 300,
+        padding: 20,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+    contentContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    image: {
+        width: 100,
+        height: 150,
+        resizeMode: 'contain',
+    },
+    speechBubble: {
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        borderWidth: 2,
+        borderColor: '#ddd',
+        padding: 15,
+        maxWidth: '70%',
+        position: 'relative',
+    },
+    bubbleText: {
+        fontSize: 16,
+        color: '#000',
+        textAlign: 'center',
+    },
+    bubbleTail: {
+        position: 'absolute',
+        left: -20,
+        top: '50%',
+        width: 0,
+        height: 0,
+        borderTopWidth: 10,
+        borderBottomWidth: 10,
+        borderRightWidth: 20,
+        borderStyle: 'solid',
+        borderTopColor: 'transparent',
+        borderBottomColor: 'transparent',
+        borderRightColor: '#ddd',
+    },
+    closeButtonText: {
+        marginTop: 20,
+        color: '#822929',
+        fontSize: 18,
+    },
+    nextButtonText: {
+        color: '#822929',
+        fontSize: 18,
+        marginTop: 20,
     },
 });
 

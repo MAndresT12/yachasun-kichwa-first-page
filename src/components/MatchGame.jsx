@@ -1,8 +1,9 @@
 // src/components/MatchGame.jsx
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image, TouchableWithoutFeedback, Modal } from 'react-native';
 import ConfettiCannon from 'react-native-confetti-cannon';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import { FontAwesome } from '@expo/vector-icons';
 
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
@@ -37,12 +38,13 @@ const Card = ({ card, isFlipped, onPress }) => {
     );
 };
 
-const MatchGame = ({ data, onNext }) => {
+const MatchGame = ({ data, onNext, helpText }) => {
     const [cards, setCards] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
     const [matchedPairs, setMatchedPairs] = useState([]);
     const [showConfetti, setShowConfetti] = useState(false);
     const [showNextButton, setShowNextButton] = useState(false);
+    const [showHelp, setShowHelp] = useState(false);  // Estado para mostrar la ayuda del juego
 
     const resetGame = useCallback(() => {
         const shuffledCards = shuffleArray([...data, ...data]);
@@ -81,6 +83,10 @@ const MatchGame = ({ data, onNext }) => {
 
     return (
         <ScrollView contentContainerStyle={stylesMatch.container}>
+            {/* Icono de ayuda */}
+            <TouchableOpacity style={stylesMatch.helpIcon} onPress={() => setShowHelp(true)}>
+                <FontAwesome name="question-circle" size={40} color="#fff" />
+            </TouchableOpacity>
             <Text style={stylesMatch.title}>Emparejar</Text>
             <View style={stylesMatch.grid}>
                 {cards.map((card, index) => (
@@ -95,6 +101,23 @@ const MatchGame = ({ data, onNext }) => {
             <TouchableOpacity style={stylesMatch.resetButton} onPress={resetGame}>
                 <Text style={stylesMatch.resetButtonText}>Reiniciar</Text>
             </TouchableOpacity>
+            {/* Modal de ayuda */}
+            <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
+                <View style={stylesMatch.modalContainer}>
+                    <View style={stylesMatch.modalContent}>
+                        <View style={stylesMatch.contentContainer}>
+                            <Image source={require('../../assets/images/myths/huma2.png')} style={stylesMatch.image} />
+                            <View style={stylesMatch.speechBubble}>
+                                <Text style={stylesMatch.bubbleText}>{helpText}</Text>
+                                <View style={stylesMatch.bubbleTail} />
+                            </View>
+                        </View>
+                        <TouchableOpacity onPress={() => setShowHelp(false)}>
+                            <Text style={stylesMatch.closeButtonText}>Cerrar</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
             {showNextButton && (
                 <TouchableOpacity style={stylesMatch.nextButton} onPress={onNext}>
                     <Text style={stylesMatch.nextButtonText}>Siguiente</Text>
@@ -173,6 +196,71 @@ const stylesMatch = StyleSheet.create({
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    helpIcon: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    modalContent: {
+        width: 300,
+        padding: 20,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+    contentContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    image: {
+        width: 100,
+        height: 150,
+        resizeMode: 'contain',
+    },
+    speechBubble: {
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        borderWidth: 2,
+        borderColor: '#ddd',
+        padding: 15,
+        maxWidth: '70%',
+        position: 'relative',
+    },
+    bubbleText: {
+        fontSize: 16,
+        color: '#000',
+        textAlign: 'center',
+    },
+    bubbleTail: {
+        position: 'absolute',
+        left: -20,
+        top: '50%',
+        width: 0,
+        height: 0,
+        borderTopWidth: 10,
+        borderBottomWidth: 10,
+        borderRightWidth: 20,
+        borderStyle: 'solid',
+        borderTopColor: 'transparent',
+        borderBottomColor: 'transparent',
+        borderRightColor: '#ddd',
+    },
+    closeButtonText: {
+        marginTop: 20,
+        color: '#822929',
+        fontSize: 18,
+    },
+    nextButtonText: {
+        color: '#822929',
+        fontSize: 18,
+        marginTop: 20,
     },
 });
 

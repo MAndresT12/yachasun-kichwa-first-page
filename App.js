@@ -50,6 +50,7 @@ import { styles } from './styles/globalStyles';
 import HangmanGame from './src/components/HangmanGame.jsx';
 import MatchGame from './src/components/MatchGame.jsx';
 import Module1 from './src/components/Module1.jsx';
+import IntroduccionJuegoScreen from './src/components/IntroduccionJuegosScreen.jsx';
 import ProgresoScreen from './src/components/ProgresoScreen.jsx';
 import CarouselExampleScreen from './src/components/CarouselExampleScreen.jsx';
 
@@ -107,6 +108,11 @@ function HomeStack() {
         name="Particles"
         component={ParticlesScreen}
         options={{ title: 'Las Partículas en Kichwa Parte 1' }}
+      />
+      <Stack.Screen
+        name="IntroduccionJuegosScreen1"
+        component={IntroduccionJuegoScreen}
+        options={{ title: 'Games' }}
       />
       <Stack.Screen
         name="Module1"

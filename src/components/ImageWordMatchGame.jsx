@@ -1,7 +1,8 @@
 // src/components/ImageWordMatchGame.jsx
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image, TouchableWithoutFeedback, Modal } from 'react-native';
 import ConfettiCannon from 'react-native-confetti-cannon';
+import { FontAwesome } from '@expo/vector-icons';
 
 // Función para generar un color aleatorio claro
 const getRandomLightColor = () => {
@@ -13,7 +14,7 @@ const getRandomLightColor = () => {
 
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
-const ImageWordMatchGame = ({ data, onNext }) => {
+const ImageWordMatchGame = ({ data, onNext, helpText }) => {
     const [images, setImages] = useState([]);
     const [words, setWords] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
@@ -22,6 +23,7 @@ const ImageWordMatchGame = ({ data, onNext }) => {
     const [showConfetti, setShowConfetti] = useState(false);
     const [showNextButton, setShowNextButton] = useState(false);
     const [matchColors, setMatchColors] = useState({});
+    const [showHelp, setShowHelp] = useState(false);  // Estado para mostrar la ayuda del juego
 
     useEffect(() => {
         resetGame();
@@ -85,7 +87,15 @@ const ImageWordMatchGame = ({ data, onNext }) => {
 
     return (
         <ScrollView contentContainerStyle={stylesGame.container}>
-            <Text style={stylesGame.title}>Empareja las Imágenes con las Palabras</Text>
+
+            <View style={stylesGame.titleContainer}>
+                <Text style={stylesGame.title}>Empareja las Imágenes con las Palabras</Text>
+
+            </View>
+            {/* Icono de ayuda */}
+            <TouchableOpacity style={stylesGame.helpIcon} onPress={() => setShowHelp(true)}>
+                <FontAwesome name="question-circle" size={40} color="#fff" />
+            </TouchableOpacity>
             <View style={stylesGame.gridContainer}>
                 <View style={stylesGame.column}>
                     {images.map((item, index) => {
@@ -131,6 +141,23 @@ const ImageWordMatchGame = ({ data, onNext }) => {
             <TouchableOpacity style={stylesGame.resetButton} onPress={resetGame}>
                 <Text style={stylesGame.resetButtonText}>Reiniciar</Text>
             </TouchableOpacity>
+            {/* Modal de ayuda */}
+            <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
+                <View style={stylesGame.modalContainer}>
+                    <View style={stylesGame.modalContent}>
+                        <View style={stylesGame.contentContainer}>
+                            <Image source={require('../../assets/images/myths/huma2.png')} style={stylesGame.imageModal} />
+                            <View style={stylesGame.speechBubble}>
+                                <Text style={stylesGame.bubbleText}>{helpText}</Text>
+                                <View style={stylesGame.bubbleTail} />
+                            </View>
+                        </View>
+                        <TouchableOpacity onPress={() => setShowHelp(false)}>
+                            <Text style={stylesGame.closeButtonText}>Cerrar</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
             {showNextButton && (
                 <TouchableOpacity style={stylesGame.nextButton} onPress={onNext}>
                     <Text style={stylesGame.nextButtonText}>Siguiente</Text>
@@ -149,10 +176,16 @@ const stylesGame = StyleSheet.create({
         padding: 15,
         backgroundColor: '#18a7ac',
     },
+    titleContainer: {
+        position: 'relative',  // Permite que el icono esté en posición absoluta respecto al contenedor
+        alignItems: 'center',  // Centra el contenido horizontalmente dentro del contenedor
+        marginBottom: 20,
+    },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 20,
+        textAlign: 'center',  // Centra el texto
+        paddingHorizontal: 30,  // Deja espacio para el icono
     },
     gridContainer: {
         flexDirection: 'row',
@@ -215,6 +248,71 @@ const stylesGame = StyleSheet.create({
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    helpIcon: {
+        position: 'absolute',  // Posición absoluta respecto al contenedor
+        top: 20,
+        right: 20,
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    modalContent: {
+        width: 300,
+        padding: 20,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+    contentContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    imageModal: {
+        width: 100,
+        height: 150,
+        resizeMode: 'contain',
+    },
+    speechBubble: {
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        borderWidth: 2,
+        borderColor: '#ddd',
+        padding: 15,
+        maxWidth: '70%',
+        position: 'relative',
+    },
+    bubbleText: {
+        fontSize: 16,
+        color: '#000',
+        textAlign: 'center',
+    },
+    bubbleTail: {
+        position: 'absolute',
+        left: -20,
+        top: '50%',
+        width: 0,
+        height: 0,
+        borderTopWidth: 10,
+        borderBottomWidth: 10,
+        borderRightWidth: 20,
+        borderStyle: 'solid',
+        borderTopColor: 'transparent',
+        borderBottomColor: 'transparent',
+        borderRightColor: '#ddd',
+    },
+    closeButtonText: {
+        marginTop: 20,
+        color: '#822929',
+        fontSize: 18,
+    },
+    nextButtonText: {
+        color: '#822929',
+        fontSize: 18,
+        marginTop: 20,
     },
 });
 
