@@ -15,7 +15,7 @@ const alphabet_data = [
     { letters: "H h", imageLetter: "", pronunciation: "/ha/", kichwa: "hatun wasi", spanish: "edificio", imageExample: "https://img.freepik.com/foto-gratis/vista-edificio-arquitectura-estilo-dibujos-animados_23-2151154971.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid" },
     { letters: "K k", imageLetter: "", pronunciation: "/ka/", kichwa: "kawitu", spanish: "cama", imageExample: "https://img.freepik.com/vector-gratis/goldilocks-tres-osos-cama_1308-168802.jpg" },
     { letters: "L l", imageLetter: "", pronunciation: "/la/", kichwa: "lumu", spanish: "yuca", imageExample: "https://www.mercontrol.com/wp-content/uploads/2023/03/Que-es-la-yuca.-Propiedades-y-beneficios.jpg" },
-    { letters: "Lla ll", imageLetter: "", pronunciation: "/lla/-/sha/", kichwa: "llakta", spanish: "ciudad", imageExample: "https://img.freepik.com/vector-gratis/calle-ciudad-vectores_23-2147751403.jpg" },
+    { letters: "Ll ll", imageLetter: "", pronunciation: "/lla/-/sha/", kichwa: "llakta", spanish: "ciudad", imageExample: "https://img.freepik.com/vector-gratis/calle-ciudad-vectores_23-2147751403.jpg" },
     { letters: "M m", imageLetter: "", pronunciation: "/ma/", kichwa: "misi", spanish: "gato", imageExample: "https://img.freepik.com/vector-gratis/ilustracion-icono-vector-dibujos-animados-lindo-gato-sentado-concepto-icono-naturaleza-animal-aislado-premium-vector-estilo-dibujos-animados-plana_138676-4148.jpg" },
     { letters: "N n", imageLetter: "", pronunciation: "/na/", kichwa: "napana", spanish: "saludar", imageExample: "https://s3.voyapon.com/wp-content/uploads/sites/3/2020/03/20034614/aisatsu_sayounara.png" },
     { letters: "Ñ ñ", imageLetter: "", pronunciation: "/ña/", kichwa: "ñan", spanish: "camino", imageExample: "https://img.freepik.com/foto-gratis/tiro-horizontal-arbol-aislado-campo-verde-camino-cielo-nublado_181624-5064.jpg" },
@@ -52,12 +52,12 @@ const Alphabet = () => {
                     <Text style={styles.titleTema}>Alfabeto</Text>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="El Alfabeto en Kichwa" content="Conoce el alfabeto en Kichwa usando ejemplos en español." />
+                    <CardDefault title="El Alfabeto en Kichwa" content="Conoce el alfabeto en Kichwa usando ejemplos en español. Presiona para ver más detalles." />
                     <View style={styles.gridContainer}>
                         {alphabet_data.map((letter) => (
                             <TouchableWithoutFeedback key={letter.letters} onPress={() => handleLetterPress(letter)}>
                                 <View style={styles.cardInGrid}>
-                                    <CardDefault title={letter.letters} content="Presiona para ver más detalles." styleCard={cardStyles.cardPopUp} />
+                                    <CardDefault title={letter.letters} styleCard={cardStyles.cardPopUp} />
                                 </View>
                             </TouchableWithoutFeedback>
                         ))}
