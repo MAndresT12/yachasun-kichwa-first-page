@@ -22,3 +22,7 @@
 - Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe.....
 - Para números no queda el contador porque toca moverse full no vale
 - imagenes animadas un estadar, si vamos a usar ai el mismo prompt
+- Poner todos los estilos en el global para luego cambiar
+
+
+- Completar palabras con hints

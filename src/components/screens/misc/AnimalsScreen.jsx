@@ -6,6 +6,7 @@ import { styles } from '../../../../styles/globalStyles'
 import { useNavigation } from '@react-navigation/native';
 
 import { CardDefault } from '../../ui/cards/CardDefault';
+import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 
 const animalsData = [
     { kichwa: "allku", spanish: "perro", image: "https://img.freepik.com/vector-premium/lindo-vector-caricatura-perro-cachorro-sabueso_549857-8253.jpg?w=360" },
@@ -45,7 +46,8 @@ const renderAnimalRows = () => {
     return animalsData.map((item, index) => (
         <View key={index} style={styles.tableRow}>
             <View style={localStyles.imageContainer}>
-                <Image source={{ uri: item.image }} style={localStyles.animalImage} />
+                <ImageContainer uri={item.image} style={localStyles.animalImage}/>
+                {/* <Image source={{ uri: item.image }} style={localStyles.animalImage} /> */}
             </View>
             <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
