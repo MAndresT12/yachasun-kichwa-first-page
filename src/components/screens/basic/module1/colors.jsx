@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, Modal, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
-import { imageStyles } from '../../../../../styles/imageStyles';
-import { buttonStyles } from '../../../../../styles/buttonStyles';
-import { cardStyles } from '../../../../../styles/cardStyles';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
-import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 
 const colors_data = [
     { kichwa: "puka", spanish: "rojo", hexadecimalColor: "#FF0000" },
