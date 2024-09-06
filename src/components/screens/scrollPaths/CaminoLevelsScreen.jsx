@@ -92,7 +92,7 @@ const CaminoLevelsScreen = () => {
                     <BouncyText >Evaluación 1</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Game')}
+                        onPress={() => navigation.navigate('Game1')}
                     >
                     </TouchableOpacity>
                 </View>

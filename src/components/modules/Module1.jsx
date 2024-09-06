@@ -41,15 +41,15 @@ const Module1 = () => {
     const [currentGame, setCurrentGame] = useState(0);
 
     const games = [
+        <HangmanGame key="hangman" words={wordsModule1} helpText="¡Bienvenido al Ahorcado! Debes adivinar las letras de la palabra secreta. Si te equivocas 6 veces, ¡el muñequito se colgará! ¡Piensa rápido y diviértete!"
+            onNext={() => navigation.navigate('Game')} />,
+        //Aca iran mas juegos, en el ultimo juego colocar el navigation.navigate('Game') para que diriga a pantalla de evaluacion
         <MatchGame key="match" data={foodModule1} helpText="¡Hola, pequeño aventurero! En este juego debes emparejar las cartas. Encuentra las imágenes que son iguales y haz clic en ellas. Si te equivocas, no te preocupes, las cartas se voltearán para que lo intentes de nuevo. ¡Recuerda bien las cartas y diviértete encontrando todos los pares!"
             onNext={() => setCurrentGame(currentGame + 1)} />,
         <ImageWordMatchGame key="matching" data={animalsModule1} helpText="¡Bienvenido a la aventura de palabras y dibujos! En este juego debes unir las imágenes con su nombre en kichwa. Mira con atención los dibujos y selecciona la palabra correcta que lo describe. Si te equivocas, ¡no pasa nada! Sigue jugando y aprende cada vez más. ¡A divertirse mientras aprendes kichwa!"
             onNext={() => setCurrentGame(currentGame + 1)} />,
 
 
-        <HangmanGame key="hangman" words={wordsModule1} helpText="¡Bienvenido al Ahorcado! Debes adivinar las letras de la palabra secreta. Si te equivocas 6 veces, ¡el muñequito se colgará! ¡Piensa rápido y diviértete!"
-            onNext={() => navigation.navigate('Game')} />,
-        //Aca iran mas juegos, en el ultimo juego colocar el navigation.navigate('Game') para que diriga a pantalla de evaluacion
         //Caso contrario setCurrentGame(currentGame + 1) para que siga pasando por todos los juegos
     ];
 
