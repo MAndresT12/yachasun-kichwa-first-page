@@ -25,4 +25,8 @@ export const buttonStyles = StyleSheet.create({
         justifyContent: 'space-around',
         marginBottom: 30,
     },
+    buttonFirstNumbers: {
+        width: "auto",
+        backgroundColor: 'white',
+    },
 });

@@ -23,8 +23,10 @@ export const imageStyles = StyleSheet.create({
     },
     halfImage: {
         width: 100,
-        height: 100, 
-        borderRadius: 25,
-        resizeMode: 'contain',
+        height: 100,
+    },
+    iconImage: {
+        width: 16,
+        height: 16,
     },
 });

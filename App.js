@@ -57,6 +57,8 @@ import ProgresoScreen from './src/components/menus/ProgresoScreen.jsx';
 import CarouselExampleScreen from './src/components/ui/CarouselExampleScreen.jsx';
 
 import Alphabet from './src/components/screens/basic/module1/Alphabet.jsx';
+import FirstNumbers from './src/components/screens/basic/module1/FirstNumbers.jsx';
+import Colors from './src/components/screens/basic/module1/Colors.jsx';
 
 
 const Stack = createStackNavigator();
@@ -107,6 +109,16 @@ function HomeStack() {
         name="Alphabet"
         component={Alphabet}
         options={{ title: 'Yachasun Kichwa - El Alfabeto' }}
+      />
+      <Stack.Screen
+        name="FirstNumbers"
+        component={FirstNumbers}
+        options={{ title: 'Yachasun Kichwa - Los Números del 1 al 500' }}
+      />
+      <Stack.Screen
+        name="Colors"
+        component={Colors}
+        options={{ title: 'Yachasun Kichwa - Los Colores' }}
       />
       <Stack.Screen
         name="Main"

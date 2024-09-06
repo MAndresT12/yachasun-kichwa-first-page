@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, Modal, Image } from 'react-native';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { cardStyles } from '../../../../../styles/cardStyles';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 
-const alphabetData = [
+const alphabet_data = [
     { letters: "A a", imageLetter: "", pronunciation: "/a/", kichwa: "allik", spanish: "derecha", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
     { letters: "I i", imageLetter: "", pronunciation: "/i/", kichwa: "iskun", spanish: "nueve", imageExample: "https://cdn5.dibujos.net/dibujos/pintados/201218/numero-9-letras-y-numeros-numeros-pintado-por-meulois-9737798.jpg" },
     { letters: "U u", imageLetter: "", pronunciation: "/u/", kichwa: "uma", spanish: "cabeza", imageExample: "https://static.vecteezy.com/system/resources/previews/002/508/274/non_2x/young-teenager-boy-kid-head-character-vector.jpg" },
@@ -52,14 +51,17 @@ const Alphabet = () => {
                 <View style={styles.header}>
                     <Text style={styles.titleTema}>Alfabeto</Text>
                 </View>
-                <View style={styles.gridContainer}>
-                    {alphabetData.map((letter) => (
-                        <TouchableWithoutFeedback key={letter.letters} onPress={() => handleLetterPress(letter)}>
-                            <View style={styles.cardInGrid}>
-                                <CardDefault title={letter.letters} content="Presiona para ver más detalles." styleCard={cardStyles.cardPopUp}/>
-                            </View>
-                        </TouchableWithoutFeedback>
-                    ))}
+                <View style={styles.body}>
+                    <CardDefault title="El Alfabeto en Kichwa" content="Conoce el alfabeto en Kichwa usando ejemplos en español." />
+                    <View style={styles.gridContainer}>
+                        {alphabet_data.map((letter) => (
+                            <TouchableWithoutFeedback key={letter.letters} onPress={() => handleLetterPress(letter)}>
+                                <View style={styles.cardInGrid}>
+                                    <CardDefault title={letter.letters} content="Presiona para ver más detalles." styleCard={cardStyles.cardPopUp} />
+                                </View>
+                            </TouchableWithoutFeedback>
+                        ))}
+                    </View>
                 </View>
                 {selectedLetter && (
                     <Modal
@@ -77,13 +79,16 @@ const Alphabet = () => {
                                     <Text style={styles.kichwaText}>Kichwa: {selectedLetter.kichwa}</Text>
                                     <Text style={styles.spanishText}>Español: {selectedLetter.spanish}</Text>
                                 </View>
-                                <ButtonDefault label="Cerrar" onPress={() => setModalVisible(false)} />
+                                {/*<ButtonDefault label="Cerrar" onPress={() => setModalVisible(false)} /> Toca hacer un nuevo componente para esto dado que el default no vale*/}
+                                <TouchableOpacity onPress={() => setModalVisible(false)}>
+                                    <Text style={styles.modalCloseButton}>Cerrar</Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </Modal>
                 )}
                 <View style={styles.footer}>
-                    <ButtonDefault label="Login" onPress={navigation.navigate('FirstNumbers')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FirstNumbers')} />
                 </View>
             </ScrollView>
         </View>
