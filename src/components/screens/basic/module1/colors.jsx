@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, Modal, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../styles/globalStyles';
+import { styles } from '../../../../../styles/globalStyles';
+import { imageStyles } from '../../../../../styles/imageStyles';
+import { buttonStyles } from '../../../../../styles/buttonStyles';
+import { cardStyles } from '../../../../../styles/cardStyles';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
-import { CardDefault } from '../ui/cards/CardDefault';
+import { CardDefault } from '../../../ui/cards/CardDefault';
+import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 
-const numberData = [
-    { numero: "1000", kichwa: "shuk waranka", spanish: "mil" },
-    { numero: "1001", kichwa: "shuk waranka shuk", spanish: "mil uno" },
-    { numero: "1010", kichwa: "shuk waranka chunka", spanish: "mil diez" },
-    { numero: "1100", kichwa: "shuk waranka patsak", spanish: "mil cien" },
-    { numero: "1200", kichwa: "shuk waranka ishkay patsak", spanish: "mil doscientos" },
-    { numero: "2000", kichwa: "ishkay waranka", spanish: "dos mil" },
-    { numero: "3000", kichwa: "kimsa waranka", spanish: "tres mil" },
-    { numero: "4000", kichwa: "chunka waranka", spanish: "cuatro mil" },
-    { numero: "5000", kichwa: "pichka waranka", spanish: "cinco mil" },
-    { numero: "10000", kichwa: "chunka waranka", spanish: "diez mil" },
-    { numero: "20000", kichwa: "ishkay chunka waranka", spanish: "veinte mil" },
-    { numero: "100000", kichwa: "patsak waranka", spanish: "cien mil" },
-    { numero: "500000", kichwa: "pichka patsak waranka", spanish: "quinientos mil" },
-    { numero: "1000000", kichwa: "hunu", spanish: "millón" },
+const colors_data = [
+    { kichwa: "puka", spanish: "rojo", hexadecimalColor: "#FF0000" },
+    { kichwa: "ankas", spanish: "azul", hexadecimalColor: "#0000FF" },
+    { kichwa: "killu", spanish: "amarillo", hexadecimalColor: "#FFFF00" },
+    { kichwa: "waylla", spanish: "verde", hexadecimalColor: "#00FF00" },
+    { kichwa: "yana", spanish: "negro", hexadecimalColor: "#000000" },
+    { kichwa: "yurak", spanish: "blanco", hexadecimalColor: "#FFFFFF" },
+    { kichwa: "yanalla ankas", spanish: "azul marino", hexadecimalColor: "#000080" },
+    { kichwa: "chawa ankas", spanish: "celeste", hexadecimalColor: "#87CEEB" },
+    { kichwa: "chawa killu", spanish: "amarillo claro", hexadecimalColor: "#FFFFE0" },
+    { kichwa: "chawa wayllu", spanish: "verde claro", hexadecimalColor: "#90EE90" },
+    { kichwa: "paku", spanish: "café", hexadecimalColor: "#8B4513" },
+    { kichwa: "waminsi", spanish: "rosado", hexadecimalColor: "#FFC0CB" },
+    { kichwa: "maywa", spanish: "morado", hexadecimalColor: "#800080" },
+    { kichwa: "suku", spanish: "plomo", hexadecimalColor: "#808080" },
+    { kichwa: "kishpu", spanish: "naranja", hexadecimalColor: "#FFA500" },
 ];
 
 const FlipCard = ({ item }) => {
@@ -43,20 +49,19 @@ const FlipCard = ({ item }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <Text style={styles.numberText}>{item.numero}</Text>
+                    <Text style={styles.title}>{item.spanish}</Text>
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
                     <Text style={styles.translationLabel}>Kichwa:</Text>
                     <Text style={styles.translationText}>{item.kichwa}</Text>
-                    <Text style={styles.translationLabel}>Español:</Text>
-                    <Text style={styles.translationText}>{item.spanish}</Text>
+                    <View style={[styles.colorBox, { backgroundColor: item.hexadecimalColor }]} />
                 </Animated.View>
             </View>
         </TouchableWithoutFeedback>
     );
 };
 
-const Main = () => {
+const Colors = () => {
     const navigation = useNavigation();
 
     return (
@@ -67,31 +72,26 @@ const Main = () => {
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
                 <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los números</Text>
+                    <Text style={styles.titleTema}>Los Colores</Text>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="Números en Kichwa">
-                        <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en español.</Text>
+                    <CardDefault title="Colores en Kichwa" content="Aprende los colores en Kichwa y su correspondencia en español.">
                     </CardDefault>
                     <View style={styles.gridContainer}>
-                        {numberData.map((item, index) => (
+                        {colors_data.map((item, index) => (
                             <FlipCard key={index} item={item} />
                         ))}
                     </View>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Food'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ToCount')} />
                 </View>
             </ScrollView>
         </View>
     );
 };
 
-export default Main;
+export default Colors;
 
 
 

@@ -4,14 +4,15 @@ import { useNavigation } from '@react-navigation/native';
 import { buttonStyles } from '../../../../styles/buttonStyles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export const ButtonDefault = ({ label = 'Siguiente', onPress, style }) => {
+export const ButtonDefault = ({ children, label = 'Siguiente', onPress, styleContainer, styleButton, showLabel = true }) => {
     const navigation = useNavigation();
 
     return (
-        <View style={[buttonStyles.buttonContainer, style]}>
+        <View style={[buttonStyles.buttonContainer, styleContainer]}>
             <TouchableOpacity onPress={onPress}>
-                <View style={buttonStyles.buttonDefault}>
-                    <Text style={buttonStyles.buttonText}>{label}</Text>
+                <View style={[buttonStyles.buttonDefault, styleButton]}>
+                    {showLabel && <Text style={buttonStyles.buttonText}>{label}</Text>}
+                    {children}
                 </View>
             </TouchableOpacity>
         </View>

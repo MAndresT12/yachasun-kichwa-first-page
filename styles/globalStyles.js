@@ -168,6 +168,12 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
         resizeMode: 'contain',
     },
+    modalCloseButton: {
+        color: 'red',
+        fontSize: 18,
+        textAlign: 'center',
+        padding: 10,
+    },
     pronunciation: {
         fontSize: 18,
         marginBottom: 10,
@@ -312,5 +318,27 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
+    },
+
+
+
+
+
+
+    row: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+        paddingHorizontal: 20,
+        paddingVertical: 2,
+    },
+
+
+    colorBox: {
+        width: 100,
+        height: 50,
+        marginTop: 10,
+        borderRadius: 10,
     },
 });
