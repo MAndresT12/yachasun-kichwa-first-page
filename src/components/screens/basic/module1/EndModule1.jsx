@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../styles/globalStyles';
+import { styles } from '../../../../../styles/globalStyles';
 
 const EndModule1 = ({ route }) => {
     const { score, totalQuestions } = route.params;

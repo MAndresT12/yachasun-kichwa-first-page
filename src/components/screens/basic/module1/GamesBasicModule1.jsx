@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import HangmanGame from '../ui/HangmanGame';
-import MatchGame from '../ui/MatchGame';
-import ImageWordMatchGame from '../ui/ImageWordMatchGame';
+import HangmanGame from '../../../ui/HangmanGame';
+import MatchGame from '../../../ui/MatchGame';
+import ImageWordMatchGame from '../../../ui/ImageWordMatchGame';
 import { useNavigation } from '@react-navigation/native';
 
 const colors_module1 = [

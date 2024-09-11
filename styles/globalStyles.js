@@ -420,4 +420,100 @@ export const styles = StyleSheet.create({
         width: "auto",
         backgroundColor: 'white',
     },
+
+
+
+
+
+    toggleCuriosities: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 10,
+        marginTop: 20,
+    },
+    curiositiesText: {
+        fontSize: 18,
+        textAlign: 'center',
+    },
+    arrowIcon: {
+        width: 20,
+        height: 20,
+        marginLeft: 10,
+    },
+    curiositiesContent: {
+        marginTop: 10,
+        alignItems: 'center',
+    },
+    characterImage: {
+        width: 100,
+        height: 100,
+    },
+    comicBubble: {
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#000',
+        padding: 15,
+        position: 'relative',
+        width: '80%',
+        marginTop: 10,
+    },
+    comicBubbleBefore: {
+        content: '',
+        position: 'absolute',
+        top: '100%',
+        left: '20%',
+        width: 0,
+        height: 0,
+        borderLeftWidth: 10,
+        borderRightWidth: 10,
+        borderTopWidth: 20,
+        borderStyle: 'solid',
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
+        borderTopColor: '#fff',
+        transform: [{ rotate: '45deg' }],
+    },
+
+    bubbleContainer: {
+        position: 'relative',
+        padding: 10,
+    },
+    bubble: {
+        backgroundColor: '#fff',
+        padding: 15,
+        borderRadius: 20,
+        maxWidth: '80%',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    bubbleText: {
+        fontSize: 16,
+        textAlign: 'center',
+    },
+    bubbleTail: {
+        position: 'absolute',
+        width: 50,
+        height: 50,
+        backgroundColor: '#fff',
+        left: 10,
+        bottom: -15,
+        transform: [{ rotate: '45deg' }],
+        borderBottomLeftRadius: 25,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
 });

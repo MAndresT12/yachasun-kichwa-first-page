@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../styles/globalStyles';
-import { CardDefault } from '../../ui/cards/CardDefault';
+import { styles } from '../../../../../styles/globalStyles';
+import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const questions = [
     {

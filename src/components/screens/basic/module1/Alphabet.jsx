@@ -6,6 +6,7 @@ import { cardStyles } from '../../../../../styles/cardStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
+import ComicBubble from '../../../ui/imageContainers/ComicBubble';
 
 const alphabet_data = [
     { letters: "A a", imageLetter: "", pronunciation: "/a/", kichwa: "allik", spanish: "derecha", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
@@ -33,12 +34,29 @@ const alphabet_data = [
 const Alphabet = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedLetter, setSelectedLetter] = useState(null);
+    const [showCuriosities, setShowCuriosities] = useState(false);
 
     const navigation = useNavigation();
 
     const handleLetterPress = (letterData) => {
         setSelectedLetter(letterData);
         setModalVisible(true);
+    };
+
+    const toggleCuriosities = () => {
+        setShowCuriosities(!showCuriosities);
+    };
+
+    const ComicBubble = ({ text }) => {
+        return (
+            <View style={styles.bubbleContainer}>
+                <View style={styles.bubble}>
+                    <Text style={styles.bubbleText}>{text}</Text>
+                    {/* Simular la colita del globo de diálogo */}
+                    <View style={styles.bubbleTail}></View>
+                </View>
+            </View>
+        );
     };
 
     return (
@@ -61,6 +79,25 @@ const Alphabet = () => {
                                 </View>
                             </TouchableWithoutFeedback>
                         ))}
+                    </View>
+                    <View>
+                        {/* Sección de datos curiosos */}
+                        <TouchableOpacity onPress={toggleCuriosities} style={styles.toggleCuriosities}>
+                            <Text style={styles.curiositiesText}>Datos curiosos del alfabeto</Text>
+                            <Image path='../../../../../assets/icons/arrow-down-16.png' style={styles.arrowIcon} />
+                        </TouchableOpacity>
+                        {showCuriosities && (
+                            <View style={styles.curiositiesContent}>
+                                <View style={styles.comicBubble}>
+                                    <ComicBubble
+                                        text="Sabías que en el kichwa no existen las letras c, q, g, d, b, v, f..."
+                                        backgroundColor="grey"
+                                        arrowDirection="left"
+                                    />
+                                </View>
+                                <ImageContainer path="../../../../../assets/images/humu/humu-talking.png" style={styles.characterImage} />
+                            </View>
+                        )}
                     </View>
                 </View>
                 {selectedLetter && (
