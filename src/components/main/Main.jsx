@@ -7,20 +7,20 @@ import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-na
 import { CardDefault } from '../ui/cards/CardDefault';
 
 const numberData = [
-    { numero: "1000", kichwa: "shuk waranka", spanish: "mil" },
-    { numero: "1001", kichwa: "shuk waranka shuk", spanish: "mil uno" },
-    { numero: "1010", kichwa: "shuk waranka chunka", spanish: "mil diez" },
-    { numero: "1100", kichwa: "shuk waranka patsak", spanish: "mil cien" },
-    { numero: "1200", kichwa: "shuk waranka ishkay patsak", spanish: "mil doscientos" },
-    { numero: "2000", kichwa: "ishkay waranka", spanish: "dos mil" },
-    { numero: "3000", kichwa: "kimsa waranka", spanish: "tres mil" },
-    { numero: "4000", kichwa: "chunka waranka", spanish: "cuatro mil" },
-    { numero: "5000", kichwa: "pichka waranka", spanish: "cinco mil" },
-    { numero: "10000", kichwa: "chunka waranka", spanish: "diez mil" },
-    { numero: "20000", kichwa: "ishkay chunka waranka", spanish: "veinte mil" },
-    { numero: "100000", kichwa: "patsak waranka", spanish: "cien mil" },
-    { numero: "500000", kichwa: "pichka patsak waranka", spanish: "quinientos mil" },
-    { numero: "1000000", kichwa: "hunu", spanish: "millón" },
+    { number: "1000", kichwa: "shuk waranka", spanish: "mil" },
+    { number: "1001", kichwa: "shuk waranka shuk", spanish: "mil uno" },
+    { number: "1010", kichwa: "shuk waranka chunka", spanish: "mil diez" },
+    { number: "1100", kichwa: "shuk waranka patsak", spanish: "mil cien" },
+    { number: "1200", kichwa: "shuk waranka ishkay patsak", spanish: "mil doscientos" },
+    { number: "2000", kichwa: "ishkay waranka", spanish: "dos mil" },
+    { number: "3000", kichwa: "kimsa waranka", spanish: "tres mil" },
+    { number: "4000", kichwa: "chunka waranka", spanish: "cuatro mil" },
+    { number: "5000", kichwa: "pichka waranka", spanish: "cinco mil" },
+    { number: "10000", kichwa: "chunka waranka", spanish: "diez mil" },
+    { number: "20000", kichwa: "ishkay chunka waranka", spanish: "veinte mil" },
+    { number: "100000", kichwa: "patsak waranka", spanish: "cien mil" },
+    { number: "500000", kichwa: "pichka patsak waranka", spanish: "quinientos mil" },
+    { number: "1000000", kichwa: "hunu", spanish: "millón" },
 ];
 
 const FlipCard = ({ item }) => {
@@ -44,7 +44,7 @@ const FlipCard = ({ item }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <Text style={styles.numberText}>{item.numero}</Text>
+                    <Text style={styles.numberText}>{item.number}</Text>
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
                     <Text style={styles.translationLabel}>Kichwa:</Text>
@@ -71,9 +71,7 @@ const Main = () => {
                     <Text style={styles.titleTema}>Los números</Text>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="Números en Kichwa">
-                        <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en español.</Text>
-                    </CardDefault>
+                    <CardDefault title="Números en Kichwa" content="Aprende los números en Kichwa y su correspondencia en español."/>
                     <View style={styles.gridContainer}>
                         {numberData.map((item, index) => (
                             <FlipCard key={index} item={item} />
@@ -126,7 +124,7 @@ export default Main;
 //     const renderNumberRows = () => {
 //         return numberData.map((item, index) => (
 //             <View key={index} style={styles.tableRow}>
-//                 <Text style={styles.tableCell}>{item.numero}</Text>
+//                 <Text style={styles.tableCell}>{item.number}</Text>
 //                 <Text style={styles.tableCell}>{item.kichwa}</Text>
 //                 <Text style={styles.tableCell}>{item.spanish}</Text>
 //             </View>

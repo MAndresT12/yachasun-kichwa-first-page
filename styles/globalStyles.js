@@ -56,17 +56,19 @@ export const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 5,
     },
-    cardTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
     cardContent: {
+        backgroundColor: '#f8f8f8',
+        borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: 16,
+    },
+    cardContentCardDefault: {
         marginTop: 10,
         fontSize: 16,
     },
     cardInGrid: {
-        width: '30%',
-        marginBottom: 20,
+        width: '40%',
     },
 
 
@@ -153,7 +155,7 @@ export const styles = StyleSheet.create({
     modalContent: {
         width: 300,
         backgroundColor: '#fff',
-        borderRadius: 20,
+        borderRadius: 8,
         padding: 20,
         alignItems: 'center',
         shadowColor: '#000',
@@ -339,6 +341,83 @@ export const styles = StyleSheet.create({
         width: 100,
         height: 50,
         marginTop: 10,
-        borderRadius: 10,
+        borderRadius: 8,
+        borderWidth: 2,
+        borderColor: 'black',
+    },
+
+
+
+
+    cardContainerInstructions: {
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        width: '100%',
+    },
+    instructionsCardStyle: {
+        width: '50%',
+        alignItems: 'flex-start',
+        padding: 5,
+    },
+    cardDefault: {
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        padding: 15,
+        marginVertical: 10,
+        width: 342,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 5,
+    },
+    cardTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    cardTitleAlphabet: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: 'red',
+    },
+    cardPopUp: {
+        width: '100%',
+        height: 150,
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        perspective: 1000,
+    },
+
+
+    buttonContainerAlphabet: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonDefaultAlphabet: {
+        backgroundColor: '#822929',
+        borderRadius: 40,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        width: 155,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 10,
+    },
+    buttonTextAlphabet: {
+        color: '#fff',
+        fontSize: 18,
+    },
+    buttonContainerSpaceAround: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginBottom: 30,
+    },
+    buttonFirstNumbers: {
+        width: "auto",
+        backgroundColor: 'white',
     },
 });

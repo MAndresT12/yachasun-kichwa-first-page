@@ -11,7 +11,7 @@ const alphabet_data = [
     { letters: "A a", imageLetter: "", pronunciation: "/a/", kichwa: "allik", spanish: "derecha", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
     { letters: "I i", imageLetter: "", pronunciation: "/i/", kichwa: "iskun", spanish: "nueve", imageExample: "https://cdn5.dibujos.net/dibujos/pintados/201218/numero-9-letras-y-numeros-numeros-pintado-por-meulois-9737798.jpg" },
     { letters: "U u", imageLetter: "", pronunciation: "/u/", kichwa: "uma", spanish: "cabeza", imageExample: "https://static.vecteezy.com/system/resources/previews/002/508/274/non_2x/young-teenager-boy-kid-head-character-vector.jpg" },
-    { letters: "Ch ch", imageLetter: "", pronunciation: "/a/", kichwa: "chukllu", spanish: "choclo", imageExample: "https://img.freepik.com/vector-gratis/simple-caricatura-maiz_1308-124847.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid" },
+    { letters: "Ch ch", imageLetter: "", pronunciation: "/cha/", kichwa: "chukllu", spanish: "choclo", imageExample: "https://img.freepik.com/vector-gratis/simple-caricatura-maiz_1308-124847.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid" },
     { letters: "H h", imageLetter: "", pronunciation: "/ha/", kichwa: "hatun wasi", spanish: "edificio", imageExample: "https://img.freepik.com/foto-gratis/vista-edificio-arquitectura-estilo-dibujos-animados_23-2151154971.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid" },
     { letters: "K k", imageLetter: "", pronunciation: "/ka/", kichwa: "kawitu", spanish: "cama", imageExample: "https://img.freepik.com/vector-gratis/goldilocks-tres-osos-cama_1308-168802.jpg" },
     { letters: "L l", imageLetter: "", pronunciation: "/la/", kichwa: "lumu", spanish: "yuca", imageExample: "https://www.mercontrol.com/wp-content/uploads/2023/03/Que-es-la-yuca.-Propiedades-y-beneficios.jpg" },
@@ -57,7 +57,7 @@ const Alphabet = () => {
                         {alphabet_data.map((letter) => (
                             <TouchableWithoutFeedback key={letter.letters} onPress={() => handleLetterPress(letter)}>
                                 <View style={styles.cardInGrid}>
-                                    <CardDefault title={letter.letters} styleCard={cardStyles.cardPopUp} />
+                                    <CardDefault title={letter.letters} styleCard={styles.cardPopUp} styleTitle={styles.cardTitleAlphabet} />
                                 </View>
                             </TouchableWithoutFeedback>
                         ))}
@@ -79,10 +79,13 @@ const Alphabet = () => {
                                     <Text style={styles.kichwaText}>Kichwa: {selectedLetter.kichwa}</Text>
                                     <Text style={styles.spanishText}>Español: {selectedLetter.spanish}</Text>
                                 </View>
-                                {/*<ButtonDefault label="Cerrar" onPress={() => setModalVisible(false)} /> Toca hacer un nuevo componente para esto dado que el default no vale*/}
-                                <TouchableOpacity onPress={() => setModalVisible(false)}>
-                                    <Text style={styles.modalCloseButton}>Cerrar</Text>
-                                </TouchableOpacity>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => setModalVisible(false)}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
                             </View>
                         </View>
                     </Modal>

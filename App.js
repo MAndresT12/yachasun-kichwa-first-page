@@ -56,10 +56,16 @@ import IntroduccionJuegoScreen from './src/components/screens/misc/IntroduccionJ
 import ProgresoScreen from './src/components/menus/ProgresoScreen.jsx';
 import CarouselExampleScreen from './src/components/ui/CarouselExampleScreen.jsx';
 
+//Module 1 Basic
 import Alphabet from './src/components/screens/basic/module1/Alphabet.jsx';
 import FirstNumbers from './src/components/screens/basic/module1/FirstNumbers.jsx';
 import Colors from './src/components/screens/basic/module1/Colors.jsx';
 import ToCount from './src/components/screens/basic/module1/ToCount.jsx';
+import GamesBasicModule1 from './src/components/screens/basic/module1/GamesBasicModule1.jsx';
+import EvaluationBasicModule1 from './src/components/screens/basic/module1/EvaluationBasicModule1.jsx';
+import EndModule1 from './src/components/screens/basic/module1/EndModule1.jsx';
+
+//MOdule 2 Basic
 
 
 const Stack = createStackNavigator();
@@ -125,6 +131,21 @@ function HomeStack() {
         name="ToCount"
         component={ToCount}
         options={{ title: 'Yachasun Kichwa - Los Números Ordinales' }}
+      />
+      <Stack.Screen
+        name="GamesBasicModule1"
+        component={GamesBasicModule1}
+        options={{ title: 'Yachasun Kichwa - Básico Módulo 1: Juegos de Repaso' }}
+      />
+      <Stack.Screen
+        name="EvaluationBasicModule1"
+        component={EvaluationBasicModule1}
+        options={{ title: 'Yachasun Kichwa - Básico Módulo 1: Evaluación' }}
+      />
+      <Stack.Screen
+        name="EndModule1"
+        component={EndModule1}
+        options={{ title: 'Yachasun Kichwa - Básico Módulo 1: Puntuación Final' }}
       />
       <Stack.Screen
         name="Main"
