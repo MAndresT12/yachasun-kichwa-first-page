@@ -16,7 +16,7 @@ export const cardStyles = StyleSheet.create({
         alignItems: 'flex-start',
         padding: 5,
     },
-    card: {
+    cardDefault: {
         backgroundColor: '#fff',
         borderRadius: 30,
         padding: 15,
@@ -38,7 +38,7 @@ export const cardStyles = StyleSheet.create({
         fontSize: 16,
     },
     cardPopUp: {
-        width: 'auto',
+        width: 100,
         textAlign: 'center',
     },
 });

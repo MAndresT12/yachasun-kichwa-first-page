@@ -5,18 +5,20 @@
 - Perfil no tiene nada pero eso creo que es ha de ser despues
 
 
+- Login no en ingles el "welcome" [x]
+- Poner las tarjetas del alfabeto como la de los números [x]
+- No se ve el blanco en los colores [x]
 - El pasado progresivo está mal alineado las letras
 - El personaje no se ve en el fondo
 - Quitar lo de azul repetido
-- Poner las tarjetas del alfabeto como la de los números y poner boton de ayuda para que diga pulsa y gira (un texto así) 
+- Poner boton de ayuda para que diga pulsa y gira (un texto así) 
 - Emepzar a incorporar el personaje
 - Que dar de acuerdo con el color de fondo
 - En los números en vez de mas y menos flechas
 - Los componentes de imágenes, botones ver qué hacer que no son iguales, hacer lo de Milton
-- No se ve el blanco en los colores, poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
+- Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
 - Los primeros numeros es en el 4 y colores en el 3 en el camino levels, poner en kichwa y espanol los niveles
 - Usar los mismos juegos y las mismas evaluaciones
-- Login no en ingles el "welcome"
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias, que explique
 - Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe.....
@@ -25,4 +27,4 @@
 - Poner todos los estilos en el global para luego cambiar
 
 
-- Completar palabras con hints
+- Completar palabras con hints (idea juego)

@@ -41,9 +41,10 @@ const CaminoLevelsScreen = () => {
                 <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
             </View>
             <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
-                <ImageContainer path={require('../../../../assets/images/prototype/santigod.jpeg')} />
 
                 {/* Modulo 1 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/santigod.jpeg')} />
+
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
@@ -65,7 +66,7 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('CardinalNumbers')}
+                        onPress={() => navigation.navigate('ToCount')}
                     >
                         <BouncyText>3</BouncyText>
                     </TouchableOpacity>
@@ -83,7 +84,7 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('IntroduccionJuegosScreen1')}
+                        onPress={() => navigation.navigate('GamesBasicModule1')}
                     >
                     </TouchableOpacity>
                     <BouncyText>Juego 1</BouncyText>
@@ -93,22 +94,25 @@ const CaminoLevelsScreen = () => {
                     <BouncyText >Evaluación 1</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Game')}
+                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
                     >
                     </TouchableOpacity>
                 </View>
 
-                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
-
                 {/* Modulo 2 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
                 
                 {/* Modulo 3 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
 
                 {/* Modulo 4 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
 
                 {/*Modulo 5 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
 
                 {/* Modulo 6 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
 
             </ScrollView>
         </View>

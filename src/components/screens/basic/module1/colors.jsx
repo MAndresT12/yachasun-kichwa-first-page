@@ -80,7 +80,7 @@ const Colors = () => {
                     </View>
                 </View>
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ToCount')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule1')} />
                 </View>
             </ScrollView>
         </View>

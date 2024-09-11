@@ -74,7 +74,7 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>Las Partículas 1</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Particles')}
+                        onPress={() => navigation.navigate('ParticlesPart1')}
                     >
                         <BouncyText>4</BouncyText>
                     </TouchableOpacity>

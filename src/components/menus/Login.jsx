@@ -19,7 +19,7 @@ const Login = () => {
         <View style={[styles.container, localStyles.loginContainer]}>
             <ImageContainer path={require('../../../assets/images/humu/humu-happy.png')}/>
             <CardDefault style={styles.cardContent}>
-                <Text style={localStyles.title}>Welcome to YACHASUN KICHWA</Text>
+                <Text style={localStyles.title}>Bienvenido a YACHASUN KICHWA</Text>
                 <TextInput
                     style={localStyles.input}
                     placeholder="Email"
