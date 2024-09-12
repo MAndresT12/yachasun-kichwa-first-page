@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, Modal, Image } from 'react-native';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
+import { FontAwesome } from '@expo/vector-icons';
 
 const colors_data = [
     { kichwa: "puka", spanish: "rojo", hexadecimalColor: "#FF0000" },
@@ -58,7 +60,13 @@ const FlipCard = ({ item }) => {
 };
 
 const Colors = () => {
+    const [showHelp, setShowHelp] = useState(null);
+
     const navigation = useNavigation();
+
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
+    };
 
     return (
         <View style={styles.container}>
@@ -70,6 +78,11 @@ const Colors = () => {
                 <View style={styles.header}>
                     <Text style={styles.titleTema}>Los Colores</Text>
                 </View>
+                <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={toggleHelpModal}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.body}>
                     <CardDefault title="Colores en Kichwa" content="Aprende los colores en Kichwa y su correspondencia en español.">
                     </CardDefault>
@@ -79,6 +92,30 @@ const Colors = () => {
                         ))}
                     </View>
                 </View>
+
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => toggleHelpModal()}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
+                                <Text style={styles.modalText}>Presiona en cada tarjeta de un color para ver su pronunciación en Kichwa.</Text>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
+
                 <View style={styles.footer}>
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule1')} />
                 </View>

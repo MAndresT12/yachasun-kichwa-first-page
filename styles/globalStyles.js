@@ -1,4 +1,3 @@
-// src/globalStyles.js
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -513,4 +512,13 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
         width: '50%',
     },
+
+
+    questionIconContainer: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        paddingRight: '5%',
+        paddingTop: '5%',
+    },
+
 });

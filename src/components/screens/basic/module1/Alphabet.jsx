@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, FlatList } from 'react-native';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { cardStyles } from '../../../../../styles/cardStyles';
@@ -8,6 +8,7 @@ import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/imageContainers/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
+import { FontAwesome } from '@expo/vector-icons';
 
 const alphabet_data = [
     { letters: "A a", imageLetter: "", pronunciation: "/a/", kichwa: "allik", spanish: "derecha", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
@@ -35,13 +36,13 @@ const alphabet_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'Curiosidades del afabeto Kichwa',
+        title: 'Curiosidades del alfabeto Kichwa',
         text: 'Sabías que en el alfabeto Kichwa existen solamente 3 vocales: a, i, u; y 17 consonantes. ¡Increíble!',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
     {
         key: '2',
-        title: 'Curiosidade de las consonates',
+        title: 'Curiosidades de las consonates en Kichwa',
         text: 'Sabías que: La e y o no se utilizan en el idioma kichwa. Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
@@ -50,6 +51,7 @@ const curiosity_data = [
 const Alphabet = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedLetter, setSelectedLetter] = useState(null);
+    const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
 
     const navigation = useNavigation();
@@ -67,6 +69,10 @@ const Alphabet = () => {
         }
     };
 
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
+    };
+
     return (
         <View style={styles.container}>
             <StatusBar barStyle="default" backgroundColor="#5B4D28" />
@@ -76,6 +82,11 @@ const Alphabet = () => {
                 </View>
                 <View style={styles.header}>
                     <Text style={styles.titleTema}>Alfabeto</Text>
+                </View>
+                <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={toggleHelpModal}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.body}>
                     <CardDefault title="El Alfabeto en Kichwa" content="Conoce el alfabeto en Kichwa usando ejemplos en español. Presiona para ver más detalles." />
@@ -108,6 +119,30 @@ const Alphabet = () => {
                     ))}
 
                 </View>
+
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => toggleHelpModal()}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
+                                <Text style={styles.modalText}>Presiona en cada tarjeta de una letra (pintadas en rojo) del alfabeto para ver su pronunciación en Kichwa.</Text>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
+
                 {selectedLetter && (
                     <Modal
                         animationType="fade"
