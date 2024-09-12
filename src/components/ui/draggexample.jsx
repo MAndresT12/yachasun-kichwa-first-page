@@ -1,3 +1,4 @@
+//ONLY EXAMPLES
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert, Modal, TouchableOpacity, Animated, PanResponder } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
