@@ -493,7 +493,6 @@ const localStyles = StyleSheet.create({
         borderWidth: 5,
         borderColor: '#FFC107', // Amarillo brillante para un efecto divertido
         backgroundColor: '#FFEB3B', // Fondo amarillo brillante
-        elevation: 5, // Sombra para destacar
     },
     circleLevel: {
         width: 70,
@@ -504,7 +503,6 @@ const localStyles = StyleSheet.create({
         borderWidth: 12,
         borderColor: '#8BC34A', // Verde brillante para resaltar niveles
         backgroundColor: '#C8E6C9',
-        elevation: 5,
     },
     evaluation: {
         backgroundColor: '#F44336', // Rojo para el nivel de evaluación
@@ -519,14 +517,13 @@ const localStyles = StyleSheet.create({
     bouncyText: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#212b68', // Color similar a globos
+        color: '#212752', // Color similar a globos #212752 antes #212b68
         textAlign: 'center',
         textShadowColor: 'rgba(0, 0, 0, 0.3)',
         textShadowOffset: { width: 1, height: 2 },
         textShadowRadius: 4,
         borderRadius: 10,
         padding: 15,
-        elevation: 5,
     },
     topicText: {
         fontSize: 18,

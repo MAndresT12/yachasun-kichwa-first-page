@@ -445,7 +445,6 @@ const localStyles = StyleSheet.create({
         textShadowRadius: 4,
         borderRadius: 10,
         padding: 15,
-        elevation: 5,
     },
     topicText: {
         fontSize: 18,
