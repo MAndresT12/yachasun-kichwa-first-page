@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Image } from 'react-native';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { cardStyles } from '../../../../../styles/cardStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
-import ComicBubble from '../../../ui/imageContainers/ComicBubble';
+import { ComicBubble } from '../../../ui/imageContainers/ComicBubble';
+import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
+import { FontAwesome } from '@expo/vector-icons';
 
 const alphabet_data = [
     { letters: "A a", imageLetter: "", pronunciation: "/a/", kichwa: "allik", spanish: "derecha", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
@@ -31,10 +33,26 @@ const alphabet_data = [
     { letters: "Z z", imageLetter: "", pronunciation: "/za/", kichwa: "zirpu", spanish: "churón", imageExample: "https://i.pinimg.com/736x/0c/9e/bc/0c9ebc0250a2c4c642a5b6f455ef0ceb.jpg" },
 ];
 
+const curiosity_data = [
+    {
+        key: '1',
+        title: 'Curiosidades del alfabeto Kichwa',
+        text: 'Sabías que en el alfabeto Kichwa existen solamente 3 vocales: a, i, u; y 17 consonantes. ¡Increíble!',
+        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+    },
+    {
+        key: '2',
+        title: 'Curiosidades de las consonates en Kichwa',
+        text: 'Sabías que: La e y o no se utilizan en el idioma kichwa. Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
+        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+    },
+];
+
 const Alphabet = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedLetter, setSelectedLetter] = useState(null);
-    const [showCuriosities, setShowCuriosities] = useState(false);
+    const [showHelp, setShowHelp] = useState(null);
+    const [activeAccordion, setActiveAccordion] = useState(null);
 
     const navigation = useNavigation();
 
@@ -43,20 +61,16 @@ const Alphabet = () => {
         setModalVisible(true);
     };
 
-    const toggleCuriosities = () => {
-        setShowCuriosities(!showCuriosities);
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
     };
 
-    const ComicBubble = ({ text }) => {
-        return (
-            <View style={styles.bubbleContainer}>
-                <View style={styles.bubble}>
-                    <Text style={styles.bubbleText}>{text}</Text>
-                    {/* Simular la colita del globo de diálogo */}
-                    <View style={styles.bubbleTail}></View>
-                </View>
-            </View>
-        );
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
     };
 
     return (
@@ -69,6 +83,11 @@ const Alphabet = () => {
                 <View style={styles.header}>
                     <Text style={styles.titleTema}>Alfabeto</Text>
                 </View>
+                <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={toggleHelpModal}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.body}>
                     <CardDefault title="El Alfabeto en Kichwa" content="Conoce el alfabeto en Kichwa usando ejemplos en español. Presiona para ver más detalles." />
                     <View style={styles.gridContainer}>
@@ -80,26 +99,50 @@ const Alphabet = () => {
                             </TouchableWithoutFeedback>
                         ))}
                     </View>
-                    <View>
-                        {/* Sección de datos curiosos */}
-                        <TouchableOpacity onPress={toggleCuriosities} style={styles.toggleCuriosities}>
-                            <Text style={styles.curiositiesText}>Datos curiosos del alfabeto</Text>
-                            <Image path='../../../../../assets/icons/arrow-down-16.png' style={styles.arrowIcon} />
-                        </TouchableOpacity>
-                        {showCuriosities && (
+
+                    {curiosity_data.map((item) => (
+                        <AccordionDefault
+                            key={item.key}
+                            title={item.title}
+                            isOpen={activeAccordion === item.key}
+                            onPress={() => toggleAccordion(item.key)}
+                        >
                             <View style={styles.curiositiesContent}>
-                                <View style={styles.comicBubble}>
-                                    <ComicBubble
-                                        text="Sabías que en el kichwa no existen las letras c, q, g, d, b, v, f..."
-                                        backgroundColor="grey"
-                                        arrowDirection="left"
-                                    />
-                                </View>
-                                <ImageContainer path="../../../../../assets/images/humu/humu-talking.png" style={styles.characterImage} />
+                                <ImageContainer path={item.imagePath} />
+                                <ComicBubble
+                                    text={item.text}
+                                    backgroundColor="#FFAD9C"
+                                    arrowDirection="left"
+                                />
                             </View>
-                        )}
-                    </View>
+                        </AccordionDefault>
+                    ))}
+
                 </View>
+
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => toggleHelpModal()}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
+                                <Text style={styles.modalText}>Presiona en cada tarjeta de una letra (pintadas en rojo) del alfabeto para ver su pronunciación en Kichwa.</Text>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
+
                 {selectedLetter && (
                     <Modal
                         animationType="fade"
