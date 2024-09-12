@@ -146,7 +146,7 @@ const ImageWordMatchGame = ({ data, onNext, helpText }) => {
                 <View style={stylesGame.modalContainer}>
                     <View style={stylesGame.modalContent}>
                         <View style={stylesGame.contentContainer}>
-                            <Image source={require('../../../assets/images/myths/huma2.png')} style={stylesGame.imageModal} />
+                            <Image source={require('../../../assets/images/humu/humu-talking.png')} style={stylesGame.imageModal} />
                             <View style={stylesGame.speechBubble}>
                                 <Text style={stylesGame.bubbleText}>{helpText}</Text>
                                 <View style={stylesGame.bubbleTail} />
@@ -254,6 +254,7 @@ const stylesGame = StyleSheet.create({
         top: 20,
         right: 20,
     },
+
     modalContainer: {
         flex: 1,
         justifyContent: 'center',
@@ -261,7 +262,7 @@ const stylesGame = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalContent: {
-        width: 300,
+        width: 330,
         padding: 20,
         backgroundColor: '#fff',
         borderRadius: 10,
@@ -277,6 +278,7 @@ const stylesGame = StyleSheet.create({
         resizeMode: 'contain',
     },
     speechBubble: {
+        marginLeft: 10,
         backgroundColor: '#fff',
         borderRadius: 20,
         borderWidth: 2,

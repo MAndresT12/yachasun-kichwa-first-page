@@ -106,7 +106,7 @@ const MatchGame = ({ data, onNext, helpText }) => {
                 <View style={stylesMatch.modalContainer}>
                     <View style={stylesMatch.modalContent}>
                         <View style={stylesMatch.contentContainer}>
-                            <Image source={require('../../../assets/images/myths/huma2.png')} style={stylesMatch.image} />
+                            <Image source={require('../../../assets/images/humu/humu-talking.png')} style={stylesMatch.image} />
                             <View style={stylesMatch.speechBubble}>
                                 <Text style={stylesMatch.bubbleText}>{helpText}</Text>
                                 <View style={stylesMatch.bubbleTail} />
@@ -209,7 +209,7 @@ const stylesMatch = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalContent: {
-        width: 300,
+        width: 330,
         padding: 20,
         backgroundColor: '#fff',
         borderRadius: 10,
@@ -225,6 +225,7 @@ const stylesMatch = StyleSheet.create({
         resizeMode: 'contain',
     },
     speechBubble: {
+        marginLeft: 10,
         backgroundColor: '#fff',
         borderRadius: 20,
         borderWidth: 2,

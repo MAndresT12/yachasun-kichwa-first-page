@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { View, Text } from 'react-native';
+import { styles } from './styles/globalStyles';
 
 import Login from './src/components/menus/Login';
 import Main from './src/components/main/Main';
@@ -47,8 +49,7 @@ import ElFuturoProximoScreen from './src/components/screens/conjugations/future/
 import ElFuturoSimpleScreen from './src/components/screens/conjugations/future/ElFuturoSimpleScreen.jsx';
 import GameScreen6 from './src/components/screens/games/GameScreen6.jsx';
 import EvaluationScreen6 from './src/components/screens/evaluations/EvaluationScreen6.jsx';
-import { View, Text } from 'react-native';
-import { styles } from './styles/globalStyles';
+
 import HangmanGame from './src/components/ui/HangmanGame.jsx';
 import MatchGame from './src/components/ui/MatchGame.jsx';
 import Module1 from './src/components/modules/Module1.jsx';

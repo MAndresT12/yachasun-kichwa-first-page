@@ -103,7 +103,7 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                     <View style={stylesHangman.modalContainer}>
                         <View style={stylesHangman.modalContent}>
                             <View style={stylesHangman.contentContainer}>
-                                <Image source={require('../../../assets/images/myths/huma2.png')} style={stylesHangman.image} />
+                                <Image source={require('../../../assets/images/humu/humu-talking.png')} style={stylesHangman.image} />
                                 <View style={stylesHangman.speechBubble}>
                                     <Text style={stylesHangman.bubbleText}>{helpText}</Text>
                                     <View style={stylesHangman.bubbleTail} />
@@ -291,7 +291,7 @@ const stylesHangman = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalContent: {
-        width: 300,
+        width: 330,
         padding: 20,
         backgroundColor: '#fff',
         borderRadius: 10,
@@ -307,6 +307,7 @@ const stylesHangman = StyleSheet.create({
         resizeMode: 'contain',
     },
     speechBubble: {
+        marginLeft: 10,
         backgroundColor: '#fff',
         borderRadius: 20,
         borderWidth: 2,

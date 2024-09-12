@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#18a7ac',
         justifyContent: 'center',
-        alignItems: 'center',
+        // alignItems: 'center',
     },
     scrollView: {
         flexGrow: 1,
