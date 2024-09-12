@@ -1,39 +1,20 @@
 // src/components/JuegoCompletarFrases.jsx
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Modal } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Modal, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import DraggableWord from '../customs/DraggableWord';
 import ConfettiCannon from 'react-native-confetti-cannon';
 
-const sentenceData = [
-    {
-        sentenceParts: ["Ñukaka aycha ", " yanuni"],
-        correctWords: ["ta"],
-        options: ["tak", "ta", "pak"],
-        translation: "Cocino carne",
-    },
-    {
-        sentenceParts: ["Kan ", " wasi"],
-        correctWords: ["pak"],
-        options: ["pak", "ta", "ñuka"],
-        translation: "Tu casa",
-    },
-    {
-        sentenceParts: ["Ñukanchik tushu", ""],
-        correctWords: ["nkapak"],
-        options: ["nkapak", "pak", "ta"],
-        translation: "Nos vamos a bailar",
-    },
-];
 
-const JuegoCompletarFrases = ({ onNext, helpText }) => {
-    const [currentSentenceIndex, setCurrentSentenceIndex] = useState(Math.floor(Math.random() * sentenceData.length));
+
+const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
+    const [currentSentenceIndex, setCurrentSentenceIndex] = useState(Math.floor(Math.random() * data.length));
     const [selectedWord, setSelectedWord] = useState(null);
     const [showConfetti, setShowConfetti] = useState(false);
     const [showNextButton, setShowNextButton] = useState(false);
     const [showHelp, setShowHelp] = useState(false);
 
-    const currentSentence = sentenceData[currentSentenceIndex];
+    const currentSentence = data[currentSentenceIndex];
 
     const handleDrop = (position) => {
         if (position.word === currentSentence.correctWords[0]) {
@@ -46,7 +27,7 @@ const JuegoCompletarFrases = ({ onNext, helpText }) => {
     };
 
     const handleRestart = () => {
-        const newIndex = Math.floor(Math.random() * sentenceData.length);
+        const newIndex = Math.floor(Math.random() * data.length);
         setCurrentSentenceIndex(newIndex);
         setSelectedWord(null);
         setShowConfetti(false);
@@ -90,10 +71,17 @@ const JuegoCompletarFrases = ({ onNext, helpText }) => {
                 <Text style={styles.restartButtonText}>Reiniciar</Text>
             </TouchableOpacity>
 
+            {/* Modal de ayuda */}
             <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
-                        <Text style={styles.bubbleText}>{helpText}</Text>
+                        <View style={styles.contentContainer}>
+                            <Image source={require('../../../assets/images/humu/humu-talking.png')} style={styles.image} />
+                            <View style={styles.speechBubble}>
+                                <Text style={styles.bubbleText}>{helpText}</Text>
+                                <View style={styles.bubbleTail} />
+                            </View>
+                        </View>
                         <TouchableOpacity onPress={() => setShowHelp(false)}>
                             <Text style={styles.closeButtonText}>Cerrar</Text>
                         </TouchableOpacity>
@@ -182,16 +170,49 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalContent: {
-        width: 300,
+        width: 330,
         padding: 20,
         backgroundColor: '#fff',
         borderRadius: 10,
         alignItems: 'center',
     },
+    contentContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    image: {
+        width: 100,
+        height: 150,
+        resizeMode: 'contain',
+    },
+    speechBubble: {
+        marginLeft: 10,
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        borderWidth: 2,
+        borderColor: '#ddd',
+        padding: 15,
+        maxWidth: '70%',
+        position: 'relative',
+    },
     bubbleText: {
         fontSize: 16,
         color: '#000',
         textAlign: 'center',
+    },
+    bubbleTail: {
+        position: 'absolute',
+        left: -20,
+        top: '50%',
+        width: 0,
+        height: 0,
+        borderTopWidth: 10,
+        borderBottomWidth: 10,
+        borderRightWidth: 20,
+        borderStyle: 'solid',
+        borderTopColor: 'transparent',
+        borderBottomColor: 'transparent',
+        borderRightColor: '#ddd',
     },
     closeButtonText: {
         marginTop: 20,

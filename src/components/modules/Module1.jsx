@@ -40,22 +40,22 @@ const animalsModule1 = [
 
 const sentenceData = [
     {
-        sentenceParts: ["El ", " come croquetas"],
-        correctWords: [{ index: 1, word: "perro" }],
-        options: ["gato", "ta", "perro"],
-        translation: "The dog eats snacks (EN)",
+        sentenceParts: ["Ñukaka aycha", " yanuni"],
+        correctWords: ["ta"],
+        options: ["tak", "ta", "pak"],
+        translation: "Cocino carne",
     },
     {
-        sentenceParts: ["La ", " está embarazada"],
-        correctWords: [{ index: 1, word: "mamá" }],
-        options: ["papá", "tío", "mamá"],
-        translation: "The mom is pregnant (EN)",
+        sentenceParts: ["Kan", " wasi"],
+        correctWords: ["pak"],
+        options: ["pak", "ta", "ñuka"],
+        translation: "Tu casa",
     },
     {
-        sentenceParts: ["El Sol es color ", ""],
-        correctWords: [{ index: 1, word: "amarillo" }],
-        options: ["amarillo", "azul", "verde"],
-        translation: "The sun is yellow (EN)",
+        sentenceParts: ["Ñukanchik tushu", ""],
+        correctWords: ["nkapak"],
+        options: ["nkapak", "pak", "ta"],
+        translation: "Nos vamos a bailar",
     },
 ];
 const Module1 = () => {
@@ -63,7 +63,7 @@ const Module1 = () => {
     const [currentGame, setCurrentGame] = useState(0);
 
     const games = [
-        <JuegoCompletarFrases key="frases" data={sentenceData} helpText="¡Hola, pequeño aventurero! En este juego debes emparejar las cartas. Encuentra las imágenes que son iguales y haz clic en ellas. ¡Recuerda bien las cartas y diviértete encontrando todos los pares!"
+        <JuegoCompletarFrases key="frases" data={sentenceData} helpText="¡Hola pequeño aventurero! En este juego debes completar las frases en kichwa. Arrastra la palabra correcta y colócala en el espacio vacío para formar la frase perfecta. ¡Diviertete aprendiendo mientras juegas!"
             onNext={() => setCurrentGame(currentGame + 1)} />,
         <MatchGame key="match" data={foodModule1} helpText="¡Hola, pequeño aventurero! En este juego debes emparejar las cartas. Encuentra las imágenes que son iguales y haz clic en ellas. ¡Recuerda bien las cartas y diviértete encontrando todos los pares!"
             onNext={() => setCurrentGame(currentGame + 1)} />,

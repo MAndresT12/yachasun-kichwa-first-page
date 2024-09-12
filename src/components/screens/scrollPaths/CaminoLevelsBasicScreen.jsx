@@ -155,7 +155,7 @@ const CaminoLevelsScreen = () => {
                     >
                     </TouchableOpacity>
                 </View>
-                
+
                 {/* Modulo 3 */}
                 <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
 
