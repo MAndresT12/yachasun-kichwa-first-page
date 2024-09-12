@@ -391,6 +391,17 @@ export const styles = StyleSheet.create({
         perspective: 1000,
     },
 
+    accordionContainer: {
+        width: "90%",
+        marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        borderColor: 'red', 
+        borderWidth: 1
+    },
+
 
     buttonContainerAlphabet: {
         justifyContent: 'center',
@@ -425,29 +436,9 @@ export const styles = StyleSheet.create({
 
 
 
-    toggleCuriosities: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 10,
-        marginTop: 20,
-    },
-    curiositiesText: {
-        fontSize: 18,
-        textAlign: 'center',
-    },
     arrowIcon: {
-        width: 20,
-        height: 20,
-        marginLeft: 10,
-    },
-    curiositiesContent: {
-        marginTop: 10,
-        alignItems: 'center',
-    },
-    characterImage: {
-        width: 100,
-        height: 100,
+        width: 16,
+        height: 16,
     },
     comicBubble: {
         backgroundColor: '#fff',
@@ -515,5 +506,11 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
+    },
+
+    curiositiesContent: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        width: '50%',
     },
 });

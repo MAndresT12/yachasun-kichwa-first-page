@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Image } from 'react-native';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { cardStyles } from '../../../../../styles/cardStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
-import ComicBubble from '../../../ui/imageContainers/ComicBubble';
+import { ComicBubble } from '../../../ui/imageContainers/ComicBubble';
+import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 
 const alphabet_data = [
     { letters: "A a", imageLetter: "", pronunciation: "/a/", kichwa: "allik", spanish: "derecha", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
@@ -31,10 +32,25 @@ const alphabet_data = [
     { letters: "Z z", imageLetter: "", pronunciation: "/za/", kichwa: "zirpu", spanish: "churón", imageExample: "https://i.pinimg.com/736x/0c/9e/bc/0c9ebc0250a2c4c642a5b6f455ef0ceb.jpg" },
 ];
 
+const curiosity_data = [
+    {
+        key: '1',
+        title: 'Curiosidades',
+        text: 'Sabías que en el kichwa no existen las letras c, q, g, d, b, v, f...',
+        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+    },
+    {
+        key: '2',
+        title: 'Curiosidades2',
+        text: 'En el idioma Kichwa, la z y la ts son excepciones.',
+        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+    },
+];
+
 const Alphabet = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedLetter, setSelectedLetter] = useState(null);
-    const [showCuriosities, setShowCuriosities] = useState(false);
+    const [activeAccordion, setActiveAccordion] = useState(null);
 
     const navigation = useNavigation();
 
@@ -43,20 +59,12 @@ const Alphabet = () => {
         setModalVisible(true);
     };
 
-    const toggleCuriosities = () => {
-        setShowCuriosities(!showCuriosities);
-    };
-
-    const ComicBubble = ({ text }) => {
-        return (
-            <View style={styles.bubbleContainer}>
-                <View style={styles.bubble}>
-                    <Text style={styles.bubbleText}>{text}</Text>
-                    {/* Simular la colita del globo de diálogo */}
-                    <View style={styles.bubbleTail}></View>
-                </View>
-            </View>
-        );
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
     };
 
     return (
@@ -80,25 +88,25 @@ const Alphabet = () => {
                             </TouchableWithoutFeedback>
                         ))}
                     </View>
-                    <View>
-                        {/* Sección de datos curiosos */}
-                        <TouchableOpacity onPress={toggleCuriosities} style={styles.toggleCuriosities}>
-                            <Text style={styles.curiositiesText}>Datos curiosos del alfabeto</Text>
-                            <Image path='../../../../../assets/icons/arrow-down-16.png' style={styles.arrowIcon} />
-                        </TouchableOpacity>
-                        {showCuriosities && (
+
+                    {curiosity_data.map((item) => (
+                        <AccordionDefault
+                            key={item.key}
+                            title={item.title}
+                            isOpen={activeAccordion === item.key}
+                            onPress={() => toggleAccordion(item.key)}
+                        >
                             <View style={styles.curiositiesContent}>
-                                <View style={styles.comicBubble}>
-                                    <ComicBubble
-                                        text="Sabías que en el kichwa no existen las letras c, q, g, d, b, v, f..."
-                                        backgroundColor="grey"
-                                        arrowDirection="left"
-                                    />
-                                </View>
-                                <ImageContainer path="../../../../../assets/images/humu/humu-talking.png" style={styles.characterImage} />
+                                <ImageContainer path={item.imagePath} />
+                                <ComicBubble
+                                    text={item.text}
+                                    backgroundColor="#FFAD9C"
+                                    arrowDirection="left"
+                                />
                             </View>
-                        )}
-                    </View>
+                        </AccordionDefault>
+                    ))}
+
                 </View>
                 {selectedLetter && (
                     <Modal

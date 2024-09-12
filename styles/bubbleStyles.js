@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 
-export const styles = StyleSheet.create({
+export const bubbleStyles = StyleSheet.create({
     balloon: {
         maxWidth: moderateScale(250, 2),
         paddingHorizontal: moderateScale(10, 2),
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-        zIndex: -1,
+        zIndex: 0,
         flex: 1,
     },
     arrowLeftContainer: {
@@ -31,5 +31,12 @@ export const styles = StyleSheet.create({
     },
     arrowRight: {
         right: moderateScale(-6, 0.5),
+    },
+    curiositiesContent: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        alignContent: 'center',
+        justifyContent: 'center',
+        width: '100%',
     },
 });
