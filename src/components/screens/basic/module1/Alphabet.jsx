@@ -35,14 +35,14 @@ const alphabet_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'Curiosidades',
-        text: 'Sabías que en el kichwa no existen las letras c, q, g, d, b, v, f...',
+        title: 'Curiosidades del afabeto Kichwa',
+        text: 'Sabías que en el alfabeto Kichwa existen solamente 3 vocales: a, i, u; y 17 consonantes. ¡Increíble!',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
     {
         key: '2',
-        title: 'Curiosidades2',
-        text: 'En el idioma Kichwa, la z y la ts son excepciones.',
+        title: 'Curiosidade de las consonates',
+        text: 'Sabías que: La e y o no se utilizan en el idioma kichwa. Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
 ];
