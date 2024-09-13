@@ -7,7 +7,7 @@ import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat, wit
 import { styles } from '../../../../styles/globalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
-import { FontAwesomeIcon } from '@fontawesome/react-native-fontawesome'
+//import { FontAwesomeIcon } from '@fontawesome/react-native-fontawesome'
 
 
 const BouncyText = ({ children }) => {
