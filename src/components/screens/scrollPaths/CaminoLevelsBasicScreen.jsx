@@ -36,6 +36,10 @@ const CaminoLevelsScreen = () => {
     const navigation = useNavigation();
 
     return (
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={localStyles.gradientBackground}
+        >
             <View style={styles.container}>
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
@@ -50,17 +54,17 @@ const CaminoLevelsScreen = () => {
                             style={[localStyles.circle, localStyles.level]}
                             onPress={() => navigation.navigate('Alphabet')}
                         >
-                            <BouncyText>1</BouncyText>
+                            <BouncyText><FontAwesome name="book" size={24} color="#FFF" /></BouncyText>
                         </TouchableOpacity>
-                        <BouncyText>El Alfabeto</BouncyText>
+                        <BouncyText>El Alfabeto / Llika</BouncyText>
                     </View>
                     <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Los Primeros Números</BouncyText>
+                        <BouncyText >Los Primeros Números / Yupaykuna</BouncyText>
                         <TouchableOpacity
                             style={[localStyles.circle, localStyles.level]}
                             onPress={() => navigation.navigate('FirstNumbers')}
                         >
-                            <BouncyText>2</BouncyText>
+                            <BouncyText><FontAwesome name="sort-numeric-desc" size={24} color="#FFF" /></BouncyText>
                         </TouchableOpacity>
                     </View>
                     <View style={localStyles.pathRow}>
@@ -68,17 +72,17 @@ const CaminoLevelsScreen = () => {
                             style={[localStyles.circle, localStyles.level]}
                             onPress={() => navigation.navigate('ToCount')}
                         >
-                            <BouncyText>3</BouncyText>
+                            <BouncyText><FontAwesome name="trophy" size={24} color="#FFF" /></BouncyText>
                         </TouchableOpacity>
-                        <BouncyText>¿Cómo se cuenta?</BouncyText>
+                        <BouncyText>Los números ordianles / Nikichik yupaykuna</BouncyText>
                     </View>
                     <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText>Los Colores</BouncyText>
+                        <BouncyText>Los Colores / Tullpukuna</BouncyText>
                         <TouchableOpacity
                             style={[localStyles.circle, localStyles.level]}
                             onPress={() => navigation.navigate('Colors')}
                         >
-                            <BouncyText>4</BouncyText>
+                            <BouncyText><FontAwesome name="paint-brush" size={24} color="#FFF" /></BouncyText>
                         </TouchableOpacity>
                     </View>
                     <View style={localStyles.pathRow}>
@@ -86,16 +90,18 @@ const CaminoLevelsScreen = () => {
                             style={[localStyles.circleLevel, localStyles.game]}
                             onPress={() => navigation.navigate('GamesBasicModule1')}
                         >
+                            <FontAwesome name="gamepad" size={28} color="#FFF" />
                         </TouchableOpacity>
-                        <BouncyText>Juego 1</BouncyText>
+                        <BouncyText>Juego: Módulo 1 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
 
                     </View>
                     <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Evaluación 1</BouncyText>
+                        <BouncyText >Evaluación: Módulo 1 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
                         <TouchableOpacity
                             style={[localStyles.circle, localStyles.evaluation]}
                             onPress={() => navigation.navigate('EvaluationBasicModule1')}
                         >
+                            <FontAwesome name="pencil" size={24} color="#FFF" />
                         </TouchableOpacity>
                     </View>
 
@@ -386,10 +392,14 @@ const CaminoLevelsScreen = () => {
 
                 </ScrollView>
             </View>
+        </LinearGradient>
     );
 };
 
 const localStyles = StyleSheet.create({
+    gradientBackground: {
+        flex: 1,
+    },
     scrollViewContent: {
         flexGrow: 1,
         paddingVertical: 20,
@@ -399,7 +409,7 @@ const localStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        paddingHorizontal: 120,
+        paddingHorizontal: 75,
         marginVertical: 20,
     },
     pathRowRight: {
@@ -411,9 +421,9 @@ const localStyles = StyleSheet.create({
         borderRadius: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 3,
-        borderColor: '#000',
-        backgroundColor: '#d9d9d9',
+        borderWidth: 5,
+        borderColor: '#FFC107', // Amarillo brillante para un efecto divertido
+        backgroundColor: '#FFEB3B', // Fondo amarillo brillante
     },
     circleLevel: {
         width: 70,
@@ -421,13 +431,13 @@ const localStyles = StyleSheet.create({
         borderRadius: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 20,
-        borderColor: '#000',
-        backgroundColor: '#d9d9d9',
+        borderWidth: 12,
+        borderColor: '#8BC34A', // Verde brillante para resaltar niveles
+        backgroundColor: '#228825',
     },
     evaluation: {
-        backgroundColor: '#000',
-        borderColor: '#000000',
+        backgroundColor: '#F44336', // Rojo para el nivel de evaluación
+        borderColor: '#E53935',
     },
     islandImage: {
         width: '100%',
@@ -438,7 +448,7 @@ const localStyles = StyleSheet.create({
     bouncyText: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#212b68', // Color similar a globos
+        color: '#212752', // Color similar a globos #212752 antes #212b68
         textAlign: 'center',
         textShadowColor: 'rgba(0, 0, 0, 0.3)',
         textShadowOffset: { width: 1, height: 2 },
