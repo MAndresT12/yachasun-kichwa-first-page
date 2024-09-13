@@ -5,6 +5,7 @@ import { styles } from '../../../styles/globalStyles';
 import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../ui/imageContainers/ImageContainer';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const FloatingHumu = ({ path, style }) => {
     const animation = useRef(new Animated.Value(0)).current;
@@ -15,7 +16,7 @@ const FloatingHumu = ({ path, style }) => {
                 Animated.timing(animation, {
                     toValue: 10,
                     duration: 1000,
-                    useNativeDriver: true, 
+                    useNativeDriver: true,
                 }),
                 Animated.timing(animation, {
                     toValue: 0,
@@ -47,35 +48,45 @@ const Login = () => {
     };
 
     return (
-        <View style={[styles.container, localStyles.loginContainer]}>
-            <FloatingHumu path={require('../../../assets/images/humu/humu-happy.png')} style={styles.imageModal} />
-            <CardDefault style={styles.cardContent}>
-                <Text style={localStyles.title}>Bienvenido a YACHASUN KICHWA</Text>
-                <TextInput
-                    style={localStyles.input}
-                    placeholder="Correo"
-                    value={email}
-                    onChangeText={setEmail}
-                />
-                <TextInput
-                    style={localStyles.input}
-                    placeholder="Contraseña"
-                    value={password}
-                    onChangeText={setPassword}
-                    secureTextEntry
-                />
-                <View style={localStyles.loginContainer}>
-                    <ButtonDefault label="Ingresar" onPress={handleLogin} />
-                    <TouchableWithoutFeedback>
-                        <Text style={localStyles.text}>¿Olvidaste tu contraseña?</Text>
-                    </TouchableWithoutFeedback>
-                </View>
-            </CardDefault>
-        </View>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={[localStyles.gradientBackground, styles.container, localStyles.loginContainer]}
+        >
+            <View style={[localStyles.container, localStyles.loginContainer]}>
+                <FloatingHumu path={require('../../../assets/images/humu/humu-happy.png')} style={styles.imageModal} />
+                <CardDefault style={styles.cardContent}>
+                    <Text style={localStyles.title}>Bienvenido a YACHASUN KICHWA</Text>
+                    <TextInput
+                        style={localStyles.input}
+                        placeholder="Correo"
+                        value={email}
+                        onChangeText={setEmail}
+                    />
+                    <TextInput
+                        style={localStyles.input}
+                        placeholder="Contraseña"
+                        value={password}
+                        onChangeText={setPassword}
+                        secureTextEntry
+                    />
+                    <View style={localStyles.loginContainer}>
+                        <ButtonDefault label="Ingresar" onPress={handleLogin} />
+                        <TouchableWithoutFeedback>
+                            <Text style={localStyles.text}>¿Olvidaste tu contraseña?</Text>
+                        </TouchableWithoutFeedback>
+                    </View>
+                </CardDefault>
+            </View>
+        </LinearGradient>
     );
 };
 
 const localStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        // alignItems: 'center',
+    },
     loginContainer: {
         justifyContent: 'center',
         alignItems: 'center',
