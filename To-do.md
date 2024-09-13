@@ -27,6 +27,7 @@
 - Poner todos los estilos en el global para luego cambiar
 - Spanish dice en la tabla en vez de español en ordinales
 - Poner animaciones a las letras o cambiar el font, poner diseño
+- Idea de hacer un chat para los saludos
 
 
 - Completar palabras con hints (idea juego)
