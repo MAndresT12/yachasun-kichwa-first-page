@@ -35,7 +35,7 @@ const EndModule1 = ({ route }) => {
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('')} />
                     <TouchableOpacity
                         style={localStyles.button}
-                        onPress={() => navigation.navigate('')}
+                        onPress={() => navigation.navigate('Greetings')}
                     >
                         <Text style={localStyles.buttonText}>Siguiente</Text>
                     </TouchableOpacity>

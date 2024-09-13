@@ -112,7 +112,7 @@ const CaminoLevelsScreen = () => {
                         style={[localStyles.circle, localStyles.level]}
                         onPress={() => navigation.navigate('Greetings')}
                     >
-                        <BouncyText>5</BouncyText>
+                        <BouncyText><FontAwesome name="handshake-o" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
                     <BouncyText>Los saludos</BouncyText>
                 </View>

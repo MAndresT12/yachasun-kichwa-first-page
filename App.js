@@ -66,8 +66,8 @@ import GamesBasicModule1 from './src/components/screens/basic/module1/GamesBasic
 import EvaluationBasicModule1 from './src/components/screens/basic/module1/EvaluationBasicModule1.jsx';
 import EndModule1 from './src/components/screens/basic/module1/EndModule1.jsx';
 
-//MOdule 2 Basic
-
+//Module 2 Basic
+import Greetings from './src/components/screens/basic/module2/Greetings.jsx';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -147,6 +147,11 @@ function HomeStack() {
         name="EndModule1"
         component={EndModule1}
         options={{ title: 'Yachasun Kichwa - Básico Módulo 1: Puntuación Final' }}
+      />
+      <Stack.Screen
+        name="Greetings"
+        component={Greetings}
+        options={{ title: 'Yachasun Kichwa - Los saludos' }}
       />
       <Stack.Screen
         name="Main"
