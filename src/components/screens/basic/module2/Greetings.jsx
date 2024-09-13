@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { cardStyles } from '../../../../../styles/cardStyles';
@@ -32,25 +32,47 @@ const curiosity_data = [
     },
 ];
 
-const Alphabet = () => {
+const FloatingHumu = ({ path, style }) => {
+    const animation = useRef(new Animated.Value(0)).current;
+
+    useEffect(() => {
+        Animated.loop(
+            Animated.sequence([
+                Animated.timing(animation, {
+                    toValue: 10,
+                    duration: 1000,
+                    useNativeDriver: true,
+                }),
+                Animated.timing(animation, {
+                    toValue: 0,
+                    duration: 1000,
+                    useNativeDriver: true,
+                }),
+            ])
+        ).start();
+    }, [animation]);
+
+    const animatedStyle = {
+        transform: [{ translateY: animation }],
+    };
+
+    return (
+        <Animated.View style={[animatedStyle, style]}>
+            <ImageContainer path={path} />
+        </Animated.View>
+    );
+};
+
+const Greetings = () => {
     const [modalVisible, setModalVisible] = useState(false);
-    const [selectedLetter, setSelectedLetter] = useState(null);
+    const [selectedGreet, setselectedGreet] = useState(null);
     const [showHelp, setShowHelp] = useState(null);
-    const [activeAccordion, setActiveAccordion] = useState(null);
 
     const navigation = useNavigation();
 
-    const handleLetterPress = (letterData) => {
-        setSelectedLetter(letterData);
+    const handleGreetPress = (greetData) => {
+        setselectedGreet(greetData);
         setModalVisible(true);
-    };
-
-    const toggleAccordion = (key) => {
-        if (activeAccordion === key) {
-            setActiveAccordion(null);
-        } else {
-            setActiveAccordion(key);
-        }
     };
 
     const toggleHelpModal = () => {
@@ -75,33 +97,14 @@ const Alphabet = () => {
                 <View style={styles.body}>
                     <CardDefault title="Como saludar" content="Aprendamos a saludar en Kichwa." />
                     <View style={styles.gridContainer}>
-                        {alphabet_data.map((letter) => (
-                            <TouchableWithoutFeedback key={letter.letters} onPress={() => handleLetterPress(letter)}>
+                        {greetings_data.map((spanish) => (
+                            <TouchableWithoutFeedback key={spanish.spanish} onPress={() => handleGreetPress(spanish)}>
                                 <View style={styles.cardInGrid}>
-                                    <CardDefault title={letter.letters} styleCard={styles.cardPopUp} styleTitle={styles.cardTitleAlphabet} />
+                                    <CardDefault title={spanish.spanish} styleCard={styles.cardPopUp} styleTitle={styles.cardTitleGreet} />
                                 </View>
                             </TouchableWithoutFeedback>
                         ))}
                     </View>
-
-                    {curiosity_data.map((item) => (
-                        <AccordionDefault
-                            key={item.key}
-                            title={item.title}
-                            isOpen={activeAccordion === item.key}
-                            onPress={() => toggleAccordion(item.key)}
-                        >
-                            <View style={styles.curiositiesContent}>
-                                <ImageContainer path={item.imagePath} />
-                                <ComicBubble
-                                    text={item.text}
-                                    backgroundColor="#FFAD9C"
-                                    arrowDirection="left"
-                                />
-                            </View>
-                        </AccordionDefault>
-                    ))}
-
                 </View>
 
                 {showHelp && (
@@ -113,7 +116,7 @@ const Alphabet = () => {
                     >
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
-                                <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
+                                <FloatingHumu path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
                                 <Text style={styles.modalText}>Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa.</Text>
                                 <View style={styles.buttonContainerAlphabet}>
                                     <TouchableOpacity onPress={() => toggleHelpModal()}>
@@ -127,7 +130,7 @@ const Alphabet = () => {
                     </Modal>
                 )}
 
-                {selectedLetter && (
+                {selectedGreet && (
                     <Modal
                         animationType="fade"
                         transparent={true}
@@ -136,12 +139,12 @@ const Alphabet = () => {
                     >
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
-                                <Text style={styles.title}>{selectedLetter.letters}</Text>
-                                <ImageContainer uri={selectedLetter.imageExample} style={styles.imageModal} />
-                                <Text style={styles.pronunciation}>Pronunciación: {selectedLetter.pronunciation}</Text>
+                                <Text style={styles.title}>{selectedGreet.letters}</Text>
+                                <ImageContainer uri={selectedGreet.imageExample} style={styles.imageModal} />
+                                <Text style={styles.pronunciation}>Pronunciación: {selectedGreet.pronunciation}</Text>
                                 <View style={styles.translationContainer}>
-                                    <Text style={styles.kichwaText}>Kichwa: {selectedLetter.kichwa}</Text>
-                                    <Text style={styles.spanishText}>Español: {selectedLetter.spanish}</Text>
+                                    <Text style={styles.kichwaText}>Kichwa: {selectedGreet.kichwa}</Text>
+                                    <Text style={styles.spanishText}>Español: {selectedGreet.spanish}</Text>
                                 </View>
                                 <View style={styles.buttonContainerAlphabet}>
                                     <TouchableOpacity onPress={() => setModalVisible(false)}>
@@ -162,4 +165,4 @@ const Alphabet = () => {
     );
 };
 
-export default Alphabet;
+export default Greetings;

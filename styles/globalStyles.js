@@ -381,6 +381,12 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'red',
     },
+    cardTitleGreet: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: 'red',
+    },
     cardPopUp: {
         width: '100%',
         height: 150,
