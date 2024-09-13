@@ -527,4 +527,9 @@ export const styles = StyleSheet.create({
         paddingTop: '5%',
     },
 
+    bodyAlphabet: {
+        flexDirection: 'row',
+        width: '80%',
+    },
+
 });

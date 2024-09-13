@@ -11,8 +11,8 @@
 - El pasado progresivo está mal alineado las letras
 - El personaje no se ve en el fondo
 - Quitar lo de azul repetido
-- Poner boton de ayuda para que diga pulsa y gira (un texto así) 
-- Emepzar a incorporar el personaje
+- Poner boton de ayuda para que diga pulsa y gira (un texto así) [x]
+- Empezar a incorporar el personaje
 - Que dar de acuerdo con el color de fondo
 - En los números en vez de mas y menos flechas
 - Los componentes de imágenes, botones ver qué hacer que no son iguales, hacer lo de Milton
@@ -25,6 +25,8 @@
 - Para números no queda el contador porque toca moverse full no vale
 - imagenes animadas un estadar, si vamos a usar ai el mismo prompt
 - Poner todos los estilos en el global para luego cambiar
+- Spanish dice en la tabla en vez de español en ordinales
+- Poner animaciones a las letras o cambiar el font, poner diseño
 
 
 - Completar palabras con hints (idea juego)

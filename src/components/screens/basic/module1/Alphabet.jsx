@@ -57,7 +57,7 @@ const FloatingHumu = ({ path, style }) => {
                 Animated.timing(animation, {
                     toValue: 10,
                     duration: 1000,
-                    useNativeDriver: true, 
+                    useNativeDriver: true,
                 }),
                 Animated.timing(animation, {
                     toValue: 0,
@@ -114,13 +114,15 @@ const Alphabet = () => {
                 <View style={styles.header}>
                     <Text style={styles.titleTema}>Alfabeto</Text>
                 </View>
-                <View style={styles.questionIconContainer}>
-                    <TouchableOpacity onPress={toggleHelpModal}>
-                        <FontAwesome name="question-circle" size={40} color="#fff" />
-                    </TouchableOpacity>
-                </View>
                 <View style={styles.body}>
-                    <CardDefault title="El Alfabeto en Kichwa" content="Conoce el alfabeto en Kichwa usando ejemplos en español. Presiona para ver más detalles." />
+                    <View style={styles.bodyAlphabet}>
+                        <CardDefault content="Conoce el alfabeto en Kichwa usando ejemplos en español. Presiona para ver más detalles."/>
+                        <View style={styles.questionIconContainer}>
+                            <TouchableOpacity onPress={toggleHelpModal}>
+                                <FontAwesome name="question-circle" size={40} color="#fff" />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                     <View style={styles.gridContainer}>
                         {alphabet_data.map((letter) => (
                             <TouchableWithoutFeedback key={letter.letters} onPress={() => handleLetterPress(letter)}>
@@ -139,7 +141,7 @@ const Alphabet = () => {
                             onPress={() => toggleAccordion(item.key)}
                         >
                             <View style={styles.curiositiesContent}>
-                                <FloatingHumu path={item.imagePath}/>
+                                <FloatingHumu path={item.imagePath} />
                                 <ComicBubble
                                     text={item.text}
                                     backgroundColor="#FFAD9C"
@@ -160,7 +162,7 @@ const Alphabet = () => {
                     >
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
-                            <FloatingHumu path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
+                                <FloatingHumu path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
                                 <Text style={styles.modalText}>Presiona en cada tarjeta de una letra (pintadas en rojo) del alfabeto para ver su pronunciación en Kichwa.</Text>
                                 <View style={styles.buttonContainerAlphabet}>
                                     <TouchableOpacity onPress={() => toggleHelpModal()}>
