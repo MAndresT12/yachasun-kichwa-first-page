@@ -40,358 +40,357 @@ const CaminoLevelsScreen = () => {
             colors={['#e9cb60', '#F38181']}
             style={localStyles.gradientBackground}
         >
-            <View style={styles.container}>
-                <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
-
-                    {/* Modulo 1 */}
-                    <ImageContainer path={require('../../../../assets/images/prototype/santigod.jpeg')} />
-
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Alphabet')}
-                        >
-                            <BouncyText><FontAwesome name="book" size={24} color="#FFF" /></BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>El Alfabeto / Llika</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Los Primeros Números / Yupaykuna</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('FirstNumbers')}
-                        >
-                            <BouncyText><FontAwesome name="sort-numeric-desc" size={24} color="#FFF" /></BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('ToCount')}
-                        >
-                            <BouncyText><FontAwesome name="trophy" size={24} color="#FFF" /></BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>Los números ordianles / Nikichik yupaykuna</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText>Los Colores / Tullpukuna</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Colors')}
-                        >
-                            <BouncyText><FontAwesome name="paint-brush" size={24} color="#FFF" /></BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circleLevel, localStyles.game]}
-                            onPress={() => navigation.navigate('GamesBasicModule1')}
-                        >
-                            <FontAwesome name="gamepad" size={28} color="#FFF" />
-                        </TouchableOpacity>
-                        <BouncyText>Juego: Módulo 1 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
-
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Evaluación: Módulo 1 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.evaluation]}
-                            onPress={() => navigation.navigate('EvaluationBasicModule1')}
-                        >
-                            <FontAwesome name="pencil" size={24} color="#FFF" />
-                        </TouchableOpacity>
-                    </View>
-
-                    {/* Modulo 2 */}
-                    <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
-
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Greetings')}
-                        >
-                            <BouncyText>5</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>Los saludos</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Los Primeros Números</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('FirstNumbers')}
-                        >
-                            <BouncyText>2</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('ToCount')}
-                        >
-                            <BouncyText>3</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>¿Cómo se cuenta?</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText>Los Colores</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Colors')}
-                        >
-                            <BouncyText>4</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circleLevel, localStyles.game]}
-                            onPress={() => navigation.navigate('GamesBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                        <BouncyText>Juego 1</BouncyText>
-
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Evaluación 1</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.evaluation]}
-                            onPress={() => navigation.navigate('EvaluationBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                    </View>
-
-                    {/* Modulo 3 */}
-                    <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
-
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Alphabet')}
-                        >
-                            <BouncyText>1</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>El Alfabeto</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Los Primeros Números</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('FirstNumbers')}
-                        >
-                            <BouncyText>2</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('ToCount')}
-                        >
-                            <BouncyText>3</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>¿Cómo se cuenta?</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText>Los Colores</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Colors')}
-                        >
-                            <BouncyText>4</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circleLevel, localStyles.game]}
-                            onPress={() => navigation.navigate('GamesBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                        <BouncyText>Juego 1</BouncyText>
-
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Evaluación 1</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.evaluation]}
-                            onPress={() => navigation.navigate('EvaluationBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                    </View>
-
-                    {/* Modulo 4 */}
-                    <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
-
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Alphabet')}
-                        >
-                            <BouncyText>1</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>El Alfabeto</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Los Primeros Números</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('FirstNumbers')}
-                        >
-                            <BouncyText>2</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('ToCount')}
-                        >
-                            <BouncyText>3</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>¿Cómo se cuenta?</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText>Los Colores</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Colors')}
-                        >
-                            <BouncyText>4</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circleLevel, localStyles.game]}
-                            onPress={() => navigation.navigate('GamesBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                        <BouncyText>Juego 1</BouncyText>
-
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Evaluación 1</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.evaluation]}
-                            onPress={() => navigation.navigate('EvaluationBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                    </View>
-
-                    {/*Modulo 5 */}
-                    <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
-
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Alphabet')}
-                        >
-                            <BouncyText>1</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>El Alfabeto</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Los Primeros Números</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('FirstNumbers')}
-                        >
-                            <BouncyText>2</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('ToCount')}
-                        >
-                            <BouncyText>3</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>¿Cómo se cuenta?</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText>Los Colores</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Colors')}
-                        >
-                            <BouncyText>4</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circleLevel, localStyles.game]}
-                            onPress={() => navigation.navigate('GamesBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                        <BouncyText>Juego 1</BouncyText>
-
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Evaluación 1</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.evaluation]}
-                            onPress={() => navigation.navigate('EvaluationBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                    </View>
-
-                    {/* Modulo 6 */}
-                    <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
-
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Alphabet')}
-                        >
-                            <BouncyText>1</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>El Alfabeto</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Los Primeros Números</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('FirstNumbers')}
-                        >
-                            <BouncyText>2</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('ToCount')}
-                        >
-                            <BouncyText>3</BouncyText>
-                        </TouchableOpacity>
-                        <BouncyText>¿Cómo se cuenta?</BouncyText>
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText>Los Colores</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.level]}
-                            onPress={() => navigation.navigate('Colors')}
-                        >
-                            <BouncyText>4</BouncyText>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={localStyles.pathRow}>
-                        <TouchableOpacity
-                            style={[localStyles.circleLevel, localStyles.game]}
-                            onPress={() => navigation.navigate('GamesBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                        <BouncyText>Juego 1</BouncyText>
-
-                    </View>
-                    <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                        <BouncyText >Evaluación 1</BouncyText>
-                        <TouchableOpacity
-                            style={[localStyles.circle, localStyles.evaluation]}
-                            onPress={() => navigation.navigate('EvaluationBasicModule1')}
-                        >
-                        </TouchableOpacity>
-                    </View>
-
-                </ScrollView>
+            <View style={styles.header}>
+                <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
             </View>
+            <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
+
+                {/* Modulo 1 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/santigod.jpeg')} />
+
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Alphabet')}
+                    >
+                        <BouncyText><FontAwesome name="book" size={24} color="#FFF" /></BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>El Alfabeto / Llika</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Los Primeros Números / Yupaykuna</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('FirstNumbers')}
+                    >
+                        <BouncyText><FontAwesome name="sort-numeric-desc" size={24} color="#FFF" /></BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ToCount')}
+                    >
+                        <BouncyText><FontAwesome name="trophy" size={24} color="#FFF" /></BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>Los números ordianles / Nikichik yupaykuna</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText>Los Colores / Tullpukuna</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Colors')}
+                    >
+                        <BouncyText><FontAwesome name="paint-brush" size={24} color="#FFF" /></BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circleLevel, localStyles.game]}
+                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                    >
+                        <FontAwesome name="gamepad" size={28} color="#FFF" />
+                    </TouchableOpacity>
+                    <BouncyText>Juego: Módulo 1 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
+
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Evaluación: Módulo 1 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.evaluation]}
+                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                    >
+                        <FontAwesome name="pencil" size={24} color="#FFF" />
+                    </TouchableOpacity>
+                </View>
+
+                {/* Modulo 2 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Greetings')}
+                    >
+                        <BouncyText>5</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>Los saludos</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Los Primeros Números</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('FirstNumbers')}
+                    >
+                        <BouncyText>2</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ToCount')}
+                    >
+                        <BouncyText>3</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>¿Cómo se cuenta?</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText>Los Colores</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Colors')}
+                    >
+                        <BouncyText>4</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circleLevel, localStyles.game]}
+                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                    <BouncyText>Juego 1</BouncyText>
+
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Evaluación 1</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.evaluation]}
+                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                </View>
+
+                {/* Modulo 3 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Alphabet')}
+                    >
+                        <BouncyText>1</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>El Alfabeto</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Los Primeros Números</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('FirstNumbers')}
+                    >
+                        <BouncyText>2</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ToCount')}
+                    >
+                        <BouncyText>3</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>¿Cómo se cuenta?</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText>Los Colores</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Colors')}
+                    >
+                        <BouncyText>4</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circleLevel, localStyles.game]}
+                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                    <BouncyText>Juego 1</BouncyText>
+
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Evaluación 1</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.evaluation]}
+                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                </View>
+
+                {/* Modulo 4 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Alphabet')}
+                    >
+                        <BouncyText>1</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>El Alfabeto</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Los Primeros Números</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('FirstNumbers')}
+                    >
+                        <BouncyText>2</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ToCount')}
+                    >
+                        <BouncyText>3</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>¿Cómo se cuenta?</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText>Los Colores</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Colors')}
+                    >
+                        <BouncyText>4</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circleLevel, localStyles.game]}
+                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                    <BouncyText>Juego 1</BouncyText>
+
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Evaluación 1</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.evaluation]}
+                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                </View>
+
+                {/*Modulo 5 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Alphabet')}
+                    >
+                        <BouncyText>1</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>El Alfabeto</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Los Primeros Números</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('FirstNumbers')}
+                    >
+                        <BouncyText>2</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ToCount')}
+                    >
+                        <BouncyText>3</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>¿Cómo se cuenta?</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText>Los Colores</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Colors')}
+                    >
+                        <BouncyText>4</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circleLevel, localStyles.game]}
+                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                    <BouncyText>Juego 1</BouncyText>
+
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Evaluación 1</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.evaluation]}
+                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                </View>
+
+                {/* Modulo 6 */}
+                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Alphabet')}
+                    >
+                        <BouncyText>1</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>El Alfabeto</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Los Primeros Números</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('FirstNumbers')}
+                    >
+                        <BouncyText>2</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('ToCount')}
+                    >
+                        <BouncyText>3</BouncyText>
+                    </TouchableOpacity>
+                    <BouncyText>¿Cómo se cuenta?</BouncyText>
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText>Los Colores</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.level]}
+                        onPress={() => navigation.navigate('Colors')}
+                    >
+                        <BouncyText>4</BouncyText>
+                    </TouchableOpacity>
+                </View>
+                <View style={localStyles.pathRow}>
+                    <TouchableOpacity
+                        style={[localStyles.circleLevel, localStyles.game]}
+                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                    <BouncyText>Juego 1</BouncyText>
+
+                </View>
+                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
+                    <BouncyText >Evaluación 1</BouncyText>
+                    <TouchableOpacity
+                        style={[localStyles.circle, localStyles.evaluation]}
+                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                    >
+                    </TouchableOpacity>
+                </View>
+
+            </ScrollView>
+
         </LinearGradient>
     );
 };
