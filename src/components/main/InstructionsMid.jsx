@@ -9,6 +9,7 @@ import { imageStyles } from '../../../styles/imageStyles';
 import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../ui/imageContainers/ImageContainer';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Instructions = () => {
     const navigation = useNavigation();
@@ -22,19 +23,22 @@ const Instructions = () => {
     };
 
     return (
-        <View style={globalStyles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={[localStyles.gradientBackground, globalStyles.container]}
+        >
             <View style={imageStyles.halfImageContainer}>
                 <ImageContainer
-                    path={require('../../../assets/images/prototype/nikkiamo.jpeg')}
+                    path={require('../../../assets/images/humu/humu-fuckup.png')}
                     style={imageStyles.halfImage}
                 />
             </View>
             <View style={cardStyles.cardContainerInstructions}>
 
-                <CardDefault 
-                title="Intermedio" 
-                style={cardStyles.instructionsCardStyle}
-                content="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+                <CardDefault
+                    title="Intermedio"
+                    style={cardStyles.instructionsCardStyle}
+                    content="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
                 >
                 </CardDefault>
             </View>
@@ -42,7 +46,7 @@ const Instructions = () => {
                 <ButtonDefault label="Continuar" onPress={handlePressContinue} />
                 <ButtonDefault label="Regresar" onPress={handlePressReturn} />
             </View>
-        </View>
+        </LinearGradient>
     );
 };
 

@@ -86,7 +86,7 @@ function HomeStack() {
       <Stack.Screen
         name="Login"
         component={Login}
-        options={{ title: 'Aprender con enemigos' }}
+        options={{ title: 'Aprender con amigos' }}
       />
       <Stack.Screen
         name="Levels"
@@ -106,12 +106,12 @@ function HomeStack() {
       <Stack.Screen
         name="CaminoLevels"
         component={CaminoLevelsScreen}
-        options={{ title: 'Niveles kichuanos' }}
+        options={{ title: 'Niveles' }}
       />
       <Stack.Screen
         name="CaminoLevelsBasic"
         component={CaminoLevelsBasicScreen}
-        options={{ title: 'Niveles kichuanos' }}
+        options={{ title: 'Niveles' }}
       />
       <Stack.Screen
         name="Alphabet"

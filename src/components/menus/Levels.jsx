@@ -7,6 +7,7 @@ import { imageStyles } from '../../../styles/imageStyles';
 import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../ui/imageContainers/ImageContainer';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Levels = () => {
     const navigation = useNavigation();
@@ -20,18 +21,23 @@ const Levels = () => {
     };
 
     return (
-        <View style={[styles.container]}>
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <CardDefault style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <ImageContainer uri={'https://static.wikia.nocookie.net/johnnyotgs/images/6/6e/WTNO_BJ_BKAT.jpg/revision/latest?cb=20140801043745'}/>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={[localStyles.gradientBackground, styles.container]}
+        >
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <CardDefault style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <ImageContainer path={require('../../../assets/images/humu/humu-happy.png')}
+                    />
                     <ButtonDefault label="Básico" onPress={handlePressBasic} />
                 </CardDefault>
                 <CardDefault>
-                    <ImageContainer uri={'https://static.wikia.nocookie.net/johnnyotgs/images/0/0f/WTNO_BJ_BKAT_2.jpg/revision/latest?cb=20140801043755'}/>
+                    <ImageContainer path={require('../../../assets/images/humu/humu-fuckup.png')}
+                    />
                     <ButtonDefault label="Intermedio" onPress={handlePressMid} />
                 </CardDefault>
             </View>
-        </View>
+        </LinearGradient>
     );
 };
 
