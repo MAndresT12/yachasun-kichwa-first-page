@@ -510,7 +510,7 @@ export const styles = StyleSheet.create({
     curiositiesContent: {
         flexDirection: 'row',
         alignItems: 'flex-start',
-        width: '50%',
+        width: '40%',
     },
 
 

@@ -139,7 +139,6 @@ const Alphabet = () => {
                             onPress={() => toggleAccordion(item.key)}
                         >
                             <View style={styles.curiositiesContent}>
-                                {/* <ImageContainer path={item.imagePath} /> */}
                                 <FloatingHumu path={item.imagePath}/>
                                 <ComicBubble
                                     text={item.text}
