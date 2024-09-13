@@ -1,10 +1,41 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, TouchableWithoutFeedback } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, Text, TextInput, StyleSheet, Animated, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
 import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../ui/imageContainers/ImageContainer';
+
+const FloatingHumu = ({ path, style }) => {
+    const animation = useRef(new Animated.Value(0)).current;
+
+    useEffect(() => {
+        Animated.loop(
+            Animated.sequence([
+                Animated.timing(animation, {
+                    toValue: 10,
+                    duration: 1000,
+                    useNativeDriver: true, 
+                }),
+                Animated.timing(animation, {
+                    toValue: 0,
+                    duration: 1000,
+                    useNativeDriver: true,
+                }),
+            ])
+        ).start();
+    }, [animation]);
+
+    const animatedStyle = {
+        transform: [{ translateY: animation }],
+    };
+
+    return (
+        <Animated.View style={[animatedStyle, style]}>
+            <ImageContainer path={path} />
+        </Animated.View>
+    );
+};
 
 const Login = () => {
     const navigation = useNavigation();
@@ -17,7 +48,7 @@ const Login = () => {
 
     return (
         <View style={[styles.container, localStyles.loginContainer]}>
-            <ImageContainer path={require('../../../assets/images/humu/humu-happy.png')}/>
+            <FloatingHumu path={require('../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
             <CardDefault style={styles.cardContent}>
                 <Text style={localStyles.title}>Bienvenido a YACHASUN KICHWA</Text>
                 <TextInput
