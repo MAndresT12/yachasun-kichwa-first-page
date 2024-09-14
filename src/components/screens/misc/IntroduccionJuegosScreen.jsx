@@ -3,16 +3,21 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles as globalStyles } from '../../../../styles/globalStyles';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const IntroduccionJuegoScreen = () => {
     const navigation = useNavigation();
 
     return (
-        <View style={globalStyles.container}>
+
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={[localStyles.gradientBackground, globalStyles.container]}
+        >
             <View style={localStyles.contentContainer}>
                 {/* Imagen al lado izquierdo */}
                 <Image
-                    source={require('../../../../assets/images/myths/huma2.png')}
+                    source={require('../../../../assets/images/humu/humu-talking.png')}
                     style={localStyles.image}
                 />
 
@@ -35,7 +40,7 @@ const IntroduccionJuegoScreen = () => {
                     </View>
                 </TouchableOpacity>
             </View>
-        </View>
+        </LinearGradient>
     );
 };
 

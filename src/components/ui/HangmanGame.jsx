@@ -80,7 +80,7 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                 <TouchableOpacity style={stylesHangman.helpIcon} onPress={() => setShowHelp(true)}>
                     <FontAwesome name="question-circle" size={40} color="#fff" />
                 </TouchableOpacity>
-                <Text style={stylesHangman.title}>Ahorcado Kichuano</Text>
+                <Text style={stylesHangman.title}>Ahorcado</Text>
                 <Text style={stylesHangman.translation}>Traducción: {selectedWord.translation}</Text>
                 {renderHangman()}
                 <View style={stylesHangman.wordContainer}>{renderWord()}</View>
