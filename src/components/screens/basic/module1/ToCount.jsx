@@ -57,7 +57,7 @@ const ToCount = () => {
                     <Text style={styles.titleTema}>Los Números Ordinales</Text>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="Reglas" content="Para crear los números ordinales en kichwa, añadimos -niki al número normal según su posición."/>
+                    <CardDefault title="¿Cómo se hace?" content="Para crear los números ordinales en kichwa, añadimos -niki al número normal según su posición."/>
                 </View>
                 <View style={styles.body}>
                     <CardDefault title="Números Ordinales en Kichwa">

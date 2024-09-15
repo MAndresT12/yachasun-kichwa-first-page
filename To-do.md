@@ -8,9 +8,8 @@
 - Login no en ingles el "welcome" [x]
 - Poner las tarjetas del alfabeto como la de los números [x]
 - No se ve el blanco en los colores [x]
-- El pasado progresivo está mal alineado las letras
-- El personaje no se ve en el fondo
-- Quitar lo de azul repetido
+- El personaje no se ve en el fondo [x]
+- Quitar lo de azul repetido [x]
 - Poner boton de ayuda para que diga pulsa y gira (un texto así) [x]
 - Empezar a incorporar el personaje
 - Que dar de acuerdo con el color de fondo

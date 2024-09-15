@@ -59,20 +59,20 @@ const first_number_data = [
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
     const rotateY = useSharedValue(0);
-    
+
     const animatedStyleFront = useAnimatedStyle(() => ({
         transform: [{ rotateY: `${rotateY.value}deg` }],
     }));
-    
+
     const animatedStyleBack = useAnimatedStyle(() => ({
         transform: [{ rotateY: `${rotateY.value + 180}deg` }],
     }));
-    
+
     const handleFlip = () => {
         rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
         setFlipped(!flipped);
     };
-    
+
     return (
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
@@ -92,7 +92,7 @@ const FlipCard = ({ item }) => {
 
 const FirstNumbers = () => {
     const [showHelp, setShowHelp] = useState(null);
-    
+
     const navigation = useNavigation();
 
     const toggleHelpModal = () => {
@@ -107,7 +107,7 @@ const FirstNumbers = () => {
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
                 <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los primeros números</Text>
+                    <Text style={styles.titleTema}>Los Primeros Números</Text>
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -115,7 +115,11 @@ const FirstNumbers = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="Los Primeros Números en Kichwa" content="Aprende los primeros números en Kichwa y su correspondencia en español. Usa los botones de más y menos para navegar entre los números."/>
+                    <CardDefault title="Los Primeros Números en Kichwa">
+                        <Text style={styles.cardContent}>
+                            Aquí aprenderemos los primeros números de Español a Kichwa.{"\n\n"}¡Prepárate para tener un tour matemático!
+                        </Text>
+                    </CardDefault>
                     <View style={styles.gridContainer}>
                         {first_number_data.map((item, index) => (
                             <FlipCard key={index} item={item} />

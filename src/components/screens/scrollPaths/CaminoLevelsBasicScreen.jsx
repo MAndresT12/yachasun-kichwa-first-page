@@ -73,7 +73,7 @@ const CaminoLevelsScreen = () => {
                     >
                         <BouncyText><FontAwesome name="trophy" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>Los números ordianles / Nikichik yupaykuna</BouncyText>
+                    <BouncyText>Los Números Ordinales / Nikichik yupaykuna</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Los Colores / Tullpukuna</BouncyText>
@@ -114,7 +114,7 @@ const CaminoLevelsScreen = () => {
                     >
                         <BouncyText><FontAwesome name="handshake-o" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>Los saludos</BouncyText>
+                    <BouncyText>Los Saludos</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText >Los Primeros Números</BouncyText>

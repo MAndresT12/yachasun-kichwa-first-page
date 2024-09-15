@@ -9,6 +9,7 @@ import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/imageContainers/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
+import { FloatingHumu } from '../../../animations/FloatingHumu';
 
 const alphabet_data = [
     { letters: "A a", imageLetter: "", pronunciation: "/a/", kichwa: "allik", spanish: "derecha", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
@@ -48,37 +49,6 @@ const curiosity_data = [
     },
 ];
 
-const FloatingHumu = ({ path, style }) => {
-    const animation = useRef(new Animated.Value(0)).current;
-
-    useEffect(() => {
-        Animated.loop(
-            Animated.sequence([
-                Animated.timing(animation, {
-                    toValue: 10,
-                    duration: 1000,
-                    useNativeDriver: true,
-                }),
-                Animated.timing(animation, {
-                    toValue: 0,
-                    duration: 1000,
-                    useNativeDriver: true,
-                }),
-            ])
-        ).start();
-    }, [animation]);
-
-    const animatedStyle = {
-        transform: [{ translateY: animation }],
-    };
-
-    return (
-        <Animated.View style={[animatedStyle, style]}>
-            <ImageContainer path={path} />
-        </Animated.View>
-    );
-};
-
 const Alphabet = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedLetter, setSelectedLetter] = useState(null);
@@ -112,17 +82,20 @@ const Alphabet = () => {
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
                 <View style={styles.header}>
-                    <Text style={styles.titleTema}>Alfabeto</Text>
+                    <Text style={styles.titleTema}>El Alfabeto</Text>
+                </View>
+                <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={toggleHelpModal}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.body}>
-                    <View style={styles.bodyAlphabet}>
-                        <CardDefault content="Conoce el alfabeto en Kichwa usando ejemplos en español. Presiona para ver más detalles."/>
-                        <View style={styles.questionIconContainer}>
-                            <TouchableOpacity onPress={toggleHelpModal}>
-                                <FontAwesome name="question-circle" size={40} color="#fff" />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+                    <CardDefault title="La escritura en Kichwa" >
+                        <Text style={styles.cardContent}>
+                            El Kichwa no tiene una escritura estandarizada definida por todas las regiones. Pero juntos usaremos el alfabeto en español.{"\n\n"}
+                            Conocerás el alfabeto en Kichwa usando ejemplos en español.
+                        </Text>
+                    </CardDefault>
                     <View style={styles.gridContainer}>
                         {alphabet_data.map((letter) => (
                             <TouchableWithoutFeedback key={letter.letters} onPress={() => handleLetterPress(letter)}>
