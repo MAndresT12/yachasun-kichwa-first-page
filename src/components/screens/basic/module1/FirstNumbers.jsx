@@ -115,7 +115,7 @@ const FirstNumbers = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="Los Primeros Números en Kichwa">
+                    <CardDefault title="Una aventura matemática">
                         <Text style={styles.cardContent}>
                             Aquí aprenderemos los primeros números de Español a Kichwa.{"\n\n"}¡Prepárate para tener un tour matemático!
                         </Text>
