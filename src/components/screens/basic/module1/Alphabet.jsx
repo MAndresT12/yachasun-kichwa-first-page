@@ -15,7 +15,25 @@ const images = {
     letterA: require('../../../../../assets/images/basic/letters/letterA.png'),
     letterI: require('../../../../../assets/images/basic/letters/letterI.png'),
     letterU: require('../../../../../assets/images/basic/letters/letterU.png'),
+    letterCH: require('../../../../../assets/images/basic/letters/letterCH.png'),
+    letterH: require('../../../../../assets/images/basic/letters/letterH.png'),
+    letterK: require('../../../../../assets/images/basic/letters/letterK.png'),
+    letterL: require('../../../../../assets/images/basic/letters/letterL.png'),
+    letterLL: require('../../../../../assets/images/basic/letters/letterLL.png'),
+    letterM: require('../../../../../assets/images/basic/letters/letterM.png'),
+    letterN: require('../../../../../assets/images/basic/letters/letterN.png'),
+    letterÑ: require('../../../../../assets/images/basic/letters/letterÑ.png'),
+    letterP: require('../../../../../assets/images/basic/letters/letterP.png'),
+    letterR: require('../../../../../assets/images/basic/letters/letterR.png'),
+    letterS: require('../../../../../assets/images/basic/letters/letterS.png'),
+    letterSH: require('../../../../../assets/images/basic/letters/letterSH.png'),
+    letterT: require('../../../../../assets/images/basic/letters/letterT.png'),
+    letterTS: require('../../../../../assets/images/basic/letters/letterTS.png'),
+    letterW: require('../../../../../assets/images/basic/letters/letterW.png'),
+    letterY: require('../../../../../assets/images/basic/letters/letterY.png'),
+    letterZ: require('../../../../../assets/images/basic/letters/letterZ.png'),
 };
+
 
 const alphabet_data = [
     {
@@ -35,90 +53,91 @@ const alphabet_data = [
     },
     {
         letters: "Ch ch", pronunciation: "/cha/", kichwa: "Chukllu", spanish: "Choclo",
-        imageLetter: images.letterA,
+        imageLetter: images.letterCH,
         imageExample: "https://img.freepik.com/vector-gratis/simple-caricatura-maiz_1308-124847.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid"
     },
     {
         letters: "H h", pronunciation: "/ha/", kichwa: "Hatun wasi", spanish: "Edificio",
-        imageLetter: images.letterA,
+        imageLetter: images.letterH,
         imageExample: "https://img.freepik.com/foto-gratis/vista-edificio-arquitectura-estilo-dibujos-animados_23-2151154971.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid"
     },
     {
         letters: "K k", pronunciation: "/ka/", kichwa: "Kawitu", spanish: "Cama",
-        imageLetter: images.letterA,
+        imageLetter: images.letterK,
         imageExample: "https://img.freepik.com/vector-gratis/goldilocks-tres-osos-cama_1308-168802.jpg"
     },
     {
         letters: "L l", pronunciation: "/la/", kichwa: "Lumu", spanish: "Yuca",
-        imageLetter: images.letterA,
+        imageLetter: images.letterL,
         imageExample: "https://www.mercontrol.com/wp-content/uploads/2023/03/Que-es-la-yuca.-Propiedades-y-beneficios.jpg"
     },
     {
         letters: "Ll ll", pronunciation: "/lla/-/sha/", kichwa: "Llakta", spanish: "Ciudad",
-        imageLetter: images.letterA,
+        imageLetter: images.letterLL,
         imageExample: "https://img.freepik.com/vector-gratis/calle-ciudad-vectores_23-2147751403.jpg"
     },
     {
         letters: "M m", pronunciation: "/ma/", kichwa: "Misi", spanish: "Gato",
-        imageLetter: images.letterA,
+        imageLetter: images.letterM,
         imageExample: "https://img.freepik.com/vector-gratis/ilustracion-icono-vector-dibujos-animados-lindo-gato-sentado-concepto-icono-naturaleza-animal-aislado-premium-vector-estilo-dibujos-animados-plana_138676-4148.jpg"
     },
     {
         letters: "N n", pronunciation: "/na/", kichwa: "Napana", spanish: "Saludar",
-        imageLetter: images.letterA,
+        imageLetter: images.letterN,
         imageExample: "https://s3.voyapon.com/wp-content/uploads/sites/3/2020/03/20034614/aisatsu_sayounara.png"
     },
     {
         letters: "Ñ ñ", pronunciation: "/ña/", kichwa: "Ñan", spanish: "Camino",
-        imageLetter: images.letterA,
+        imageLetter: images.letterÑ,
         imageExample: "https://img.freepik.com/foto-gratis/tiro-horizontal-arbol-aislado-campo-verde-camino-cielo-nublado_181624-5064.jpg"
     },
     {
         letters: "P p", pronunciation: "/pa/", kichwa: "Puyu", spanish: "Nube",
-        imageLetter: images.letterA,
+        imageLetter: images.letterP,
         imageExample: "https://png.pngtree.com/png-clipart/20231005/original/pngtree-childish-cartoon-character-cloud-png-image_13123290.png"
     },
     {
         letters: "R r", pronunciation: "/ra/", kichwa: "Rikra", spanish: "Brazo",
-        imageLetter: images.letterA,
+        imageLetter: images.letterR,
         imageExample: "https://cdn5.dibujos.net/dibujos/pintados/202213/brazo-el-cuerpo-humano-12464261.jpg"
     },
     {
         letters: "S s", pronunciation: "/sa/", kichwa: "Sapi", spanish: "Raíz",
-        imageLetter: images.letterA,
+        imageLetter: images.letterS,
         imageExample: "https://www.abc.com.py/resizer/qSdoMyZmlLjv9qyZuW2eK7qvgCc=/arc-anglerfish-arc2-prod-abccolor/public/JOAJY52BPFDM7AUXLEOWHLILLY.jpg"
     },
     {
         letters: "Sh sh", pronunciation: "/sha/", kichwa: "Shañu", spanish: "Café",
-        imageLetter: images.letterA,
+        imageLetter: images.letterSH,
         imageExample: "https://cafeselcriollo.com/wp-content/uploads/2022/01/beneficios-del-cafe-en-grano_.jpg"
     },
     {
         letters: "T t", pronunciation: "/ta/", kichwa: "Tanta", spanish: "Pan",
-        imageLetter: images.letterA,
+        imageLetter: images.letterT,
         imageExample: "https://img.freepik.com/vector-gratis/ilustracion-cocina-americana-dibujada-mano_23-2149330330.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid"
     },
     {
         letters: "Ts ts", pronunciation: "/tsa/", kichwa: "Tsini", spanish: "Ortiga",
-        imageLetter: images.letterA,
+        imageLetter: images.letterTS,
         imageExample: "https://actualfruveg.com/wp-content/uploads/2022/11/ortiga-2.jpg"
     },
     {
         letters: "W w", pronunciation: "/ua/", kichwa: "Wiksa", spanish: "Estómago",
-        imageLetter: images.letterA,
+        imageLetter: images.letterW,
         imageExample: "https://previews.123rf.com/images/seamartini/seamartini2301/seamartini230100415/197569464-personaje-de-%C3%B3rgano-del-cuerpo-humano-del-est%C3%B3mago-de-dibujos-animados-personaje-del-sistema.jpg"
     },
     {
         letters: "Y y", pronunciation: "/ya/", kichwa: "Yura", spanish: "Planta",
-        imageLetter: images.letterA,
+        imageLetter: images.letterY,
         imageExample: "https://i.pinimg.com/originals/08/10/12/081012676b69a2142c6c609e30612bd8.png"
     },
     {
         letters: "Z z", pronunciation: "/za/", kichwa: "Zirpu", spanish: "Churón",
-        imageLetter: images.letterA,
+        imageLetter: images.letterZ,
         imageExample: "https://i.pinimg.com/736x/0c/9e/bc/0c9ebc0250a2c4c642a5b6f455ef0ceb.jpg"
     },
 ];
+
 
 const curiosity_data = [
     {
