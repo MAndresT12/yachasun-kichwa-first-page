@@ -11,21 +11,21 @@
 - El personaje no se ve en el fondo [x]
 - Quitar lo de azul repetido [x]
 - Poner boton de ayuda para que diga pulsa y gira (un texto así) [x]
+- En los números en vez de mas y menos flechas [N/A]
+- Los primeros numeros es en el 4 y colores en el 3 en el camino levels, poner en kichwa y espanol los niveles [x]
+- Usar los mismos juegos y las mismas evaluaciones [x]
+- Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe..... [x]
+- Para números no queda el contador porque toca moverse full no vale [x]
+- imagenes animadas un estadar, si vamos a usar ai el mismo prompt [x]
 - Empezar a incorporar el personaje
 - Que dar de acuerdo con el color de fondo
-- En los números en vez de mas y menos flechas
 - Los componentes de imágenes, botones ver qué hacer que no son iguales, hacer lo de Milton
 - Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
-- Los primeros numeros es en el 4 y colores en el 3 en el camino levels, poner en kichwa y espanol los niveles
-- Usar los mismos juegos y las mismas evaluaciones
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias, que explique
-- Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe.....
-- Para números no queda el contador porque toca moverse full no vale
-- imagenes animadas un estadar, si vamos a usar ai el mismo prompt
 - Poner todos los estilos en el global para luego cambiar
 - Spanish dice en la tabla en vez de español en ordinales
-- Poner animaciones a las letras o cambiar el font, poner diseño
+- Poner animaciones a las letras o cambiar el font, poner diseño en las cards
 - Idea de hacer un chat para los saludos
 
 
