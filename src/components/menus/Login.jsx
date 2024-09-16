@@ -6,37 +6,7 @@ import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../ui/imageContainers/ImageContainer';
 import { LinearGradient } from 'expo-linear-gradient';
-
-const FloatingHumu = ({ path, style }) => {
-    const animation = useRef(new Animated.Value(0)).current;
-
-    useEffect(() => {
-        Animated.loop(
-            Animated.sequence([
-                Animated.timing(animation, {
-                    toValue: 10,
-                    duration: 1000,
-                    useNativeDriver: true,
-                }),
-                Animated.timing(animation, {
-                    toValue: 0,
-                    duration: 1000,
-                    useNativeDriver: true,
-                }),
-            ])
-        ).start();
-    }, [animation]);
-
-    const animatedStyle = {
-        transform: [{ translateY: animation }],
-    };
-
-    return (
-        <Animated.View style={[animatedStyle, style]}>
-            <ImageContainer path={path} />
-        </Animated.View>
-    );
-};
+import { FloatingHumu } from '../animations/FloatingHumu';
 
 const Login = () => {
     const navigation = useNavigation();
@@ -53,7 +23,7 @@ const Login = () => {
             style={[localStyles.gradientBackground, styles.container, localStyles.loginContainer]}
         >
             <View style={[localStyles.container, localStyles.loginContainer]}>
-                <FloatingHumu path={require('../../../assets/images/humu/humu-happy.png')} style={styles.imageModal} />
+                <FloatingHumu path={require('../../../assets/images/humu/humu-happy.png')} style={styles.imageModal} initialValue={10} />
                 <CardDefault style={styles.cardContent}>
                     <Text style={localStyles.title}>Bienvenido a YACHASUN KICHWA</Text>
                     <TextInput

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles as globalStyles } from '../../../styles/globalStyles';
+import { styles } from '../../../styles/globalStyles';
 import { buttonStyles } from '../../../styles/buttonStyles';
 import { cardStyles } from '../../../styles/cardStyles';
 import { imageStyles } from '../../../styles/imageStyles';
@@ -25,7 +25,7 @@ const Instructions = () => {
 
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
-            style={[localStyles.gradientBackground, globalStyles.container]}
+            style={[localStyles.gradientBackground, styles.container]}
         >
             <View style={imageStyles.halfImageContainer}>
                 <ImageContainer
@@ -35,11 +35,14 @@ const Instructions = () => {
             </View>
             <View style={cardStyles.cardContainerInstructions}>
 
-                <CardDefault
-                    title="Básico"
-                    style={cardStyles.instructionsCardStyle}
-                    content="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
-                >
+                <CardDefault title="Básico" style={cardStyles.instructionsCardStyle} >
+                    <Text style={styles.cardContent}>
+                    En este nivel de dificultad, aprenderás los elements básicos del Kichwa. 
+                    Comenzaremos por temas como los números, los colores y los saludos, para 
+                    terminar con la creación de oraciones simples. Será una aventura llena de 
+                    conocimiento y diversión.
+                    {"\n\n"}Sostente fuerte que aquí comienza tu camino por un mundo maravilloso.
+                    </Text>
                 </CardDefault>
             </View>
             <View style={buttonStyles.buttonContainerSpaceAround}>

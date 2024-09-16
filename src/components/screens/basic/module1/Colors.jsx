@@ -9,21 +9,21 @@ import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { FontAwesome } from '@expo/vector-icons';
 
 const colors_data = [
-    { kichwa: "puka", spanish: "rojo", hexadecimalColor: "#FF0000" },
-    { kichwa: "ankas", spanish: "azul", hexadecimalColor: "#0000FF" },
-    { kichwa: "killu", spanish: "amarillo", hexadecimalColor: "#FFFF00" },
-    { kichwa: "waylla", spanish: "verde", hexadecimalColor: "#00FF00" },
-    { kichwa: "yana", spanish: "negro", hexadecimalColor: "#000000" },
-    { kichwa: "yurak", spanish: "blanco", hexadecimalColor: "#FFFFFF" },
-    { kichwa: "yanalla ankas", spanish: "azul marino", hexadecimalColor: "#000080" },
-    { kichwa: "chawa ankas", spanish: "celeste", hexadecimalColor: "#87CEEB" },
-    { kichwa: "chawa killu", spanish: "amarillo claro", hexadecimalColor: "#FFFFE0" },
-    { kichwa: "chawa wayllu", spanish: "verde claro", hexadecimalColor: "#90EE90" },
-    { kichwa: "paku", spanish: "café", hexadecimalColor: "#8B4513" },
-    { kichwa: "waminsi", spanish: "rosado", hexadecimalColor: "#FFC0CB" },
-    { kichwa: "maywa", spanish: "morado", hexadecimalColor: "#800080" },
-    { kichwa: "suku", spanish: "plomo", hexadecimalColor: "#808080" },
-    { kichwa: "kishpu", spanish: "naranja", hexadecimalColor: "#FFA500" },
+    { kichwa: "Puka", spanish: "Rojo", hexadecimalColor: "#FF0000" },
+    { kichwa: "Ankas", spanish: "Azul", hexadecimalColor: "#0000FF" },
+    { kichwa: "Killu", spanish: "Amarillo", hexadecimalColor: "#FFFF00" },
+    { kichwa: "Waylla", spanish: "Verde", hexadecimalColor: "#00FF00" },
+    { kichwa: "Yana", spanish: "Negro", hexadecimalColor: "#000000" },
+    { kichwa: "Yurak", spanish: "Blanco", hexadecimalColor: "#FFFFFF" },
+    { kichwa: "Yanalla ankas", spanish: "Azul marino", hexadecimalColor: "#000080" },
+    { kichwa: "Chawa ankas", spanish: "Celeste", hexadecimalColor: "#87CEEB" },
+    { kichwa: "Chawa killu", spanish: "Amarillo claro", hexadecimalColor: "#FFFFE0" },
+    { kichwa: "Chawa wayllu", spanish: "Verde claro", hexadecimalColor: "#90EE90" },
+    { kichwa: "Paku", spanish: "Café", hexadecimalColor: "#8B4513" },
+    { kichwa: "Waminsi", spanish: "Rosado", hexadecimalColor: "#FFC0CB" },
+    { kichwa: "Maywa", spanish: "Morado", hexadecimalColor: "#800080" },
+    { kichwa: "Suku", spanish: "Plomo", hexadecimalColor: "#808080" },
+    { kichwa: "Kishpu", spanish: "Naranja", hexadecimalColor: "#FFA500" },
 ];
 
 const FlipCard = ({ item }) => {
@@ -84,7 +84,13 @@ const Colors = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="Colores en Kichwa" content="Aprende los colores en Kichwa y su correspondencia en español.">
+                    <CardDefault title="Un arcoíris">
+                        <Text style={styles.cardContent}>
+                            Los colores nos permiten ver lo bello de este mundo. 
+                            Es importante también que sepamos cómo se dicen en Kichwa.{"\n\n"}
+                            Ahora hablaremos de los colores y los mostraremos en pequeñas tarjetas. 
+                            Diviértete aprendiendo.
+                        </Text>
                     </CardDefault>
                     <View style={styles.gridContainer}>
                         {colors_data.map((item, index) => (

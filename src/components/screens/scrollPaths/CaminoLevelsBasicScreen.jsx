@@ -46,7 +46,7 @@ const CaminoLevelsScreen = () => {
             <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
 
                 {/* Modulo 1 */}
-                <ImageContainer path={require('../../../../assets/images/prototype/santigod.jpeg')} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/abc.png')} style={styles.islandImage}/>
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity

@@ -11,26 +11,26 @@ import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 
 const to_count_data = [
-    { numberPosition: "1", kichwa: "shukniki", spanish: "primero" },
-    { numberPosition: "2", kichwa: "ishkayniki", spanish: "segundo" },
-    { numberPosition: "3", kichwa: "kimsaniki", spanish: "tercero" },
-    { numberPosition: "4", kichwa: "chuskuniki", spanish: "cuarto" },
-    { numberPosition: "5", kichwa: "pichkaniki", spanish: "quinto" },
-    { numberPosition: "6", kichwa: "suktaniki", spanish: "sexto" },
-    { numberPosition: "7", kichwa: "kanchisniki", spanish: "séptimo" },
-    { numberPosition: "8", kichwa: "pusakniki", spanish: "octavo" },
-    { numberPosition: "9", kichwa: "iskunniki", spanish: "noveno" },
-    { numberPosition: "10", kichwa: "chunkaniki", spanish: "décimo" },
-    { numberPosition: "11", kichwa: "chunka shukniki", spanish: "undécimo" },
-    { numberPosition: "12", kichwa: "chunka ishkayniki", spanish: "duodécimo" },
-    { numberPosition: "13", kichwa: "chunka kimsaniki", spanish: "decimotercero" },
-    { numberPosition: "14", kichwa: "chunka chuskuniki", spanish: "decimocuarto" },
-    { numberPosition: "15", kichwa: "chunka pichkaniki", spanish: "decimoquinto" },
-    { numberPosition: "16", kichwa: "chunka suktaniki", spanish: "decimosexto" },
-    { numberPosition: "17", kichwa: "chunka kanchisniki", spanish: "decimoséptimo" },
-    { numberPosition: "18", kichwa: "chunka pusakniki", spanish: "decimoctavo" },
-    { numberPosition: "19", kichwa: "chunka iskunniki", spanish: "decimonoveno" },
-    { numberPosition: "20", kichwa: "ishkay chunkaniki", spanish: "vigésimo" }
+    { numberPosition: "1", kichwa: "Shukniki", spanish: "Primero" },
+    { numberPosition: "2", kichwa: "Ishkayniki", spanish: "Segundo" },
+    { numberPosition: "3", kichwa: "Kimsaniki", spanish: "Tercero" },
+    { numberPosition: "4", kichwa: "Chuskuniki", spanish: "Cuarto" },
+    { numberPosition: "5", kichwa: "Pichkaniki", spanish: "Quinto" },
+    { numberPosition: "6", kichwa: "Suktaniki", spanish: "Sexto" },
+    { numberPosition: "7", kichwa: "Kanchisniki", spanish: "Séptimo" },
+    { numberPosition: "8", kichwa: "Pusakniki", spanish: "Octavo" },
+    { numberPosition: "9", kichwa: "Iskunniki", spanish: "Noveno" },
+    { numberPosition: "10", kichwa: "Chunkaniki", spanish: "Décimo" },
+    { numberPosition: "11", kichwa: "Chunka shukniki", spanish: "Undécimo" },
+    { numberPosition: "12", kichwa: "Chunka ishkayniki", spanish: "Duodécimo" },
+    { numberPosition: "13", kichwa: "Chunka kimsaniki", spanish: "Decimotercero" },
+    { numberPosition: "14", kichwa: "Chunka chuskuniki", spanish: "Decimocuarto" },
+    { numberPosition: "15", kichwa: "Chunka pichkaniki", spanish: "Decimoquinto" },
+    { numberPosition: "16", kichwa: "Chunka suktaniki", spanish: "Decimosexto" },
+    { numberPosition: "17", kichwa: "Chunka kanchisniki", spanish: "Decimoséptimo" },
+    { numberPosition: "18", kichwa: "Chunka pusakniki", spanish: "Decimoctavo" },
+    { numberPosition: "19", kichwa: "Chunka iskunniki", spanish: "Decimonoveno" },
+    { numberPosition: "20", kichwa: "Ishkay chunkaniki", spanish: "Vigésimo" }
 ];
 
 const renderOrdinalRows = () => {
@@ -57,10 +57,18 @@ const ToCount = () => {
                     <Text style={styles.titleTema}>Los Números Ordinales</Text>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="¿Cómo se hace?" content="Para crear los números ordinales en kichwa, añadimos -niki al número normal según su posición."/>
+                    <CardDefault title="¿Cómo se hace?" >
+                        <Text style={styles.cardContent}>
+                            Ahora que sabes de números en Kichwa. 
+                            Es importante que aprendamos cómo ordenar o posicionar. 
+                            Aquí entran los números ordinales.{"\n\n"}
+                            Para crear los números ordinales en Kichwa, añadimos -niki 
+                            al número normal según su posición.
+                        </Text>
+                    </CardDefault>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="Números Ordinales en Kichwa">
+                    <CardDefault title="Tabla de Posiciones">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Posición</Text>

@@ -532,4 +532,17 @@ export const styles = StyleSheet.create({
         width: '80%',
     },
 
+    imageCards: {
+        width: 120,
+        height: 120,
+        resizeMode: 'contain',
+    },
+
+    islandImage: {
+        width: '100%',
+        height: 200,
+        resizeMode: 'contain',
+        marginVertical: 20,
+    },
+
 });
