@@ -23,7 +23,7 @@
 - Poner animaciones a las letras o cambiar el font, poner diseño en las cards
 - Empezar a incorporar el personaje
 - Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
-- HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja
+- HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo)
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias, que explique
 - Spanish dice en la tabla en vez de español en ordinales
 - Idea de hacer un chat para los saludos
