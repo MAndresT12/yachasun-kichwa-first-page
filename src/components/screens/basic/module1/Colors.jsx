@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
@@ -7,6 +7,10 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { FontAwesome } from '@expo/vector-icons';
+import { useFonts, RibeyeMarrow_400Regular } from '@expo-google-fonts/ribeye-marrow';
+import { LinearGradient } from 'expo-linear-gradient';
+
+const colors = ['#FF6347', '#4682B4', '#FFD700', '#32CD32', '#8A2BE2', '#FF4500'];
 
 const colors_data = [
     { kichwa: "Puka", spanish: "Rojo", hexadecimalColor: "#FF0000" },
@@ -15,10 +19,10 @@ const colors_data = [
     { kichwa: "Waylla", spanish: "Verde", hexadecimalColor: "#00FF00" },
     { kichwa: "Yana", spanish: "Negro", hexadecimalColor: "#000000" },
     { kichwa: "Yurak", spanish: "Blanco", hexadecimalColor: "#FFFFFF" },
-    { kichwa: "Yanalla ankas", spanish: "Azul marino", hexadecimalColor: "#000080" },
-    { kichwa: "Chawa ankas", spanish: "Celeste", hexadecimalColor: "#87CEEB" },
-    { kichwa: "Chawa killu", spanish: "Amarillo claro", hexadecimalColor: "#FFFFE0" },
-    { kichwa: "Chawa wayllu", spanish: "Verde claro", hexadecimalColor: "#90EE90" },
+    { kichwa: "Yanalla Ankas", spanish: "Azul Marino", hexadecimalColor: "#000080" },
+    { kichwa: "Chawa Ankas", spanish: "Celeste", hexadecimalColor: "#87CEEB" },
+    { kichwa: "Chawa Killu", spanish: "Amarillo Claro", hexadecimalColor: "#FFFFE0" },
+    { kichwa: "Chawa Wayllu", spanish: "Verde Claro", hexadecimalColor: "#90EE90" },
     { kichwa: "Paku", spanish: "Café", hexadecimalColor: "#8B4513" },
     { kichwa: "Waminsi", spanish: "Rosado", hexadecimalColor: "#FFC0CB" },
     { kichwa: "Maywa", spanish: "Morado", hexadecimalColor: "#800080" },
@@ -26,7 +30,11 @@ const colors_data = [
     { kichwa: "Kishpu", spanish: "Naranja", hexadecimalColor: "#FFA500" },
 ];
 
-const FlipCard = ({ item }) => {
+const getColorForLetter = (index) => {
+    return colors[index % colors.length];
+};
+
+const FlipCard = ({ item, fontsLoaded }) => {
     const [flipped, setFlipped] = useState(false);
     const rotateY = useSharedValue(0);
 
@@ -47,7 +55,18 @@ const FlipCard = ({ item }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <Text style={styles.title}>{item.spanish}</Text>
+                    <LinearGradient
+                        colors={['#FFD700', '#8B4513']}
+                        style={styles.andesStyleGradientBox}
+                    >
+                        <Text style={[styles.andesStyleText, { fontFamily: fontsLoaded ? 'RibeyeMarrow_400Regular' : 'sans-serif', flexDirection: 'row' }]}>
+                            {item.spanish.split('').map((letter, index) => (
+                                <Text key={index} style={{ color: getColorForLetter(index) }}>
+                                    {letter}
+                                </Text>
+                            ))}
+                        </Text>
+                    </LinearGradient>
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
                     <Text style={styles.translationLabel}>Kichwa:</Text>
@@ -61,12 +80,34 @@ const FlipCard = ({ item }) => {
 
 const Colors = () => {
     const [showHelp, setShowHelp] = useState(null);
+    const [fontsLoaded] = useFonts({
+        RibeyeMarrow_400Regular,
+    });
 
     const navigation = useNavigation();
 
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
     };
+
+    const content = fontsLoaded ? (
+        <View style={styles.body}>
+            <CardDefault title="Un arcoíris">
+                <Text style={styles.cardContent}>
+                    Los colores nos permiten ver lo bello de este mundo.{"\n\n"}
+                    Ahora hablaremos de los colores y los mostraremos en pequeñas tarjetas.
+                    Diviértete aprendiendo.
+                </Text>
+            </CardDefault>
+            <View style={styles.gridContainer}>
+                {colors_data.map((item, index) => (
+                    <FlipCard key={index} item={item} fontsLoaded={fontsLoaded} />
+                ))}
+            </View>
+        </View>
+    ) : (
+        <ActivityIndicator size="large" color="#0000ff" />
+    );
 
     return (
         <View style={styles.container}>
@@ -83,21 +124,7 @@ const Colors = () => {
                         <FontAwesome name="question-circle" size={40} color="#fff" />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.body}>
-                    <CardDefault title="Un arcoíris">
-                        <Text style={styles.cardContent}>
-                            Los colores nos permiten ver lo bello de este mundo. 
-                            Es importante también que sepamos cómo se dicen en Kichwa.{"\n\n"}
-                            Ahora hablaremos de los colores y los mostraremos en pequeñas tarjetas. 
-                            Diviértete aprendiendo.
-                        </Text>
-                    </CardDefault>
-                    <View style={styles.gridContainer}>
-                        {colors_data.map((item, index) => (
-                            <FlipCard key={index} item={item} />
-                        ))}
-                    </View>
-                </View>
+                {content}
 
                 {showHelp && (
                     <Modal
@@ -131,82 +158,3 @@ const Colors = () => {
 };
 
 export default Colors;
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback } from 'react-native';
-// import { useNavigation } from '@react-navigation/native';
-// import { styles } from '../../styles/globalStyles';
-// import { CardDefault } from './CardDefault';
-// import { WORDS_ENDPOINT } from "../../constants"
-
-// const Main = () => {
-//     const navigation = useNavigation();
-//     const [numberData, setNumberData] = useState([]);
-
-//     useEffect(() => {
-//         fetch(WORDS_ENDPOINT)
-//             .then(response => response.json())
-//             .then(data => {
-//                 setNumberData(data); // piloski API debe retornar un array similar al numberData
-//             })
-//             .catch(error => {
-//                 console.error('Error fetching data:', error);
-//             });
-//     }, []);
-
-//     const renderNumberRows = () => {
-//         return numberData.map((item, index) => (
-//             <View key={index} style={styles.tableRow}>
-//                 <Text style={styles.tableCell}>{item.numero}</Text>
-//                 <Text style={styles.tableCell}>{item.kichwa}</Text>
-//                 <Text style={styles.tableCell}>{item.spanish}</Text>
-//             </View>
-//         ));
-//     };
-
-//     return (
-//         <View style={styles.container}>
-//             <StatusBar barStyle="default" backgroundColor="#5B4D28" />
-//             <ScrollView style={styles.scrollView}>
-//                 <View style={styles.header}>
-//                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-//                 </View>
-//                 <View style={styles.header}>
-//                     <Text style={styles.titleTema}>Los números</Text>
-//                 </View>
-//                 <View style={styles.body}>
-//                     <CardDefault title="Números en Kichwa">
-//                         <Text style={styles.cardContent}>Aprende los números en Kichwa y su correspondencia en español.</Text>
-//                     </CardDefault>
-//                     <CardDefault title="Vocabulario">
-//                         <Text style={styles.vocabularyTitle}>Vocabulario</Text>
-//                         <View style={styles.vocabularyTable}>
-//                             <View style={styles.tableHeader}>
-//                                 <Text style={styles.tableHeaderCell}>Número</Text>
-//                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-//                                 <Text style={styles.tableHeaderCell}>Spanish</Text>
-//                             </View>
-//                             {renderNumberRows()}
-//                         </View>
-//                     </CardDefault>
-//                 </View>
-//                 <View style={styles.footer}>
-//                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('Food'); }}>
-//                         <View style={styles.footerButton}>
-//                             <Text style={styles.footerButtonText}>Siguiente</Text>
-//                         </View>
-//                     </TouchableWithoutFeedback>
-//                 </View>
-//             </ScrollView>
-//         </View>
-//     );
-// }
-
-// export default Main;

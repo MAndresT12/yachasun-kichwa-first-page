@@ -545,4 +545,24 @@ export const styles = StyleSheet.create({
         marginVertical: 20,
     },
 
+    andesStyleText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        //color: '#FFD700',
+        //textShadowColor: '#8B4513',
+        //textShadowOffset: { width: 2, height: 2 },
+        //textShadowRadius: 5,
+        //letterSpacing: 2,
+        //borderColor: '#000',
+        //borderWidth: 2,
+        borderRadius: 8,
+        padding: 15,
+        textAlign: 'center',
+    },
+    andesStyleGradientBox: {
+        //borderColor: '#000',
+        //borderWidth: 2,
+        textAlign: 'center',
+        borderRadius: 8,
+    },
 });
