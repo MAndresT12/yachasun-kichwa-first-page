@@ -105,7 +105,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/* Modulo 2 */}
-                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/family.png')} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -162,7 +162,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/* Modulo 3 */}
-                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/home-food-school.png')} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -219,7 +219,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/* Modulo 4 */}
-                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/valley-flowers.png')} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -276,7 +276,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/*Modulo 5 */}
-                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/orientation.png')} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -333,7 +333,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/* Modulo 6 */}
-                <ImageContainer path={require('../../../../assets/images/prototype/faustotrabalover.jpeg')} />
+                {/* <ImageContainer path={require('../../../../assets/images/basic/badges/abc.png')} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -387,7 +387,7 @@ const CaminoLevelsScreen = () => {
                         onPress={() => navigation.navigate('EvaluationBasicModule1')}
                     >
                     </TouchableOpacity>
-                </View>
+                </View> */}
 
             </ScrollView>
 
