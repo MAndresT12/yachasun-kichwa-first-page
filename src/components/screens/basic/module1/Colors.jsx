@@ -92,7 +92,7 @@ const Colors = () => {
 
     const content = fontsLoaded ? (
         <View style={styles.body}>
-            <CardDefault title="Un arcoíris">
+            <CardDefault title="Un arcoíris al cielo">
                 <Text style={styles.cardContent}>
                     Los colores nos permiten ver lo bello de este mundo.{"\n\n"}
                     Ahora hablaremos de los colores y los mostraremos en pequeñas tarjetas.
