@@ -26,6 +26,7 @@
 - Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias, que explique
 - Spanish dice en la tabla en vez de español en ordinales
+- Hay que poner Text bubles en todos los elementos donde aparezca humu y los signos de interrogación
 - Idea de hacer un chat para los saludos
 
 

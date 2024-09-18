@@ -105,7 +105,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/* Modulo 2 */}
-                <ImageContainer path={require('../../../../assets/images/basic/badges/family.png')} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/family.png')} style={styles.islandImage} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -114,7 +114,7 @@ const CaminoLevelsScreen = () => {
                     >
                         <BouncyText><FontAwesome name="handshake-o" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>Los Saludos</BouncyText>
+                    <BouncyText>Los Saludos / Napaykuna</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText >Los Primeros Números</BouncyText>
@@ -162,7 +162,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/* Modulo 3 */}
-                <ImageContainer path={require('../../../../assets/images/basic/badges/home-food-school.png')} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/home-food-school.png')} style={styles.islandImage} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -219,7 +219,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/* Modulo 4 */}
-                <ImageContainer path={require('../../../../assets/images/basic/badges/valley-flowers.png')} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/valley-flowers.png')} style={styles.islandImage} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -276,7 +276,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/*Modulo 5 */}
-                <ImageContainer path={require('../../../../assets/images/basic/badges/orientation.png')} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/orientation.png')} style={styles.islandImage} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -333,7 +333,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/* Modulo 6 */}
-                {/* <ImageContainer path={require('../../../../assets/images/basic/badges/abc.png')} />
+                {/* <ImageContainer path={require('../../../../assets/images/basic/badges/abc.png')} style={styles.islandImage} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -430,13 +430,14 @@ const localStyles = StyleSheet.create({
         borderRadius: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 12,
+        borderWidth: 5,
         borderColor: '#8BC34A', // Verde brillante para resaltar niveles
         backgroundColor: '#228825',
     },
     evaluation: {
         backgroundColor: '#F44336', // Rojo para el nivel de evaluación
         borderColor: '#E53935',
+        borderWidth: 5,
     },
     islandImage: {
         width: '100%',

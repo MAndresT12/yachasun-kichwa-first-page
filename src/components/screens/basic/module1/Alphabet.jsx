@@ -148,8 +148,14 @@ const curiosity_data = [
     },
     {
         key: '2',
-        title: 'Curiosidades de las consonates en Kichwa',
-        text: 'Sabías que: La e y o no se utilizan en el idioma kichwa. Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
+        title: '¡Conoce a las vocales!',
+        text: 'Tal vez no sabías que a e y o no se utilizan en el idioma kichwa.',
+        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+    },
+    {
+        key: '3',
+        title: 'Veámos que se dice de las consonantes',
+        text: 'Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
 ];

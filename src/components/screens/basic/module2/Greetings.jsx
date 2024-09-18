@@ -11,23 +11,23 @@ import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 
 const greetings_data = [
-    { kichwa: "imanalla", spanish: "hola", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
-    { kichwa: "alli puncha", spanish: "buenos días", imageExample: "https://cdn5.dibujos.net/dibujos/pintados/201218/numero-9-letras-y-numeros-numeros-pintado-por-meulois-9737798.jpg" },
-    { kichwa: "alli chishi", spanish: "buenas tardes", imageExample: "https://static.vecteezy.com/system/resources/previews/002/508/274/non_2x/young-teenager-boy-kid-head-character-vector.jpg" },
-    { kichwa: "alli tuta", spanish: "buenas noches", imageExample: "https://img.freepik.com/vector-gratis/simple-caricatura-maiz_1308-124847.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid" },
+    { kichwa: "Imanalla", spanish: "Hola", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
+    { kichwa: "Alli puncha", spanish: "Buenos días", imageExample: "https://cdn5.dibujos.net/dibujos/pintados/201218/numero-9-letras-y-numeros-numeros-pintado-por-meulois-9737798.jpg" },
+    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageExample: "https://static.vecteezy.com/system/resources/previews/002/508/274/non_2x/young-teenager-boy-kid-head-character-vector.jpg" },
+    { kichwa: "Alli tuta", spanish: "Buenas noches", imageExample: "https://img.freepik.com/vector-gratis/simple-caricatura-maiz_1308-124847.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid" },
 ];
 
 const curiosity_data = [
     {
         key: '1',
-        title: 'Curiosidades del alfabeto Kichwa',
-        text: 'Sabías que en el alfabeto Kichwa existen solamente 3 vocales: a, i, u; y 17 consonantes. ¡Increíble!',
+        title: 'Los Apellidos en Kichwa',
+        text: 'La palabra Ango significa jefe, señor o gobernador. En el idioma Kayambi, significa espíritu y unidad.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
     {
         key: '2',
-        title: 'Curiosidades de las consonates en Kichwa',
-        text: 'Sabías que: La e y o no se utilizan en el idioma kichwa. Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
+        title: 'Curiosidades de las volcales en Kichwa',
+        text: 'La e y o no se utilizan en el idioma kichwa. Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
 ];

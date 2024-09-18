@@ -14,6 +14,7 @@
 ### Módulo 2 
 
 - Los saludos, cortesía y despedidas (cortesía y despedidas añadí)  -> Básico [Se puede separar está grande y en el siguiente en vez de animales los pronombres]
+- Cortesía y despedidas
 - Los animales (básico pero se repite casi todo con intermedio y en el excel está mal ordenado los animales, creo que no hay que hacer dos para ambos niveles de dificultad) -> (debería ser básico pero está Inicial)
 - La familia -> Inicial
 - Las partes del cuerpo -> Básico
