@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Animated } from 'react-native';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { cardStyles } from '../../../../../styles/cardStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
-import { ComicBubble } from '../../../ui/imageContainers/ComicBubble';
+import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
+import ChatModal from '../../../ui/modals/ChatModal';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
@@ -56,18 +58,46 @@ const curiosity_data = [
     },
 ];
 
+const FlipCard = ({ item }) => {
+    const [flipped, setFlipped] = useState(false);
+    const rotateY = useSharedValue(0);
+
+    const animatedStyleFront = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value}deg` }],
+    }));
+
+    const animatedStyleBack = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
+    }));
+
+    const handleFlip = () => {
+        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        setFlipped(!flipped);
+    };
+
+    return (
+        <TouchableWithoutFeedback onPress={handleFlip}>
+            <View style={styles.flipCard}>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
+                    <ImageContainer path={item.imageCard} style={styles.imageCards} />
+                </Animated.View>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.translationText}>{item.kichwa}</Text>
+                    <Text style={styles.translationLabel}>Español:</Text>
+                    <Text style={styles.translationText}>{item.spanish}</Text>
+                </Animated.View>
+            </View>
+        </TouchableWithoutFeedback>
+    );
+};
+
 const Greetings = () => {
-    const [modalVisible, setModalVisible] = useState(false);
-    const [selectedGreet, setselectedGreet] = useState(null);
     const [showHelp, setShowHelp] = useState(null);
+    const [showChat, setShowChat] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
 
     const navigation = useNavigation();
-
-    const handleGreetPress = (greetData) => {
-        setselectedGreet(greetData);
-        setModalVisible(true);
-    };
 
     const toggleAccordion = (key) => {
         if (activeAccordion === key) {
@@ -79,6 +109,10 @@ const Greetings = () => {
 
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
+    };
+
+    const toggleChatModal = () => {
+        setShowChat(!showChat);
     };
 
     return (
@@ -97,17 +131,15 @@ const Greetings = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="Como saludar" content="Aprendamos a saludar en Kichwa." />
+                    <CardDefault title="¿Cómo saludar?" content="Aprendamos a saludar en Kichwa." />
                     <View style={styles.gridContainer}>
-                        {greetings_data.map((spanish) => (
-                            <TouchableWithoutFeedback key={spanish.spanish} onPress={() => handleGreetPress(spanish)}>
-                                <View style={styles.cardInGrid}>
-                                    <CardDefault title={spanish.spanish} styleCard={styles.cardPopUp} styleTitle={styles.cardTitleGreet} />
-                                </View>
-                            </TouchableWithoutFeedback>
+                        {greetings_data.map((item, index) => (
+                            <FlipCard key={index} item={item} />
                         ))}
                     </View>
-                    
+
+                    <ButtonDefault label="¡Ejemplos aquí!" onPress={toggleChatModal} />
+
                     {curiosity_data.map((item) => (
                         <AccordionDefault
                             key={item.key}
@@ -151,33 +183,8 @@ const Greetings = () => {
                     </Modal>
                 )}
 
-                {selectedGreet && (
-                    <Modal
-                        animationType="fade"
-                        transparent={true}
-                        visible={modalVisible}
-                        onRequestClose={() => setModalVisible(false)}
-                    >
-                        <View style={styles.modalContainer}>
-                            <View style={styles.modalContent}>
-                                <Text style={styles.title}>{selectedGreet.letters}</Text>
-                                <ImageContainer uri={selectedGreet.imageCard} style={styles.imageModal} />
-                                <Text style={styles.pronunciation}>Pronunciación: {selectedGreet.pronunciation}</Text>
-                                <View style={styles.translationContainer}>
-                                    <Text style={styles.kichwaText}>Kichwa: {selectedGreet.kichwa}</Text>
-                                    <Text style={styles.spanishText}>Español: {selectedGreet.spanish}</Text>
-                                </View>
-                                <View style={styles.buttonContainerAlphabet}>
-                                    <TouchableOpacity onPress={() => setModalVisible(false)}>
-                                        <View style={styles.buttonDefaultAlphabet}>
-                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                        </View>
-                    </Modal>
-                )}
+                <ChatModal visible={showChat} onClose={toggleChatModal} />
+
                 <View style={styles.footer}>
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FirstNumbers')} />
                 </View>
