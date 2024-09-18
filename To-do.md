@@ -22,8 +22,221 @@
 - imagenes animadas un estadar, si vamos a usar ai el mismo prompt [Mejorar]
 - Poner animaciones a las letras o cambiar el font, poner diseño en las cards [Mejorar]
 - Empezar a incorporar el personaje [Continuar]
-- Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo) 
+- Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias, que explique
 - Spanish dice en la tabla en vez de español en ordinales
 - Idea de hacer un chat para los saludos
+
+
+
+
+Aquí te ayudo con un guion más detallado para el video de introducción y te explico cómo implementar la secuencia de video, pantalla de carga, y navegación hacia la pantalla de inicio de sesión y el home screen.
+
+### 1. **Guion detallado para el video de introducción**
+
+**Escena 1: Bienvenida**
+- **Descripción visual:** El personaje aparece en pantalla, sonriente y saludando al usuario con un fondo colorido y animado.
+- **Diálogo (voz del personaje):** “¡Hola! Bienvenido a *Yachasun Kichwa*, la aplicación que te ayudará a aprender Kichwa, el idioma de nuestros ancestros. Soy [nombre del personaje], y estaré contigo en esta increíble aventura.”
+
+**Escena 2: Presentación del propósito**
+- **Descripción visual:** Aparece una animación simple con ilustraciones de números y colores deslizándose por la pantalla, mientras el personaje sigue hablando.
+- **Diálogo (voz del personaje):** “Aquí aprenderás los números, los colores, y mucho más en Kichwa de una manera divertida y sencilla. ¿Listo para empezar?”
+
+**Escena 3: Progreso y logros**
+- **Descripción visual:** La pantalla muestra barras de progreso y medallas de logros que pueden desbloquearse. El personaje señala hacia estos elementos.
+- **Diálogo (voz del personaje):** “A medida que avances, irás desbloqueando logros y viendo tu progreso en cada lección. ¡Aprender nunca fue tan divertido!”
+
+**Escena 4: Invitación a comenzar**
+- **Descripción visual:** El personaje hace un gesto animado de invitación (por ejemplo, señalando hacia adelante o haciendo un gesto de ánimo).
+- **Diálogo (voz del personaje):** “¡Vamos! Estoy aquí para ayudarte en cada paso. Pulsa ‘Iniciar’ y comencemos este viaje juntos.”
+
+**Escena 5: Cierre**
+- **Descripción visual:** El personaje desaparece mientras la pantalla muestra el logotipo de la app y el texto “Comenzamos en breve”.
+- **Diálogo (voz del personaje):** “Nos vemos pronto. ¡Vamos a aprender Kichwa!”
+
+### 2. **Implementar el video de introducción y la barra de carga**
+
+#### **Paso 1: Crear la pantalla de carga con video**
+Debemos agregar una pantalla inicial que se muestre cuando la app se está cargando. En esta pantalla pondremos el video de introducción y la barra de carga.
+
+1. **Instalar dependencias necesarias para video y animación:**
+   Necesitarás `expo-av` para reproducir el video y una barra de carga personalizada.
+
+   ```bash
+   expo install expo-av
+   ```
+
+2. **Pantalla de carga:**
+
+   ```jsx
+   import React, { useEffect, useState } from 'react';
+   import { View, Text, StyleSheet, ActivityIndicator, Dimensions } from 'react-native';
+   import { Video } from 'expo-av';
+   import { useNavigation } from '@react-navigation/native';
+
+   const LoadingScreen = () => {
+     const [videoFinished, setVideoFinished] = useState(false);
+     const [loadingProgress, setLoadingProgress] = useState(0); // Para manejar la barra de progreso
+     const navigation = useNavigation();
+     const video = React.useRef(null);
+
+     useEffect(() => {
+       // Simulación de la carga de recursos
+       const loadingInterval = setInterval(() => {
+         setLoadingProgress((prev) => {
+           if (prev < 100) {
+             return prev + 1; // Incrementa la barra de progreso
+           }
+           return prev;
+         });
+       }, 50); // 50ms para incrementar la barra de carga
+
+       return () => clearInterval(loadingInterval);
+     }, []);
+
+     useEffect(() => {
+       if (videoFinished && loadingProgress === 100) {
+         navigation.replace('Login'); // Redirigir a la pantalla de login después de cargar
+       }
+     }, [videoFinished, loadingProgress]);
+
+     return (
+       <View style={styles.container}>
+         <Video
+           ref={video}
+           style={styles.video}
+           source={{ uri: 'https://path-to-your-video.mp4' }} // Ruta del video
+           resizeMode="contain"
+           shouldPlay
+           onPlaybackStatusUpdate={(status) => {
+             if (status.didJustFinish) {
+               setVideoFinished(true);
+             }
+           }}
+         />
+         <View style={styles.progressBar}>
+           <View style={[styles.progress, { width: `${loadingProgress}%` }]} />
+         </View>
+         <Text style={styles.loadingText}>Cargando... {loadingProgress}%</Text>
+       </View>
+     );
+   };
+
+   const styles = StyleSheet.create({
+     container: {
+       flex: 1,
+       justifyContent: 'center',
+       alignItems: 'center',
+       backgroundColor: '#fff',
+     },
+     video: {
+       width: Dimensions.get('window').width,
+       height: Dimensions.get('window').height * 0.6,
+     },
+     progressBar: {
+       height: 10,
+       width: '80%',
+       backgroundColor: '#ddd',
+       borderRadius: 5,
+       overflow: 'hidden',
+       marginTop: 20,
+     },
+     progress: {
+       height: '100%',
+       backgroundColor: '#4caf50',
+     },
+     loadingText: {
+       marginTop: 10,
+       fontSize: 16,
+       fontWeight: 'bold',
+     },
+   });
+
+   export default LoadingScreen;
+   ```
+
+#### **Paso 2: Configurar la navegación**
+Asegúrate de tener configurado tu stack de navegación para redirigir al usuario de la pantalla de carga al login y luego al home screen.
+
+```jsx
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoadingScreen from './screens/LoadingScreen'; // Pantalla de carga
+import LoginScreen from './screens/LoginScreen'; // Pantalla de login
+import HomeScreen from './screens/HomeScreen'; // Pantalla principal
+
+const Stack = createStackNavigator();
+
+const AppNavigator = () => {
+  return (
+    <Stack.Navigator initialRouteName="Loading">
+      <Stack.Screen name="Loading" component={LoadingScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  );
+};
+
+export default AppNavigator;
+```
+
+#### **Paso 3: Pantalla de inicio de sesión y pantalla de inicio (Home Screen)**
+
+**Pantalla de inicio de sesión:**
+- Pantalla simple con campos para el nombre de usuario y contraseña.
+- Botón para iniciar sesión que redirige al `HomeScreen`.
+
+**Pantalla principal (Home Screen):**
+Aquí puedes incluir:
+- **Menú de navegación:** Para que el usuario pueda elegir entre diferentes módulos (números, colores, logros, configuraciones).
+- **Barra de progreso:** Que muestre el avance del usuario.
+- **Configuración:** Un lugar para cambiar opciones como el idioma, el sonido, etc.
+  
+### Ejemplo de pantalla Home Screen:
+
+```jsx
+import React from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+const HomeScreen = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Bienvenido a Yachasun Kichwa</Text>
+      <View style={styles.buttonContainer}>
+        <Button title="Aprender Números" onPress={() => navigation.navigate('Numbers')} />
+        <Button title="Aprender Colores" onPress={() => navigation.navigate('Colors')} />
+        <Button title="Configuración" onPress={() => navigation.navigate('Settings')} />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  buttonContainer: {
+    width: '80%',
+    justifyContent: 'space-around',
+    height: 200,
+  },
+});
+
+export default HomeScreen;
+```
+
+### **Conclusión:**
+1. **Pantalla de carga con video y barra de progreso:** Muestra un video explicativo mientras se carga la app y, cuando termina el video y la carga llega al 100%, navega a la pantalla de login.
+2. **Pantalla de login:** Permite al usuario iniciar sesión.
+3. **Pantalla principal (Home Screen):** Proporciona acceso a las principales funcionalidades de la aplicación.
+
+Esto te permitirá tener una transición fluida entre la carga, el video de introducción y las diferentes secciones de la app.
