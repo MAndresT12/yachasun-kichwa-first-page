@@ -12,33 +12,33 @@ import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 
 const images = {
-    greeting1: require('../../../../../assets/images/basic/module1/numbers/number0.png'),
-    greeting2: require('../../../../../assets/images/basic/module1/numbers/number1.png'),
-    greeting3: require('../../../../../assets/images/basic/module1/numbers/number2.png'),
-    greeting4: require('../../../../../assets/images/basic/module1/numbers/number3.png'),
-    greeting5: require('../../../../../assets/images/basic/module1/numbers/number0.png'),
-    greeting6: require('../../../../../assets/images/basic/module1/numbers/number1.png'),
-    greeting7: require('../../../../../assets/images/basic/module1/numbers/number2.png'),
-    greeting8: require('../../../../../assets/images/basic/module1/numbers/number3.png'),
-    greeting9: require('../../../../../assets/images/basic/module1/numbers/number0.png'),
-    greeting10: require('../../../../../assets/images/basic/module1/numbers/number1.png'),
-    greeting11: require('../../../../../assets/images/basic/module1/numbers/number2.png'),
-    greeting12: require('../../../../../assets/images/basic/module1/numbers/number3.png'),
+    greeting1: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting2: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting3: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting4: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting5: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting6: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting7: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting8: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting9: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting10: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting11: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting12: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
 };
 
 const greetings_data = [
-    { kichwa: "Imanalla", spanish: "Hola", imageExample: "https://i.pinimg.com/736x/d0/5c/49/d05c490462edd8f16e9ca52b9c00976a.jpg" },
-    { kichwa: "Alli puncha", spanish: "Buenos días", imageExample: "https://norfipc.com/fotos/saludar/imagenes-frases-bonitas-dar-buenos-dias.jpg" },
-    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageExample: "https://i.ytimg.com/vi/dxiXGsduluI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGHIgZigRMA8=&rs=AOn4CLBTXlaXBix4yzVhPCYf1kpBMXNfow" },
-    { kichwa: "Alli tuta", spanish: "Buenas noches", imageExample: "https://media.tenor.com/0ZiuJYfyQ2wAAAAe/buenas-noches-noches.png" },
-    { kichwa: "Imanalla", spanish: "Hola", imageExample: "https://i.pinimg.com/736x/d0/5c/49/d05c490462edd8f16e9ca52b9c00976a.jpg" },
-    { kichwa: "Alli puncha", spanish: "Buenos días", imageExample: "https://norfipc.com/fotos/saludar/imagenes-frases-bonitas-dar-buenos-dias.jpg" },
-    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageExample: "https://i.ytimg.com/vi/dxiXGsduluI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGHIgZigRMA8=&rs=AOn4CLBTXlaXBix4yzVhPCYf1kpBMXNfow" },
-    { kichwa: "Alli tuta", spanish: "Buenas noches", imageExample: "https://media.tenor.com/0ZiuJYfyQ2wAAAAe/buenas-noches-noches.png" },
-    { kichwa: "Imanalla", spanish: "Hola", imageExample: "https://i.pinimg.com/736x/d0/5c/49/d05c490462edd8f16e9ca52b9c00976a.jpg" },
-    { kichwa: "Alli puncha", spanish: "Buenos días", imageExample: "https://norfipc.com/fotos/saludar/imagenes-frases-bonitas-dar-buenos-dias.jpg" },
-    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageExample: "https://i.ytimg.com/vi/dxiXGsduluI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGHIgZigRMA8=&rs=AOn4CLBTXlaXBix4yzVhPCYf1kpBMXNfow" },
-    { kichwa: "Alli tuta", spanish: "Buenas noches", imageExample: "https://media.tenor.com/0ZiuJYfyQ2wAAAAe/buenas-noches-noches.png" },
+    { kichwa: "Imanalla", spanish: "Hola, ¿Qué tal?", imageCard: images.greeting1 },
+    { kichwa: "Alli puncha", spanish: "Buenos días", imageCard: images.greeting2 },
+    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageCard: images.greeting3 },
+    { kichwa: "Alli tuta", spanish: "Buenas noches", imageCard: images.greeting4 },
+    { kichwa: "Kikinka imanallatak kanki", spanish: "¿Cómo está usted?", imageCard: images.greeting5 },
+    { kichwa: "Allimi kani", spanish: "Estoy bien", imageCard: images.greeting6 },
+    { kichwa: "Kikinka imashutitak kanki", spanish: "¿Cómo se llama usted?", imageCard: images.greeting7 },
+    { kichwa: "Ñukapak shutika Humumi kan", spanish: "Mi nombre es Humu", imageCard: images.greeting8 },
+    { kichwa: "Kikinka maymantatak kanki", spanish: "¿De dónde es usted?", imageCard: images.greeting9 },
+    { kichwa: "Ecuador llaktamantami kani", spanish: "Soy de Ecuador", imageCard: images.greeting10 },
+    { kichwa: "Kikinka", spanish: "¿Y usted?", imageCard: images.greeting11 },
+    { kichwa: "Mashi", spanish: "Amigo", imageCard: images.greeting12 },
 ];
 
 const curiosity_data = [
@@ -161,7 +161,7 @@ const Greetings = () => {
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
                                 <Text style={styles.title}>{selectedGreet.letters}</Text>
-                                <ImageContainer uri={selectedGreet.imageExample} style={styles.imageModal} />
+                                <ImageContainer uri={selectedGreet.imageCard} style={styles.imageModal} />
                                 <Text style={styles.pronunciation}>Pronunciación: {selectedGreet.pronunciation}</Text>
                                 <View style={styles.translationContainer}>
                                     <Text style={styles.kichwaText}>Kichwa: {selectedGreet.kichwa}</Text>
