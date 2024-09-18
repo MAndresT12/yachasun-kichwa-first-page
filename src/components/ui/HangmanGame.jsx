@@ -5,6 +5,9 @@ import ConfettiCannon from 'react-native-confetti-cannon';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
 import { FontAwesome } from '@expo/vector-icons';
+import { ComicBubble } from './bubbles/ComicBubble';
+import { FloatingHumu } from '../animations/FloatingHumu';
+import { ImageContainer } from './imageContainers/ImageContainer';
 
 const HangmanGame = ({ words, onNext, helpText }) => {
     const navigation = useNavigation();
@@ -102,7 +105,23 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                 <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                     <View style={stylesHangman.modalContainer}>
                         <View style={stylesHangman.modalContent}>
-                            <View style={stylesHangman.contentContainer}>
+                            <View style={styles.helpModalContent}>
+                                <FloatingHumu >
+                                    <ImageContainer path={require('../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                </FloatingHumu>
+                                <ComicBubble
+                                    text={helpText}
+                                    arrowDirection="left"
+                                />
+                            </View>
+                            <View style={styles.buttonContainerAlphabet}>
+                                <TouchableOpacity onPress={() => setShowHelp(false)}>
+                                    <View style={styles.buttonDefaultAlphabet}>
+                                        <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+                            {/* <View style={stylesHangman.contentContainer}>
                                 <Image source={require('../../../assets/images/humu/humu-talking.png')} style={stylesHangman.image} />
                                 <View style={stylesHangman.speechBubble}>
                                     <Text style={stylesHangman.bubbleText}>{helpText}</Text>
@@ -111,7 +130,7 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                             </View>
                             <TouchableOpacity onPress={() => setShowHelp(false)}>
                                 <Text style={stylesHangman.closeButtonText}>Cerrar</Text>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
                     </View>
                 </Modal>

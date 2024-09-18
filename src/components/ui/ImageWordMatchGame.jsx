@@ -3,6 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image, TouchableWithoutFeedback, Modal } from 'react-native';
 import ConfettiCannon from 'react-native-confetti-cannon';
 import { FontAwesome } from '@expo/vector-icons';
+import { styles } from '../../../styles/globalStyles';
+import { ComicBubble } from './bubbles/ComicBubble';
+import { FloatingHumu } from '../animations/FloatingHumu';
+import { ImageContainer } from './imageContainers/ImageContainer';
 
 // Función para generar un color aleatorio claro
 const getRandomLightColor = () => {
@@ -145,7 +149,23 @@ const ImageWordMatchGame = ({ data, onNext, helpText }) => {
             <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                 <View style={stylesGame.modalContainer}>
                     <View style={stylesGame.modalContent}>
-                        <View style={stylesGame.contentContainer}>
+                        <View style={styles.helpModalContent}>
+                            <FloatingHumu >
+                                <ImageContainer path={require('../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                            </FloatingHumu>
+                            <ComicBubble
+                                text={helpText}
+                                arrowDirection="left"
+                            />
+                        </View>
+                        <View style={styles.buttonContainerAlphabet}>
+                            <TouchableOpacity onPress={() => setShowHelp(false)}>
+                                <View style={styles.buttonDefaultAlphabet}>
+                                    <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                        {/* <View style={stylesGame.contentContainer}>
                             <Image source={require('../../../assets/images/humu/humu-talking.png')} style={stylesGame.imageModal} />
                             <View style={stylesGame.speechBubble}>
                                 <Text style={stylesGame.bubbleText}>{helpText}</Text>
@@ -154,7 +174,7 @@ const ImageWordMatchGame = ({ data, onNext, helpText }) => {
                         </View>
                         <TouchableOpacity onPress={() => setShowHelp(false)}>
                             <Text style={stylesGame.closeButtonText}>Cerrar</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                 </View>
             </Modal>

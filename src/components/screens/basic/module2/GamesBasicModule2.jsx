@@ -16,7 +16,7 @@ const colors_module1 = [
 const alphabet_module1 = [
     { kichwa: "/a/", spanish: "A a", image: "https://cdn-icons-png.flaticon.com/512/4552/4552937.png" },
     { kichwa: "/lla/-/sha/", spanish: "Ll ll", image: "https://st4.depositphotos.com/27130226/29524/i/450/depositphotos_295240468-stock-photo-delicious-letter-ll.jpg" },
-    { kichwa: "/tsa/", spanish: "Ts ts", image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" },
+    { kichwa: "/tsa/", spanish: "Ts ts", image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/a4f16f17522533.562bb204018b8.jpg" },
     { kichwa: "/cha/", spanish: "Ch ch", image: "https://dictaventura.com/wp-content/uploads/2023/08/DICTADOS-SILABAS-4.webp" },
     { kichwa: "/u/", spanish: "U u", image: "https://w7.pngwing.com/pngs/407/6/png-transparent-blue-letter-u-alphabet-letters-letters-and-numbers-icon.png" },
     { kichwa: "/ua/", spanish: "W w", image: "https://as1.ftcdn.net/v2/jpg/02/43/23/54/1000_F_243235478_RD65Ovg86uldR1t3p6aKfUtl7l52SvJj.jpg" },

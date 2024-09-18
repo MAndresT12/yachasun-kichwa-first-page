@@ -4,6 +4,10 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image, Tou
 import ConfettiCannon from 'react-native-confetti-cannon';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { FontAwesome } from '@expo/vector-icons';
+import { styles } from '../../../styles/globalStyles';
+import { ComicBubble } from './bubbles/ComicBubble';
+import { FloatingHumu } from '../animations/FloatingHumu';
+import { ImageContainer } from './imageContainers/ImageContainer';
 
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
@@ -105,7 +109,23 @@ const MatchGame = ({ data, onNext, helpText }) => {
             <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                 <View style={stylesMatch.modalContainer}>
                     <View style={stylesMatch.modalContent}>
-                        <View style={stylesMatch.contentContainer}>
+                        <View style={styles.helpModalContent}>
+                            <FloatingHumu >
+                                <ImageContainer path={require('../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                            </FloatingHumu>
+                            <ComicBubble
+                                text={helpText}
+                                arrowDirection="left"
+                            />
+                        </View>
+                        <View style={styles.buttonContainerAlphabet}>
+                            <TouchableOpacity onPress={() => setShowHelp(false)}>
+                                <View style={styles.buttonDefaultAlphabet}>
+                                    <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                        {/* <View style={stylesMatch.contentContainer}>
                             <Image source={require('../../../assets/images/humu/humu-talking.png')} style={stylesMatch.image} />
                             <View style={stylesMatch.speechBubble}>
                                 <Text style={stylesMatch.bubbleText}>{helpText}</Text>
@@ -114,14 +134,21 @@ const MatchGame = ({ data, onNext, helpText }) => {
                         </View>
                         <TouchableOpacity onPress={() => setShowHelp(false)}>
                             <Text style={stylesMatch.closeButtonText}>Cerrar</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                 </View>
             </Modal>
             {showNextButton && (
-                <TouchableOpacity style={stylesMatch.nextButton} onPress={onNext}>
-                    <Text style={stylesMatch.nextButtonText}>Siguiente</Text>
-                </TouchableOpacity>
+                <View style={styles.buttonContainerAlphabet}>
+                    <TouchableOpacity onPress={onNext}>
+                        <View style={styles.buttonDefaultAlphabet}>
+                            <Text style={styles.buttonTextAlphabet}>Siguiente juego</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                // <TouchableOpacity style={stylesMatch.nextButton} onPress={onNext}>
+                //     <Text style={stylesMatch.nextButtonText}>Siguiente</Text>
+                // </TouchableOpacity>
             )}
             {showConfetti && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} fadeOut />}
         </ScrollView>

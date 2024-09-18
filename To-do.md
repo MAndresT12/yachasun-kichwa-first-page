@@ -8,23 +8,23 @@
 - Poner todos los estilos en el global para luego cambiar
 
 
+- En los números en vez de mas y menos flechas [N/A]
 - Login no en ingles el "welcome" [x]
 - Poner las tarjetas del alfabeto como la de los números [x]
 - No se ve el blanco en los colores [x]
 - El personaje no se ve en el fondo [x]
 - Quitar lo de azul repetido [x]
 - Poner boton de ayuda para que diga pulsa y gira (un texto así) [x]
-- En los números en vez de mas y menos flechas [N/A]
 - Los primeros numeros es en el 4 y colores en el 3 en el camino levels, poner en kichwa y espanol los niveles [x]
 - Usar los mismos juegos y las mismas evaluaciones [x]
-- Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe..... [Mejorar]
 - Para números no queda el contador porque toca moverse full no vale [x]
-- imagenes animadas un estadar, si vamos a usar ai el mismo prompt [Mejorar]
-- Poner animaciones a las letras o cambiar el font, poner diseño en las cards [Mejorar]
-- Empezar a incorporar el personaje [Continuar]
-- Hay que poner Text bubles en todos los elementos donde aparezca humu y los signos de interrogación [x]
 - Spanish dice en la tabla en vez de español en ordinales [x]
 - Idea de hacer un chat para los saludos [x]
+- Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe..... [Mejorar]
+- imagenes animadas un estadar, si vamos a usar ai el mismo prompt [Mejorar]
+- Poner animaciones a las letras o cambiar el font, poner diseño en las cards [Mejorar]
+- Empezar a incorporar el personaje [Continuar_Otros_Modulos]
+- Hay que poner Text bubles en todos los elementos donde aparezca humu y los signos de interrogación [Continuar_Demas_Juegos_Milton]
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo) 
 - Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias, que explique
