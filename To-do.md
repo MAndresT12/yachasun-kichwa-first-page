@@ -23,6 +23,7 @@
 - Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe..... [Mejorar]
 - imagenes animadas un estadar, si vamos a usar ai el mismo prompt [Mejorar]
 - Poner animaciones a las letras o cambiar el font, poner diseño en las cards [Mejorar]
+- Completar el contenido [Continuar]
 - Empezar a incorporar el personaje [Continuar_Otros_Modulos]
 - Hay que poner Text bubles en todos los elementos donde aparezca humu y los signos de interrogación [Continuar_Demas_Juegos_Milton]
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo) 
