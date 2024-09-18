@@ -12,18 +12,18 @@ import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 
 const images = {
-    greeting1: require('../../../../../assets/images/basic/numbers/number0.png'),
-    greeting2: require('../../../../../assets/images/basic/numbers/number1.png'),
-    greeting3: require('../../../../../assets/images/basic/numbers/number2.png'),
-    greeting4: require('../../../../../assets/images/basic/numbers/number3.png'),
-    greeting5: require('../../../../../assets/images/basic/numbers/number0.png'),
-    greeting6: require('../../../../../assets/images/basic/numbers/number1.png'),
-    greeting7: require('../../../../../assets/images/basic/numbers/number2.png'),
-    greeting8: require('../../../../../assets/images/basic/numbers/number3.png'),
-    greeting9: require('../../../../../assets/images/basic/numbers/number0.png'),
-    greeting10: require('../../../../../assets/images/basic/numbers/number1.png'),
-    greeting11: require('../../../../../assets/images/basic/numbers/number2.png'),
-    greeting12: require('../../../../../assets/images/basic/numbers/number3.png'),
+    greeting1: require('../../../../../assets/images/basic/module1/numbers/number0.png'),
+    greeting2: require('../../../../../assets/images/basic/module1/numbers/number1.png'),
+    greeting3: require('../../../../../assets/images/basic/module1/numbers/number2.png'),
+    greeting4: require('../../../../../assets/images/basic/module1/numbers/number3.png'),
+    greeting5: require('../../../../../assets/images/basic/module1/numbers/number0.png'),
+    greeting6: require('../../../../../assets/images/basic/module1/numbers/number1.png'),
+    greeting7: require('../../../../../assets/images/basic/module1/numbers/number2.png'),
+    greeting8: require('../../../../../assets/images/basic/module1/numbers/number3.png'),
+    greeting9: require('../../../../../assets/images/basic/module1/numbers/number0.png'),
+    greeting10: require('../../../../../assets/images/basic/module1/numbers/number1.png'),
+    greeting11: require('../../../../../assets/images/basic/module1/numbers/number2.png'),
+    greeting12: require('../../../../../assets/images/basic/module1/numbers/number3.png'),
 };
 
 const greetings_data = [
