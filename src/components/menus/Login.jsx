@@ -4,7 +4,6 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
 import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
-import { ImageContainer } from '../ui/imageContainers/ImageContainer';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FloatingHumu } from '../animations/FloatingHumu';
 
