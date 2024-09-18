@@ -9,12 +9,36 @@ import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/imageContainers/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+
+const images = {
+    greeting1: require('../../../../../assets/images/basic/numbers/number0.png'),
+    greeting2: require('../../../../../assets/images/basic/numbers/number1.png'),
+    greeting3: require('../../../../../assets/images/basic/numbers/number2.png'),
+    greeting4: require('../../../../../assets/images/basic/numbers/number3.png'),
+    greeting5: require('../../../../../assets/images/basic/numbers/number0.png'),
+    greeting6: require('../../../../../assets/images/basic/numbers/number1.png'),
+    greeting7: require('../../../../../assets/images/basic/numbers/number2.png'),
+    greeting8: require('../../../../../assets/images/basic/numbers/number3.png'),
+    greeting9: require('../../../../../assets/images/basic/numbers/number0.png'),
+    greeting10: require('../../../../../assets/images/basic/numbers/number1.png'),
+    greeting11: require('../../../../../assets/images/basic/numbers/number2.png'),
+    greeting12: require('../../../../../assets/images/basic/numbers/number3.png'),
+};
 
 const greetings_data = [
-    { kichwa: "Imanalla", spanish: "Hola", imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png" },
-    { kichwa: "Alli puncha", spanish: "Buenos días", imageExample: "https://cdn5.dibujos.net/dibujos/pintados/201218/numero-9-letras-y-numeros-numeros-pintado-por-meulois-9737798.jpg" },
-    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageExample: "https://static.vecteezy.com/system/resources/previews/002/508/274/non_2x/young-teenager-boy-kid-head-character-vector.jpg" },
-    { kichwa: "Alli tuta", spanish: "Buenas noches", imageExample: "https://img.freepik.com/vector-gratis/simple-caricatura-maiz_1308-124847.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid" },
+    { kichwa: "Imanalla", spanish: "Hola", imageExample: "https://i.pinimg.com/736x/d0/5c/49/d05c490462edd8f16e9ca52b9c00976a.jpg" },
+    { kichwa: "Alli puncha", spanish: "Buenos días", imageExample: "https://norfipc.com/fotos/saludar/imagenes-frases-bonitas-dar-buenos-dias.jpg" },
+    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageExample: "https://i.ytimg.com/vi/dxiXGsduluI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGHIgZigRMA8=&rs=AOn4CLBTXlaXBix4yzVhPCYf1kpBMXNfow" },
+    { kichwa: "Alli tuta", spanish: "Buenas noches", imageExample: "https://media.tenor.com/0ZiuJYfyQ2wAAAAe/buenas-noches-noches.png" },
+    { kichwa: "Imanalla", spanish: "Hola", imageExample: "https://i.pinimg.com/736x/d0/5c/49/d05c490462edd8f16e9ca52b9c00976a.jpg" },
+    { kichwa: "Alli puncha", spanish: "Buenos días", imageExample: "https://norfipc.com/fotos/saludar/imagenes-frases-bonitas-dar-buenos-dias.jpg" },
+    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageExample: "https://i.ytimg.com/vi/dxiXGsduluI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGHIgZigRMA8=&rs=AOn4CLBTXlaXBix4yzVhPCYf1kpBMXNfow" },
+    { kichwa: "Alli tuta", spanish: "Buenas noches", imageExample: "https://media.tenor.com/0ZiuJYfyQ2wAAAAe/buenas-noches-noches.png" },
+    { kichwa: "Imanalla", spanish: "Hola", imageExample: "https://i.pinimg.com/736x/d0/5c/49/d05c490462edd8f16e9ca52b9c00976a.jpg" },
+    { kichwa: "Alli puncha", spanish: "Buenos días", imageExample: "https://norfipc.com/fotos/saludar/imagenes-frases-bonitas-dar-buenos-dias.jpg" },
+    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageExample: "https://i.ytimg.com/vi/dxiXGsduluI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGHIgZigRMA8=&rs=AOn4CLBTXlaXBix4yzVhPCYf1kpBMXNfow" },
+    { kichwa: "Alli tuta", spanish: "Buenas noches", imageExample: "https://media.tenor.com/0ZiuJYfyQ2wAAAAe/buenas-noches-noches.png" },
 ];
 
 const curiosity_data = [
@@ -26,53 +50,31 @@ const curiosity_data = [
     },
     {
         key: '2',
-        title: 'Curiosidades de las volcales en Kichwa',
-        text: 'La e y o no se utilizan en el idioma kichwa. Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
+        title: 'Personajes importantes',
+        text: 'Dolores Cacuango (-ango) es una líder indígena ecuatoriana que luchó por los derechos de los indígenas y campesinos.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
 ];
-
-const FloatingHumu = ({ path, style }) => {
-    const animation = useRef(new Animated.Value(0)).current;
-
-    useEffect(() => {
-        Animated.loop(
-            Animated.sequence([
-                Animated.timing(animation, {
-                    toValue: 10,
-                    duration: 1000,
-                    useNativeDriver: true,
-                }),
-                Animated.timing(animation, {
-                    toValue: 0,
-                    duration: 1000,
-                    useNativeDriver: true,
-                }),
-            ])
-        ).start();
-    }, [animation]);
-
-    const animatedStyle = {
-        transform: [{ translateY: animation }],
-    };
-
-    return (
-        <Animated.View style={[animatedStyle, style]}>
-            <ImageContainer path={path} />
-        </Animated.View>
-    );
-};
 
 const Greetings = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedGreet, setselectedGreet] = useState(null);
     const [showHelp, setShowHelp] = useState(null);
+    const [activeAccordion, setActiveAccordion] = useState(null);
 
     const navigation = useNavigation();
 
     const handleGreetPress = (greetData) => {
         setselectedGreet(greetData);
         setModalVisible(true);
+    };
+
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
     };
 
     const toggleHelpModal = () => {
@@ -105,7 +107,26 @@ const Greetings = () => {
                             </TouchableWithoutFeedback>
                         ))}
                     </View>
+                    
+                    {curiosity_data.map((item) => (
+                        <AccordionDefault
+                            key={item.key}
+                            title={item.title}
+                            isOpen={activeAccordion === item.key}
+                            onPress={() => toggleAccordion(item.key)}
+                        >
+                            <View style={styles.curiositiesContent}>
+                                <FloatingHumu path={item.imagePath} />
+                                <ComicBubble
+                                    text={item.text}
+                                    backgroundColor="#FFAD9C"
+                                    arrowDirection="left"
+                                />
+                            </View>
+                        </AccordionDefault>
+                    ))}
                 </View>
+
 
                 {showHelp && (
                     <Modal

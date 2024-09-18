@@ -3,7 +3,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { Text, View, TouchableOpacity, Animated } from 'react-native';
 import { accordionStyles } from '../../../../styles/accordionStyles';
 
-export const AccordionDefault = ({ children, title = 'Datos curiosos', isOpen, onPress }) => {
+export const AccordionDefault = ({ children, title = 'Datos curiosos', isOpen, onPress, style }) => {
     const animationController = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export const AccordionDefault = ({ children, title = 'Datos curiosos', isOpen, o
     });
 
     return (
-        <View style={accordionStyles.container}>
+        <View style={[accordionStyles.container, style]}>
             <TouchableOpacity onPress={onPress}>
                 <View style={accordionStyles.titleContainer}>
                     <Text style={accordionStyles.textTitle}>{title}</Text>

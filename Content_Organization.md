@@ -13,7 +13,8 @@
 
 ### Módulo 2 
 
-- Los saludos, cortesía y despedidas (cortesía y despedidas añadí)  -> Básico [Se puede separar está grande y en el siguiente en vez de animales los pronombres]
+- Los saludos, cortesía -> Básico
+- Los pronombres personales, el verbo kana y la estructura de una oración -> ELEMENTAL 
 - Cortesía y despedidas
 - Los animales (básico pero se repite casi todo con intermedio y en el excel está mal ordenado los animales, creo que no hay que hacer dos para ambos niveles de dificultad) -> (debería ser básico pero está Inicial)
 - La familia -> Inicial
@@ -42,7 +43,7 @@
 ### Módulo 5 (Se puede hacer shuffle estos temas porque aquí están los más difíciles)
 
 - La orientación -> Inicial
-- Los pronombres personales, el verbo kana y la estructura de una oración -> ELEMENTAL 
+- 
 - El imperativo -> ELEMENTAL 
 - La conjugación en tiempo presente -> ELEMENTAL 
 - Juego 5
