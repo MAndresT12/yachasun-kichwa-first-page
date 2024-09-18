@@ -1,0 +1,57 @@
+# Organización del contenido
+
+## Esquema para el nivel básico en niños y adolecentes en la aplicación móvil
+
+### Módulo 1 :heavy_check_mark:
+
+- El alfabeto y las vocales -> ELEMENTAL 
+- Los número del 0 - 500 (es del 0 al 100 pero en Intermedio está desde el 1000 igual en el excel está mal no debe ser del 0 al 500 de nuevo por qué fue?) -> Básico
+- Los colores -> Básico
+- Los números ordinales (no estaban pero yo le puse para rellenar puedo eliminar, aunque estaba en el vocabulario y nunca se usó) -> ELEMENTAL
+- Juego 1
+- Evaluación 1
+
+### Módulo 2 
+
+- Los saludos, cortesía y despedidas (cortesía y despedidas añadí)  -> Básico [Se puede separar está grande y en el siguiente en vez de animales los pronombres]
+- Los animales (básico pero se repite casi todo con intermedio y en el excel está mal ordenado los animales, creo que no hay que hacer dos para ambos niveles de dificultad) -> (debería ser básico pero está Inicial)
+- La familia -> Inicial
+- Las partes del cuerpo -> Básico
+- Juego 2
+- Evaluación 2
+
+### Módulo 3
+
+- Las cosas de la casa -> Básico
+- El aula -> Inicial
+- Los alimentos y las frutas (de dónde sacamos frutas o por qué separamos?, también los alimentos tiene el mismo problema que los animales) -> Básico
+- La naturaleza -> Inicial
+- Juego 3
+- Evaluación 3
+
+### Módulo 4
+
+- La pluralización -> Básico
+- El género -> Básico
+- La cantidad -> Inicial
+- El tamaño -> Inicial
+- Juego 4
+- Evaluación 4
+
+### Módulo 5 (Se puede hacer shuffle estos temas porque aquí están los más difíciles)
+
+- La orientación -> Inicial
+- Los pronombres personales, el verbo kana y la estructura de una oración -> ELEMENTAL 
+- El imperativo -> ELEMENTAL 
+- La conjugación en tiempo presente -> ELEMENTAL 
+- Juego 5
+- Evaluación 5
+
+### Módulo 6
+
+- 
+- 
+- 
+- 
+- Juego 6
+- Evaluación 6
