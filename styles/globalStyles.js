@@ -162,10 +162,18 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 2,
         elevation: 5,
+        
     },
     imageModal: {
         width: 150,
         height: 150,
+        marginBottom: 10,
+        resizeMode: 'contain',
+    },
+
+    imageModalHelp: {
+        width: 120,
+        height: 120,
         marginBottom: 10,
         resizeMode: 'contain',
     },
@@ -516,6 +524,13 @@ export const styles = StyleSheet.create({
     curiositiesContent: {
         flexDirection: 'row',
         alignItems: 'flex-start',
+        width: '40%',
+    },
+
+    helpModalContent: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
         width: '40%',
     },
 

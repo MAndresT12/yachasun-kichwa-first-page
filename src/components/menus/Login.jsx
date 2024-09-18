@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
 import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../ui/imageContainers/ImageContainer';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FloatingHumu } from '../animations/FloatingHumu';
 
@@ -22,7 +23,9 @@ const Login = () => {
             style={[localStyles.gradientBackground, styles.container, localStyles.loginContainer]}
         >
             <View style={[localStyles.container, localStyles.loginContainer]}>
-                <FloatingHumu path={require('../../../assets/images/humu/humu-happy.png')} style={styles.imageModal} initialValue={10} />
+                <FloatingHumu initialValue={10}>
+                    <ImageContainer path={require('../../../assets/images/humu/humu-happy.png')} />
+                </FloatingHumu>
                 <CardDefault style={styles.cardContent}>
                     <Text style={localStyles.title}>Bienvenido a YACHASUN KICHWA</Text>
                     <TextInput

@@ -7,6 +7,8 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { FontAwesome } from '@expo/vector-icons';
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 
 const images = {
     number0: require('../../../../../assets/images/basic/module1/numbers/number0.png'),
@@ -185,8 +187,15 @@ const FirstNumbers = () => {
                     >
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
-                                <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
-                                <Text style={styles.modalText}>Presiona la tarjeta de un número (pintados en rojo) para ver su pronunciación en Kichwa.</Text>
+                                <View style={styles.helpModalContent}>
+                                    <FloatingHumu >
+                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                    </FloatingHumu>
+                                    <ComicBubble
+                                        text='Presiona la tarjeta de un número (pintados en rojo) para ver su pronunciación en Kichwa.'
+                                        arrowDirection="left"
+                                    />
+                                </View>
                                 <View style={styles.buttonContainerAlphabet}>
                                     <TouchableOpacity onPress={() => toggleHelpModal()}>
                                         <View style={styles.buttonDefaultAlphabet}>

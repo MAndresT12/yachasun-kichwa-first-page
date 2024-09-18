@@ -73,7 +73,7 @@ const ToCount = () => {
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Posición</Text>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Spanish</Text>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
                             </View>
                             {renderOrdinalRows()}
                         </View>

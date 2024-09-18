@@ -148,10 +148,11 @@ const Greetings = () => {
                             onPress={() => toggleAccordion(item.key)}
                         >
                             <View style={styles.curiositiesContent}>
-                                <FloatingHumu path={item.imagePath} />
+                                <FloatingHumu >
+                                    <ImageContainer path={item.imagePath} style={styles.imageModal} />
+                                </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
-                                    backgroundColor="#FFAD9C"
                                     arrowDirection="left"
                                 />
                             </View>
@@ -169,8 +170,15 @@ const Greetings = () => {
                     >
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
-                                <FloatingHumu path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModal} />
-                                <Text style={styles.modalText}>Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa.</Text>
+                                <View style={styles.helpModalContent}>
+                                    <FloatingHumu >
+                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                    </FloatingHumu>
+                                    <ComicBubble
+                                        text='Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa.'
+                                        arrowDirection="left"
+                                    />
+                                </View>
                                 <View style={styles.buttonContainerAlphabet}>
                                     <TouchableOpacity onPress={() => toggleHelpModal()}>
                                         <View style={styles.buttonDefaultAlphabet}>
