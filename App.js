@@ -67,7 +67,8 @@ import EvaluationBasicModule1 from './src/components/screens/basic/module1/Evalu
 import EndModule1 from './src/components/screens/basic/module1/EndModule1.jsx';
 
 //Module 2 Basic
-import Greetings from './src/components/screens/basic/module2/Greetings.jsx';
+import GreetingsPart1 from './src/components/screens/basic/module2/GreetingsPart1.jsx';
+import GreetingsPart2 from './src/components/screens/basic/module2/GreetingsPart2.jsx';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -149,9 +150,14 @@ function HomeStack() {
         options={{ title: 'Yachasun Kichwa - Básico Módulo 1: Puntuación Final' }}
       />
       <Stack.Screen
-        name="Greetings"
-        component={Greetings}
-        options={{ title: 'Yachasun Kichwa - Los saludos' }}
+        name="GreetingsPart1"
+        component={GreetingsPart1}
+        options={{ title: 'Yachasun Kichwa - Los Saludos Parte 1' }}
+      />
+      <Stack.Screen
+        name="GreetingsPart2"
+        component={GreetingsPart2}
+        options={{ title: 'Yachasun Kichwa - Los Saludos Parte 2' }}
       />
       <Stack.Screen
         name="Main"

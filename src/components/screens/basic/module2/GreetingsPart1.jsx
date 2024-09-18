@@ -92,7 +92,7 @@ const FlipCard = ({ item }) => {
     );
 };
 
-const Greetings = () => {
+const GreetingsPart1 = () => {
     const [showHelp, setShowHelp] = useState(null);
     const [showChat, setShowChat] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
@@ -194,11 +194,11 @@ const Greetings = () => {
                 <ChatModal visible={showChat} onClose={toggleChatModal} />
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FirstNumbers')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GreetingsPart2')} />
                 </View>
             </ScrollView>
         </View>
     );
 };
 
-export default Greetings;
+export default GreetingsPart1;
