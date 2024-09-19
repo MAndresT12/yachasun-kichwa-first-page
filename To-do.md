@@ -30,6 +30,7 @@
 - Configuracion en el Home Screen y icono de config en toda la app (ajustar el sonido)
 - Letras de colores animadas y más grandes y que las letras no sean arcoíris. Y la paleta de colores como una mancha de pintura envez de un cuadrado
 - Cuando emparejas algo suena cómo se pronuncia (juegos)
+- Poner la animación de palpitar para humu en saludos parte 2
 - Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias, que explique
 
