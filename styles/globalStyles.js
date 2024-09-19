@@ -680,10 +680,10 @@ export const styles = StyleSheet.create({
         width: width * 0.35,
         height: height * 0.25,
         position: 'absolute',
-        top: height * -0.24,
-        left: width * -0.008,
+        top: '-8%',
+        left: -width * 0.008,
         resizeMode: 'contain',
         zIndex: -1,
-        opacity: 0
-    }
+        opacity: 0,
+    },
 });

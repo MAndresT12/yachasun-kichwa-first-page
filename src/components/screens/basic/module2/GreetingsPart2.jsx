@@ -148,13 +148,13 @@ const curiosity_data = [
     },
 ];
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
     const rotateY = useSharedValue(0);
     const humuOpacity = useSharedValue(0);
-    const humuLeftPosition = useSharedValue(width * -0.008);
+    const humuLeftPosition = useSharedValue(-width * 0.008);
 
     const animatedStyleFront = useAnimatedStyle(() => ({
         transform: [{ rotateY: `${rotateY.value}deg` }],
@@ -178,7 +178,7 @@ const FlipCard = ({ item }) => {
                     width * 0.2,
                     { duration: 500 },
                     () => {
-                        humuLeftPosition.value = withTiming(width * 0.17, {
+                        humuLeftPosition.value = withTiming(width * 0.28, {
                             duration: 200,
                             easing: Easing.bounce,
                         });
@@ -187,29 +187,33 @@ const FlipCard = ({ item }) => {
             }, 1000);
         } else {
             rotateY.value = withTiming(0, { duration: 300 });
-            humuOpacity.value = withTiming(0, { duration: 300 });
+            humuOpacity.value = withTiming(0, { duration: 300 }, () => {
+                humuLeftPosition.value = -width * 0.008;
+            });
         }
         setFlipped(!flipped);
     };
 
     return (
-        <TouchableWithoutFeedback onPress={handleFlip}>
-            <View style={styles.flipCardGreetings2}>
-                <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardFrontGreetings2, animatedStyleFront]}>
-                    <ImageContainer path={item.imageCard} style={styles.imageCards} />
-                </Animated.View>
-                <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardBackGreetings2, animatedStyleBack]}>
-                    <Text style={styles.translationLabel}>Kichwa:</Text>
-                    <Text style={styles.translationText}>{item.kichwa}</Text>
-                    <Text style={styles.translationLabel}>Español:</Text>
-                    <Text style={styles.translationText}>{item.spanish}</Text>
-                </Animated.View>
-                <Animated.Image
-                    source={require('../../../../../assets/images/humu/humu-talking.png')}
-                    style={[styles.humuImage, animatedHumuStyle]}
-                />
-            </View>
-        </TouchableWithoutFeedback>
+        <View style={{ position: 'relative', width: '100%', marginBottom: 20 }}>
+            <TouchableWithoutFeedback onPress={handleFlip}>
+                <View style={styles.flipCardGreetings2}>
+                    <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardFrontGreetings2, animatedStyleFront]}>
+                        <ImageContainer path={item.imageCard} style={styles.imageCards} />
+                    </Animated.View>
+                    <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardBackGreetings2, animatedStyleBack]}>
+                        <Text style={styles.translationLabel}>Kichwa:</Text>
+                        <Text style={styles.translationText}>{item.kichwa}</Text>
+                        <Text style={styles.translationLabel}>Español:</Text>
+                        <Text style={styles.translationText}>{item.spanish}</Text>
+                    </Animated.View>
+                </View>
+            </TouchableWithoutFeedback>
+            <Animated.Image
+                source={require('../../../../../assets/images/humu/humu-talking.png')}
+                style={[styles.humuImage, animatedHumuStyle]}
+            />
+        </View>
     );
 };
 
