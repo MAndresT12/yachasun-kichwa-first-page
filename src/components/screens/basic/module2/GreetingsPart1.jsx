@@ -32,7 +32,7 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
         },
     },
     {
@@ -52,7 +52,7 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
         },
     },
     {
@@ -72,7 +72,7 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
         },
     },
     {
@@ -92,7 +92,7 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
         },
     },
     {
@@ -112,7 +112,7 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
         },
     },
 ];
