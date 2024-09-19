@@ -30,6 +30,7 @@ const ChatModal = ({ visible, onClose, initialMessages }) => {
               _id: 1,
             }}
             renderAvatarOnTop
+            showUserAvatar
           />
           <TouchableOpacity onPress={onClose}>
             <View style={styles.buttonDefaultAlphabet}>

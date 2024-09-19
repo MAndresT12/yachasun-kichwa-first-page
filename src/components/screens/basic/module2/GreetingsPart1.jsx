@@ -23,6 +23,7 @@ const initial_chat_messages = [
             name: 'Sisa',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
+        image: 'https://www.juiciocrudo.com/pics/nocrop/1280x960/c295164145.jpg',
     },
     {
         _id: 2,
