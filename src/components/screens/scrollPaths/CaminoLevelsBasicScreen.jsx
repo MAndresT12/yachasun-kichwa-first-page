@@ -110,19 +110,19 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Greetings')}
+                        onPress={() => navigation.navigate('GreetingsPart1')}
                     >
                         <BouncyText><FontAwesome name="handshake-o" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>Los Saludos / Napaykuna</BouncyText>
+                    <BouncyText>Los Saludos: Básicos / Napaykuna</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Los Primeros Números</BouncyText>
+                    <BouncyText >Los Saludos: Diálogos / Napaykuna</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('FirstNumbers')}
+                        onPress={() => navigation.navigate('GreetingsPart2')}
                     >
-                        <BouncyText>2</BouncyText>
+                        <BouncyText><FontAwesome name="comments-o" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
                 </View>
                 <View style={localStyles.pathRow}>

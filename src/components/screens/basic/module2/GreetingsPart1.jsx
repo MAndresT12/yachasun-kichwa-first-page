@@ -13,6 +13,109 @@ import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 
+const initial_chat_messages = [
+    {
+        _id: 1,
+        text: 'Otavalo llaktamantami kani\n\nSoy de Otavalo.',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 2,
+        text: 'Puliza llaktamantami kani. Kikinka\n\nSoy de Puliza, ¿y usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 3,
+        text: 'Kikinka maymantatak kanki\n\n¿De dónde es usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 4,
+        text: 'Ñukapak shutika Antoniomi kan\n\nMi nombre es Antonio',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 5,
+        text: 'Ñukapak shutika Sisami kan. Kikinka\n\nMi nombre es Sisa, ¿Y usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 6,
+        text: 'Kikinka imashutitak kanki\n\n¿Cómo se llama usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 7,
+        text: 'Allimi kani\n\nEstoy bien',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 8,
+        text: 'Kikinka imanallatak kanki\n\n¿Cómo está usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 9,
+        text: 'Alli puncha mashi\n\nBuenos días',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 10,
+        text: 'Imanalla mashi\n\nHola amiga',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+];
+
 const images = {
     greeting1: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
     greeting2: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
@@ -123,7 +226,7 @@ const GreetingsPart1 = () => {
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
                 <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los Saludos</Text>
+                    <Text style={styles.titleTema}>Los Saludos Parte 1</Text>
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -191,7 +294,7 @@ const GreetingsPart1 = () => {
                     </Modal>
                 )}
 
-                <ChatModal visible={showChat} onClose={toggleChatModal} />
+                <ChatModal visible={showChat} onClose={toggleChatModal} initialMessages={initial_chat_messages} />
 
                 <View style={styles.footer}>
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GreetingsPart2')} />

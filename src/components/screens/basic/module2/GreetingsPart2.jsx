@@ -123,7 +123,7 @@ const GreetingsPart2 = () => {
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
                 <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los Saludos</Text>
+                    <Text style={styles.titleTema}>Los Saludos Parte 2</Text>
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -131,7 +131,7 @@ const GreetingsPart2 = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="¿Cómo saludar?" content="Aprendamos a saludar en Kichwa." />
+                    <CardDefault title="Tengamos un diálogo" content='Ahora que ya sabes cómo decir "Hola" a tus amigos, veámos que otros tipos de saludos existen.' />
                     <View style={styles.gridContainer}>
                         {greetings_data.map((item, index) => (
                             <FlipCard key={index} item={item} />
