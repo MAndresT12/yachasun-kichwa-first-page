@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, TextInput, StyleSheet, Animated, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Animated, TouchableWithoutFeedback, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
 import { CardDefault } from '../ui/cards/CardDefault';
@@ -14,7 +14,14 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        navigation.navigate('Levels');
+        navigation.navigate('HomeScreen');
+    };
+
+    const handleExit = () => {
+        Alert.alert('Salir', '¿Estás seguro de que quieres salir?', [
+            { text: 'Cancelar', style: 'cancel' },
+            { text: 'Sí', onPress: () => console.log('Saliendo...') },
+        ]);
     };
 
     return (
@@ -48,6 +55,7 @@ const Login = () => {
                         </TouchableWithoutFeedback>
                     </View>
                 </CardDefault>
+                <ButtonDefault label="Salir" onPress={handleExit} />
             </View>
         </LinearGradient>
     );

@@ -41,7 +41,7 @@ const Instructions = () => {
                     Comenzaremos por temas como los números, los colores y los saludos, para 
                     terminar con la creación de oraciones simples. Será una aventura llena de 
                     conocimiento y diversión.
-                    {"\n\n"}Sostente fuerte que aquí comienza tu camino por un mundo maravilloso. Hola
+                    {"\n\n"}Sostente fuerte que aquí comienza tu camino por un mundo maravilloso.
                     </Text>
                 </CardDefault>
             </View>

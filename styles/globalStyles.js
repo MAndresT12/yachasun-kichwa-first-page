@@ -730,4 +730,71 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         flex: 1,
     },
+
+
+    containerLoading: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+      },
+      video: {
+        width: width,
+        height: height * 0.6,
+      },
+      progressBar: {
+        height: 10,
+        width: '80%',
+        backgroundColor: '#ddd',
+        borderRadius: 5,
+        overflow: 'hidden',
+        marginTop: 20,
+      },
+      progress: {
+        height: '100%',
+        backgroundColor: '#4caf50',
+      },
+      loadingText: {
+        marginTop: 10,
+        fontSize: 16,
+        fontWeight: 'bold',
+      },
+
+
+      containerHome: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+      },
+      titleHome: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 30,
+      },
+      buttoncontainerHome: {
+        width: '80%',
+        justifyContent: 'space-around',
+        height: 200,
+      },
+
+      containerSettings: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+      },
+      titleSettings: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
+      },
+      labelSettings: {
+        fontSize: 18,
+        marginBottom: 10,
+      },
+      sliderSettings: {
+        width: '80%',
+        height: 40,
+      },
 });
