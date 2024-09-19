@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
@@ -153,10 +153,11 @@ const { width } = Dimensions.get('window');
 
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
-    const [showCard, setShowCard] = useState(false); // Track if the card should be shown
     const rotateY = useSharedValue(0);
     const humuOpacity = useSharedValue(0);
     const humuLeftPosition = useSharedValue(-width * 0.008);
+    const cardOpacity = useSharedValue(0);
+    const cardTranslateX = useSharedValue(-width * 0.43);
 
     const animatedStyleFront = useAnimatedStyle(() => ({
         transform: [{ rotateY: `${rotateY.value}deg` }],
@@ -171,7 +172,11 @@ const FlipCard = ({ item }) => {
         transform: [{ translateX: humuLeftPosition.value }],
     }));
 
-    // Handle flip
+    const animatedCardStyle = useAnimatedStyle(() => ({
+        opacity: cardOpacity.value,
+        transform: [{ translateX: cardTranslateX.value }],
+    }));
+
     const handleFlip = () => {
         if (!flipped) {
             rotateY.value = withTiming(180, { duration: 300 });
@@ -193,20 +198,20 @@ const FlipCard = ({ item }) => {
             humuOpacity.value = withTiming(0, { duration: 300 }, () => {
                 humuLeftPosition.value = -width * 0.008;
             });
-            setShowCard(false); // Hide the card when flipping back
+            cardOpacity.value = withTiming(0, { duration: 300 });
+            cardTranslateX.value = withTiming(-width * 0.43, { duration: 300 });
         }
         setFlipped(!flipped);
     };
 
-    // Handle pan gesture (dragging Humu to the right)
     const handleGesture = (event) => {
         const { translationX } = event.nativeEvent;
 
         if (translationX > 50) {
-            // If dragged to the right far enough
             humuLeftPosition.value = withTiming(width, { duration: 300 });
             setTimeout(() => {
-                setShowCard(true); // Show the card
+                cardOpacity.value = withTiming(1, { duration: 300 });
+                cardTranslateX.value = withTiming(0, { duration: 300 });
             }, 300);
         }
     };
@@ -227,7 +232,6 @@ const FlipCard = ({ item }) => {
                 </View>
             </TouchableWithoutFeedback>
 
-            {/* Gesture handler for sliding Humu */}
             <PanGestureHandler onGestureEvent={handleGesture}>
                 <Animated.Image
                     source={require('../../../../../assets/images/humu/humu-talking.png')}
@@ -235,12 +239,9 @@ const FlipCard = ({ item }) => {
                 />
             </PanGestureHandler>
 
-            {/* Show the new card when Humu is dragged to the right */}
-            {showCard && (
-                <View style={styles.flipCardGreetings2}>
-                    <CardDefault title="Prueba" content="Esta es una tarjeta de prueba que aparece al deslizar Humu." styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}/>
-                </View>
-            )}
+            <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
+                                    <CardDefault title="Prueba" content="Esta es una tarjeta de prueba que aparece al deslizar Humu." styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}/>
+            </Animated.View>
         </View>
     );
 };
@@ -327,7 +328,7 @@ const GreetingsPart2 = () => {
                                         <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa.'
+                                        text='Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa. Desliza a Humu para ver la respuesta al saludo.'
                                         arrowDirection="left"
                                     />
                                 </View>

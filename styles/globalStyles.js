@@ -618,25 +618,21 @@ export const styles = StyleSheet.create({
     bodyGreetings2: {
         padding: 10,
         flex: 1,
-        borderColor: '#00796b',
-        borderWidth: 5,
+        //borderColor: '#00796b',
+        //borderWidth: 5,
     },
 
     gridContainerGreetings2: {
         paddingVertical: 10,
         justifyContent: 'center',
         width: '100%',
-        borderColor: '#6d7900',
-        borderWidth: 5,
     },
 
     flipCardContainerBothCardsGreetings2: {
         flexDirection: 'row',
         position: 'relative', 
         width: '100%', 
-        marginBottom: 20, 
-        borderColor: '#6362c0',
-        borderWidth: 5,
+        marginBottom: 20,
         justifyContent: 'space-between',
     },
 
@@ -645,16 +641,22 @@ export const styles = StyleSheet.create({
         height: 150,
         marginVertical: 10,
         perspective: 1000,
-        borderColor: '#790000',
-        borderWidth: 5,
+    },
+
+    flipCard2ndGreetings2: {
+        width: '50%',
+        height: 150,
+        marginVertical: 10,
+        perspective: 1000,
+        zIndex: -2,
+        opacity: 1,
+        padding: 10,
     },
 
     flipCardSecondCardGreetings2: {
         width: '100%',
         height: '100%',
         perspective: 1000,
-        borderColor: '#00796b',
-        borderWidth: 5,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -666,6 +668,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         perspective: 1000,
+        backgroundColor: '#f8f8f8'
     },
 
     flipCardInnerGreetings2: {
@@ -675,8 +678,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         backfaceVisibility: 'hidden',
         borderRadius: 8,
-        borderColor: '#001279',
-        borderWidth: 5,
     },
 
 
@@ -686,8 +687,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        borderColor: '#00796b',
-        borderWidth: 3,
     },
 
     flipCardBackGreetings2: {
@@ -701,8 +700,6 @@ export const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-        borderColor: '#000000',
-        borderWidth: 3,
     },
 
     humuImage: {
@@ -712,7 +709,7 @@ export const styles = StyleSheet.create({
         top: '-8%',
         left: -width * 0.008,
         resizeMode: 'contain',
-        zIndex: -1,
+        zIndex: -2,
         opacity: 0,
     },
 });
