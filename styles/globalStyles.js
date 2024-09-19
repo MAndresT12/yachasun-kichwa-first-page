@@ -630,8 +630,18 @@ export const styles = StyleSheet.create({
         borderWidth: 5,
     },
 
+    flipCardContainerBothCardsGreetings2: {
+        flexDirection: 'row',
+        position: 'relative', 
+        width: '100%', 
+        marginBottom: 20, 
+        borderColor: '#6362c0',
+        borderWidth: 5,
+        justifyContent: 'space-between',
+    },
+
     flipCardGreetings2: {
-        width: '100%',
+        width: '50%',
         height: 150,
         marginVertical: 10,
         perspective: 1000,
@@ -639,8 +649,27 @@ export const styles = StyleSheet.create({
         borderWidth: 5,
     },
 
+    flipCardSecondCardGreetings2: {
+        width: '100%',
+        height: '100%',
+        perspective: 1000,
+        borderColor: '#00796b',
+        borderWidth: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    flipCardSecondCardContentGreetings2: {
+        width: '100%',
+        height: '100%',
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+    },
+
     flipCardInnerGreetings2: {
-        width: '50%',
+        width: '100%',
         height: '100%',
         alignItems: 'center',
         justifyContent: 'center',

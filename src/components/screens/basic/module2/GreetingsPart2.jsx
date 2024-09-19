@@ -12,6 +12,7 @@ import ChatModal from '../../../ui/modals/ChatModal';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
+import { PanGestureHandler } from 'react-native-gesture-handler';
 
 const initial_chat_messages = [
     {
@@ -152,6 +153,7 @@ const { width } = Dimensions.get('window');
 
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
+    const [showCard, setShowCard] = useState(false); // Track if the card should be shown
     const rotateY = useSharedValue(0);
     const humuOpacity = useSharedValue(0);
     const humuLeftPosition = useSharedValue(-width * 0.008);
@@ -169,6 +171,7 @@ const FlipCard = ({ item }) => {
         transform: [{ translateX: humuLeftPosition.value }],
     }));
 
+    // Handle flip
     const handleFlip = () => {
         if (!flipped) {
             rotateY.value = withTiming(180, { duration: 300 });
@@ -190,12 +193,26 @@ const FlipCard = ({ item }) => {
             humuOpacity.value = withTiming(0, { duration: 300 }, () => {
                 humuLeftPosition.value = -width * 0.008;
             });
+            setShowCard(false); // Hide the card when flipping back
         }
         setFlipped(!flipped);
     };
 
+    // Handle pan gesture (dragging Humu to the right)
+    const handleGesture = (event) => {
+        const { translationX } = event.nativeEvent;
+
+        if (translationX > 50) {
+            // If dragged to the right far enough
+            humuLeftPosition.value = withTiming(width, { duration: 300 });
+            setTimeout(() => {
+                setShowCard(true); // Show the card
+            }, 300);
+        }
+    };
+
     return (
-        <View style={{ position: 'relative', width: '100%', marginBottom: 20 }}>
+        <View style={styles.flipCardContainerBothCardsGreetings2}>
             <TouchableWithoutFeedback onPress={handleFlip}>
                 <View style={styles.flipCardGreetings2}>
                     <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardFrontGreetings2, animatedStyleFront]}>
@@ -209,10 +226,21 @@ const FlipCard = ({ item }) => {
                     </Animated.View>
                 </View>
             </TouchableWithoutFeedback>
-            <Animated.Image
-                source={require('../../../../../assets/images/humu/humu-talking.png')}
-                style={[styles.humuImage, animatedHumuStyle]}
-            />
+
+            {/* Gesture handler for sliding Humu */}
+            <PanGestureHandler onGestureEvent={handleGesture}>
+                <Animated.Image
+                    source={require('../../../../../assets/images/humu/humu-talking.png')}
+                    style={[styles.humuImage, animatedHumuStyle]}
+                />
+            </PanGestureHandler>
+
+            {/* Show the new card when Humu is dragged to the right */}
+            {showCard && (
+                <View style={styles.flipCardGreetings2}>
+                    <CardDefault title="Prueba" content="Esta es una tarjeta de prueba que aparece al deslizar Humu." styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}/>
+                </View>
+            )}
         </View>
     );
 };
