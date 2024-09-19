@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { cardStyles } from '../../../../../styles/cardStyles';
@@ -148,9 +148,13 @@ const curiosity_data = [
     },
 ];
 
+const { width, height } = Dimensions.get('window');
+
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
     const rotateY = useSharedValue(0);
+    const humuOpacity = useSharedValue(0);
+    const humuLeftPosition = useSharedValue(width * -0.008);
 
     const animatedStyleFront = useAnimatedStyle(() => ({
         transform: [{ rotateY: `${rotateY.value}deg` }],
@@ -160,8 +164,31 @@ const FlipCard = ({ item }) => {
         transform: [{ rotateY: `${rotateY.value + 180}deg` }],
     }));
 
+    const animatedHumuStyle = useAnimatedStyle(() => ({
+        opacity: humuOpacity.value,
+        transform: [{ translateX: humuLeftPosition.value }],
+    }));
+
     const handleFlip = () => {
-        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        if (!flipped) {
+            rotateY.value = withTiming(180, { duration: 300 });
+            setTimeout(() => {
+                humuOpacity.value = withTiming(1, { duration: 300 });
+                humuLeftPosition.value = withTiming(
+                    width * 0.2,
+                    { duration: 500 },
+                    () => {
+                        humuLeftPosition.value = withTiming(width * 0.17, {
+                            duration: 200,
+                            easing: Easing.bounce,
+                        });
+                    }
+                );
+            }, 1000);
+        } else {
+            rotateY.value = withTiming(0, { duration: 300 });
+            humuOpacity.value = withTiming(0, { duration: 300 });
+        }
         setFlipped(!flipped);
     };
 
@@ -177,6 +204,10 @@ const FlipCard = ({ item }) => {
                     <Text style={styles.translationLabel}>Español:</Text>
                     <Text style={styles.translationText}>{item.spanish}</Text>
                 </Animated.View>
+                <Animated.Image
+                    source={require('../../../../../assets/images/humu/humu-talking.png')}
+                    style={[styles.humuImage, animatedHumuStyle]}
+                />
             </View>
         </TouchableWithoutFeedback>
     );

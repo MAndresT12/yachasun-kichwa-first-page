@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
     container: {
@@ -616,39 +618,49 @@ export const styles = StyleSheet.create({
     bodyGreetings2: {
         padding: 10,
         flex: 1,
-        alignItems: 'flex-start',
-        //borderColor: '#00796b',
-        //borderWidth: 1,
+        borderColor: '#00796b',
+        borderWidth: 5,
     },
+
     gridContainerGreetings2: {
-        alignItems: 'center',
         paddingVertical: 10,
         justifyContent: 'center',
-        width: '50%',
+        width: '100%',
+        borderColor: '#6d7900',
+        borderWidth: 5,
     },
+
     flipCardGreetings2: {
         width: '100%',
         height: 150,
         marginVertical: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
         perspective: 1000,
+        borderColor: '#790000',
+        borderWidth: 5,
     },
+
     flipCardInnerGreetings2: {
-        width: '100%',
+        width: '50%',
         height: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         backfaceVisibility: 'hidden',
         borderRadius: 8,
+        borderColor: '#001279',
+        borderWidth: 5,
     },
+
+
     flipCardFrontGreetings2: {
         backgroundColor: '#fff',
         borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
+        borderColor: '#00796b',
+        borderWidth: 3,
     },
+
     flipCardBackGreetings2: {
         backgroundColor: '#f8f8f8',
         borderRadius: 8,
@@ -660,5 +672,18 @@ export const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
+        borderColor: '#000000',
+        borderWidth: 3,
     },
+
+    humuImage: {
+        width: width * 0.35,
+        height: height * 0.25,
+        position: 'absolute',
+        top: height * -0.24,
+        left: width * -0.008,
+        resizeMode: 'contain',
+        zIndex: -1,
+        opacity: 0
+    }
 });
