@@ -146,6 +146,23 @@ const greetings_data = [
     { kichwa: "Mashi", spanish: "Amigo", imageCard: images.greeting12 },
 ];
 
+const courtesy_data = [
+    { kichwa: "Uyapay", spanish: "Escuche por favor" },
+    { kichwa: "Allipacha", spanish: "Buenísimo / Buen tiempo" },
+    { kichwa: "Kaynakunkichu", spanish: "Está pasando el día" },
+    { kichwa: "Yaykupashunchu", spanish: "¿Podemos pasar?" },
+    { kichwa: "Yupaychani", spanish: "Gracias" },
+];
+
+const goodbyes_data = [
+    { kichwa: "Chishikaman", spanish: "Hasta la tarde" },
+    { kichwa: "Alli punchata charipay", spanish: "¡Qué tenga un buen día!" },
+    { kichwa: "Kayakaman", spanish: "Hasta mañana" },
+    { kichwa: "Shuk punchapik rikurishun", spanish: "Nos vemos otro día. Adiós" },
+    { kichwa: "Ashta kashkaman", spanish: "Hasta pronto, hasta luego" },
+];
+
+
 const curiosity_data = [
     {
         key: '1',
@@ -195,6 +212,24 @@ const FlipCard = ({ item }) => {
     );
 };
 
+const renderCourtesies = () => {
+    return courtesy_data.map((item, index) => (
+        <View key={index} style={styles.tableRow}>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+        </View>
+    ));
+};
+
+const renderGoodbyes = () => {
+    return goodbyes_data.map((item, index) => (
+        <View key={index} style={styles.tableRow}>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+        </View>
+    ));
+};
+
 const GreetingsPart1 = () => {
     const [showHelp, setShowHelp] = useState(null);
     const [showChat, setShowChat] = useState(false);
@@ -240,6 +275,28 @@ const GreetingsPart1 = () => {
                             <FlipCard key={index} item={item} />
                         ))}
                     </View>
+
+                    <CardDefault title="¿Y cómo me despido? ¿Hay formas de ser amable?" content="Te muestro dos tablas que responden a estas maravillosas preguntas." />
+
+                    <CardDefault title="Frases de cortesía">
+                        <View style={styles.vocabularyTable}>
+                            <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
+                            </View>
+                            {renderCourtesies()}
+                        </View>
+                    </CardDefault>
+
+                    <CardDefault title="Las Despedidas">
+                        <View style={styles.vocabularyTable}>
+                            <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
+                            </View>
+                            {renderGoodbyes()}
+                        </View>
+                    </CardDefault>
 
                     <ButtonDefault label="¡Ejemplos aquí!" onPress={toggleChatModal} />
 

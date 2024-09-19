@@ -2,10 +2,7 @@
 
 ## Temas
 
-- Los pronombres personales, el verbo kana y la estructura de una oración -> ELEMENTAL 
-- Cortesía y despedidas
 - Los animales (básico pero se repite casi todo con intermedio y en el excel está mal ordenado los animales, creo que no hay que hacer dos para ambos niveles de dificultad) -> (debería ser básico pero está Inicial)
-- La familia -> Inicial
 - Las partes del cuerpo -> Básico
 
 - Las cosas de la casa -> Básico
@@ -35,7 +32,10 @@
 
 ### Módulo 2 [En_progreso]
 
-- Los saludos Parte 1
+- Los saludos, cortesía y despedidas Parte 1
+- Los saludos, cortesía y despedidas Parte 2
+- Los pronombres personales, el verbo kana y la estructura de una oración -> ELEMENTAL
+- La familia -> Inicial
 - Juego 2
 - Evaluación 2
 

@@ -17,97 +17,67 @@ import { PanGestureHandler } from 'react-native-gesture-handler';
 const initial_chat_messages = [
     {
         _id: 1,
-        text: 'Otavalo llaktamantami kani\n\nSoy de Otavalo.',
+        text: 'Alli pacha',
         createdAt: new Date(),
         user: {
-            _id: 2,
-            name: 'Sisa',
+            _id: 1,
+            name: 'Antonio',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
     },
     {
         _id: 2,
-        text: 'Puliza llaktamantami kani. Kikinka\n\nSoy de Puliza, ¿y usted?',
+        text: 'Ari, ñukapak kuchimi',
         createdAt: new Date(),
         user: {
-            _id: 1,
-            name: 'Antonio',
+            _id: 2,
+            name: 'Sisa',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
     },
     {
         _id: 3,
-        text: 'Kikinka maymantatak kanki\n\n¿De dónde es usted?',
+        text: 'Kikinpak kuchichu',
         createdAt: new Date(),
         user: {
-            _id: 2,
-            name: 'Sisa',
+            _id: 1,
+            name: 'Antonio',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
     },
     {
         _id: 4,
-        text: 'Ñukapak shutika Antoniomi kan\n\nMi nombre es Antonio',
+        text: 'Ari, kawsakunimi',
         createdAt: new Date(),
         user: {
-            _id: 1,
-            name: 'Antonio',
+            _id: 2,
+            name: 'Sisa',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
     },
     {
         _id: 5,
-        text: 'Ñukapak shutika Sisami kan. Kikinka\n\nMi nombre es Sisa, ¿Y usted?',
+        text: 'Kawsakunkichu',
         createdAt: new Date(),
         user: {
-            _id: 2,
-            name: 'Sisa',
+            _id: 1,
+            name: 'Antonio',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
     },
     {
         _id: 6,
-        text: 'Kikinka imashutitak kanki\n\n¿Cómo se llama usted?',
+        text: 'Shamupaylla',
         createdAt: new Date(),
         user: {
-            _id: 1,
-            name: 'Antonio',
+            _id: 2,
+            name: 'Sisa',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
     },
     {
         _id: 7,
-        text: 'Allimi kani\n\nEstoy bien',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 8,
-        text: 'Kikinka imanallatak kanki\n\n¿Cómo está usted?',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'Antonio',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 9,
-        text: 'Alli puncha mashi\n\nBuenos días',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 10,
-        text: 'Imanalla mashi\n\nHola amiga',
+        text: 'Shamupasha',
         createdAt: new Date(),
         user: {
             _id: 1,
@@ -133,11 +103,52 @@ const images = {
 };
 
 const greetings_data = [
-    { kichwa: "Imanallatak kashkanki", spanish: "¿Cómo has estado tú?", imageCard: images.greeting1 },
-    { kichwa: "Imanallatak kankichik", spanish: "¿Cómo están ustedes?", imageCard: images.greeting2 },
-    { kichwa: "Kawsankichu", spanish: "Hola, ¿Vives?", imageCard: images.greeting3 },
-    { kichwa: "Pakarishkanki", spanish: "¡Has amanecido!", imageCard: images.greeting4 },
-    { kichwa: "Alli tutamanta", spanish: "Buena mañana", imageCard: images.greeting5 },
+    {
+        kichwa: "Imanallatak kashkanki",
+        spanish: "¿Cómo has estado tú?",
+        imageCard: images.greeting1,
+        kichwaAnswer: "Allilla",
+        spanishAnswer: "Bien no más / más o menos",
+    },
+    {
+        kichwa: "Imanallatak kankichik",
+        spanish: "¿Cómo están ustedes?",
+        imageCard: images.greeting2,
+        kichwaAnswer: "Unkushkami kani",
+        spanishAnswer: "Estoy enfermo",
+    },
+    {
+        kichwa: "Kawsankichu",
+        spanish: "Hola, ¿Vives?",
+        imageCard: images.greeting3,
+        kichwaAnswer: "May sumak",
+        spanishAnswer: "Excelente",
+    },
+    {
+        kichwa: "Pakarishkanki",
+        spanish: "¡Has amanecido!",
+        imageCard: images.greeting4,
+        kichwaAnswer: "May alli",
+        spanishAnswer: "Muy bien",
+    },
+    {
+        kichwa: "Alli tutamanta",
+        spanish: "Buena mañana",
+        imageCard: images.greeting5,
+        kichwaAnswer: "Imanalla mashi",
+        spanishAnswer: "Hola amiga",
+    },
+];
+
+const courtesy_data = [
+    { kichwa: "Shamushun / Minkachiway", spanish: "¿Hay alguien en casa? / ¿Puedo venir? / ¿Puedo entrar?" },
+    { kichwa: "Shamupaylla", spanish: "Ven no más" },
+];
+
+const goodbyes_data = [
+    { kichwa: "Shuk punchakaman", spanish: "Hasta otro día, adiós" },
+    { kichwa: "Tuparishun", spanish: "Nos encontraremos, adiós" },
+    { kichwa: "Chishiyakunimi", spanish: "Estoy atardeciendo" },
 ];
 
 const curiosity_data = [
@@ -240,10 +251,33 @@ const FlipCard = ({ item }) => {
             </PanGestureHandler>
 
             <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
-                                    <CardDefault title="Prueba" content="Esta es una tarjeta de prueba que aparece al deslizar Humu." styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}/>
+                <CardDefault styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}>
+                    <Text style={styles.translationLabelGreetingsCard2}>Kichwa:</Text>
+                    <Text style={styles.translationTextGreetingsCard2}>{item.kichwaAnswer}</Text>
+                    <Text style={styles.translationLabelGreetingsCard2}>Español:</Text>
+                    <Text style={styles.translationTextGreetingsCard2}>{item.spanishAnswer}</Text>
+                </CardDefault>
             </Animated.View>
         </View>
     );
+};
+
+const renderCourtesies = () => {
+    return courtesy_data.map((item, index) => (
+        <View key={index} style={styles.tableRow}>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+        </View>
+    ));
+};
+
+const renderGoodbyes = () => {
+    return goodbyes_data.map((item, index) => (
+        <View key={index} style={styles.tableRow}>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+        </View>
+    ));
 };
 
 const GreetingsPart2 = () => {
@@ -292,7 +326,29 @@ const GreetingsPart2 = () => {
                         ))}
                     </View>
 
-                    <ButtonDefault label="¡Ejemplos aquí!" onPress={toggleChatModal} />
+                    <CardDefault title="Y qué más..." content="Veámos más despedidas y cortesías que existen." />
+
+                    <CardDefault title="Frases de cortesía">
+                        <View style={styles.vocabularyTable}>
+                            <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
+                            </View>
+                            {renderCourtesies()}
+                        </View>
+                    </CardDefault>
+
+                    <CardDefault title="Las Despedidas">
+                        <View style={styles.vocabularyTable}>
+                            <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
+                            </View>
+                            {renderGoodbyes()}
+                        </View>
+                    </CardDefault>
+
+                    <ButtonDefault label="Práctica sin ayuda" onPress={toggleChatModal} />
 
                     {curiosity_data.map((item) => (
                         <AccordionDefault

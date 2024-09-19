@@ -650,7 +650,7 @@ export const styles = StyleSheet.create({
         perspective: 1000,
         zIndex: -2,
         opacity: 1,
-        padding: 10,
+        padding: 6,
     },
 
     flipCardSecondCardGreetings2: {
@@ -711,5 +711,23 @@ export const styles = StyleSheet.create({
         resizeMode: 'contain',
         zIndex: -2,
         opacity: 0,
+    },
+
+    translationLabelGreetingsCard2: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 10,
+        color: '#000000',
+    },
+    translationTextGreetingsCard2: {
+        fontSize: 12,
+        textAlign: 'center',
+        color: '#004d40',
+    },
+
+    textCenter: {
+        textAlign: 'center',
+        flex: 1,
     },
 });
