@@ -162,7 +162,7 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 2,
         elevation: 5,
-        
+
     },
     imageModal: {
         width: 150,
@@ -279,6 +279,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         perspective: 1000,
     },
+
     flipCardInner: {
         width: '100%',
         height: '100%',
@@ -328,6 +329,8 @@ export const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'space-around',
     },
+
+
 
 
 
@@ -575,8 +578,6 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
     },
     andesStyleGradientBox: {
-        //borderColor: '#000',
-        //borderWidth: 2,
         textAlign: 'center',
         borderRadius: 8,
     },
@@ -608,5 +609,56 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         overflow: 'hidden',
         padding: 10,
+    },
+
+
+
+    bodyGreetings2: {
+        padding: 10,
+        flex: 1,
+        alignItems: 'flex-start',
+        //borderColor: '#00796b',
+        //borderWidth: 1,
+    },
+    gridContainerGreetings2: {
+        alignItems: 'center',
+        paddingVertical: 10,
+        justifyContent: 'center',
+        width: '50%',
+    },
+    flipCardGreetings2: {
+        width: '100%',
+        height: 150,
+        marginVertical: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+    },
+    flipCardInnerGreetings2: {
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backfaceVisibility: 'hidden',
+        borderRadius: 8,
+    },
+    flipCardFrontGreetings2: {
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+    },
+    flipCardBackGreetings2: {
+        backgroundColor: '#f8f8f8',
+        borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
     },
 });

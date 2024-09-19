@@ -37,7 +37,7 @@ const Instructions = () => {
 
                 <CardDefault title="Básico" style={cardStyles.instructionsCardStyle} >
                     <Text style={styles.cardContent}>
-                    En este nivel de dificultad, aprenderás los elements básicos del Kichwa. 
+                    En este nivel de dificultad, aprenderás los elementos básicos del Kichwa. 
                     Comenzaremos por temas como los números, los colores y los saludos, para 
                     terminar con la creación de oraciones simples. Será una aventura llena de 
                     conocimiento y diversión.

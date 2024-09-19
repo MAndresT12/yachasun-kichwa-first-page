@@ -13,6 +13,109 @@ import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 
+const initial_chat_messages = [
+    {
+        _id: 1,
+        text: 'Otavalo llaktamantami kani\n\nSoy de Otavalo.',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 2,
+        text: 'Puliza llaktamantami kani. Kikinka\n\nSoy de Puliza, ¿y usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 3,
+        text: 'Kikinka maymantatak kanki\n\n¿De dónde es usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 4,
+        text: 'Ñukapak shutika Antoniomi kan\n\nMi nombre es Antonio',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 5,
+        text: 'Ñukapak shutika Sisami kan. Kikinka\n\nMi nombre es Sisa, ¿Y usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 6,
+        text: 'Kikinka imashutitak kanki\n\n¿Cómo se llama usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 7,
+        text: 'Allimi kani\n\nEstoy bien',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 8,
+        text: 'Kikinka imanallatak kanki\n\n¿Cómo está usted?',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 9,
+        text: 'Alli puncha mashi\n\nBuenos días',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+    {
+        _id: 10,
+        text: 'Imanalla mashi\n\nHola amiga',
+        createdAt: new Date(),
+        user: {
+            _id: 1,
+            name: 'Antonio',
+            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+        },
+    },
+];
+
 const images = {
     greeting1: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
     greeting2: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
@@ -29,31 +132,18 @@ const images = {
 };
 
 const greetings_data = [
-    { kichwa: "Imanalla", spanish: "Hola, ¿Qué tal?", imageCard: images.greeting1 },
-    { kichwa: "Alli puncha", spanish: "Buenos días", imageCard: images.greeting2 },
-    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageCard: images.greeting3 },
-    { kichwa: "Alli tuta", spanish: "Buenas noches", imageCard: images.greeting4 },
-    { kichwa: "Kikinka imanallatak kanki", spanish: "¿Cómo está usted?", imageCard: images.greeting5 },
-    { kichwa: "Allimi kani", spanish: "Estoy bien", imageCard: images.greeting6 },
-    { kichwa: "Kikinka imashutitak kanki", spanish: "¿Cómo se llama usted?", imageCard: images.greeting7 },
-    { kichwa: "Ñukapak shutika Humumi kan", spanish: "Mi nombre es Humu", imageCard: images.greeting8 },
-    { kichwa: "Kikinka maymantatak kanki", spanish: "¿De dónde es usted?", imageCard: images.greeting9 },
-    { kichwa: "Ecuador llaktamantami kani", spanish: "Soy de Ecuador", imageCard: images.greeting10 },
-    { kichwa: "Kikinka", spanish: "¿Y usted?", imageCard: images.greeting11 },
-    { kichwa: "Mashi", spanish: "Amigo", imageCard: images.greeting12 },
+    { kichwa: "Imanallatak kashkanki", spanish: "¿Cómo has estado tú?", imageCard: images.greeting1 },
+    { kichwa: "Imanallatak kankichik", spanish: "¿Cómo están ustedes?", imageCard: images.greeting2 },
+    { kichwa: "Kawsankichu", spanish: "Hola, ¿Vives?", imageCard: images.greeting3 },
+    { kichwa: "Pakarishkanki", spanish: "¡Has amanecido!", imageCard: images.greeting4 },
+    { kichwa: "Alli tutamanta", spanish: "Buena mañana", imageCard: images.greeting5 },
 ];
 
 const curiosity_data = [
     {
         key: '1',
-        title: 'Los Apellidos en Kichwa',
-        text: 'La palabra Ango significa jefe, señor o gobernador. En el idioma Kayambi, significa espíritu y unidad.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
-    },
-    {
-        key: '2',
-        title: 'Personajes importantes',
-        text: 'Dolores Cacuango (-ango) es una líder indígena ecuatoriana que luchó por los derechos de los indígenas y campesinos.',
+        title: 'Kawsankichu - Hola, ¿Vives?',
+        text: 'Suena diferente, ¿no? Pero es un saludo de pueblos andinos, una pregunta y saludo de cortesía, de amistad y confianza.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
 ];
@@ -77,11 +167,11 @@ const FlipCard = ({ item }) => {
 
     return (
         <TouchableWithoutFeedback onPress={handleFlip}>
-            <View style={styles.flipCard}>
-                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
+            <View style={styles.flipCardGreetings2}>
+                <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardFrontGreetings2, animatedStyleFront]}>
                     <ImageContainer path={item.imageCard} style={styles.imageCards} />
                 </Animated.View>
-                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
+                <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardBackGreetings2, animatedStyleBack]}>
                     <Text style={styles.translationLabel}>Kichwa:</Text>
                     <Text style={styles.translationText}>{item.kichwa}</Text>
                     <Text style={styles.translationLabel}>Español:</Text>
@@ -130,9 +220,9 @@ const GreetingsPart2 = () => {
                         <FontAwesome name="question-circle" size={40} color="#fff" />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.body}>
+                <View style={styles.bodyGreetings2}>
                     <CardDefault title="Tengamos un diálogo" content='Ahora que ya sabes cómo decir "Hola" a tus amigos, veámos que otros tipos de saludos existen.' />
-                    <View style={styles.gridContainer}>
+                    <View style={styles.gridContainerGreetings2}>
                         {greetings_data.map((item, index) => (
                             <FlipCard key={index} item={item} />
                         ))}
@@ -159,7 +249,6 @@ const GreetingsPart2 = () => {
                         </AccordionDefault>
                     ))}
                 </View>
-
 
                 {showHelp && (
                     <Modal
@@ -191,7 +280,7 @@ const GreetingsPart2 = () => {
                     </Modal>
                 )}
 
-                <ChatModal visible={showChat} onClose={toggleChatModal} />
+                <ChatModal visible={showChat} onClose={toggleChatModal} initialMessages={initial_chat_messages} />
 
                 <View style={styles.footer}>
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GreetingsPart2')} />

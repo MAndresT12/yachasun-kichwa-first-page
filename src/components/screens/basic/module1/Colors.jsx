@@ -57,10 +57,7 @@ const FlipCard = ({ item, fontsLoaded }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <LinearGradient
-                        colors={['#FFD700', '#8B4513']}
-                        style={styles.andesStyleGradientBox}
-                    >
+                    <View style={styles.andesStyleGradientBox}>
                         <Text style={[styles.andesStyleText, { fontFamily: fontsLoaded ? 'RibeyeMarrow_400Regular' : 'sans-serif', flexDirection: 'row' }]}>
                             {item.spanish.split('').map((letter, index) => (
                                 <Text key={index} style={{ color: getColorForLetter(index) }}>
@@ -68,7 +65,7 @@ const FlipCard = ({ item, fontsLoaded }) => {
                                 </Text>
                             ))}
                         </Text>
-                    </LinearGradient>
+                    </View>
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
                     <Text style={styles.translationLabel}>Kichwa:</Text>
