@@ -26,13 +26,13 @@
 - Completar el contenido [Continuar]
 - Empezar a incorporar el personaje [Continuar_Otros_Modulos]
 - Hay que poner Text bubles en todos los elementos donde aparezca humu y los signos de interrogación [Continuar_Demas_Juegos_Milton]
-- HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo)
-- Configuracion en el Home Screen y icono de config en toda la app (ajustar el sonido)
-- Letras de colores animadas y más grandes y que las letras no sean arcoíris. Y la paleta de colores como una mancha de pintura envez de un cuadrado
+- HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo) [Mejorar]
+- Configuracion en el Home Screen y icono de config en toda la app (quitar volumen porque no sirve y poner otra cosa)
+- Letras de colores animadas y más grandes y que las letras no sean arcoíris. Y la paleta de colores como una mancha de pintura envez de un cuadrado (hablarlo con los demás)
 - Cuando emparejas algo suena cómo se pronuncia (juegos)
 - Poner la animación de palpitar para humu en saludos parte 2
 - Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
-- Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias, que explique
+- Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias o trofeos, que explique, los trofeos que vas obteniendo y que se pinten cuando obtienes uno y eso.
 - Hacer una barra de carga de verdad
 - Conectar con el Backend
 
