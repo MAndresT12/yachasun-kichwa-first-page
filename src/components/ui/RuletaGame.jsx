@@ -15,7 +15,7 @@ const RuletaGame = ({ data, onNext, helpText }) => {
     const [isSpinning, setIsSpinning] = useState(false);
     const [showConfetti, setShowConfetti] = useState(false);
     const [showNextButton, setShowNextButton] = useState(false);
-    const [showHelp, setShowHelp] = useState(false);  // Estado para mostrar la ayuda del juego
+    const [showHelp, setShowHelp] = useState(false);
 
     const spinValue = useRef(new Animated.Value(0)).current;
 
@@ -23,7 +23,7 @@ const RuletaGame = ({ data, onNext, helpText }) => {
         if (!isSpinning) {
             setIsSpinning(true);
             const randomIndex = Math.floor(Math.random() * data.length);
-            const randomAngle = 360 * 5 + randomIndex * (360 / data.length); // Calculamos el ángulo para la palabra seleccionada
+            const randomAngle = 360 * 5 + randomIndex * (360 / data.length);
 
             Animated.timing(spinValue, {
                 toValue: randomAngle,
@@ -31,7 +31,7 @@ const RuletaGame = ({ data, onNext, helpText }) => {
                 easing: Easing.out(Easing.ease),
                 useNativeDriver: true,
             }).start(() => {
-                setSelectedWord(data[randomIndex]); // Palabra seleccionada al finalizar la animación
+                setSelectedWord(data[randomIndex]);
                 setIsSpinning(false);
                 setShowConfetti(true);
             });
