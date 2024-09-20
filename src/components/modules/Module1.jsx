@@ -5,6 +5,7 @@ import HangmanGame from '../ui/HangmanGame';
 import MatchGame from '../ui/MatchGame';
 import ImageWordMatchGame from '../ui/ImageWordMatchGame';
 import JuegoCompletarFrases from '../ui/JuegoCompletarFrases';
+import RuletaGame from '../ui/RuletaGame';
 import { useNavigation } from '@react-navigation/native';
 
 const wordsModule1 = [
@@ -58,11 +59,25 @@ const sentenceData = [
         translation: "Nos vamos a bailar",
     },
 ];
+
+const dataRuleta = [
+    { spanish: 'pato', kichwa: 'kulta' },
+    { spanish: 'cuy', kichwa: 'kuy' },
+    { spanish: 'gallina', kichwa: 'atallpa' },
+    { spanish: 'ratón', kichwa: 'ukucha' },
+    { spanish: 'pulga', kichwa: 'piki' },
+    { spanish: 'conejo', kichwa: 'wallinku' },
+    { spanish: 'perro', kichwa: 'allku' },
+    { spanish: 'Gato', kichwa: 'misi' },
+];
 const Module1 = () => {
     const navigation = useNavigation();
     const [currentGame, setCurrentGame] = useState(0);
 
     const games = [
+        <RuletaGame key="ruleta" data={dataRuleta} helpText="¡Hola, pequeño aventurero! En este juego debes girar la ruleta y adivinar la palabra en kichwa. ¡Diviértete aprendiendo mientras juegas!"
+            onNext={() => setCurrentGame(currentGame + 1)} />,
+
         <JuegoCompletarFrases key="frases" data={sentenceData} helpText="¡Hola pequeño aventurero! En este juego debes completar las frases en kichwa. Arrastra la palabra correcta y colócala en el espacio vacío para formar la frase perfecta. ¡Diviertete aprendiendo mientras juegas!"
             onNext={() => setCurrentGame(currentGame + 1)} />,
         <MatchGame key="match" data={foodModule1} helpText="¡Hola, pequeño aventurero! En este juego debes emparejar las cartas. Encuentra las imágenes que son iguales y haz clic en ellas. ¡Recuerda bien las cartas y diviértete encontrando todos los pares!"
@@ -92,3 +107,5 @@ const styles = StyleSheet.create({
 });
 
 export default Module1;
+
+
