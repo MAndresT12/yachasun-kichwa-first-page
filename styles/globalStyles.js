@@ -618,36 +618,66 @@ export const styles = StyleSheet.create({
     bodyGreetings2: {
         padding: 10,
         flex: 1,
-        borderColor: '#00796b',
-        borderWidth: 5,
+        //borderColor: '#00796b',
+        //borderWidth: 5,
     },
 
     gridContainerGreetings2: {
         paddingVertical: 10,
         justifyContent: 'center',
         width: '100%',
-        borderColor: '#6d7900',
-        borderWidth: 5,
+    },
+
+    flipCardContainerBothCardsGreetings2: {
+        flexDirection: 'row',
+        position: 'relative', 
+        width: '100%', 
+        marginBottom: 20,
+        justifyContent: 'space-between',
     },
 
     flipCardGreetings2: {
-        width: '100%',
+        width: '50%',
         height: 150,
         marginVertical: 10,
         perspective: 1000,
-        borderColor: '#790000',
-        borderWidth: 5,
+    },
+
+    flipCard2ndGreetings2: {
+        width: '50%',
+        height: 150,
+        marginVertical: 10,
+        perspective: 1000,
+        zIndex: -2,
+        opacity: 1,
+        padding: 6,
+    },
+
+    flipCardSecondCardGreetings2: {
+        width: '100%',
+        height: '100%',
+        perspective: 1000,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    flipCardSecondCardContentGreetings2: {
+        width: '100%',
+        height: '100%',
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+        backgroundColor: '#f8f8f8'
     },
 
     flipCardInnerGreetings2: {
-        width: '50%',
+        width: '100%',
         height: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         backfaceVisibility: 'hidden',
         borderRadius: 8,
-        borderColor: '#001279',
-        borderWidth: 5,
     },
 
 
@@ -657,8 +687,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        borderColor: '#00796b',
-        borderWidth: 3,
     },
 
     flipCardBackGreetings2: {
@@ -672,8 +700,6 @@ export const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-        borderColor: '#000000',
-        borderWidth: 3,
     },
 
     humuImage: {
@@ -683,7 +709,92 @@ export const styles = StyleSheet.create({
         top: '-8%',
         left: -width * 0.008,
         resizeMode: 'contain',
-        zIndex: -1,
+        zIndex: -2,
         opacity: 0,
     },
+
+    translationLabelGreetingsCard2: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 10,
+        color: '#000000',
+    },
+    translationTextGreetingsCard2: {
+        fontSize: 12,
+        textAlign: 'center',
+        color: '#004d40',
+    },
+
+    textCenter: {
+        textAlign: 'center',
+        flex: 1,
+    },
+
+
+    containerLoading: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+      },
+      video: {
+        width: width,
+        height: height * 0.6,
+      },
+      progressBar: {
+        height: 10,
+        width: '80%',
+        backgroundColor: '#ddd',
+        borderRadius: 5,
+        overflow: 'hidden',
+        marginTop: 20,
+      },
+      progress: {
+        height: '100%',
+        backgroundColor: '#4caf50',
+      },
+      loadingText: {
+        marginTop: 10,
+        fontSize: 16,
+        fontWeight: 'bold',
+      },
+
+
+      containerHome: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+      },
+      titleHome: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 30,
+      },
+      buttoncontainerHome: {
+        width: '80%',
+        justifyContent: 'space-around',
+        height: 200,
+      },
+
+      containerSettings: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+      },
+      titleSettings: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
+      },
+      labelSettings: {
+        fontSize: 18,
+        marginBottom: 10,
+      },
+      sliderSettings: {
+        width: '80%',
+        height: 40,
+      },
 });

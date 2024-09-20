@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
@@ -12,106 +12,77 @@ import ChatModal from '../../../ui/modals/ChatModal';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
+import { PanGestureHandler } from 'react-native-gesture-handler';
 
 const initial_chat_messages = [
     {
         _id: 1,
-        text: 'Otavalo llaktamantami kani\n\nSoy de Otavalo.',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 2,
-        text: 'Puliza llaktamantami kani. Kikinka\n\nSoy de Puliza, ¿y usted?',
+        text: 'Alli pacha',
         createdAt: new Date(),
         user: {
             _id: 1,
             name: 'Antonio',
+            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+        },
+    },
+    {
+        _id: 2,
+        text: 'Ari, ñukapak kuchimi',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
     },
     {
         _id: 3,
-        text: 'Kikinka maymantatak kanki\n\n¿De dónde es usted?',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 4,
-        text: 'Ñukapak shutika Antoniomi kan\n\nMi nombre es Antonio',
+        text: 'Kikinpak kuchichu',
         createdAt: new Date(),
         user: {
             _id: 1,
             name: 'Antonio',
+            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+        },
+    },
+    {
+        _id: 4,
+        text: 'Ari, kawsakunimi',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
     },
     {
         _id: 5,
-        text: 'Ñukapak shutika Sisami kan. Kikinka\n\nMi nombre es Sisa, ¿Y usted?',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 6,
-        text: 'Kikinka imashutitak kanki\n\n¿Cómo se llama usted?',
+        text: 'Kawsakunkichu',
         createdAt: new Date(),
         user: {
             _id: 1,
             name: 'Antonio',
+            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+        },
+    },
+    {
+        _id: 6,
+        text: 'Shamupaylla',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'Sisa',
             avatar: require('../../../../../assets/images/humu/humu-talking.png'),
         },
     },
     {
         _id: 7,
-        text: 'Allimi kani\n\nEstoy bien',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 8,
-        text: 'Kikinka imanallatak kanki\n\n¿Cómo está usted?',
+        text: 'Shamupasha',
         createdAt: new Date(),
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 9,
-        text: 'Alli puncha mashi\n\nBuenos días',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 10,
-        text: 'Imanalla mashi\n\nHola amiga',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'Antonio',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
         },
     },
 ];
@@ -132,11 +103,52 @@ const images = {
 };
 
 const greetings_data = [
-    { kichwa: "Imanallatak kashkanki", spanish: "¿Cómo has estado tú?", imageCard: images.greeting1 },
-    { kichwa: "Imanallatak kankichik", spanish: "¿Cómo están ustedes?", imageCard: images.greeting2 },
-    { kichwa: "Kawsankichu", spanish: "Hola, ¿Vives?", imageCard: images.greeting3 },
-    { kichwa: "Pakarishkanki", spanish: "¡Has amanecido!", imageCard: images.greeting4 },
-    { kichwa: "Alli tutamanta", spanish: "Buena mañana", imageCard: images.greeting5 },
+    {
+        kichwa: "Imanallatak kashkanki",
+        spanish: "¿Cómo has estado tú?",
+        imageCard: images.greeting1,
+        kichwaAnswer: "Allilla",
+        spanishAnswer: "Bien no más / más o menos",
+    },
+    {
+        kichwa: "Imanallatak kankichik",
+        spanish: "¿Cómo están ustedes?",
+        imageCard: images.greeting2,
+        kichwaAnswer: "Unkushkami kani",
+        spanishAnswer: "Estoy enfermo",
+    },
+    {
+        kichwa: "Kawsankichu",
+        spanish: "Hola, ¿Vives?",
+        imageCard: images.greeting3,
+        kichwaAnswer: "May sumak",
+        spanishAnswer: "Excelente",
+    },
+    {
+        kichwa: "Pakarishkanki",
+        spanish: "¡Has amanecido!",
+        imageCard: images.greeting4,
+        kichwaAnswer: "May alli",
+        spanishAnswer: "Muy bien",
+    },
+    {
+        kichwa: "Alli tutamanta",
+        spanish: "Buena mañana",
+        imageCard: images.greeting5,
+        kichwaAnswer: "Imanalla mashi",
+        spanishAnswer: "Hola amiga",
+    },
+];
+
+const courtesy_data = [
+    { kichwa: "Shamushun / Minkachiway", spanish: "¿Hay alguien en casa? / ¿Puedo venir? / ¿Puedo entrar?" },
+    { kichwa: "Shamupaylla", spanish: "Ven no más" },
+];
+
+const goodbyes_data = [
+    { kichwa: "Shuk punchakaman", spanish: "Hasta otro día, adiós" },
+    { kichwa: "Tuparishun", spanish: "Nos encontraremos, adiós" },
+    { kichwa: "Chishiyakunimi", spanish: "Estoy atardeciendo" },
 ];
 
 const curiosity_data = [
@@ -155,6 +167,8 @@ const FlipCard = ({ item }) => {
     const rotateY = useSharedValue(0);
     const humuOpacity = useSharedValue(0);
     const humuLeftPosition = useSharedValue(-width * 0.008);
+    const cardOpacity = useSharedValue(0);
+    const cardTranslateX = useSharedValue(-width * 0.43);
 
     const animatedStyleFront = useAnimatedStyle(() => ({
         transform: [{ rotateY: `${rotateY.value}deg` }],
@@ -167,6 +181,11 @@ const FlipCard = ({ item }) => {
     const animatedHumuStyle = useAnimatedStyle(() => ({
         opacity: humuOpacity.value,
         transform: [{ translateX: humuLeftPosition.value }],
+    }));
+
+    const animatedCardStyle = useAnimatedStyle(() => ({
+        opacity: cardOpacity.value,
+        transform: [{ translateX: cardTranslateX.value }],
     }));
 
     const handleFlip = () => {
@@ -190,12 +209,26 @@ const FlipCard = ({ item }) => {
             humuOpacity.value = withTiming(0, { duration: 300 }, () => {
                 humuLeftPosition.value = -width * 0.008;
             });
+            cardOpacity.value = withTiming(0, { duration: 300 });
+            cardTranslateX.value = withTiming(-width * 0.43, { duration: 300 });
         }
         setFlipped(!flipped);
     };
 
+    const handleGesture = (event) => {
+        const { translationX } = event.nativeEvent;
+
+        if (translationX > 50) {
+            humuLeftPosition.value = withTiming(width, { duration: 300 });
+            setTimeout(() => {
+                cardOpacity.value = withTiming(1, { duration: 300 });
+                cardTranslateX.value = withTiming(0, { duration: 300 });
+            }, 300);
+        }
+    };
+
     return (
-        <View style={{ position: 'relative', width: '100%', marginBottom: 20 }}>
+        <View style={styles.flipCardContainerBothCardsGreetings2}>
             <TouchableWithoutFeedback onPress={handleFlip}>
                 <View style={styles.flipCardGreetings2}>
                     <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardFrontGreetings2, animatedStyleFront]}>
@@ -209,12 +242,42 @@ const FlipCard = ({ item }) => {
                     </Animated.View>
                 </View>
             </TouchableWithoutFeedback>
-            <Animated.Image
-                source={require('../../../../../assets/images/humu/humu-talking.png')}
-                style={[styles.humuImage, animatedHumuStyle]}
-            />
+
+            <PanGestureHandler onGestureEvent={handleGesture}>
+                <Animated.Image
+                    source={require('../../../../../assets/images/humu/humu-talking.png')}
+                    style={[styles.humuImage, animatedHumuStyle]}
+                />
+            </PanGestureHandler>
+
+            <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
+                <CardDefault styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}>
+                    <Text style={styles.translationLabelGreetingsCard2}>Kichwa:</Text>
+                    <Text style={styles.translationTextGreetingsCard2}>{item.kichwaAnswer}</Text>
+                    <Text style={styles.translationLabelGreetingsCard2}>Español:</Text>
+                    <Text style={styles.translationTextGreetingsCard2}>{item.spanishAnswer}</Text>
+                </CardDefault>
+            </Animated.View>
         </View>
     );
+};
+
+const renderCourtesies = () => {
+    return courtesy_data.map((item, index) => (
+        <View key={index} style={styles.tableRow}>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+        </View>
+    ));
+};
+
+const renderGoodbyes = () => {
+    return goodbyes_data.map((item, index) => (
+        <View key={index} style={styles.tableRow}>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+        </View>
+    ));
 };
 
 const GreetingsPart2 = () => {
@@ -263,7 +326,29 @@ const GreetingsPart2 = () => {
                         ))}
                     </View>
 
-                    <ButtonDefault label="¡Ejemplos aquí!" onPress={toggleChatModal} />
+                    <CardDefault title="Y qué más..." content="Veámos más despedidas y cortesías que existen." />
+
+                    <CardDefault title="Frases de cortesía">
+                        <View style={styles.vocabularyTable}>
+                            <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
+                            </View>
+                            {renderCourtesies()}
+                        </View>
+                    </CardDefault>
+
+                    <CardDefault title="Las Despedidas">
+                        <View style={styles.vocabularyTable}>
+                            <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
+                            </View>
+                            {renderGoodbyes()}
+                        </View>
+                    </CardDefault>
+
+                    <ButtonDefault label="Práctica sin ayuda" onPress={toggleChatModal} />
 
                     {curiosity_data.map((item) => (
                         <AccordionDefault
@@ -299,7 +384,7 @@ const GreetingsPart2 = () => {
                                         <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa.'
+                                        text='Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa. Desliza a Humu para ver la respuesta al saludo.'
                                         arrowDirection="left"
                                     />
                                 </View>

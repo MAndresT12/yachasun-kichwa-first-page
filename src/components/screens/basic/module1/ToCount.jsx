@@ -36,9 +36,9 @@ const to_count_data = [
 const renderOrdinalRows = () => {
     return to_count_data.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.numberPosition}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.numberPosition}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
         </View>
     ));
 };

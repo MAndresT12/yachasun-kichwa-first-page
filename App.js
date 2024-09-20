@@ -7,7 +7,6 @@ import { Ionicons, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icon
 import { View, Text } from 'react-native';
 import { styles } from './styles/globalStyles';
 
-import Login from './src/components/menus/Login';
 import Main from './src/components/main/Main';
 import FoodScreen from './src/components/screens/misc/FoodScreen.jsx';
 import AnimalsScreen from './src/components/screens/misc/AnimalsScreen.jsx';
@@ -57,6 +56,12 @@ import IntroduccionJuegoScreen from './src/components/screens/misc/IntroduccionJ
 import ProgresoScreen from './src/components/menus/ProgresoScreen.jsx';
 import CarouselExampleScreen from './src/components/ui/CarouselExampleScreen.jsx';
 
+//Start screens and menus
+import LoadingScreen from './src/components/menus/LoadingScreen';
+import Login from './src/components/menus/Login';
+import HomeScreen from './src/components/menus/HomeScreen';
+import SettingsScreen from './src/components/menus/SettingsScreen';
+
 //Module 1 Basic
 import Alphabet from './src/components/screens/basic/module1/Alphabet.jsx';
 import FirstNumbers from './src/components/screens/basic/module1/FirstNumbers.jsx';
@@ -73,10 +78,90 @@ import GreetingsPart2 from './src/components/screens/basic/module2/GreetingsPart
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+function AppNavigator() {
+  return (
+    <Stack.Navigator
+      initialRouteName="LoadingScreen"
+      options={{ headerShown: false}}
+    >
+      <Stack.Screen
+        name="LoadingScreen"
+        component={LoadingScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{ headerShown: false}}
+      />
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Main"
+        component={TabNavigator} 
+        options={{ headerShown: false }} 
+        />
+    </Stack.Navigator>
+  );
+}
+
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, size }) => {
+          let iconName;
+
+          if (route.name === 'Inicio') {
+            iconName = 'home-outline';
+          } else if (route.name === 'Progreso') {
+            iconName = 'star-outline';
+          } else if (route.name === 'Perfil') {
+            iconName = 'person-circle-outline';
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: 'tomato',
+        tabBarInactiveTintColor: 'gray',
+      })}
+    >
+      <Tab.Screen
+        name="Inicio"
+        component={HomeStack}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Progreso"
+        component={ProgresoScreen}
+        options={{
+          headerStyle: { backgroundColor: '#003366' }, //5B4D28
+          headerTintColor: '#fff',
+          headerTitleStyle: { fontWeight: 'bold' },
+          cardStyle: { backgroundColor: '#9FC516' },
+        }}
+      />
+      <Tab.Screen
+        name="Perfil"
+        component={ProfileScreen}
+        options={{
+          headerStyle: { backgroundColor: '#003366' }, //5B4D28
+          headerTintColor: '#fff',
+          headerTitleStyle: { fontWeight: 'bold' },
+          cardStyle: { backgroundColor: '#9FC516' },
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
+
 function HomeStack() {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="Levels"
       screenOptions={{
         headerStyle: { backgroundColor: '#003366' }, //5B4D28
         headerTintColor: '#fff',
@@ -85,14 +170,14 @@ function HomeStack() {
       }}
     >
       <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{ title: 'Aprender con amigos' }}
-      />
-      <Stack.Screen
         name="Levels"
         component={Levels}
         options={{ title: 'Niveles' }}
+      />
+      <Stack.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
+        options={{ headerShown: true, title: 'Configuración' }}
       />
       <Stack.Screen
         name="InstructionsBasic"
@@ -364,56 +449,6 @@ function HomeStack() {
   );
 }
 
-const TabNavigator = () => {
-  return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size }) => {
-          let iconName;
-
-          if (route.name === 'Inicio') {
-            iconName = 'home-outline';
-          } else if (route.name === 'Progreso') {
-            iconName = 'star-outline';
-          } else if (route.name === 'Perfil') {
-            iconName = 'person-circle-outline';
-          }
-
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
-      })}
-    >
-      <Tab.Screen
-        name="Inicio"
-        component={HomeStack}
-        options={{ headerShown: false }} // Ocultar encabezado solo en esta pestaña
-      />
-      <Tab.Screen
-        name="Progreso"
-        component={ProgresoScreen}
-        options={{
-          headerStyle: { backgroundColor: '#003366' }, //5B4D28
-          headerTintColor: '#fff',
-          headerTitleStyle: { fontWeight: 'bold' },
-          cardStyle: { backgroundColor: '#9FC516' },
-        }}
-      />
-      <Tab.Screen
-        name="Perfil"
-        component={ProfileScreen}
-        options={{
-          headerStyle: { backgroundColor: '#003366' }, //5B4D28
-          headerTintColor: '#fff',
-          headerTitleStyle: { fontWeight: 'bold' },
-          cardStyle: { backgroundColor: '#9FC516' },
-        }}
-      />
-    </Tab.Navigator>
-  );
-};
-
 const ProfileScreen = () => (
   <View style={styles.container}>
     <Text>Perfil</Text>
@@ -424,7 +459,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
-      <TabNavigator />
+      <AppNavigator />
     </NavigationContainer>
   );
 }
