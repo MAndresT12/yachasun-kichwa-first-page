@@ -142,188 +142,117 @@ Aquí te ayudo con un guion más detallado para el video de introducción y te e
 - **Descripción visual:** El personaje desaparece mientras la pantalla muestra el logotipo de la app y el texto “Comenzamos en breve”.
 - **Diálogo (voz del personaje):** “Nos vemos pronto. ¡Vamos a aprender Kichwa!”
 
-### 2. **Implementar el video de introducción y la barra de carga**
 
-#### **Paso 1: Crear la pantalla de carga con video**
-Debemos agregar una pantalla inicial que se muestre cuando la app se está cargando. En esta pantalla pondremos el video de introducción y la barra de carga.
 
-1. **Instalar dependencias necesarias para video y animación:**
-   Necesitarás `expo-av` para reproducir el video y una barra de carga personalizada.
 
-   ```bash
-   expo install expo-av
-   ```
 
-2. **Pantalla de carga:**
 
-   ```jsx
-   import React, { useEffect, useState } from 'react';
-   import { View, Text, StyleSheet, ActivityIndicator, Dimensions } from 'react-native';
-   import { Video } from 'expo-av';
-   import { useNavigation } from '@react-navigation/native';
+Para conectar la barra de progreso con la carga real de los recursos de la aplicación, en lugar de incrementar el progreso de manera arbitraria, necesitarás obtener información real sobre el estado de la carga de los recursos en la aplicación.
 
-   const LoadingScreen = () => {
-     const [videoFinished, setVideoFinished] = useState(false);
-     const [loadingProgress, setLoadingProgress] = useState(0); // Para manejar la barra de progreso
-     const navigation = useNavigation();
-     const video = React.useRef(null);
+Aquí te doy una idea general de cómo hacerlo:
 
-     useEffect(() => {
-       // Simulación de la carga de recursos
-       const loadingInterval = setInterval(() => {
-         setLoadingProgress((prev) => {
-           if (prev < 100) {
-             return prev + 1; // Incrementa la barra de progreso
-           }
-           return prev;
-         });
-       }, 50); // 50ms para incrementar la barra de carga
+### 1. **Utiliza un evento o estado de carga real**
 
-       return () => clearInterval(loadingInterval);
-     }, []);
+Si estás cargando recursos importantes como fuentes, imágenes o datos que son necesarios antes de mostrar la siguiente pantalla, puedes usar algo como `Asset.loadAsync()` de Expo o alguna API que uses para cargar recursos.
 
-     useEffect(() => {
-       if (videoFinished && loadingProgress === 100) {
-         navigation.replace('Login'); // Redirigir a la pantalla de login después de cargar
-       }
-     }, [videoFinished, loadingProgress]);
+Por ejemplo:
 
-     return (
-       <View style={styles.container}>
-         <Video
-           ref={video}
-           style={styles.video}
-           source={{ uri: 'https://path-to-your-video.mp4' }} // Ruta del video
-           resizeMode="contain"
-           shouldPlay
-           onPlaybackStatusUpdate={(status) => {
-             if (status.didJustFinish) {
-               setVideoFinished(true);
-             }
-           }}
-         />
-         <View style={styles.progressBar}>
-           <View style={[styles.progress, { width: `${loadingProgress}%` }]} />
-         </View>
-         <Text style={styles.loadingText}>Cargando... {loadingProgress}%</Text>
-       </View>
-     );
-   };
+```javascript
+import * as Font from 'expo-font';
+import { Asset } from 'expo-asset';
+import { useNavigation } from '@react-navigation/native';
+import { Video } from 'expo-av';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text } from 'react-native';
+import { styles } from '../../../styles/globalStyles';
+import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 
-   const styles = StyleSheet.create({
-     container: {
-       flex: 1,
-       justifyContent: 'center',
-       alignItems: 'center',
-       backgroundColor: '#fff',
-     },
-     video: {
-       width: Dimensions.get('window').width,
-       height: Dimensions.get('window').height * 0.6,
-     },
-     progressBar: {
-       height: 10,
-       width: '80%',
-       backgroundColor: '#ddd',
-       borderRadius: 5,
-       overflow: 'hidden',
-       marginTop: 20,
-     },
-     progress: {
-       height: '100%',
-       backgroundColor: '#4caf50',
-     },
-     loadingText: {
-       marginTop: 10,
-       fontSize: 16,
-       fontWeight: 'bold',
-     },
-   });
+const LoadingScreen = () => {
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [videoFinished, setVideoFinished] = useState(false);
+  const [skipEnabled, setSkipEnabled] = useState(false);
+  const navigation = useNavigation();
+  const video = useRef(null);
 
-   export default LoadingScreen;
-   ```
+  // Function to load resources
+  const loadResourcesAsync = async () => {
+    const videoPromise = Asset.loadAsync(require('../../../assets/videos/test-video.mp4')); // Example of loading video
+    const fontPromise = Font.loadAsync({
+      'Roboto': require('../../../assets/fonts/Roboto.ttf'), // Example of loading fonts
+    });
 
-#### **Paso 2: Configurar la navegación**
-Asegúrate de tener configurado tu stack de navegación para redirigir al usuario de la pantalla de carga al login y luego al home screen.
+    const totalResources = 2; // Number of resources you're loading
+    let loadedResources = 0;
 
-```jsx
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import LoadingScreen from './screens/LoadingScreen'; // Pantalla de carga
-import LoginScreen from './screens/LoginScreen'; // Pantalla de login
-import HomeScreen from './screens/HomeScreen'; // Pantalla principal
+    const updateProgress = () => {
+      loadedResources++;
+      setLoadingProgress((loadedResources / totalResources) * 100);
+    };
 
-const Stack = createStackNavigator();
+    // Load each resource and update progress
+    await Promise.all([
+      videoPromise.then(updateProgress),
+      fontPromise.then(updateProgress),
+    ]);
+  };
 
-const AppNavigator = () => {
+  // Load resources and update the progress bar
+  useEffect(() => {
+    loadResourcesAsync().then(() => {
+      setSkipEnabled(true); // Enable skip button after resources are loaded
+    });
+  }, []);
+
+  useEffect(() => {
+    if (videoFinished && loadingProgress === 100) {
+      navigation.replace('Login');
+    }
+  }, [videoFinished, loadingProgress]);
+
+  const handleSkip = () => {
+    navigation.replace('Login');
+  };
+
   return (
-    <Stack.Navigator initialRouteName="Loading">
-      <Stack.Screen name="Loading" component={LoadingScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
-  );
-};
+    <View style={styles.containerLoading}>
+      <Video
+        ref={video}
+        style={styles.video}
+        source={require('../../../assets/videos/test-video.mp4')}
+        resizeMode="contain"
+        shouldPlay
+        onPlaybackStatusUpdate={(status) => {
+          if (status.didJustFinish) {
+            setVideoFinished(true);
+          }
+        }}
+      />
 
-export default AppNavigator;
-```
-
-#### **Paso 3: Pantalla de inicio de sesión y pantalla de inicio (Home Screen)**
-
-**Pantalla de inicio de sesión:**
-- Pantalla simple con campos para el nombre de usuario y contraseña.
-- Botón para iniciar sesión que redirige al `HomeScreen`.
-
-**Pantalla principal (Home Screen):**
-Aquí puedes incluir:
-- **Menú de navegación:** Para que el usuario pueda elegir entre diferentes módulos (números, colores, logros, configuraciones).
-- **Barra de progreso:** Que muestre el avance del usuario.
-- **Configuración:** Un lugar para cambiar opciones como el idioma, el sonido, etc.
-  
-### Ejemplo de pantalla Home Screen:
-
-```jsx
-import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-
-const HomeScreen = ({ navigation }) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Bienvenido a Yachasun Kichwa</Text>
-      <View style={styles.buttonContainer}>
-        <Button title="Aprender Números" onPress={() => navigation.navigate('Numbers')} />
-        <Button title="Aprender Colores" onPress={() => navigation.navigate('Colors')} />
-        <Button title="Configuración" onPress={() => navigation.navigate('Settings')} />
+      <View style={styles.progressBar}>
+        <View style={[styles.progress, { width: `${loadingProgress}%` }]} />
       </View>
+      <Text style={styles.loadingText}>Cargando... {Math.round(loadingProgress)}%</Text>
+
+      {skipEnabled && (
+        <ButtonDefault label="Saltar" onPress={handleSkip} />
+      )}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  buttonContainer: {
-    width: '80%',
-    justifyContent: 'space-around',
-    height: 200,
-  },
-});
-
-export default HomeScreen;
+export default LoadingScreen;
 ```
 
-### **Conclusión:**
-1. **Pantalla de carga con video y barra de progreso:** Muestra un video explicativo mientras se carga la app y, cuando termina el video y la carga llega al 100%, navega a la pantalla de login.
-2. **Pantalla de login:** Permite al usuario iniciar sesión.
-3. **Pantalla principal (Home Screen):** Proporciona acceso a las principales funcionalidades de la aplicación.
+### Explicación:
 
-Esto te permitirá tener una transición fluida entre la carga, el video de introducción y las diferentes secciones de la app.
+1. **`loadResourcesAsync()`**: Carga recursos asíncronos como videos, fuentes, imágenes, etc., y actualiza la barra de progreso en tiempo real a medida que se cargan.
+
+2. **Actualización del progreso**: Cada vez que un recurso termina de cargar, se llama a `updateProgress()` para incrementar el porcentaje de la barra de progreso.
+
+3. **Redirigir cuando todo esté cargado**: Cuando la carga del video y de todos los recursos ha finalizado, se permite navegar a la siguiente pantalla.
+
+### Beneficios:
+- El progreso se refleja con precisión en la barra según los recursos que se cargan.
+- Puedes añadir tantos recursos como desees y se irá actualizando el progreso de forma proporcional. 
+
+Así, la barra de progreso estará directamente conectada con la carga real de los recursos que necesitas antes de que la aplicación pueda continuar.

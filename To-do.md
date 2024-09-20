@@ -33,6 +33,8 @@
 - Poner la animación de palpitar para humu en saludos parte 2
 - Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias, que explique
+- Hacer una barra de carga de verdad
+- Conectar con el Backend
 
 
 

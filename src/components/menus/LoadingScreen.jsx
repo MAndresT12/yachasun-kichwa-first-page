@@ -45,7 +45,7 @@ const LoadingScreen = () => {
       <Video
         ref={video}
         style={styles.video}
-        source={require('../../../assets/videos/test-video.mp4')}
+        source={require('../../../assets/videos/Intro-01.mp4')}
         resizeMode="contain"
         shouldPlay
         onPlaybackStatusUpdate={(status) => {
