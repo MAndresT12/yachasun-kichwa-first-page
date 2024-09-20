@@ -28,6 +28,7 @@
 - Hay que poner Text bubles en todos los elementos donde aparezca humu y los signos de interrogación [Continuar_Demas_Juegos_Milton]
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo) [Mejorar]
 - Configuracion en el Home Screen y icono de config en toda la app (quitar volumen porque no sirve y poner otra cosa)
+- POner tablas en componente de tabs o pestañas
 - Letras de colores animadas y más grandes y que las letras no sean arcoíris. Y la paleta de colores como una mancha de pintura envez de un cuadrado (hablarlo con los demás)
 - Cuando emparejas algo suena cómo se pronuncia (juegos)
 - Poner la animación de palpitar para humu en saludos parte 2

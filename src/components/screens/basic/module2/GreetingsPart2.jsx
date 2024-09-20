@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
+import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { cardStyles } from '../../../../../styles/cardStyles';
@@ -280,12 +281,52 @@ const renderGoodbyes = () => {
     ));
 };
 
+const CourtesyRoute = () => (
+    <View style={styles.container}>
+        <Text style={styles.title}>Frases de cortesía</Text>
+        <View style={styles.vocabularyTable}>
+            <View style={styles.tableHeader}>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                <Text style={styles.tableHeaderCell}>Español</Text>
+            </View>
+            {renderCourtesies()}
+        </View>
+    </View>
+);
+
+const GoodbyesRoute = () => (
+    <View style={styles.container}>
+        <Text style={styles.title}>Las Despedidas</Text>
+        <View style={styles.vocabularyTable}>
+            <View style={styles.tableHeader}>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                <Text style={styles.tableHeaderCell}>Español</Text>
+            </View>
+            {renderGoodbyes()}
+        </View>
+    </View>
+);
+
+const initialLayout = { width: Dimensions.get('window').width };
+
 const GreetingsPart2 = () => {
     const [showHelp, setShowHelp] = useState(null);
     const [showChat, setShowChat] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
 
     const navigation = useNavigation();
+
+    const [index, setIndex] = useState(0);
+    const [routes] = useState([
+        { key: 'courtesy', title: 'Cortesía' },
+        { key: 'goodbyes', title: 'Despedidas' },
+    ]);
+
+    const renderScene = SceneMap({
+        courtesy: CourtesyRoute,
+        goodbyes: GoodbyesRoute,
+    });
+
 
     const toggleAccordion = (key) => {
         if (activeAccordion === key) {
@@ -327,6 +368,20 @@ const GreetingsPart2 = () => {
                     </View>
 
                     <CardDefault title="Y qué más..." content="Veámos más despedidas y cortesías que existen." />
+
+                    <TabView
+                        navigationState={{ index, routes }} // Configura el estado de las pestañas
+                        renderScene={renderScene} // Renderiza las vistas según la pestaña activa
+                        onIndexChange={setIndex} // Actualiza la pestaña activa
+                        initialLayout={initialLayout}
+                        renderTabBar={(props) => (
+                            <TabBar
+                                {...props}
+                                indicatorStyle={{ backgroundColor: 'white' }} // Personaliza la barra de pestañas
+                                style={{ backgroundColor: '#5B4D28' }}
+                            />
+                        )}
+                    />
 
                     <CardDefault title="Frases de cortesía">
                         <View style={styles.vocabularyTable}>
