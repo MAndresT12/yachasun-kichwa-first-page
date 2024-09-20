@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Dimensions } from 'react-native';
 import { Video } from 'expo-av';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
+
+const { width, height } = Dimensions.get('window');
 
 const LoadingScreen = () => {
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -46,7 +48,7 @@ const LoadingScreen = () => {
         ref={video}
         style={styles.video}
         source={require('../../../assets/videos/Intro-01.mp4')}
-        resizeMode="contain"
+        resizeMode="cover"
         shouldPlay
         onPlaybackStatusUpdate={(status) => {
           if (status.didJustFinish) {
@@ -55,14 +57,16 @@ const LoadingScreen = () => {
         }}
       />
 
-      <View style={styles.progressBar}>
-        <View style={[styles.progress, { width: `${loadingProgress}%` }]} />
-      </View>
-      <Text style={styles.loadingText}>Cargando... {loadingProgress}%</Text>
+      <View style={styles.overlayContainer}>
+        <View style={styles.progressBar}>
+          <View style={[styles.progress, { width: `${loadingProgress}%` }]} />
+        </View>
+        <Text style={styles.loadingText}>Cargando... {loadingProgress}%</Text>
 
-      {skipEnabled && (
-        <ButtonDefault label="Saltar" onPress={handleSkip} />
-      )}
+        {skipEnabled && (
+          <ButtonDefault label="Saltar" onPress={handleSkip} />
+        )}
+      </View>
     </View>
   );
 };

@@ -736,11 +736,20 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#000',
       },
       video: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
         width: width,
-        height: height * 0.6,
+        height: height,
+      },
+      overlayContainer: {
+        position: 'absolute',
+        bottom: 40,
+        alignItems: 'center',
+        width: '100%',
       },
       progressBar: {
         height: 10,
@@ -748,16 +757,17 @@ export const styles = StyleSheet.create({
         backgroundColor: '#ddd',
         borderRadius: 5,
         overflow: 'hidden',
-        marginTop: 20,
+        marginBottom: 20,
       },
       progress: {
         height: '100%',
         backgroundColor: '#4caf50',
       },
       loadingText: {
-        marginTop: 10,
+        marginBottom: 10,
         fontSize: 16,
         fontWeight: 'bold',
+        color: '#fff',
       },
 
 
