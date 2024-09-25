@@ -187,7 +187,7 @@ const Alphabet = () => {
 
     return (
         <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#5B4D28" />
+            <StatusBar barStyle="default" backgroundColor="#003366" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>

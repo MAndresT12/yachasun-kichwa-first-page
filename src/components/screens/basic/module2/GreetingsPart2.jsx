@@ -4,7 +4,6 @@ import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from '
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
-import { cardStyles } from '../../../../../styles/cardStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
@@ -14,6 +13,8 @@ import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import { PanGestureHandler } from 'react-native-gesture-handler';
+
+const { width } = Dimensions.get('window');
 
 const initial_chat_messages = [
     {
@@ -161,8 +162,6 @@ const curiosity_data = [
     },
 ];
 
-const { width } = Dimensions.get('window');
-
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
     const rotateY = useSharedValue(0);
@@ -282,7 +281,7 @@ const renderGoodbyes = () => {
 };
 
 const CourtesyRoute = () => (
-    <View style={styles.container}>
+    <View>
         <Text style={styles.title}>Frases de cortesía</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
@@ -295,7 +294,7 @@ const CourtesyRoute = () => (
 );
 
 const GoodbyesRoute = () => (
-    <View style={styles.container}>
+    <View>
         <Text style={styles.title}>Las Despedidas</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
@@ -306,8 +305,6 @@ const GoodbyesRoute = () => (
         </View>
     </View>
 );
-
-const initialLayout = { width: Dimensions.get('window').width };
 
 const GreetingsPart2 = () => {
     const [showHelp, setShowHelp] = useState(null);
@@ -346,7 +343,7 @@ const GreetingsPart2 = () => {
 
     return (
         <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#5B4D28" />
+            <StatusBar barStyle="default" backgroundColor="#003366" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
@@ -369,21 +366,38 @@ const GreetingsPart2 = () => {
 
                     <CardDefault title="Y qué más..." content="Veámos más despedidas y cortesías que existen." />
 
-                    <TabView
-                        navigationState={{ index, routes }} // Configura el estado de las pestañas
-                        renderScene={renderScene} // Renderiza las vistas según la pestaña activa
-                        onIndexChange={setIndex} // Actualiza la pestaña activa
-                        initialLayout={initialLayout}
-                        renderTabBar={(props) => (
-                            <TabBar
-                                {...props}
-                                indicatorStyle={{ backgroundColor: 'white' }} // Personaliza la barra de pestañas
-                                style={{ backgroundColor: '#5B4D28' }}
-                            />
-                        )}
-                    />
+                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 280 }} >
+                        <TabView
+                            navigationState={{ index, routes }}
+                            renderScene={renderScene}
+                            onIndexChange={setIndex}
+                            initialLayout={width}
+                            style={{ height: '100%' }}
+                            renderTabBar={(props) => (
+                                <TabBar
+                                    {...props}
+                                    indicatorStyle={{ backgroundColor: 'white' }}
+                                    style={{
+                                        backgroundColor: '#003366',
+                                        borderRadius: 8,
+                                        margin: 10,
+                                    }}
+                                    tabStyle={{
+                                        borderRadius: 10,
+                                        marginHorizontal: 5,
+                                    }}
+                                    labelStyle={{
+                                        color: 'white',
+                                        fontWeight: 'bold',
+                                    }}
+                                    activeColor="#FFD700"
+                                    inactiveColor="#FFFFFF"
+                                />
+                            )}
+                        />
+                    </CardDefault>
 
-                    <CardDefault title="Frases de cortesía">
+                    {/* <CardDefault title="Frases de cortesía">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
@@ -401,9 +415,9 @@ const GreetingsPart2 = () => {
                             </View>
                             {renderGoodbyes()}
                         </View>
-                    </CardDefault>
+                    </CardDefault> */}
 
-                    <ButtonDefault label="Práctica sin ayuda" onPress={toggleChatModal} />
+                    <ButtonDefault label="Práctica sin ayuda" onPress={toggleChatModal} styleContainer={{ marginBottom: 10 }} />
 
                     {curiosity_data.map((item) => (
                         <AccordionDefault
