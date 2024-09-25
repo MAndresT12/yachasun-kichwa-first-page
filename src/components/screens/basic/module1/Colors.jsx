@@ -11,6 +11,7 @@ import { useFonts, RibeyeMarrow_400Regular } from '@expo-google-fonts/ribeye-mar
 import { LinearGradient } from 'expo-linear-gradient';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
+import { SplashBubble } from '../../../ui/bubbles/SplashBubble';
 
 const colors = ['#FF6347', '#4682B4', '#FFD700', '#32CD32', '#8A2BE2', '#FF4500'];
 
@@ -70,7 +71,9 @@ const FlipCard = ({ item, fontsLoaded }) => {
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
                     <Text style={styles.translationLabel}>Kichwa:</Text>
                     <Text style={styles.translationText}>{item.kichwa}</Text>
-                    <View style={[styles.colorBox, { backgroundColor: item.hexadecimalColor }]} />
+                    <View style={[styles.colorBox]}>
+                        <SplashBubble fillColor={item.hexadecimalColor} />
+                    </View>
                 </Animated.View>
             </View>
         </TouchableWithoutFeedback>

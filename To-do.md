@@ -20,6 +20,8 @@
 - Para números no queda el contador porque toca moverse full no vale [x]
 - Spanish dice en la tabla en vez de español en ordinales [x]
 - Idea de hacer un chat para los saludos [x]
+- POner tablas en componente de tabs o pestañas [x]
+- La paleta de colores como una mancha de pintura envez de un cuadrado [x]
 - Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe..... [Mejorar]
 - imagenes animadas un estadar, si vamos a usar ai el mismo prompt [Mejorar]
 - Poner animaciones a las letras o cambiar el font, poner diseño en las cards [Mejorar]
@@ -28,15 +30,14 @@
 - Hay que poner Text bubles en todos los elementos donde aparezca humu y los signos de interrogación [Continuar_Demas_Juegos_Milton]
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo) [Mejorar]
 - Configuracion en el Home Screen y icono de config en toda la app (quitar volumen porque no sirve y poner otra cosa)
-- POner tablas en componente de tabs o pestañas
-- Letras de colores animadas y más grandes y que las letras no sean arcoíris. Y la paleta de colores como una mancha de pintura envez de un cuadrado (hablarlo con los demás)
+- Letras de colores animadas y más grandes y que las letras no sean arcoíris. (hablarlo con los demás)
 - Cuando emparejas algo suena cómo se pronuncia (juegos)
 - Poner la animación de palpitar para humu en saludos parte 2
 - Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias o trofeos, que explique, los trofeos que vas obteniendo y que se pinten cuando obtienes uno y eso.
 - Hacer una barra de carga de verdad
 - Conectar con el Backend
-
+- Completar contenido
 
 
 

@@ -350,12 +350,12 @@ export const styles = StyleSheet.create({
 
 
     colorBox: {
-        width: 100,
-        height: 50,
+        width: 105,
+        height: 55,
         marginTop: 10,
-        borderRadius: 8,
-        borderWidth: 2,
-        borderColor: 'black',
+        // borderRadius: 8,
+        // borderWidth: 2,
+        // borderColor: 'black',
     },
 
 
