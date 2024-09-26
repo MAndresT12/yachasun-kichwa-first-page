@@ -41,7 +41,7 @@ const curiosity_data = [
     {
         key: '1',
         title: 'El Matrimonio',
-        text: 'La familia es muy importante en el mundo indígena. Entre padres e hijos, deben compartir conocimientos de cultura, tradición y unidad.',
+        text: 'En las celebraciones culturales, como los matrimonios, se ofrece comida a la Pachamama en agradecimiento por lo que provee y se comparte.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
 ];

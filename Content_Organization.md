@@ -2,12 +2,9 @@
 
 ## Temas
 
-- Los animales (básico pero se repite casi todo con intermedio y en el excel está mal ordenado los animales, creo que no hay que hacer dos para ambos niveles de dificultad) -> (debería ser básico pero está Inicial)
-- Las partes del cuerpo -> Básico
-
-- Las cosas de la casa -> Básico
-- El aula -> Inicial
 - Los alimentos y las frutas (de dónde sacamos frutas o por qué separamos?, también los alimentos tiene el mismo problema que los animales) -> Básico
+- Los animales (básico pero se repite casi todo con intermedio y en el excel está mal ordenado los animales, creo que no hay que hacer dos para ambos niveles de dificultad) -> (debería ser básico pero está Inicial)
+- El aula -> Inicial
 - La naturaleza -> Inicial
 
 - La pluralización -> Básico
@@ -30,7 +27,7 @@
 - Juego 1
 - Evaluación 1
 
-### Módulo 2 [En_progreso]
+### Módulo 2 [Hecho]
 
 - Los saludos, cortesía y despedidas Parte 1
 - Los saludos, cortesía y despedidas Parte 2
@@ -39,9 +36,11 @@
 - Juego 2
 - Evaluación 2
 
-### Módulo 3
+### Módulo 3 [En_progreso]
 
 - La familia Parte 2
+- Las partes del cuerpo
+- Las cosas de la casa
 - Juego 3
 - Evaluación 3
 

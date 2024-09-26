@@ -174,12 +174,12 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>La Familia Parte 2: Extendida / Ayllu</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Los Primeros Números</BouncyText>
+                    <BouncyText >Las partes del cuerpo humano / Aycha ukkunpak shimikuna</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('FirstNumbers')}
+                        onPress={() => navigation.navigate('BodyParts')}
                     >
-                        <BouncyText>2</BouncyText>
+                        <BouncyText><FontAwesome name="female" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
                 </View>
                 <View style={localStyles.pathRow}>

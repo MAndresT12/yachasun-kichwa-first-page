@@ -43,7 +43,7 @@ import EndModule2 from './src/components/screens/basic/module2/EndModule2.jsx';
 
 //Module 3 Basic
 import FamilyPart2 from './src/components/screens/basic/module3/FamilyPart2.jsx';
-
+import BodyParts from './src/components/screens/basic/module3/BodyParts.jsx';
 
 // Module 1 Intermedio
 import Main from './src/components/main/Main';
@@ -281,11 +281,6 @@ function HomeStack() {
         options={{ title: 'Yachasun Kichwa - La Familia Parte 1' }}
       />
       <Stack.Screen
-        name="FamilyPart2"
-        component={FamilyPart2}
-        options={{ title: 'Yachasun Kichwa - La Familia Parte 2' }}
-      />
-      <Stack.Screen
         name="GamesBasicModule2"
         component={GamesBasicModule2}
         options={{ title: 'Yachasun Kichwa - Básico Módulo 2: Juegos de Repaso' }}
@@ -299,6 +294,16 @@ function HomeStack() {
         name="EndModule2"
         component={EndModule2}
         options={{ title: 'Yachasun Kichwa - Básico Módulo 2: Puntuación Final' }}
+      />
+      <Stack.Screen
+        name="FamilyPart2"
+        component={FamilyPart2}
+        options={{ title: 'Yachasun Kichwa - La Familia Parte 2' }}
+      />
+      <Stack.Screen
+        name="BodyParts"
+        component={BodyParts}
+        options={{ title: 'Yachasun Kichwa - Las Partes del Cuerpo Humano' }}
       />
       <Stack.Screen
         name="Main"
