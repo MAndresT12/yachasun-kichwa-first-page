@@ -241,7 +241,7 @@ const BodyParts = () => {
                             Te invito a conocer las partes de tu cuerpo en Kichwa.
                         </Text>
                     </CardDefault>
-                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 560 }} >
+                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 580 }} >
                         <TabView
                             navigationState={{ index, routes }}
                             renderScene={renderScene}
@@ -273,6 +273,13 @@ const BodyParts = () => {
                     </CardDefault>
                     
                     <ButtonDefault label="Mira un poema..." onPress={toggleChatModal} />
+
+                    <CardDefault title="¿Y la ropa?" content="También podríamos de una vez hablar de la ropa. Es algo muy interesante, ¡comencemos!" />
+                    <View style={styles.gridContainer}>
+                        {clothes_data.map((item, index) => (
+                            <FlipCard key={index} item={item} />
+                        ))}
+                    </View>
 
                     {curiosity_data.map((item) => (
                         <AccordionDefault
