@@ -13,10 +13,20 @@ export const styles = StyleSheet.create({
         flexGrow: 1,
     },
     header: {
-        backgroundColor: '#223bb8',
+        // backgroundColor: '#223bb8',
         padding: 10,
         alignItems: 'flex-start',
         width: '100%',
+        borderBottomWidth: 1,
+        borderBottomColor: '#000000',
+        // Propiedades de sombra (iOS)
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 0 },  // Desplazamiento de la sombra
+        shadowOpacity: 0.2,                     // Opacidad de la sombra
+        shadowRadius: 3,                        // Radio de difuminado
+
+        // Propiedad para Android
+        elevation: 2,  // Aumenta el valor para más sombra en Android
     },
     headerText: {
         color: '#fff',
@@ -630,8 +640,8 @@ export const styles = StyleSheet.create({
 
     flipCardContainerBothCardsGreetings2: {
         flexDirection: 'row',
-        position: 'relative', 
-        width: '100%', 
+        position: 'relative',
+        width: '100%',
         marginBottom: 20,
         justifyContent: 'space-between',
     },
@@ -737,15 +747,15 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#000',
-      },
-      video: {
+    },
+    video: {
         position: 'absolute',
         top: 0,
         left: 0,
         width: width,
         height: height,
-      },
-      overlayContainer: {
+    },
+    overlayContainer: {
         position: 'absolute',
         bottom: 40,
         alignItems: 'center',
@@ -757,61 +767,61 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         padding: 10,
         margin: 10,
-      },
-      progressBar: {
+    },
+    progressBar: {
         height: 10,
         width: '80%',
         backgroundColor: '#ddd',
         borderRadius: 5,
         overflow: 'hidden',
         marginBottom: 20,
-      },
-      progress: {
+    },
+    progress: {
         height: '100%',
         backgroundColor: '#4caf50',
-      },
-      loadingText: {
+    },
+    loadingText: {
         marginBottom: 10,
         fontSize: 16,
         fontWeight: 'bold',
         color: '#fff',
-      },
+    },
 
 
-      containerHome: {
+    containerHome: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fff',
-      },
-      titleHome: {
+    },
+    titleHome: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 30,
-      },
-      buttoncontainerHome: {
+    },
+    buttoncontainerHome: {
         width: '80%',
         justifyContent: 'space-around',
         height: 200,
-      },
+    },
 
-      containerSettings: {
+    containerSettings: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fff',
-      },
-      titleSettings: {
+    },
+    titleSettings: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
-      },
-      labelSettings: {
+    },
+    labelSettings: {
         fontSize: 18,
         marginBottom: 10,
-      },
-      sliderSettings: {
+    },
+    sliderSettings: {
         width: '80%',
         height: 40,
-      },
+    },
 });

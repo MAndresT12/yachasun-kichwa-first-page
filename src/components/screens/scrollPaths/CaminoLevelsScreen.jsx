@@ -7,6 +7,7 @@ import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat, wit
 import { styles } from '../../../../styles/globalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 //import { FontAwesomeIcon } from '@fontawesome/react-native-fontawesome'
 
 
@@ -37,14 +38,16 @@ const BouncyText = ({ children }) => {
 
 const CaminoLevelsScreen = () => {
     const navigation = useNavigation();
-
+    //Aca seria calcular respecto a los modulos completados o trofeos obtenidos el porcentaje
+    const progress = 0.75;
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
             style={localStyles.gradientBackground}
         >
             <View style={styles.header}>
-                <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                <ProgressCircleWithTrophies progress={progress} level="intermedio" />
+
             </View>
             <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
                 <Image source={require('../../../../assets/images/animals/tortuga.png')} style={localStyles.islandImage} />
