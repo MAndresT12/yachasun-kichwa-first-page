@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../styles/globalStyles';
-import { CardDefault } from '../../ui/cards/CardDefault';
+import { styles } from '../../../../../styles/globalStyles';
+import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const questions = [
     {
@@ -48,7 +48,7 @@ const EvaluationBasicModule2 = () => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         } else {
-            navigation.navigate('Evaluation1', { score: score + 1, totalQuestions: questions.length });
+            navigation.navigate('EndModule2', { score: score + 1, totalQuestions: questions.length });
         }
     };
 

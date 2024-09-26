@@ -824,4 +824,60 @@ export const styles = StyleSheet.create({
         width: '80%',
         height: 40,
     },
+
+
+
+
+    pronounSmallFlipCard: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        width: '100%',
+    },
+    pronounBigFlipCardContainer: {
+        width: '94%',
+        height: 230,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+    },
+    pronounBigFlipCard: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+    },
+    cardDefaultPronouns: {
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        width: "100%",
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 5,
+    },
+    translationLabelPronouns: {
+        fontSize: 12,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        padding: 4,
+        color: '#000000',
+    },
+    translationTextPronouns: {
+        fontSize: 11,
+        textAlign: 'center',
+        color: '#004d40',
+    },
+
+
+    familyBigFlipCardContainer: {
+        width: '94%',
+        height: 430,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+    },
 });

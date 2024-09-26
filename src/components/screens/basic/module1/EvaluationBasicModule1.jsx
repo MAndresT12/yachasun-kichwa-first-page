@@ -48,7 +48,7 @@ const EvaluationBasicModule1 = () => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         } else {
-            navigation.navigate('Evaluation1', { score: score + 1, totalQuestions: questions.length });
+            navigation.navigate('EndModule1', { score: score + 1, totalQuestions: questions.length });
         }
     };
 

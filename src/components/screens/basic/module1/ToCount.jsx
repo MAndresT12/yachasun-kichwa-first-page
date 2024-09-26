@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, Modal, Image, StyleSheet, Dimensions } from 'react-native';
+import { Text, View, ScrollView, StatusBar, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
@@ -153,22 +153,5 @@ const ToCount = () => {
         </View>
     );
 };
-
-const localStyles = StyleSheet.create({
-    imageContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-    },
-    foodImage: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-    },
-    textCenter: {
-        textAlign: 'center',
-        flex: 1,
-    },
-});
 
 export default ToCount;

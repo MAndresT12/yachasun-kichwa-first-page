@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../styles/globalStyles';
+import { styles } from '../../../../../styles/globalStyles';
 
 const EndModule2 = ({ route }) => {
     const { score, totalQuestions } = route.params;
@@ -25,15 +25,17 @@ const EndModule2 = ({ route }) => {
                             Puntuación: {score} / {totalQuestions}
                         </Text>
                     </View>
+                    <ButtonDefault label="Volver al Inicio" onPress={() => navigation.navigate('CaminoLevelsBasic')} />
                     <TouchableOpacity
                         style={localStyles.button}
-                        onPress={() => navigation.navigate('Main')}
+                        onPress={() => navigation.navigate('CaminoLevelsBasic')}
                     >
                         <Text style={localStyles.buttonText}>Volver al Inicio</Text>
                     </TouchableOpacity>
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FamilyPart2')} />
                     <TouchableOpacity
                         style={localStyles.button}
-                        onPress={() => navigation.navigate('ParticlesPart2')}
+                        onPress={() => navigation.navigate('FamilyPart2')}
                     >
                         <Text style={localStyles.buttonText}>Siguiente</Text>
                     </TouchableOpacity>

@@ -114,10 +114,10 @@ const CaminoLevelsScreen = () => {
                     >
                         <BouncyText><FontAwesome name="handshake-o" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>Los Saludos: Básicos / Napaykuna</BouncyText>
+                    <BouncyText>Los Saludos Parte 1: Básicos / Napaykuna</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Los Saludos: Diálogos / Napaykuna</BouncyText>
+                    <BouncyText >Los Saludos Parte 2: Diálogos / Napaykuna</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
                         onPress={() => navigation.navigate('GreetingsPart2')}
@@ -128,25 +128,25 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('ToCount')}
+                        onPress={() => navigation.navigate('PronounsSentence')}
                     >
-                        <BouncyText>3</BouncyText>
+                        <BouncyText><FontAwesome name="address-card" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>¿Cómo se cuenta?</BouncyText>
+                    <BouncyText>Los pronombres personales, el verbo kana y la estructura de una oración / Shutipakrantikuna, imachik kana, yuyayki wallpa</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>Los Colores</BouncyText>
+                    <BouncyText>La Familia Parte 1: Núcleo / Ayllu</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Colors')}
+                        onPress={() => navigation.navigate('FamilyPart1')}
                     >
-                        <BouncyText>4</BouncyText>
+                        <BouncyText><FontAwesome name="users" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
                 </View>
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                        onPress={() => navigation.navigate('GamesBasicModule2')}
                     >
                     </TouchableOpacity>
                     <BouncyText>Juego 1</BouncyText>
@@ -156,7 +156,7 @@ const CaminoLevelsScreen = () => {
                     <BouncyText >Evaluación 1</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                        onPress={() => navigation.navigate('EvaluationBasicModule2')}
                     >
                     </TouchableOpacity>
                 </View>
@@ -167,11 +167,11 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Alphabet')}
+                        onPress={() => navigation.navigate('FamilyPart2')}
                     >
-                        <BouncyText>1</BouncyText>
+                        <BouncyText><FontAwesome name="user-plus" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>El Alfabeto</BouncyText>
+                    <BouncyText>La Familia Parte 2: Extendida / Ayllu</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText >Los Primeros Números</BouncyText>

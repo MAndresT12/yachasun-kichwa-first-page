@@ -35,6 +35,14 @@ import EndModule1 from './src/components/screens/basic/module1/EndModule1.jsx';
 //Module 2 Basic
 import GreetingsPart1 from './src/components/screens/basic/module2/GreetingsPart1.jsx';
 import GreetingsPart2 from './src/components/screens/basic/module2/GreetingsPart2.jsx';
+import PronounsSentence from './src/components/screens/basic/module2/PronounsSentence.jsx';
+import FamilyPart1 from './src/components/screens/basic/module2/FamilyPart1.jsx';
+import GamesBasicModule2 from './src/components/screens/basic/module2/GamesBasicModule2.jsx';
+import EvaluationBasicModule2 from './src/components/screens/basic/module2/EvaluationBasicModule2.jsx';
+import EndModule2 from './src/components/screens/basic/module2/EndModule2.jsx';
+
+//Module 3 Basic
+import FamilyPart2 from './src/components/screens/basic/module3/FamilyPart2.jsx';
 
 
 // Module 1 Intermedio
@@ -262,6 +270,36 @@ function HomeStack() {
         options={{ title: 'Yachasun Kichwa - Los Saludos Parte 2' }}
       />
       {/* Modulo 1 */}
+      <Stack.Screen
+        name="PronounsSentence"
+        component={PronounsSentence}
+        options={{ title: 'Yachasun Kichwa - Los Pronombres Personales, el Verbo Kana y la Estructura de una Oración' }}
+      />
+      <Stack.Screen
+        name="FamilyPart1"
+        component={FamilyPart1}
+        options={{ title: 'Yachasun Kichwa - La Familia Parte 1' }}
+      />
+      <Stack.Screen
+        name="FamilyPart2"
+        component={FamilyPart2}
+        options={{ title: 'Yachasun Kichwa - La Familia Parte 2' }}
+      />
+      <Stack.Screen
+        name="GamesBasicModule2"
+        component={GamesBasicModule2}
+        options={{ title: 'Yachasun Kichwa - Básico Módulo 2: Juegos de Repaso' }}
+      />
+      <Stack.Screen
+        name="EvaluationBasicModule2"
+        component={EvaluationBasicModule2}
+        options={{ title: 'Yachasun Kichwa - Básico Módulo 2: Evaluación' }}
+      />
+      <Stack.Screen
+        name="EndModule2"
+        component={EndModule2}
+        options={{ title: 'Yachasun Kichwa - Básico Módulo 2: Puntuación Final' }}
+      />
       <Stack.Screen
         name="Main"
         component={Main}

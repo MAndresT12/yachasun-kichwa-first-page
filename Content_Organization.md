@@ -34,13 +34,14 @@
 
 - Los saludos, cortesía y despedidas Parte 1
 - Los saludos, cortesía y despedidas Parte 2
-- Los pronombres personales, el verbo kana y la estructura de una oración -> ELEMENTAL
-- La familia -> Inicial
+- Los pronombres personales, el verbo kana y la estructura de una oración
+- La familia Parte 1
 - Juego 2
 - Evaluación 2
 
 ### Módulo 3
 
+- La familia Parte 2
 - Juego 3
 - Evaluación 3
 

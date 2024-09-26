@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import HangmanGame from '../ui/HangmanGame';
-import MatchGame from '../ui/MatchGame';
-import ImageWordMatchGame from '../ui/ImageWordMatchGame';
+import HangmanGame from '../../../ui/HangmanGame';
+import MatchGame from '../../../ui/MatchGame';
+import ImageWordMatchGame from '../../../ui/ImageWordMatchGame';
 import { useNavigation } from '@react-navigation/native';
 
 const colors_module1 = [
@@ -16,7 +16,7 @@ const colors_module1 = [
 const alphabet_module1 = [
     { kichwa: "/a/", spanish: "A a", image: "https://cdn-icons-png.flaticon.com/512/4552/4552937.png" },
     { kichwa: "/lla/-/sha/", spanish: "Ll ll", image: "https://st4.depositphotos.com/27130226/29524/i/450/depositphotos_295240468-stock-photo-delicious-letter-ll.jpg" },
-    { kichwa: "/tsa/", spanish: "Ts ts", image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/a4f16f17522533.562bb204018b8.jpg" },
+    { kichwa: "/tsa/", spanish: "Ts ts", image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" },
     { kichwa: "/cha/", spanish: "Ch ch", image: "https://dictaventura.com/wp-content/uploads/2023/08/DICTADOS-SILABAS-4.webp" },
     { kichwa: "/u/", spanish: "U u", image: "https://w7.pngwing.com/pngs/407/6/png-transparent-blue-letter-u-alphabet-letters-letters-and-numbers-icon.png" },
     { kichwa: "/ua/", spanish: "W w", image: "https://as1.ftcdn.net/v2/jpg/02/43/23/54/1000_F_243235478_RD65Ovg86uldR1t3p6aKfUtl7l52SvJj.jpg" },
@@ -45,7 +45,7 @@ const GamesBasicModule2 = () => {
         <ImageWordMatchGame key="matching" data={first_number_module1} helpText="¡Bienvenido a la aventura de palabras y dibujos! En este juego debes unir las imágenes con su nombre en kichwa. Mira con atención los dibujos y selecciona la palabra correcta que lo describe. Si te equivocas, ¡no pasa nada! Sigue jugando y aprende cada vez más. ¡A divertirse mientras aprendes kichwa!"
             onNext={() => setCurrentGame(currentGame + 1)} />,
         <HangmanGame key="hangman" words={colors_module1} helpText="¡Bienvenido al Ahorcado! Debes adivinar las letras de la palabra secreta. Si te equivocas 6 veces, ¡el muñequito se colgará! ¡Piensa rápido y diviértete!"
-            onNext={() => navigation.navigate('EvaluationBasicModule1')} />,
+            onNext={() => navigation.navigate('EvaluationBasicModule2')} />,
         //Aca iran mas juegos, en el ultimo juego colocar el navigation.navigate('Game') para que diriga a pantalla de evaluacion
         //Caso contrario setCurrentGame(currentGame + 1) para que siga pasando por todos los juegos
     ];

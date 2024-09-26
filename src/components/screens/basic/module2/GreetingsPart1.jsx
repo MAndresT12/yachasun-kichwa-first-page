@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
@@ -169,14 +169,8 @@ const goodbyes_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'Los Apellidos en Kichwa',
-        text: 'La palabra Ango significa jefe, señor o gobernador. En el idioma Kayambi, significa espíritu y unidad.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
-    },
-    {
-        key: '2',
-        title: 'Personajes importantes',
-        text: 'Dolores Cacuango (-ango) es una líder indígena ecuatoriana que luchó por los derechos de los indígenas y campesinos.',
+        title: 'La ciudad de Otavalo',
+        text: 'Sabías que Otavalo es una ciudad de Ecuador, conocida por su mercado artesanal y el Parque Cóndor.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
 ];

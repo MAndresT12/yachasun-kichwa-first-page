@@ -8,7 +8,6 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
-import ChatModal from '../../../ui/modals/ChatModal';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
@@ -16,151 +15,188 @@ import { PanGestureHandler } from 'react-native-gesture-handler';
 
 const { width } = Dimensions.get('window');
 
-const initial_chat_messages = [
-    {
-        _id: 1,
-        text: 'Alli pacha',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
-        },
-    },
-    {
-        _id: 2,
-        text: 'Ari, ñukapak kuchimi',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 3,
-        text: 'Kikinpak kuchichu',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
-        },
-    },
-    {
-        _id: 4,
-        text: 'Ari, kawsakunimi',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 5,
-        text: 'Kawsakunkichu',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
-        },
-    },
-    {
-        _id: 6,
-        text: 'Shamupaylla',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
-        },
-    },
-    {
-        _id: 7,
-        text: 'Shamupasha',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
-        },
-    },
+const ext_fam1_data = [
+    { kichwa: "Paniku", spanish: "Cuñada" },
+    { kichwa: "Masha", spanish: "Yerno, Cuñado" },
+    { kichwa: "Mamayay", spanish: "Suegra" },
+    { kichwa: "Yayayay", spanish: "Suegro" },
+    { kichwa: "Sapalla", spanish: "Viudo, Viuda" },
+    { kichwa: "Kachun", spanish: "Nuera" },
+    { kichwa: "Achik - Mama", spanish: "Madrina" },
+    { kichwa: "Achik - Yaya", spanish: "Padrino" },
 ];
 
-const images = {
-    greeting1: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting2: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting3: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting4: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting5: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting6: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting7: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting8: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting9: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting10: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting11: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting12: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-};
-
-const greetings_data = [
-    {
-        kichwa: "Imanallatak kashkanki",
-        spanish: "¿Cómo has estado tú?",
-        imageCard: images.greeting1,
-        kichwaAnswer: "Allilla",
-        spanishAnswer: "Bien no más / más o menos",
-    },
-    {
-        kichwa: "Imanallatak kankichik",
-        spanish: "¿Cómo están ustedes?",
-        imageCard: images.greeting1,
-        kichwaAnswer: "Unkushkami kani",
-        spanishAnswer: "Estoy enfermo",
-    },
-    {
-        kichwa: "Kawsankichu",
-        spanish: "Hola, ¿Vives?",
-        imageCard: images.greeting1,
-        kichwaAnswer: "May sumak",
-        spanishAnswer: "Excelente",
-    },
-    {
-        kichwa: "Pakarishkanki",
-        spanish: "¡Has amanecido!",
-        imageCard: images.greeting1,
-        kichwaAnswer: "May alli",
-        spanishAnswer: "Muy bien",
-    },
-    {
-        kichwa: "Alli tutamanta",
-        spanish: "Buena mañana",
-        imageCard: images.greeting1,
-        kichwaAnswer: "Imanalla mashi",
-        spanishAnswer: "Hola amiga",
-    },
-];
-
-const courtesy_data = [
-    { kichwa: "Shamushun / Minkachiway", spanish: "¿Hay alguien en casa? / ¿Puedo venir? / ¿Puedo entrar?" },
-    { kichwa: "Shamupaylla", spanish: "Ven no más" },
-];
-
-const goodbyes_data = [
-    { kichwa: "Shuk punchakaman", spanish: "Hasta otro día, adiós" },
-    { kichwa: "Tuparishun", spanish: "Nos encontraremos, adiós" },
-    { kichwa: "Chishiyakunimi", spanish: "Estoy atardeciendo" },
+const ext_fam2_data = [
+    { kichwa: "Kuncha", spanish: "Sobrino" },
+    { kichwa: "Wawkiy", spanish: "Primo (Entre Varones)" },
+    { kichwa: "Turiy", spanish: "Primo (De Mujer A Varón)" },
+    { kichwa: "Ñañay", spanish: "Prima (De Mujer A Mujer)" },
+    { kichwa: "Paniy", spanish: "Prima (De Varón A Mujer)" },
+    { kichwa: "Mamay", spanish: "Tía" },
+    { kichwa: "Yayay", spanish: "Tío" },
+    { kichwa: "Ampullu", spanish: "Bisnieto, Bisnieta" },
 ];
 
 const curiosity_data = [
     {
         key: '1',
-        title: 'Kawsankichu - Hola, ¿Vives?',
-        text: 'Suena diferente, ¿no? Pero es un saludo de pueblos andinos, una pregunta y saludo de cortesía, de amistad y confianza.',
+        title: 'El Matrimonio',
+        text: 'La familia es muy importante en el mundo indígena. Entre padres e hijos, deben compartir conocimientos de cultura, tradición y unidad.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
 ];
+
+const charina_spanish_data = [
+    { spanish: "Yo tengo" },
+    { spanish: "Tú tienes" },
+    { spanish: "Usted tiene" },
+    { spanish: "Él / Ella tiene" },
+    { spanish: "Nosotros tenemos" },
+    { spanish: "Ustedes tienen" },
+    { spanish: "Ustedes tienen" },
+    { spanish: "Ellos tienen" },
+];
+
+const charina_kichwa_data = [
+    { subject: "Ñuka", verb: "charini" },
+    { subject: "Kan", verb: "charinki" },
+    { subject: "Kikin", verb: "charinki" },
+    { subject: "Pay", verb: "charin" },
+    { subject: "Ñukanchik", verb: "charinchik" },
+    { subject: "Kankuna", verb: "charinkichik" },
+    { subject: "Kikinkuna", verb: "charinkichik" },
+    { subject: "Paykuna", verb: "charinkuna" },
+];
+
+const images = {
+    familyConv1: require('../../../../../assets/images/basic/module2/family/family1.png'),
+};
+
+const family_convs_data = [
+    {
+        kichwa: "Ñukaka shuk turita charini",
+        spanish: "Yo tengo un hermano",
+        imageCard: images.familyConv1,
+    },
+    {
+        kichwa: "Payka ishkay panikunata charin",
+        spanish: "Él tiene dos hermanas",
+        imageCard: images.familyConv1,
+    },
+    {
+        kichwa: "Ñukanchikka shuk mamata charinchik",
+        spanish: "Nosotros tenemos una madre",
+        imageCard: images.familyConv1,
+    },
+    {
+        kichwa: "Paykunaka kimsa wawkiykunata charinkuna",
+        spanish: "Ellos tienen tres primos",
+        imageCard: images.familyConv1,
+    },
+    {
+        kichwa: "Kanka ishkay yayaykunata charinki",
+        spanish: "Tú tienes dos tíos",
+        imageCard: images.familyConv1,
+    },
+];
+
+const renderExtendedFam = (data) => {
+    return data.map((item, index) => (
+        <View key={index} style={styles.tableRow}>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+        </View>
+    ));
+};
+
+const ExtFam1Route = () => (
+    <View>
+        <Text style={styles.title}>Nuestra familia extendida</Text>
+        <View style={styles.vocabularyTable}>
+            <View style={styles.tableHeader}>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                <Text style={styles.tableHeaderCell}>Español</Text>
+            </View>
+            {renderExtendedFam(ext_fam1_data)}
+        </View>
+    </View>
+);
+
+const ExtFam2Route = () => (
+    <View>
+        <Text style={styles.title}>Más familia</Text>
+        <View style={styles.vocabularyTable}>
+            <View style={styles.tableHeader}>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                <Text style={styles.tableHeaderCell}>Español</Text>
+            </View>
+            {renderExtendedFam(ext_fam2_data)}
+        </View>
+    </View>
+);
+
+const BigFlipCard = ({ data1, data2 }) => {
+    const [flipped, setFlipped] = useState(false);
+    const rotateY = useSharedValue(0);
+
+    const animatedStyleFront = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value}deg` }],
+    }));
+
+    const animatedStyleBack = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
+    }));
+
+    const handleFlip = () => {
+        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        setFlipped(!flipped);
+    };
+
+    const renderTableSpanish = (data) => {
+        return data.map((item, index) => (
+            <View key={index} style={styles.tableRow}>
+                <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+            </View>
+        ));
+    };
+
+    const renderTableKichwa = (data) => {
+        return data.map((item, index) => (
+            <View key={index} style={styles.tableRow}>
+                <Text style={[styles.tableCell, styles.textCenter]}>{item.subject}</Text>
+                <Text style={[styles.tableCell, styles.textCenter]}>{item.verb}</Text>
+            </View>
+        ));
+    };
+
+    return (
+        <TouchableWithoutFeedback onPress={handleFlip}>
+            <View style={styles.familyBigFlipCardContainer}>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
+                    <CardDefault title="Español" styleCard={styles.cardDefaultPronouns}>
+                        <View style={styles.vocabularyTable}>
+                            <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Significado</Text>
+                            </View>
+                            {renderTableSpanish(data1)}
+                        </View>
+                    </CardDefault>
+                </Animated.View>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
+                    <CardDefault title="Kichwa" styleCard={styles.cardDefaultPronouns}>
+                        <View style={styles.vocabularyTable}>
+                            <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Sujeto   (Imak)</Text>
+                                <Text style={styles.tableHeaderCell}>Verbo (Imachik)</Text>
+                            </View>
+                            {renderTableKichwa(data2)}
+                        </View>
+                    </CardDefault>
+                </Animated.View>
+            </View>
+        </TouchableWithoutFeedback>
+    );
+};
 
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
@@ -235,8 +271,6 @@ const FlipCard = ({ item }) => {
                         <ImageContainer path={item.imageCard} style={styles.imageCards} />
                     </Animated.View>
                     <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardBackGreetings2, animatedStyleBack]}>
-                        <Text style={styles.translationLabel}>Kichwa:</Text>
-                        <Text style={styles.translationText}>{item.kichwa}</Text>
                         <Text style={styles.translationLabel}>Español:</Text>
                         <Text style={styles.translationText}>{item.spanish}</Text>
                     </Animated.View>
@@ -253,77 +287,29 @@ const FlipCard = ({ item }) => {
             <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
                 <CardDefault styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}>
                     <Text style={styles.translationLabelGreetingsCard2}>Kichwa:</Text>
-                    <Text style={styles.translationTextGreetingsCard2}>{item.kichwaAnswer}</Text>
-                    <Text style={styles.translationLabelGreetingsCard2}>Español:</Text>
-                    <Text style={styles.translationTextGreetingsCard2}>{item.spanishAnswer}</Text>
+                    <Text style={styles.translationTextGreetingsCard2}>{item.kichwa}</Text>
                 </CardDefault>
             </Animated.View>
         </View>
     );
 };
 
-const renderCourtesies = () => {
-    return courtesy_data.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
-        </View>
-    ));
-};
-
-const renderGoodbyes = () => {
-    return goodbyes_data.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
-        </View>
-    ));
-};
-
-const CourtesyRoute = () => (
-    <View>
-        <Text style={styles.title}>Frases de cortesía</Text>
-        <View style={styles.vocabularyTable}>
-            <View style={styles.tableHeader}>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                <Text style={styles.tableHeaderCell}>Español</Text>
-            </View>
-            {renderCourtesies()}
-        </View>
-    </View>
-);
-
-const GoodbyesRoute = () => (
-    <View>
-        <Text style={styles.title}>Las Despedidas</Text>
-        <View style={styles.vocabularyTable}>
-            <View style={styles.tableHeader}>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                <Text style={styles.tableHeaderCell}>Español</Text>
-            </View>
-            {renderGoodbyes()}
-        </View>
-    </View>
-);
-
-const GreetingsPart2 = () => {
+const FamilyPart2 = () => {
     const [showHelp, setShowHelp] = useState(null);
-    const [showChat, setShowChat] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
 
     const navigation = useNavigation();
 
     const [index, setIndex] = useState(0);
     const [routes] = useState([
-        { key: 'courtesy', title: 'Cortesía' },
-        { key: 'goodbyes', title: 'Despedidas' },
+        { key: 'ExtFam1', title: 'Parte 1' },
+        { key: 'ExtFam2', title: 'Parte 2' },
     ]);
 
     const renderScene = SceneMap({
-        courtesy: CourtesyRoute,
-        goodbyes: GoodbyesRoute,
+        ExtFam1: ExtFam1Route,
+        ExtFam2: ExtFam2Route,
     });
-
 
     const toggleAccordion = (key) => {
         if (activeAccordion === key) {
@@ -337,10 +323,6 @@ const GreetingsPart2 = () => {
         setShowHelp(!showHelp);
     };
 
-    const toggleChatModal = () => {
-        setShowChat(!showChat);
-    };
-
     return (
         <View style={styles.container}>
             <StatusBar barStyle="default" backgroundColor="#003366" />
@@ -349,24 +331,23 @@ const GreetingsPart2 = () => {
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
                 <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los Saludos Parte 2</Text>
+                    <Text style={styles.titleTema}>La Familia Parte 2</Text>
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
                         <FontAwesome name="question-circle" size={40} color="#fff" />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.bodyGreetings2}>
-                    <CardDefault title="Tengamos un diálogo" content='Ahora que ya sabes cómo decir "Hola" a tus amigos, veámos que otros tipos de saludos existen.' />
-                    <View style={styles.gridContainerGreetings2}>
-                        {greetings_data.map((item, index) => (
-                            <FlipCard key={index} item={item} />
-                        ))}
-                    </View>
+                <View style={styles.body}>
 
-                    <CardDefault title="Y qué más..." content="Veámos más despedidas y cortesías que existen." />
+                    <CardDefault title="La familia extendida">
+                        <Text style={styles.cardContent}>
+                            Nuestra familiar puede ser muy grande llena de muchas personas amadas.
+                            Aquí te muestro cómo se dice en Kichwa todos los miembros de la familia.
+                        </Text>
+                    </CardDefault>
 
-                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 280 }} >
+                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 470 }} >
                         <TabView
                             navigationState={{ index, routes }}
                             renderScene={renderScene}
@@ -397,27 +378,27 @@ const GreetingsPart2 = () => {
                         />
                     </CardDefault>
 
-                    {/* <CardDefault title="Frases de cortesía">
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Español</Text>
-                            </View>
-                            {renderCourtesies()}
-                        </View>
+                    <CardDefault title="El verbo Charina">
+                        <Text style={styles.cardContent}>
+                            En español este verbo significa "tener". Antes de crear oraciones simples con la familia, 
+                            quiero habalrte de este verbo y sus conjugaciones con los pronombres personales.{`\n\n`}
+                            Presiona en la tabla de abajo para ver lo que te menciono.
+                        </Text>
                     </CardDefault>
 
-                    <CardDefault title="Las Despedidas">
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Español</Text>
-                            </View>
-                            {renderGoodbyes()}
-                        </View>
-                    </CardDefault> */}
+                    <BigFlipCard data1={charina_spanish_data} data2={charina_kichwa_data} />
 
-                    <ButtonDefault label="Práctica sin ayuda" onPress={toggleChatModal} styleContainer={{ marginBottom: 10 }} />
+                    <CardDefault title="Ñukanchik ayllukunamanta rimashun">
+                        <Text style={styles.cardContent}>
+                            Esto se traduce a: Hablemos sobre nuestras familias.
+                        </Text>
+                    </CardDefault>
+
+                    <View style={styles.gridContainerGreetings2}>
+                        {family_convs_data.map((item, index) => (
+                            <FlipCard key={index} item={item} />
+                        ))}
+                    </View>
 
                     {curiosity_data.map((item) => (
                         <AccordionDefault
@@ -469,14 +450,12 @@ const GreetingsPart2 = () => {
                     </Modal>
                 )}
 
-                <ChatModal visible={showChat} onClose={toggleChatModal} initialMessages={initial_chat_messages} />
-
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('PronounsSentence')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ToCount')} />
                 </View>
             </ScrollView>
         </View>
     );
 };
 
-export default GreetingsPart2;
+export default FamilyPart2;
