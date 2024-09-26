@@ -13,9 +13,6 @@ const EvaluationScreen1 = ({ route }) => {
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
                     <Text style={styles.titleTema}>Evaluación Final</Text>
                 </View>
                 <View style={styles.body}>

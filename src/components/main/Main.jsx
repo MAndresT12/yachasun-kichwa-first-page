@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { CardDefault } from '../ui/cards/CardDefault';
-
+import ProgressCircleWithTrophies from '../headers/ProgressCircleWithTophies';
 const numberData = [
     { number: "1000", kichwa: "shuk waranka", spanish: "mil" },
     { number: "1001", kichwa: "shuk waranka shuk", spanish: "mil uno" },
@@ -59,19 +59,19 @@ const FlipCard = ({ item }) => {
 
 const Main = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <StatusBar barStyle="default" backgroundColor="#5B4D28" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
+
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los números</Text>
-                </View>
+
                 <View style={styles.body}>
-                    <CardDefault title="Números en Kichwa" content="Aprende los números en Kichwa y su correspondencia en español."/>
+                    <CardDefault title="Números en Kichwa" content="Aprende los números en Kichwa y su correspondencia en español." />
                     <View style={styles.gridContainer}>
                         {numberData.map((item, index) => (
                             <FlipCard key={index} item={item} />

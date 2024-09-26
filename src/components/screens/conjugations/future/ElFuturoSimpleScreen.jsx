@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const { width } = Dimensions.get('window');
 
@@ -73,17 +74,16 @@ const renderExampleCard = (example) => (
 
 const ElFuturoSimpleScreen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
 
             <ScrollView>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>{futuroSimpleData.title}</Text>
-                </View>
+
                 <View style={styles.body}>
 
                     <CardDefault title={futuroSimpleData.title}>

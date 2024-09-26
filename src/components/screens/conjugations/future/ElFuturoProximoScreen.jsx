@@ -6,6 +6,7 @@ import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 const { width } = Dimensions.get('window');
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 
 const futuroProximoData = {
@@ -75,16 +76,15 @@ const renderExampleCard = (example) => (
 
 const ElFuturoProximoScreen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>{futuroProximoData.title}</Text>
-                </View>
+
                 <View style={styles.body}>
                     <CardDefault title={futuroProximoData.title}>
                         <Text style={styles.carouselSubtitle}>{futuroProximoData.subtitle}</Text>

@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
-
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 const foodData = [
     { kichwa: "tutamanta mikuna", spanish: "desayuno", image: "https://img.freepik.com/vector-premium/dibujos-animados-delicioso-desayuno-sabroso_24640-53952.jpg?w=1060" },
     { kichwa: "chawpi puncha mikuna", spanish: "almuerzo", image: "https://i.pinimg.com/originals/fa/23/de/fa23deb5bc1d50dbbc1d91f97283f8b4.jpg" },
@@ -48,16 +48,15 @@ const renderFoodRows = () => {
 
 const FoodScreen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los Alimentos</Text>
-                </View>
+
                 <View style={styles.body}>
                     <CardDefault title="Vocabulario">
                         <View style={styles.vocabularyTable}>

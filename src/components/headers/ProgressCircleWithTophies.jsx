@@ -9,7 +9,7 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
 
     const renderSection = (index, isComplete) => {
         const angle = (index / sections) * 360;
-        const rotation = `rotate(${angle}, 50, 50)`; // Rota cada sección en su lugar
+        const rotation = `rotate(${angle}, 50, 50)`;
         const color = isComplete ? '#4CAF50' : '#E0E0E0'; // Verde para secciones completadas, gris para incompletas
 
         return (
@@ -47,7 +47,6 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
 
     return (
         <View>
-            {/* TouchableOpacity para que el círculo sea clickeable */}
             <TouchableOpacity onPress={() => setShowModal(true)}>
                 <View style={styles.container}>
                     <Svg height="50" width="50" viewBox="0 0 100 100">
@@ -62,7 +61,6 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
                 </View>
             </TouchableOpacity>
 
-            {/* Modal para mostrar los detalles de los trofeos */}
             <Modal animationType="slide" transparent={true} visible={showModal} onRequestClose={() => setShowModal(false)}>
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>

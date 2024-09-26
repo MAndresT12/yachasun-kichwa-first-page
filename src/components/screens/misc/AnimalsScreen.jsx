@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { CardDefault } from '../../ui/cards/CardDefault';
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
-
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 const animalsData = [
     { kichwa: "allku", spanish: "perro", image: "https://img.freepik.com/vector-premium/lindo-vector-caricatura-perro-cachorro-sabueso_549857-8253.jpg?w=360" },
     { kichwa: "misi", spanish: "gato", image: "https://img.freepik.com/vector-gratis/ilustracion-icono-vector-dibujos-animados-lindo-gato-sentado-concepto-icono-naturaleza-animal-aislado-premium-vector-estilo-dibujos-animados-plana_138676-4148.jpg?size=338&ext=jpg&ga=GA1.1.34264412.1717545600&semt=ais_user" },
@@ -46,7 +46,7 @@ const renderAnimalRows = () => {
     return animalsData.map((item, index) => (
         <View key={index} style={styles.tableRow}>
             <View style={localStyles.imageContainer}>
-                <ImageContainer uri={item.image} style={localStyles.animalImage}/>
+                <ImageContainer uri={item.image} style={localStyles.animalImage} />
                 {/* <Image source={{ uri: item.image }} style={localStyles.animalImage} /> */}
             </View>
             <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
@@ -57,15 +57,16 @@ const renderAnimalRows = () => {
 
 const AnimalsScreen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
+
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
+
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los Animales</Text>
-                </View>
+
                 <View style={styles.body}>
                     <CardDefault title="Vocabulario">
                         <View style={styles.vocabularyTable}>

@@ -5,6 +5,7 @@ import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 're
 import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 
 // Data para la pantalla de partículas parte 1
 const particlesData = {
@@ -110,16 +111,15 @@ const renderTable = (table, type = 'normal') => {
 
 const ParticlesPart1Screen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>{particlesData.pointsAndLives}</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>{particlesData.header}</Text>
-                </View>
+
                 <View style={styles.body}>
                     {particlesData.cards.map((card, index) => (
                         <CardDefault key={index} title={card.title}>

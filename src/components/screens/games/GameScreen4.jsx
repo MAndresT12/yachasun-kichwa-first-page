@@ -57,12 +57,7 @@ const GameScreen4 = () => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
-                <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Juego de Repaso - Parte 4</Text>
-                </View>
+
                 <View style={styles.body}>
                     <CardDefault title={`Pregunta ${currentQuestionIndex + 1}`}>
                         <Text style={localStyles.questionText}>{questions[currentQuestionIndex].question}</Text>

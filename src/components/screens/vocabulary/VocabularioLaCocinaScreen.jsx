@@ -5,6 +5,7 @@ import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } f
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 
 const kitchenVocabulary = [
     { kichwa: "wisha", spanish: "cuchara", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
@@ -62,16 +63,15 @@ const renderVerbRows = () => {
 
 const VocabularioLaCocinaScreen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>La Cocina</Text>
-                </View>
+
                 <View style={styles.body}>
                     <CardDefault title="Vocabulario de la Cocina">
                         <View style={styles.vocabularyTable}>

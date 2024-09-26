@@ -5,7 +5,7 @@ import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } f
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
-
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 const pasadoSimpleData = {
     title: "El pasado simple",
     subtitle: "Yallirka pacha",
@@ -98,16 +98,15 @@ const renderExamples = (examples) => {
 
 const ElPasadoSimpleScreen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>{pasadoSimpleData.title}</Text>
-                </View>
+
                 <View style={styles.body}>
                     <CardDefault title={pasadoSimpleData.subtitle}>
                         <Text style={localStyles.particleText}>{pasadoSimpleData.particle}</Text>

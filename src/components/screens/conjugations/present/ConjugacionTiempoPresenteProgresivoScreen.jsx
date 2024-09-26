@@ -5,6 +5,7 @@ import { View, Text, ScrollView, StyleSheet, Image, TouchableWithoutFeedback } f
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const conjugacionData = {
     title: "La conjugación en tiempo presente progresivo",
@@ -95,16 +96,15 @@ const renderExamples = (examples) => {
 
 const ConjugacionTiempoPresenteProgresivoScreen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>{conjugacionData.title}</Text>
-                </View>
+
                 <View style={styles.body}>
                     <CardDefault title={conjugacionData.subtitle}>
                         <Text style={localStyles.descriptionText}>{conjugacionData.description}</Text>

@@ -4,20 +4,20 @@ import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 're
 import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles'
 import { useNavigation } from '@react-navigation/native';
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 
 
 const ParticlesPart4Screen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Las Partículas en Kichwa Parte 4</Text>
-                </View>
+
                 <View style={styles.body}>
                     <CardDefault title="-pi">
                         <Text style={localStyles.text}>

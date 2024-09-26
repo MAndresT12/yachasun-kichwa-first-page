@@ -5,6 +5,7 @@ import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback } from 're
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 
 const timeVocabulary = [
     { kichwa: "puncha", spanish: "día" },
@@ -59,16 +60,15 @@ const renderRows = (data) => {
 
 const VocabularioElTiempoScreen = () => {
     const navigation = useNavigation();
+    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>El Tiempo</Text>
-                </View>
+
                 <View style={styles.body}>
                     <CardDefault title="Pacha (El tiempo)">
                         <View style={styles.vocabularyTable}>
