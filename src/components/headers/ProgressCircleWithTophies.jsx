@@ -29,6 +29,7 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
         require('../../../assets/images/basic/badges/home-food-school.png'),
         require('../../../assets/images/basic/badges/orientation.png'),
         require('../../../assets/images/basic/badges/valley-flowers.png'),
+        require('../../../assets/images/basic/badges/valley-flowers.png'),
     ];
 
     // Trofeos de nivel intermedio

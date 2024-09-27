@@ -2,12 +2,6 @@
 
 ## Temas
 
-- La pluralización -> Básico
-- El género -> Básico
-- La cantidad -> Inicial
-- El tamaño -> Inicial
-
-- La orientación -> Inicial
 - El imperativo -> ELEMENTAL 
 - La conjugación en tiempo presente -> ELEMENTAL 
 
@@ -42,20 +36,26 @@
 
 ### Módulo 4 [En_progreso]
 
-- La naturaleza -> Inicial
+- La naturaleza
 - Los alimentos y las frutas (de dónde sacamos frutas o por qué separamos?, también los alimentos tiene el mismo problema que los animales) -> Básico
 - Los animales (básico pero se repite casi todo con intermedio y en el excel está mal ordenado los animales, creo que no hay que hacer dos para ambos niveles de dificultad) -> (debería ser básico pero está Inicial)
-
+- La orientación -> Inicial
 - Juego 4
 - Evaluación 4
 
 ### Módulo 5 (Se puede hacer shuffle estos temas porque aquí están los más difíciles)
 
+- La pluralización -> Básico
+- El género -> Básico
+- La cantidad -> Inicial
+- El tamaño -> Inicial
 - Juego 5
 - Evaluación 5
 
 ### Módulo 6
 
+- El imperativo -> ELEMENTAL 
+- La conjugación en tiempo presente -> ELEMENTAL 
 - Juego 6
 - Evaluación 6
 

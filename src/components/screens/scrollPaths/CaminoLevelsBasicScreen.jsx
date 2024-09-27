@@ -342,8 +342,8 @@ const CaminoLevelsScreen = () => {
                     </TouchableOpacity>
                 </View>
 
-                {/* Modulo 6 */}
-                {/* <ImageContainer path={require('../../../../assets/images/basic/badges/abc.png')} style={styles.islandImage} />
+                {/*Modulo 6 */}
+                <ImageContainer path={require('../../../../assets/images/basic/badges/orientation.png')} style={styles.islandImage} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -384,20 +384,22 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                        onPress={() => navigation.navigate('GamesBasicModule6')}
                     >
+                        <FontAwesome name="gamepad" size={28} color="#FFF" />
                     </TouchableOpacity>
-                    <BouncyText>Juego 1</BouncyText>
+                    <BouncyText>Juego: Módulo 6 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
 
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Evaluación 1</BouncyText>
+                    <BouncyText >Evaluación: Módulo 6 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                        onPress={() => navigation.navigate('EvaluationBasicModule6')}
                     >
+                        <FontAwesome name="pencil" size={24} color="#FFF" />
                     </TouchableOpacity>
-                </View> */}
+                </View>
 
             </ScrollView>
 
