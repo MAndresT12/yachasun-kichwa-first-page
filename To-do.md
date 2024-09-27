@@ -35,6 +35,7 @@
 - Cuando emparejas algo suena cómo se pronuncia (juegos)
 - Poner la animación de palpitar para humu en saludos parte 2 y family part 2 además hay que bloquear a humu cuando se hace el flip al front porque se queda ahí y se pudre
 - Hacer animales con sonidos
+- En cosas de la casa poner un carrusel en vez de flip cards
 - Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
 - Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias o trofeos, que explique, los trofeos que vas obteniendo y que se pinten cuando obtienes uno y eso.
 - Hacer una barra de carga de verdad

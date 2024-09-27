@@ -451,7 +451,7 @@ const FamilyPart2 = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ToCount')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('BodyParts')} />
                 </View>
             </ScrollView>
         </View>

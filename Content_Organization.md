@@ -2,11 +2,6 @@
 
 ## Temas
 
-- Los alimentos y las frutas (de dónde sacamos frutas o por qué separamos?, también los alimentos tiene el mismo problema que los animales) -> Básico
-- Los animales (básico pero se repite casi todo con intermedio y en el excel está mal ordenado los animales, creo que no hay que hacer dos para ambos niveles de dificultad) -> (debería ser básico pero está Inicial)
-- El aula -> Inicial
-- La naturaleza -> Inicial
-
 - La pluralización -> Básico
 - El género -> Básico
 - La cantidad -> Inicial
@@ -36,15 +31,20 @@
 - Juego 2
 - Evaluación 2
 
-### Módulo 3 [En_progreso]
+### Módulo 3 [Hecho]
 
 - La familia Parte 2
 - Las partes del cuerpo
 - Las cosas de la casa
+- El aula
 - Juego 3
 - Evaluación 3
 
-### Módulo 4
+### Módulo 4 [En_progreso]
+
+- La naturaleza -> Inicial
+- Los alimentos y las frutas (de dónde sacamos frutas o por qué separamos?, también los alimentos tiene el mismo problema que los animales) -> Básico
+- Los animales (básico pero se repite casi todo con intermedio y en el excel está mal ordenado los animales, creo que no hay que hacer dos para ambos niveles de dificultad) -> (debería ser básico pero está Inicial)
 
 - Juego 4
 - Evaluación 4
@@ -58,6 +58,10 @@
 
 - Juego 6
 - Evaluación 6
+
+
+
+
 
 ## Video Script
 

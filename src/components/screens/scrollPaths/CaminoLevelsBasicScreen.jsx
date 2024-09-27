@@ -185,19 +185,19 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('ToCount')}
+                        onPress={() => navigation.navigate('House')}
                     >
-                        <BouncyText>3</BouncyText>
+                        <BouncyText><FontAwesome name="bed" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>¿Cómo se cuenta?</BouncyText>
+                    <BouncyText>Las cosas de la casa / Wasipi imakunamanta</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>Los Colores</BouncyText>
+                    <BouncyText>El Aula / Yachana uku</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Colors')}
+                        onPress={() => navigation.navigate('Classroom')}
                     >
-                        <BouncyText>4</BouncyText>
+                        <BouncyText><FontAwesome name="eraser" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
                 </View>
                 <View style={localStyles.pathRow}>

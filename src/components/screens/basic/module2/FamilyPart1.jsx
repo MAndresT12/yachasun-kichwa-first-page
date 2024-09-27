@@ -130,7 +130,7 @@ const FlipCard = ({ item }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <ImageContainer path={item.numberImage} style={styles.imageCards} />
+                    <ImageContainer path={item.famliyImage} style={styles.imageCards} />
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
                     <Text style={styles.translationLabel}>Kichwa:</Text>

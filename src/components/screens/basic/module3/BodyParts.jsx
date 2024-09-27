@@ -10,7 +10,6 @@ import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import ChatModal from '../../../ui/modals/ChatModal';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
-import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 
 const { width } = Dimensions.get('window');
@@ -334,7 +333,7 @@ const BodyParts = () => {
                 <ChatModal visible={showChat} onClose={toggleChatModal} initialMessages={initial_chat_messages} />
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Colors')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('House')} />
                 </View>
             </ScrollView>
         </View>

@@ -44,6 +44,8 @@ import EndModule2 from './src/components/screens/basic/module2/EndModule2.jsx';
 //Module 3 Basic
 import FamilyPart2 from './src/components/screens/basic/module3/FamilyPart2.jsx';
 import BodyParts from './src/components/screens/basic/module3/BodyParts.jsx';
+import House from './src/components/screens/basic/module3/House.jsx';
+import Classroom from './src/components/screens/basic/module3/Classroom.jsx';
 
 // Module 1 Intermedio
 import Main from './src/components/main/Main';
@@ -304,6 +306,16 @@ function HomeStack() {
         name="BodyParts"
         component={BodyParts}
         options={{ title: 'Yachasun Kichwa - Las Partes del Cuerpo Humano' }}
+      />
+      <Stack.Screen
+        name="House"
+        component={House}
+        options={{ title: 'Yachasun Kichwa - Las Cosas de la Casa' }}
+      />
+      <Stack.Screen
+        name="Classroom"
+        component={Classroom}
+        options={{ title: 'Yachasun Kichwa - El Aula' }}
       />
       <Stack.Screen
         name="Main"
