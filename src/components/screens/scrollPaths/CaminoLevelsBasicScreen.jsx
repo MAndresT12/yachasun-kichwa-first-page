@@ -6,6 +6,7 @@ import { styles } from '../../../../styles/globalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 
 const BouncyText = ({ children }) => {
     const scale = useSharedValue(1);
@@ -34,6 +35,7 @@ const BouncyText = ({ children }) => {
 
 const CaminoLevelsScreen = () => {
     const navigation = useNavigation();
+    const progress = 0.25;
 
     return (
         <LinearGradient
@@ -41,12 +43,12 @@ const CaminoLevelsScreen = () => {
             style={localStyles.gradientBackground}
         >
             <View style={styles.header}>
-                <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                <ProgressCircleWithTrophies progress={progress} level="basic" />
             </View>
             <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
 
                 {/* Modulo 1 */}
-                <ImageContainer path={require('../../../../assets/images/basic/badges/abc.png')} style={styles.islandImage}/>
+                <ImageContainer path={require('../../../../assets/images/basic/badges/abc.png')} style={styles.islandImage} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
@@ -148,16 +150,18 @@ const CaminoLevelsScreen = () => {
                         style={[localStyles.circleLevel, localStyles.game]}
                         onPress={() => navigation.navigate('GamesBasicModule2')}
                     >
+                        <FontAwesome name="gamepad" size={28} color="#FFF" />
                     </TouchableOpacity>
-                    <BouncyText>Juego 1</BouncyText>
+                    <BouncyText>Juego: Módulo 2 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
 
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Evaluación 1</BouncyText>
+                    <BouncyText >Evaluación: Módulo 2 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
                         onPress={() => navigation.navigate('EvaluationBasicModule2')}
                     >
+                        <FontAwesome name="pencil" size={24} color="#FFF" />
                     </TouchableOpacity>
                 </View>
 
@@ -203,18 +207,20 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                        onPress={() => navigation.navigate('GamesBasicModule3')}
                     >
+                        <FontAwesome name="gamepad" size={28} color="#FFF" />
                     </TouchableOpacity>
-                    <BouncyText>Juego 1</BouncyText>
+                    <BouncyText>Juego: Módulo 3 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
 
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Evaluación 1</BouncyText>
+                    <BouncyText >Evaluación: Módulo 3 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                        onPress={() => navigation.navigate('EvaluationBasicModule3')}
                     >
+                        <FontAwesome name="pencil" size={24} color="#FFF" />
                     </TouchableOpacity>
                 </View>
 
@@ -224,11 +230,11 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Alphabet')}
+                        onPress={() => navigation.navigate('Nature')}
                     >
-                        <BouncyText>1</BouncyText>
+                        <BouncyText><FontAwesome name="tree" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>El Alfabeto</BouncyText>
+                    <BouncyText>La naturaleza / Pachamama</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText >Los Primeros Números</BouncyText>
@@ -260,18 +266,20 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                        onPress={() => navigation.navigate('GamesBasicModule4')}
                     >
+                        <FontAwesome name="gamepad" size={28} color="#FFF" />
                     </TouchableOpacity>
-                    <BouncyText>Juego 1</BouncyText>
+                    <BouncyText>Juego: Módulo 4 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
 
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Evaluación 1</BouncyText>
+                    <BouncyText >Evaluación: Módulo 4 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                        onPress={() => navigation.navigate('EvaluationBasicModule4')}
                     >
+                        <FontAwesome name="pencil" size={24} color="#FFF" />
                     </TouchableOpacity>
                 </View>
 
@@ -317,18 +325,20 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('GamesBasicModule1')}
+                        onPress={() => navigation.navigate('GamesBasicModule5')}
                     >
+                        <FontAwesome name="gamepad" size={28} color="#FFF" />
                     </TouchableOpacity>
-                    <BouncyText>Juego 1</BouncyText>
+                    <BouncyText>Juego: Módulo 5 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
 
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Evaluación 1</BouncyText>
+                    <BouncyText >Evaluación: Módulo 5 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('EvaluationBasicModule1')}
+                        onPress={() => navigation.navigate('EvaluationBasicModule5')}
                     >
+                        <FontAwesome name="pencil" size={24} color="#FFF" />
                     </TouchableOpacity>
                 </View>
 

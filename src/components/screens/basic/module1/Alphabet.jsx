@@ -10,6 +10,7 @@ import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const images = {
     letterA: require('../../../../../assets/images/basic/module1/letters/letterA.png'),
@@ -161,6 +162,8 @@ const curiosity_data = [
 ];
 
 const Alphabet = () => {
+    const progress = 0.25;
+
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedLetter, setSelectedLetter] = useState(null);
     const [showHelp, setShowHelp] = useState(null);
@@ -190,10 +193,7 @@ const Alphabet = () => {
             <StatusBar barStyle="default" backgroundColor="#003366" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>El Alfabeto</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>

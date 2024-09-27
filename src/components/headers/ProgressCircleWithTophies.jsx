@@ -24,12 +24,11 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
 
     // Trofeos de nivel básico
     const basicTrophyImages = [
-        require('../../../assets/images/prototype/nikkiamo.jpeg'),
-        require('../../../assets/images/prototype/nikkiamo.jpeg'),
-        require('../../../assets/images/prototype/nikkiamo.jpeg'),
-        require('../../../assets/images/prototype/nikkiamo.jpeg'),
-        require('../../../assets/images/prototype/nikkiamo.jpeg'),
-        require('../../../assets/images/prototype/nikkiamo.jpeg'),
+        require('../../../assets/images/basic/badges/abc.png'),
+        require('../../../assets/images/basic/badges/family.png'),
+        require('../../../assets/images/basic/badges/home-food-school.png'),
+        require('../../../assets/images/basic/badges/orientation.png'),
+        require('../../../assets/images/basic/badges/valley-flowers.png'),
     ];
 
     // Trofeos de nivel intermedio

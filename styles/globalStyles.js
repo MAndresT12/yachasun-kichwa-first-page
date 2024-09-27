@@ -880,4 +880,16 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         perspective: 1000,
     },
+
+
+    imageContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+    },
+    animalImage: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+    },
 });
