@@ -45,17 +45,17 @@
 
 ### Módulo 5 [Hecho]
 
-- La pluralización -> Básico
-- El género -> Básico
-- La cantidad -> Inicial
-- El tamaño -> Inicial
+- La pluralización
+- El género
+- La cantidad
+- El tamaño
 - Juego 5
 - Evaluación 5
 
-### Módulo 6 [En_progreso]
+### Módulo 6 [Hecho]
 
-- El imperativo -> ELEMENTAL 
-- La conjugación en tiempo presente -> ELEMENTAL 
+- El imperativo
+- La conjugación en tiempo presente
 - Juego 6
 - Evaluación 6
 

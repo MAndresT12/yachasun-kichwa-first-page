@@ -61,6 +61,7 @@ import Size from './src/components/screens/basic/module5/Size.jsx';
 
 //Module 6 Basic
 import Imperative from './src/components/screens/basic/module6/Imperative.jsx';
+import SimplePresent from './src/components/screens/basic/module6/SimplePresent.jsx';
 
 // Module 1 Intermedio
 import Main from './src/components/main/Main';
@@ -376,6 +377,11 @@ function HomeStack() {
         name="Imperative"
         component={Imperative}
         options={{ title: 'El Imperativo' }}
+      />
+      <Stack.Screen
+        name="SimplePresent"
+        component={SimplePresent}
+        options={{ title: 'La Conjugación en Tiempo Presente' }}
       />
       <Stack.Screen
         name="Main"

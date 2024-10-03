@@ -926,4 +926,13 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         perspective: 1000,
     },
+
+    simplePresentBigFlipCardContainer: {
+        width: '94%',
+        height: 480,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+    },
 });

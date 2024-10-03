@@ -355,30 +355,15 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>El imperativo / Rurachik</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Los Primeros Números</BouncyText>
+                    <BouncyText>
+                        La conjugación en tiempo presente / 
+                        Kunan pachamanta rimarikuna
+                    </BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('FirstNumbers')}
+                        onPress={() => navigation.navigate('SimplePresent')}
                     >
-                        <BouncyText>2</BouncyText>
-                    </TouchableOpacity>
-                </View>
-                <View style={localStyles.pathRow}>
-                    <TouchableOpacity
-                        style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('ToCount')}
-                    >
-                        <BouncyText>3</BouncyText>
-                    </TouchableOpacity>
-                    <BouncyText>¿Cómo se cuenta?</BouncyText>
-                </View>
-                <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>Los Colores</BouncyText>
-                    <TouchableOpacity
-                        style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Colors')}
-                    >
-                        <BouncyText>4</BouncyText>
+                        <FontAwesome name="font" size={24} color="#FFF" />
                     </TouchableOpacity>
                 </View>
                 <View style={localStyles.pathRow}>

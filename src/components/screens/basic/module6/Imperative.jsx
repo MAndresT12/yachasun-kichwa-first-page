@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
-import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
@@ -12,8 +11,6 @@ import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import ChatModal from '../../../ui/modals/ChatModal';
-
-const { width } = Dimensions.get('window');
 
 const images = {
     pronoun1: require('../../../../../assets/images/basic/module6/imperative/imperative1.png'),
@@ -477,7 +474,7 @@ const Imperative = () => {
                 <ChatModal visible={showChat2} onClose={toggleChatModal2} initialMessages={chat_messages2} />
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FamilyPart1')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('SimplePresent')} />
                 </View>
             </ScrollView>
         </View>
