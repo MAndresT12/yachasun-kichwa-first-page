@@ -59,6 +59,9 @@ import Gender from './src/components/screens/basic/module5/Gender.jsx';
 import Quantity from './src/components/screens/basic/module5/Quantity.jsx';
 import Size from './src/components/screens/basic/module5/Size.jsx';
 
+//Module 6 Basic
+import Imperative from './src/components/screens/basic/module6/Imperative.jsx';
+
 // Module 1 Intermedio
 import Main from './src/components/main/Main';
 import FoodScreen from './src/components/screens/misc/FoodScreen.jsx';
@@ -368,6 +371,11 @@ function HomeStack() {
         name="Size"
         component={Size}
         options={{ title: 'Tamaño' }}
+      />
+      <Stack.Screen
+        name="Imperative"
+        component={Imperative}
+        options={{ title: 'El Imperativo' }}
       />
       <Stack.Screen
         name="Main"

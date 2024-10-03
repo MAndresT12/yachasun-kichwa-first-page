@@ -901,4 +901,29 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         perspective: 1000,
     },
+
+    imperative1BigFlipCardContainer: {
+        width: '94%',
+        height: 270,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+    },
+    imperative2BigFlipCardContainer: {
+        width: '94%',
+        height: 270,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+    },
+    imperative3BigFlipCardContainer: {
+        width: '94%',
+        height: 400,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+    },
 });

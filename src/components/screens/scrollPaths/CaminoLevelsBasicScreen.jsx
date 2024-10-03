@@ -348,11 +348,11 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Alphabet')}
+                        onPress={() => navigation.navigate('Imperative')}
                     >
-                        <BouncyText>1</BouncyText>
+                        <FontAwesome name="hand-o-right" size={24} color="#FFF" />
                     </TouchableOpacity>
-                    <BouncyText>El Alfabeto</BouncyText>
+                    <BouncyText>El imperativo / Rurachik</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText >Los Primeros Números</BouncyText>
