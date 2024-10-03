@@ -22,8 +22,8 @@ const images = {
 
 const size_data = [
     { kichwa: "Hatun", spanish: "Grande", imageCard: images.size2, },
-    { kichwa: "Malta", spanish: "Mediano", imageCard: images.size2, },
-    { kichwa: "Uchilla", spanish: "Pequeño", imageCard: images.size2, },
+    { kichwa: "Malta", spanish: "Mediano", imageCard: images.size3, },
+    { kichwa: "Uchilla", spanish: "Pequeño", imageCard: images.size4, },
 ];
 
 const FlipCard = ({ item }) => {
