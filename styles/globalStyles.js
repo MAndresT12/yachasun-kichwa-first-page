@@ -892,4 +892,13 @@ export const styles = StyleSheet.create({
         height: 50,
         borderRadius: 25,
     },
+
+    genderBigFlipCardContainer: {
+        width: '94%',
+        height: 600,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        perspective: 1000,
+    },
 });

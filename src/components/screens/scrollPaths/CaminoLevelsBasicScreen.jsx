@@ -289,37 +289,37 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Alphabet')}
+                        onPress={() => navigation.navigate('Pluralization')}
                     >
-                        <BouncyText>1</BouncyText>
+                        <FontAwesome name="list-ol" size={24} color="#FFF" />
                     </TouchableOpacity>
-                    <BouncyText>El Alfabeto</BouncyText>
+                    <BouncyText>La pluralización / Tawkachina</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Los Primeros Números</BouncyText>
+                    <BouncyText>Género / Kariwarmiyachik</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('FirstNumbers')}
+                        onPress={() => navigation.navigate('Gender')}
                     >
-                        <BouncyText>2</BouncyText>
+                        <FontAwesome name="venus-mars" size={24} color="#FFF" />
                     </TouchableOpacity>
                 </View>
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('ToCount')}
+                        onPress={() => navigation.navigate('Quantity')}
                     >
-                        <BouncyText>3</BouncyText>
+                        <FontAwesome name="cubes" size={24} color="#FFF" />
                     </TouchableOpacity>
-                    <BouncyText>¿Cómo se cuenta?</BouncyText>
+                    <BouncyText>La cantidad / Mashnaykuna</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>Los Colores</BouncyText>
+                    <BouncyText>Tamaño / Hatunyachik</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Colors')}
+                        onPress={() => navigation.navigate('Size')}
                     >
-                        <BouncyText>4</BouncyText>
+                        <FontAwesome name="level-up" size={24} color="#FFF" />
                     </TouchableOpacity>
                 </View>
                 <View style={localStyles.pathRow}>

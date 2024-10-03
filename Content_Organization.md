@@ -43,7 +43,7 @@
 - Juego 4
 - Evaluación 4
 
-### Módulo 5 [En_progreso]
+### Módulo 5 [Hecho]
 
 - La pluralización -> Básico
 - El género -> Básico
@@ -52,7 +52,7 @@
 - Juego 5
 - Evaluación 5
 
-### Módulo 6
+### Módulo 6 [En_progreso]
 
 - El imperativo -> ELEMENTAL 
 - La conjugación en tiempo presente -> ELEMENTAL 

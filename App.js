@@ -53,6 +53,12 @@ import Foods from './src/components/screens/basic/module4/Foods.jsx';
 import Orientation from './src/components/screens/basic/module4/Orientation.jsx';
 import AnimalsBasic from './src/components/screens/basic/module4/AnimalsBasic.jsx';
 
+//Module 5 Basic
+import Pluralization from './src/components/screens/basic/module5/Pluralization.jsx';
+import Gender from './src/components/screens/basic/module5/Gender.jsx';
+import Quantity from './src/components/screens/basic/module5/Quantity.jsx';
+import Size from './src/components/screens/basic/module5/Size.jsx';
+
 // Module 1 Intermedio
 import Main from './src/components/main/Main';
 import FoodScreen from './src/components/screens/misc/FoodScreen.jsx';
@@ -235,118 +241,138 @@ function HomeStack() {
       <Stack.Screen
         name="Alphabet"
         component={Alphabet}
-        options={{ title: 'Yachasun Kichwa - El Alfabeto' }}
+        options={{ title: 'El Alfabeto' }}
       />
       <Stack.Screen
         name="FirstNumbers"
         component={FirstNumbers}
-        options={{ title: 'Yachasun Kichwa - Los Números del 1 al 500' }}
+        options={{ title: 'Los Números del 1 al 500' }}
       />
       <Stack.Screen
         name="Colors"
         component={Colors}
-        options={{ title: 'Yachasun Kichwa - Los Colores' }}
+        options={{ title: 'Los Colores' }}
       />
       <Stack.Screen
         name="ToCount"
         component={ToCount}
-        options={{ title: 'Yachasun Kichwa - Los Números Ordinales' }}
+        options={{ title: 'Los Números Ordinales' }}
       />
       <Stack.Screen
         name="GamesBasicModule1"
         component={GamesBasicModule1}
-        options={{ title: 'Yachasun Kichwa - Básico Módulo 1: Juegos de Repaso' }}
+        options={{ title: 'Básico Módulo 1: Juegos de Repaso' }}
       />
       <Stack.Screen
         name="EvaluationBasicModule1"
         component={EvaluationBasicModule1}
-        options={{ title: 'Yachasun Kichwa - Básico Módulo 1: Evaluación' }}
+        options={{ title: 'Básico Módulo 1: Evaluación' }}
       />
       <Stack.Screen
         name="EndModule1"
         component={EndModule1}
-        options={{ title: 'Yachasun Kichwa - Básico Módulo 1: Puntuación Final' }}
+        options={{ title: 'Básico Módulo 1: Puntuación Final' }}
       />
       <Stack.Screen
         name="GreetingsPart1"
         component={GreetingsPart1}
-        options={{ title: 'Yachasun Kichwa - Los Saludos Parte 1' }}
+        options={{ title: 'Los Saludos Parte 1' }}
       />
       <Stack.Screen
         name="GreetingsPart2"
         component={GreetingsPart2}
-        options={{ title: 'Yachasun Kichwa - Los Saludos Parte 2' }}
+        options={{ title: 'Los Saludos Parte 2' }}
       />
       {/* Modulo 1 */}
       <Stack.Screen
         name="PronounsSentence"
         component={PronounsSentence}
-        options={{ title: 'Yachasun Kichwa - Los Pronombres Personales, el Verbo Kana y la Estructura de una Oración' }}
+        options={{ title: 'Los Pronombres Personales, el Verbo Kana y la Estructura de una Oración' }}
       />
       <Stack.Screen
         name="FamilyPart1"
         component={FamilyPart1}
-        options={{ title: 'Yachasun Kichwa - La Familia Parte 1' }}
+        options={{ title: 'La Familia Parte 1' }}
       />
       <Stack.Screen
         name="GamesBasicModule2"
         component={GamesBasicModule2}
-        options={{ title: 'Yachasun Kichwa - Básico Módulo 2: Juegos de Repaso' }}
+        options={{ title: 'Básico Módulo 2: Juegos de Repaso' }}
       />
       <Stack.Screen
         name="EvaluationBasicModule2"
         component={EvaluationBasicModule2}
-        options={{ title: 'Yachasun Kichwa - Básico Módulo 2: Evaluación' }}
+        options={{ title: 'Básico Módulo 2: Evaluación' }}
       />
       <Stack.Screen
         name="EndModule2"
         component={EndModule2}
-        options={{ title: 'Yachasun Kichwa - Básico Módulo 2: Puntuación Final' }}
+        options={{ title: 'Básico Módulo 2: Puntuación Final' }}
       />
       <Stack.Screen
         name="FamilyPart2"
         component={FamilyPart2}
-        options={{ title: 'Yachasun Kichwa - La Familia Parte 2' }}
+        options={{ title: 'La Familia Parte 2' }}
       />
       <Stack.Screen
         name="BodyParts"
         component={BodyParts}
-        options={{ title: 'Yachasun Kichwa - Las Partes del Cuerpo Humano' }}
+        options={{ title: 'Las Partes del Cuerpo Humano' }}
       />
       <Stack.Screen
         name="House"
         component={House}
-        options={{ title: 'Yachasun Kichwa - Las Cosas de la Casa' }}
+        options={{ title: 'Las Cosas de la Casa' }}
       />
       <Stack.Screen
         name="Classroom"
         component={Classroom}
-        options={{ title: 'Yachasun Kichwa - El Aula' }}
+        options={{ title: 'El Aula' }}
       />
       <Stack.Screen
         name="Nature"
         component={Nature}
-        options={{ title: 'Yachasun Kichwa - La Naturaleza' }}
+        options={{ title: 'La Naturaleza' }}
       />
       <Stack.Screen
         name="Foods"
         component={Foods}
-        options={{ title: 'Yachasun Kichwa - Los Alimentos' }}
+        options={{ title: 'Los Alimentos' }}
       />
       <Stack.Screen
         name="Orientation"
         component={Orientation}
-        options={{ title: 'Yachasun Kichwa - La Orientación' }}
+        options={{ title: 'La Orientación' }}
       />
       <Stack.Screen
         name="AnimalsBasic"
         component={AnimalsBasic}
-        options={{ title: 'Yachasun Kichwa - Los Animales' }}
+        options={{ title: 'Los Animales' }}
+      />
+      <Stack.Screen
+        name="Pluralization"
+        component={Pluralization}
+        options={{ title: 'La Pluralización' }}
+      />
+      <Stack.Screen
+        name="Gender"
+        component={Gender}
+        options={{ title: 'El Género' }}
+      />
+      <Stack.Screen
+        name="Quantity"
+        component={Quantity}
+        options={{ title: 'La Cantidad' }}
+      />
+      <Stack.Screen
+        name="Size"
+        component={Size}
+        options={{ title: 'Tamaño' }}
       />
       <Stack.Screen
         name="Main"
         component={Main}
-        options={{ title: 'Yachasun Kichwa - Los Numeros' }}
+        options={{ title: 'Los Numeros' }}
       />
       <Stack.Screen
         name="Food"
