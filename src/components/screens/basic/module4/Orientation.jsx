@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableOpacity, Modal, Dimensions } from 'react-native';
-import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
