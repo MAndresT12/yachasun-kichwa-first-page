@@ -237,22 +237,22 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>La naturaleza / Pachamama</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText >Los Primeros Números</BouncyText>
+                    <BouncyText >Los alimentos / Mikunakuna</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('FirstNumbers')}
+                        onPress={() => navigation.navigate('Foods')}
                     >
-                        <BouncyText>2</BouncyText>
+                        <BouncyText><FontAwesome name="cutlery" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
                 </View>
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('ToCount')}
+                        onPress={() => navigation.navigate('Orientation')}
                     >
-                        <BouncyText>3</BouncyText>
+                        <BouncyText><FontAwesome name="arrows" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
-                    <BouncyText>¿Cómo se cuenta?</BouncyText>
+                    <BouncyText>La orientación / Suyumanta rimashun</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Los Colores</BouncyText>

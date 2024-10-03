@@ -15,88 +15,72 @@ import { FloatingHumu } from '../../../animations/FloatingHumu';
 const { width } = Dimensions.get('window');
 
 const images = {
-    nature1: require('../../../../../assets/images/basic/module4/nature/nature1.png'),
+    foods1: require('../../../../../assets/images/basic/module4/foods/food1.png'),
 };
 
-const nature1_data = [
-    { imageCard: images.nature1, kichwa: "Puyu", spanish: "Nube" },
-    { imageCard: images.nature1, kichwa: "Rasu", spanish: "Nevado" },
-    { imageCard: images.nature1, kichwa: "Mayu", spanish: "Río" },
-    { imageCard: images.nature1, kichwa: "Kuychi", spanish: "Arco iris" },
-    { imageCard: images.nature1, kichwa: "Hatun Kucha", spanish: "Laguna" },
-    { imageCard: images.nature1, kichwa: "Ñan", spanish: "Camino" },
-    { imageCard: images.nature1, kichwa: "Pakcha", spanish: "Cascada" },
-    { imageCard: images.nature1, kichwa: "Rumi", spanish: "Piedra" },
-    { imageCard: images.nature1, kichwa: "Urku", spanish: "Montaña" },
-    { imageCard: images.nature1, kichwa: "Illapa", spanish: "Rayo" },
-    { imageCard: images.nature1, kichwa: "Kincha", spanish: "Corral" }
+const foods1_data = [
+    { imageCard: images.foods1, kichwa: "Aycha", spanish: "Carne" },
+    { imageCard: images.foods1, kichwa: "Kachi", spanish: "Sal" },
+    { imageCard: images.foods1, kichwa: "Haku", spanish: "Harina" },
+    { imageCard: images.foods1, kichwa: "Purutu", spanish: "Fréjol" },
+    { imageCard: images.foods1, kichwa: "Makinchu", spanish: "Queso" },
+    { imageCard: images.foods1, kichwa: "Mishki Haku", spanish: "Azúcar" },
+    { imageCard: images.foods1, kichwa: "Tanta", spanish: "Pan" },
+    { imageCard: images.foods1, kichwa: "Yaku Wira", spanish: "Aceite" },
+    { imageCard: images.foods1, kichwa: "Yaku", spanish: "Agua" },
+    { imageCard: images.foods1, kichwa: "Ñuñu", spanish: "Leche" },
+    { imageCard: images.foods1, kichwa: "Chuchi Aycha", spanish: "Pollo" },
 ];
 
-const nature2_data = [
-    { imageCard: images.nature1, kichwa: "Sacha", spanish: "Selva" },
-    { imageCard: images.nature1, kichwa: "Turu", spanish: "Lodo" },
-    { imageCard: images.nature1, kichwa: "Uksha", spanish: "Paja" },
-    { imageCard: images.nature1, kichwa: "Kiwa", spanish: "Hierba" },
-    { imageCard: images.nature1, kichwa: "Inti", spanish: "Sol" },
-    { imageCard: images.nature1, kichwa: "Pampa", spanish: "Valle" },
-    { imageCard: images.nature1, kichwa: "Tamya", spanish: "Lluvia" },
-    { imageCard: images.nature1, kichwa: "Allpa", spanish: "Tierra" },
-    { imageCard: images.nature1, kichwa: "Pata", spanish: "Borde, Orilla" },
-    { imageCard: images.nature1, kichwa: "Yunka", spanish: "Costa" },
-    { imageCard: images.nature1, kichwa: "Mama Kucha", spanish: "Océano, Mar" },
-    { imageCard: images.nature1, kichwa: "Wayra", spanish: "Viento" },
+const foods2_data = [
+    { imageCard: images.foods1, kichwa: "Challwa", spanish: "Pescado" },
+    { imageCard: images.foods1, kichwa: "Papa", spanish: "Papa" },
+    { imageCard: images.foods1, kichwa: "Palta", spanish: "Aguacate" },
+    { imageCard: images.foods1, kichwa: "Sara", spanish: "Maíz" },
+    { imageCard: images.foods1, kichwa: "Inchik", spanish: "Maní" },
+    { imageCard: images.foods1, kichwa: "Chukllu", spanish: "Choclo" },
+    { imageCard: images.foods1, kichwa: "Kinuwa", spanish: "Quinua" },
+    { imageCard: images.foods1, kichwa: "Lumu", spanish: "Yuca" },
+    { imageCard: images.foods1, kichwa: "Tawri", spanish: "Chocho" },
+    { imageCard: images.foods1, kichwa: "Wiru", spanish: "Caña" },
+    { imageCard: images.foods1, kichwa: "Uchu", spanish: "Ají" },
 ];
 
-const nature3_data = [
-    { imageCard: images.nature1, kichwa: "Yura", spanish: "Planta" },
-    { imageCard: images.nature1, kichwa: "Panka", spanish: "Hoja" },
-    { imageCard: images.nature1, kichwa: "Muyu", spanish: "Semilla" },
-    { imageCard: images.nature1, kichwa: "Sisa", spanish: "Flor" },
-    { imageCard: images.nature1, kichwa: "Sapi", spanish: "Raíz" },
-    { imageCard: images.nature1, kichwa: "Kiru", spanish: "Árbol" },
-    { imageCard: images.nature1, kichwa: "Killa", spanish: "Luna" },
-    { imageCard: images.nature1, kichwa: "Yaku", spanish: "Agua" },
-    { imageCard: images.nature1, kichwa: "Kawsay", spanish: "Vida" },
-    { imageCard: images.nature1, kichwa: "Warmi", spanish: "Mujer" },
-    { imageCard: images.nature1, kichwa: "Kari", spanish: "Hombre" }
-];
-
-const weather_data = [
-    { kichwa: "Alli Pachachu Kan", spanish: "¿Hace buen tiempo?" },
-    { kichwa: "Alli Pacha", spanish: "Hace buen tiempo" },
-    { kichwa: "Mana Alli Pacha", spanish: "Hace mal tiempo" },
-    { kichwa: "Intikun", spanish: "Hace sol" },
-    { kichwa: "Rupakun", spanish: "Hace calor" },
-    { kichwa: "Chirikun", spanish: "Hace frío" },
-    { kichwa: "Wayrakun", spanish: "Hace viento" },
-    { kichwa: "Tamyakun", spanish: "Está lloviendo" },
-    { kichwa: "Runtukun", spanish: "Está granizando" },
-    { kichwa: "Rasukun", spanish: "Está nevando" }
+const fruits_data = [
+    { imageCard: images.foods1, kichwa: "Chiwilla", spanish: "Piña" },
+    { imageCard: images.foods1, kichwa: "Palanta", spanish: "Plátano" },
+    { imageCard: images.foods1, kichwa: "Chilina", spanish: "Naranja" },
+    { imageCard: images.foods1, kichwa: "Papaya", spanish: "Papaya" },
+    { imageCard: images.foods1, kichwa: "Chiwallkan", spanish: "Babaco" },
+    { imageCard: images.foods1, kichwa: "Kita", spanish: "Cacao" },
 ];
 
 const curiosity_data = [
     {
         key: '1',
-        title: 'La naturaleza dentro de nosotros',
-        text: 'Para los indígenas, la naturaleza es parte de uno mismo, y cada actividad requiere pedir permiso a la pachamama para lograr la armonía y la paz.',
+        title: 'El Mote',
+        text: 'El mote es un alimento esencial en la dieta indígena y es clave en la preparación de comidas tradicionales como el "mediano".',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
     {
         key: '2',
-        title: 'Adoración a la naturaleza',
-        text: 'La cultura indígena respeta y adora la naturaleza, pidiendo permiso antes de usar sus recursos, como cortar un árbol o lavar la ropa.',
+        title: 'Mashua',
+        text: 'La mashua es una planta andina, consumida como verdura y usada medicinalmente.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
+    {
+        key: '3',
+        title: 'El Maíz',
+        text: 'El maíz es un alimento básico en la sierra ecuatoriana, un regalo de la naturaleza, y es venerado en diferentes celebraciones.',
+        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+    },
+    {
+        key: '4',
+        title: 'La Chicha',
+        text: 'La chicha es una bebida tradicional indígena hecha con maíz y fermentada, utilizada en celebraciones rituales y fiestas importantes.',
+        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+    }
 ];
-
-const renderData = (data) => {
-    return data.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
-        </View>
-    ));
-};
 
 const renderDataImages = (data) => {
     return data.map((item, index) => (
@@ -110,31 +94,39 @@ const renderDataImages = (data) => {
     ));
 };
 
-const nature1Route = () => (
+const food1Route = () => (
     <View>
-        <Text style={styles.title}>La natulareza indomable</Text>
+        <Text style={styles.title}>Comida deliciosa</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
                 <Text style={styles.tableHeaderCell}>Imagen</Text>
                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
             </View>
-            {renderDataImages(nature2_data)}
+            {renderDataImages(foods1_data)}
         </View>
     </View>
 );
 
-const nature2Route = () => (
+const food2Route = () => (
     <View>
-        <Text style={styles.title}>Más sobre naturaleza</Text>
+        <Text style={styles.title}>Ven, vamos a comer</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
                 <Text style={styles.tableHeaderCell}>Imagen</Text>
                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
             </View>
-            {renderDataImages(nature3_data)}
+            {renderDataImages(foods2_data)}
         </View>
+    </View>
+);
+
+const renderFruitCard = (item) => (
+    <View style={styles.carouselCard}>
+        <ImageContainer path={item.imageCard} style={styles.carouselImage} />
+        <Text style={styles.carouselTextKichwa}>{item.kichwa}</Text>
+        <Text style={styles.carouselTextSpanish}>{item.spanish}</Text>
     </View>
 );
 
@@ -172,7 +164,7 @@ const FlipCard = ({ item }) => {
     );
 };
 
-const Nature = () => {
+const Foods = () => {
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
 
@@ -180,13 +172,13 @@ const Nature = () => {
 
     const [index, setIndex] = useState(0);
     const [routes] = useState([
-        { key: 'nature1', title: 'Naturaleza Parte 1' },
-        { key: 'nature2', title: 'Naturaleza Parte 2' },
+        { key: 'table1', title: 'Comida Parte 1' },
+        { key: 'table2', title: 'Comida Parte 2' },
     ]);
 
     const renderScene = SceneMap({
-        nature1: nature1Route,
-        nature2: nature2Route,
+        table1: food1Route,
+        table2: food2Route,
     });
 
     const toggleAccordion = (key) => {
@@ -208,9 +200,6 @@ const Nature = () => {
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
                 </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>La Naturaleza</Text>
-                </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
                         <FontAwesome name="question-circle" size={40} color="#fff" />
@@ -218,25 +207,12 @@ const Nature = () => {
                 </View>
                 <View style={styles.body}>
 
-                    <CardDefault title="Tan hermosa">
+                    <CardDefault title="Una deliciosa aventura">
                         <Text style={styles.cardContent}>
-                            Todo lo que nos rodea es naturaleza. Debemos respetarla y cuidarla.
-                            Una forma de hacerlo es conociendo las palabras para habalr sobre la naturaleza.{'\n\n'}
-                            Te enseño como hablar de la naturaleza en Kichwa.
+                            ¿Cuál es tú comida faovrita? La mía es la mapahuira. Es una manteca de chancho con mote. ¡Es delicioso!{'\n\n'}
+                            Quiero que aprendas acerca de cómo se dice algunos alimentos en kichwa.
                         </Text>
                     </CardDefault>
-                    <View style={styles.gridContainer}>
-                        {nature1_data.map((item, index) => (
-                            <FlipCard key={index} item={item} />
-                        ))}
-                    </View>
-
-                    <CardDefault title="Más naturaleza">
-                        <Text style={styles.cardContent}>
-                            Acá te mando más palabras para que puedas hablar de la naturaleza en el hermoso lenguaje del Kichwa.
-                        </Text>
-                    </CardDefault>
-
                     <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 1270 }} >
                         <TabView
                             navigationState={{ index, routes }}
@@ -268,22 +244,17 @@ const Nature = () => {
                         />
                     </CardDefault>
 
-                    <CardDefault title="El voraz clima">
+                    <CardDefault title="Las frutas">
                         <Text style={styles.cardContent}>
-                            Algo que forma parte de la naturaleza es el clima.{'\n\n'}
-                            Quiero enseñarte algunas palabras para hablar sobre el clima.
+                            Las frutas me encantan porque, ¡son muy dulces! Espero que a tí también te gusten mucho.{'\n\n'}
+                            Aquí te dejo algunas frutas y su traducción en kichwa.
                         </Text>
                     </CardDefault>
-
-                    <CardDefault title="¡Veamos el clima!">
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Español</Text>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                            </View>
-                            {renderData(weather_data)}
-                        </View>
-                    </CardDefault>
+                    <View style={styles.gridContainer}>
+                        {fruits_data.map((item, index) => (
+                            <FlipCard key={index} item={item} />
+                        ))}
+                    </View>
 
                     {curiosity_data.map((item) => (
                         <AccordionDefault
@@ -336,11 +307,11 @@ const Nature = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Foods')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Orientation')} />
                 </View>
             </ScrollView>
         </View>
     );
 };
 
-export default Nature;
+export default Foods;

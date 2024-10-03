@@ -34,7 +34,7 @@
 - Juego 3
 - Evaluación 3
 
-### Módulo 4 [En_progreso]
+### Módulo 4 [Hecho]
 
 - La naturaleza
 - Los alimentos y las frutas (de dónde sacamos frutas o por qué separamos?, también los alimentos tiene el mismo problema que los animales) -> Básico
@@ -43,7 +43,7 @@
 - Juego 4
 - Evaluación 4
 
-### Módulo 5 (Se puede hacer shuffle estos temas porque aquí están los más difíciles)
+### Módulo 5 [En_progreso]
 
 - La pluralización -> Básico
 - El género -> Básico
