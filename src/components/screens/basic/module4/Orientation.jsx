@@ -103,7 +103,7 @@ const Orientation = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Orientation')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('AnimalsBasic')} />
                 </View>
             </ScrollView>
         </View>

@@ -51,6 +51,7 @@ import Classroom from './src/components/screens/basic/module3/Classroom.jsx';
 import Nature from './src/components/screens/basic/module4/Nature.jsx';
 import Foods from './src/components/screens/basic/module4/Foods.jsx';
 import Orientation from './src/components/screens/basic/module4/Orientation.jsx';
+import AnimalsBasic from './src/components/screens/basic/module4/AnimalsBasic.jsx';
 
 // Module 1 Intermedio
 import Main from './src/components/main/Main';
@@ -336,6 +337,11 @@ function HomeStack() {
         name="Orientation"
         component={Orientation}
         options={{ title: 'Yachasun Kichwa - La Orientación' }}
+      />
+      <Stack.Screen
+        name="AnimalsBasic"
+        component={AnimalsBasic}
+        options={{ title: 'Yachasun Kichwa - Los Animales' }}
       />
       <Stack.Screen
         name="Main"

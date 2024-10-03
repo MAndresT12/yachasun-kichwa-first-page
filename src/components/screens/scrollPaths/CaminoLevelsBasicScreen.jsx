@@ -255,12 +255,12 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>La orientación / Suyumanta rimashun</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>Los Colores</BouncyText>
+                    <BouncyText>Los animales / Wiwakuna</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.level]}
-                        onPress={() => navigation.navigate('Colors')}
+                        onPress={() => navigation.navigate('AnimalsBasic')}
                     >
-                        <BouncyText>4</BouncyText>
+                        <BouncyText><FontAwesome name="paw" size={24} color="#FFF" /></BouncyText>
                     </TouchableOpacity>
                 </View>
                 <View style={localStyles.pathRow}>
