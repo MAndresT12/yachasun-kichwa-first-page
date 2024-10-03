@@ -330,7 +330,7 @@ const SimplePresent = () => {
                 <ChatModal visible={showChat} onClose={toggleChatModal} initialMessages={chat_messages} />
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FamilyPart1')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule6')} />
                 </View>
             </ScrollView>
         </View>

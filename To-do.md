@@ -22,6 +22,7 @@
 - Idea de hacer un chat para los saludos [x]
 - Poner tablas en componente de tabs o pestañas [x]
 - La paleta de colores como una mancha de pintura envez de un cuadrado [x]
+- Completar contenido [x]
 - Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe..... [Mejorar_faltan_animaciones]
 - imagenes animadas un estadar, si vamos a usar ai el mismo prompt [Mejorar]
 - Poner animaciones a las letras o cambiar el font, poner diseño en las cards [Mejorar]
@@ -29,7 +30,7 @@
 - Empezar a incorporar el personaje, añadir a los juegos cuando te equivocas y eso [Continuar_Otros_Modulos]
 - Hay que poner Text bubles en todos los elementos donde aparezca humu y los signos de interrogación [Continuar_Demas_Juegos_Milton]
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo) [Mejorar]
-- Completar contenido
+- Completar lecciones y juegos para modulos 2 al 6
 - Configuracion en el Home Screen y icono de config en toda la app (quitar volumen porque no sirve y poner otra cosa)
 - Letras de colores animadas y más grandes y que las letras no sean arcoíris. (hablarlo con los demás)
 - Cuando emparejas algo suena cómo se pronuncia (juegos)

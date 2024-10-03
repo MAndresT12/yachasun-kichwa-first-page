@@ -163,7 +163,7 @@ const AnimalsBasic = () => {
                     </Modal>
                 )}
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FirstNumbers')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule4')} />
                 </View>
             </ScrollView>
         </View>

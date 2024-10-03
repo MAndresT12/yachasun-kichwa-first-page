@@ -311,7 +311,7 @@ const Classroom = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule2')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule3')} />
                 </View>
             </ScrollView>
         </View>

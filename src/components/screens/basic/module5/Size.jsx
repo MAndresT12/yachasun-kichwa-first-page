@@ -190,7 +190,7 @@ const Size = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('BodyParts')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule5')} />
                 </View>
             </ScrollView>
         </View>
