@@ -80,6 +80,7 @@ import Main from './src/components/main/Main';
 import FoodScreen from './src/components/screens/misc/FoodScreen.jsx';
 import AnimalsScreen from './src/components/screens/misc/AnimalsScreen.jsx';
 import ParticlesPart1Screen from './src/components/screens/particles/ParticlesPart1Screen.jsx';
+import Module1 from './src/components/modules/Module1.jsx';
 import GameScreen1 from './src/components/screens/games/GameScreen1';
 import EvaluationScreen1 from './src/components/screens/evaluations/EvaluationScreen1';
 
@@ -128,7 +129,6 @@ import EvaluationScreen6 from './src/components/screens/evaluations/EvaluationSc
 import CarouselExampleScreen from './src/components/ui/CarouselExampleScreen.jsx';
 import HangmanGame from './src/components/ui/HangmanGame.jsx';
 import MatchGame from './src/components/ui/MatchGame.jsx';
-import Module1 from './src/components/modules/Module1.jsx';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -479,6 +479,11 @@ function HomeStack() {
         name="IntroduccionJuegosScreen1"
         component={IntroduccionJuegoScreen}
         options={{ title: 'Games' }}
+      />
+      <Stack.Screen
+        name="Module1"
+        component={Module1}
+        options={{ title: 'Modulo 1' }}
       />
       <Stack.Screen
         name="Game1"
