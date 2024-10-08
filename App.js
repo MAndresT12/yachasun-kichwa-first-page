@@ -8,6 +8,11 @@ import { View, Text } from 'react-native';
 import { styles } from './styles/globalStyles';
 
 import IntroduccionJuegoScreen from './src/components/screens/misc/IntroduccionJuegosScreen.jsx';
+import IntroduccionJuegoScreenModule2 from './src/components/screens/misc/IntroduccionJuegosScreenModule2.jsx';
+import IntroduccionJuegoScreenModule3 from './src/components/screens/misc/IntroduccionJuegosScreenModule3.jsx';
+import IntroduccionJuegoScreenModule4 from './src/components/screens/misc/IntroduccionJuegosScreenModule4.jsx';
+import IntroduccionJuegoScreenModule5 from './src/components/screens/misc/IntroduccionJuegosScreenModule5.jsx';
+import IntroduccionJuegoScreenModule6 from './src/components/screens/misc/IntroduccionJuegosScreenModule6.jsx';
 import ProgresoScreen from './src/components/menus/ProgresoScreen.jsx';
 import Levels from './src/components/menus/Levels';
 import InstructionsBasic from './src/components/main/InstructionsBasic.jsx';
@@ -90,6 +95,7 @@ import ParticlesPart2Screen from './src/components/screens/particles/ParticlesPa
 import ParticlesPart3Screen from './src/components/screens/particles/ParticlesPart3Screen';
 import ParticlesPart4Screen from './src/components/screens/particles/ParticlesPart4Screen';
 import LaNegacionScreen from './src/components/screens/misc/LaNegacionScreen.jsx';
+import Module2 from './src/components/modules/Module2.jsx';
 import GameScreen2 from './src/components/screens/games/GameScreen2';
 import EvaluationScreen2 from './src/components/screens/evaluations/EvaluationScreen2';
 
@@ -98,6 +104,7 @@ import LosVerbosScreen1 from './src/components/screens/verbs/LosVerbosScreen1.js
 import LosVerbosConjugacionesScreen1 from './src/components/screens/verbs/LosVerbosConjugacionesScreen1.jsx';
 import LosAdjetivosScreen1 from './src/components/screens/adjectives/LosAdjetivosScreen1.jsx';
 import VocabularioLaCiudadScreen from './src/components/screens/vocabulary/VocabularioLaCiudadScreen.jsx';
+import Module3 from './src/components/modules/Module3.jsx';
 import GameScreen3 from './src/components/screens/games/GameScreen3.jsx';
 import EvaluationScreen3 from './src/components/screens/evaluations/EvaluationScreen3.jsx';
 
@@ -106,6 +113,7 @@ import VocabularioLaCocinaScreen from './src/components/screens/vocabulary/Vocab
 import LosVerbosScreen2 from './src/components/screens/verbs/LosVerbosScreen2.jsx';
 import LosAdjetivosScreen2 from './src/components/screens/adjectives/LosAdjetivosScreen2.jsx';
 import VocabularioElDormitorioScreen from './src/components/screens/vocabulary/VocabularioElDormitorioScreen.jsx';
+import Module4 from './src/components/modules/Module4.jsx';
 import GameScreen4 from './src/components/screens/games/GameScreen4.jsx';
 import EvaluationScreen4 from './src/components/screens/evaluations/EvaluationScreen4.jsx';
 
@@ -115,6 +123,7 @@ import VocabularioLaUbicacionScreen from './src/components/screens/vocabulary/Vo
 import VocabularioElTiempoScreen from './src/components/screens/vocabulary/VocabularioElTiempoScreen.jsx';
 import ElPasadoSimpleScreen from './src/components/screens/conjugations/past/ElPasadoSimpleScreen.jsx';
 import ElParticipioPasadoScreen from './src/components/screens/conjugations/past/ElParticipioPasadoScreen.jsx';
+import Module5 from './src/components/modules/Module5.jsx';
 import GameScreen5 from './src/components/screens/games/GameScreen5.jsx';
 import EvaluationScreen5 from './src/components/screens/evaluations/EvaluationScreen5.jsx';
 
@@ -123,6 +132,7 @@ import ElPasadoProgresivoScreen from './src/components/screens/conjugations/past
 import ConjugacionTiempoPresenteProgresivoScreen from './src/components/screens/conjugations/present/ConjugacionTiempoPresenteProgresivoScreen.jsx';
 import ElFuturoSimpleScreen from './src/components/screens/conjugations/future/ElFuturoSimpleScreen.jsx';
 import ElFuturoProximoScreen from './src/components/screens/conjugations/future/ElFuturoProximoScreen.jsx';
+import Module6 from './src/components/modules/Module6.jsx';
 import GameScreen6 from './src/components/screens/games/GameScreen6.jsx';
 import EvaluationScreen6 from './src/components/screens/evaluations/EvaluationScreen6.jsx';
 
@@ -478,7 +488,7 @@ function HomeStack() {
       <Stack.Screen
         name="IntroduccionJuegosScreen1"
         component={IntroduccionJuegoScreen}
-        options={{ title: 'Games' }}
+        options={{ title: 'Juegos' }}
       />
       <Stack.Screen
         name="Module1"
@@ -517,6 +527,16 @@ function HomeStack() {
         options={{ title: 'La Negación' }}
       />
       <Stack.Screen
+        name="IntroduccionJuegosScreen2"
+        component={IntroduccionJuegoScreenModule2}
+        options={{ title: 'Juegos' }}
+      />
+      <Stack.Screen
+        name="Module2"
+        component={Module2}
+        options={{ title: 'Modulo 2' }}
+      />
+      <Stack.Screen
         name="Game2"
         component={GameScreen2}
         options={{ title: 'Evaluacion - Parte 2' }}
@@ -546,6 +566,16 @@ function HomeStack() {
         name="LaCiudad"
         component={VocabularioLaCiudadScreen}
         options={{ title: 'Vocabulario - La Ciudad' }}
+      />
+      <Stack.Screen
+        name="IntroduccionJuegosScreen3"
+        component={IntroduccionJuegoScreenModule3}
+        options={{ title: 'Juegos' }}
+      />
+      <Stack.Screen
+        name="Module3"
+        component={Module3}
+        options={{ title: 'Modulo 3' }}
       />
       <Stack.Screen
         name="Game3"
@@ -579,6 +609,16 @@ function HomeStack() {
         options={{ title: 'Vocabulario - El Dormitorio' }}
       />
       <Stack.Screen
+        name="IntroduccionJuegosScreen4"
+        component={IntroduccionJuegoScreenModule4}
+        options={{ title: 'Juegos' }}
+      />
+      <Stack.Screen
+        name="Module4"
+        component={Module4}
+        options={{ title: 'Modulo 4' }}
+      />
+      <Stack.Screen
         name="Game4"
         component={GameScreen4}
         options={{ title: 'Evaluación - Parte 4' }}
@@ -610,6 +650,16 @@ function HomeStack() {
         options={{ title: 'El Participio Pasado' }}
       />
       <Stack.Screen
+        name="IntroduccionJuegosScreen5"
+        component={IntroduccionJuegoScreenModule5}
+        options={{ title: 'Juegos' }}
+      />
+      <Stack.Screen
+        name="Module5"
+        component={Module5}
+        options={{ title: 'Modulo 5' }}
+      />
+      <Stack.Screen
         name="Game5"
         component={GameScreen5}
         options={{ title: 'Evaluación - Parte 5' }}
@@ -639,6 +689,16 @@ function HomeStack() {
         name="FuturoSimple"
         component={ElFuturoSimpleScreen}
         options={{ title: 'Futuro Simple' }}
+      />
+      <Stack.Screen
+        name="IntroduccionJuegosScreen6"
+        component={IntroduccionJuegoScreenModule6}
+        options={{ title: 'Juegos' }}
+      />
+      <Stack.Screen
+        name="Module6"
+        component={Module6}
+        options={{ title: 'Modulo 6' }}
       />
       <Stack.Screen
         name="Game6"

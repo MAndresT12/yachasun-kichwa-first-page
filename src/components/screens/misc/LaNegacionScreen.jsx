@@ -7,80 +7,87 @@ import { styles } from '../../../../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 
+// Data para la pantalla de la negación
+const laNegacionData = {
+    progress: 0.75,
+    level: "intermedio",
+    cards: [
+        {
+            title: "Mana ninkapak",
+            description: "En kichwa para transformar un adjetivo al negativo anteponemos la palabra de negación mana.",
+            examples: [
+                { kichwa: "mana alli", spanish: "no bien, no bueno (malo)" },
+                { kichwa: "mana sumak", spanish: "No es bonito" }
+            ]
+        },
+        {
+            title: "Negación con verbos",
+            description: "Para transformar un verbo al negativo anteponemos la palabra de negación mana seguido del verbo con la partícula chu.",
+            sections: [
+                {
+                    title: "Kunan pacha (Forma presente)",
+                    table: [
+                        { positivo: "mikuni (comer)", negativo: "mana mikunichu (no como)" },
+                        { positivo: "llamkanki (trabajar)", negativo: "mana llamkankichu (no trabajas)" },
+                    ]
+                },
+                {
+                    title: "Kunan pacha katiy (Forma progresiva)",
+                    table: [
+                        { positivo: "mikukuni (comiendo)", negativo: "mana mikukunichu (no estoy comiendo)" },
+                        { positivo: "llamkakunki (trabajando)", negativo: "mana llamkakunkichu (no estás trabajando)" },
+                    ]
+                }
+            ]
+        }
+    ]
+};
+
+
+// Función para renderizar ejemplos
+const renderExamples = (examples) => {
+    return examples.map((example, index) => (
+        <View key={index} style={localStyles.exampleBox}>
+            <Text style={localStyles.exampleText}>{example.kichwa}</Text>
+            <Text style={localStyles.arrow}>→</Text>
+            <Text style={localStyles.exampleText}>{example.spanish}</Text>
+        </View>
+    ));
+};
+
+// Función para renderizar las tablas
+const renderTable = (table) => {
+    return table.map((row, index) => (
+        <View key={index} style={localStyles.tableRow}>
+            <Text style={localStyles.tableCell}>{row.positivo}</Text>
+            <Text style={localStyles.tableCell}>{row.negativo}</Text>
+        </View>
+    ));
+};
+
 const LaNegacionScreen = () => {
     const navigation = useNavigation();
-    const progress = 0.75;
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <ProgressCircleWithTrophies progress={progress} level="intermedio" />
+                    <ProgressCircleWithTrophies progress={laNegacionData.progress} level={laNegacionData.level} />
                 </View>
 
                 <View style={styles.body}>
-                    <CardDefault title="Mana ninkapak">
-                        <Text style={localStyles.text}>
-                            En kichwa para transformar un adjetivo al negativo anteponemos la palabra de negación <Text style={localStyles.highlight}>mana</Text>.
-                        </Text>
-                        <View style={localStyles.exampleContainer}>
-                            <View style={localStyles.exampleBox}>
-                                <Text style={localStyles.exampleText}>mana alli</Text>
-                                <Text style={localStyles.arrow}>→</Text>
-                                <Text style={localStyles.exampleText}>no bien, no bueno (malo)</Text>
-                            </View>
-                            <View style={localStyles.exampleBox}>
-                                <Text style={localStyles.exampleText}>mana sumak</Text>
-                                <Text style={localStyles.arrow}>→</Text>
-                                <Text style={localStyles.exampleText}>No es bonito</Text>
-                            </View>
-                        </View>
-                    </CardDefault>
-                    <CardDefault title="Negación con verbos">
-                        <Text style={localStyles.text}>
-                            Para transformar un verbo al negativo anteponemos la palabra de negación <Text style={localStyles.highlight}>mana</Text> seguido del verbo con la partícula <Text style={localStyles.highlight}>chu</Text>.
-                        </Text>
-                        <View style={localStyles.exampleContainer}>
-                            <Text style={localStyles.subTitle}>Kunan pacha (Forma presente)</Text>
-                            <View style={localStyles.table}>
-                                <View style={localStyles.tableRow}>
-                                    <Text style={localStyles.tableCell}>Positivo</Text>
-                                    <Text style={localStyles.tableCell}>Negativo</Text>
+                    {laNegacionData.cards.map((card, index) => (
+                        <CardDefault key={index} title={card.title}>
+                            <Text style={localStyles.text}>{card.description}</Text>
+                            {card.examples && renderExamples(card.examples)}
+                            {card.sections && card.sections.map((section, idx) => (
+                                <View key={idx}>
+                                    <Text style={localStyles.subTitle}>{section.title}</Text>
+                                    {renderTable(section.table)}
                                 </View>
-                                <View style={localStyles.tableRow}>
-                                    <Text style={localStyles.tableCell}>mikuni</Text>
-                                    <Text style={localStyles.tableCell}>mana mikunichu</Text>
-                                </View>
-                                <View style={localStyles.tableRow}>
-                                    <Text style={localStyles.tableCell}>llamkanki</Text>
-                                    <Text style={localStyles.tableCell}>mana llamkankichu</Text>
-                                </View>
-                                <View style={localStyles.tableRow}>
-                                    <Text style={localStyles.tableCell}>pallan</Text>
-                                    <Text style={localStyles.tableCell}>mana pallanchu</Text>
-                                </View>
-                            </View>
-                            <Text style={localStyles.subTitle}>Kunan pacha katiy (Forma progresiva)</Text>
-                            <View style={localStyles.table}>
-                                <View style={localStyles.tableRow}>
-                                    <Text style={localStyles.tableCell}>Positivo</Text>
-                                    <Text style={localStyles.tableCell}>Negativo</Text>
-                                </View>
-                                <View style={localStyles.tableRow}>
-                                    <Text style={localStyles.tableCell}>mikukuni</Text>
-                                    <Text style={localStyles.tableCell}>mana mikukunichu</Text>
-                                </View>
-                                <View style={localStyles.tableRow}>
-                                    <Text style={localStyles.tableCell}>llamkakunki</Text>
-                                    <Text style={localStyles.tableCell}>mana llamkakunkichu</Text>
-                                </View>
-                                <View style={localStyles.tableRow}>
-                                    <Text style={localStyles.tableCell}>pallakun</Text>
-                                    <Text style={localStyles.tableCell}>mana pallakunchu</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </CardDefault>
+                            ))}
+                        </CardDefault>
+                    ))}
                 </View>
 
                 <View style={styles.footer}>
@@ -103,9 +110,6 @@ const localStyles = StyleSheet.create({
     highlight: {
         fontWeight: 'bold',
         color: '#5B4D28',
-    },
-    exampleContainer: {
-        marginTop: 10,
     },
     exampleBox: {
         flexDirection: 'row',
@@ -130,9 +134,6 @@ const localStyles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 5,
     },
-    table: {
-        marginTop: 10,
-    },
     tableRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -148,3 +149,4 @@ const localStyles = StyleSheet.create({
 });
 
 export default LaNegacionScreen;
+

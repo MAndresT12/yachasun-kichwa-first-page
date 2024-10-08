@@ -157,7 +157,7 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('Game2')}
+                        onPress={() => navigation.navigate('IntroduccionJuegosScreen2')}
                     >
                         <FontAwesome name="gamepad" size={28} color="#FFF" />
 
@@ -230,7 +230,7 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('Game3')}
+                        onPress={() => navigation.navigate('IntroduccionJuegosScreen3')}
                     >
                         <FontAwesome name="gamepad" size={28} color="#FFF" />
 
@@ -243,7 +243,7 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>Evaluación: Módulo 3 / Ruraykuna: Kimsaniki Tantachiy Yachay</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Evaluation3')}
+                        onPress={() => navigation.navigate('Game3')}
                     >
                         <FontAwesome name="pencil" size={24} color="#FFF" />
 
@@ -300,7 +300,7 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('Game4')}
+                        onPress={() => navigation.navigate('IntroduccionJuegosScreen4')}
                     >
                         <FontAwesome name="gamepad" size={28} color="#FFF" />
 
@@ -313,7 +313,7 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>Evaluación: Módulo 4 / Ruraykuna: Chuskuniki Tantachiy Yachay</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Evaluation4')}
+                        onPress={() => navigation.navigate('Game4')}
                     >
                         <FontAwesome name="pencil" size={24} color="#FFF" />
 
@@ -371,7 +371,7 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('Game5')}
+                        onPress={() => navigation.navigate('IntroduccionJuegosScreen5')}
                     >
                         <FontAwesome name="gamepad" size={28} color="#FFF" />
 
@@ -384,7 +384,7 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>Evaluación: Módulo 5 / Ruraykuna: Pichkaniki Tantachiy Yachay</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Evaluation5')}
+                        onPress={() => navigation.navigate('Game5')}
                     >
                         <FontAwesome name="pencil" size={24} color="#FFF" />
 
@@ -442,7 +442,7 @@ const CaminoLevelsScreen = () => {
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity
                         style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('Game6')}
+                        onPress={() => navigation.navigate('IntroduccionJuegosScreen6')}
                     >
                         <FontAwesome name="gamepad" size={28} color="#FFF" />
 
@@ -455,7 +455,7 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>Evaluación: Módulo 6 / Ruraykuna: Suktaniki Tantachiy Yachay</BouncyText>
                     <TouchableOpacity
                         style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Evaluation6')}
+                        onPress={() => navigation.navigate('Game6')}
                     >
                         <FontAwesome name="pencil" size={24} color="#FFF" />
 
