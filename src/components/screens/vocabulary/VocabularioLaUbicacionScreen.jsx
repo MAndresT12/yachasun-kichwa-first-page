@@ -1,36 +1,35 @@
-// src/components/VocabularioLaUbicacionScreen.jsx
-
 import React from 'react';
-import { Text, View, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
+import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 
 const locationVocabulary = [
-    { kichwa: "karu", spanish: "lejos, distante, lejano", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kuchulla", spanish: "cerca", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kaypi", spanish: "aquí", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "chaypi", spanish: "allí", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "chayninpi", spanish: "más allá", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "manya", spanish: "lado", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "chawpi", spanish: "mitad, medio, centro", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "chinchaysuyu", spanish: "norte", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kullasuyu", spanish: "sur", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "antisuyu", spanish: "este", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kuntisuyu", spanish: "oeste", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kuska", spanish: "lugar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "suyu", spanish: "región", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "llakta", spanish: "comunidad, pueblo", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "karu", spanish: "lejos, distante, lejano", image: "https://img.freepik.com/vector-gratis/explorador-mochila_23-2148146728.jpg?t=st=1728426379~exp=1728429979~hmac=66649f1a102b8e327920096acbf6805e5ea43a65e787566c80e3fa9edddae185&w=740" },
+    { kichwa: "kuchulla", spanish: "cerca", image: "https://img.freepik.com/vector-gratis/dibujos-animados-chico-adolescente_24640-47216.jpg?semt=ais_hybrid" },
+    { kichwa: "kaypi", spanish: "aquí", image: "https://img.freepik.com/foto-gratis/flechas-planas-moradas-amarillas-sobre-fondo-blanco_23-2148459934.jpg?semt=ais_hybrid" },
+    { kichwa: "chaypi", spanish: "allí", image: "https://img.freepik.com/psd-gratis/representacion-3d-viajes-turisticos_23-2149667949.jpg?semt=ais_hybrid" },
+    { kichwa: "chayninpi", spanish: "más allá", image: "https://img.freepik.com/vector-gratis/ilustracion-concepto-lider_114360-26760.jpg?semt=ais_hybrid" },
+    { kichwa: "manya", spanish: "lado", image: "https://img.freepik.com/vector-gratis/hombre-casi-pisa-mina-terrestre_1308-127950.jpg?semt=ais_hybrid" },
+    { kichwa: "chawpi", spanish: "mitad, medio, centro", image: "https://img.freepik.com/vector-gratis/ilustracion-naranja-media-dibujada-mano_23-2150002669.jpg?semt=ais_hybrid" },
+    { kichwa: "chinchaysuyu", spanish: "norte", image: "https://cdn-icons-png.flaticon.com/512/16/16797.png" },
+    { kichwa: "kullasuyu", spanish: "sur", image: "https://cdn-icons-png.flaticon.com/512/16/16744.png" },
+    { kichwa: "antisuyu", spanish: "este", image: "https://cdn-icons-png.flaticon.com/512/17/17259.png" },
+    { kichwa: "kuntisuyu", spanish: "oeste", image: "https://cdn-icons-png.flaticon.com/512/17/17276.png" },
+    { kichwa: "kuska", spanish: "lugar", image: "https://img.freepik.com/psd-gratis/representacion-3d-icono-camping_23-2151192585.jpg?semt=ais_hybrid" },
+    { kichwa: "suyu", spanish: "región", image: "https://img.freepik.com/foto-gratis/ubicacion-alfiler-dibujos-animados-3d_23-2151642222.jpg?semt=ais_hybrid" },
+    { kichwa: "llakta", spanish: "comunidad, pueblo", image: "https://img.freepik.com/vector-gratis/ilustracion-pueblo-viejo-degradado_23-2149453258.jpg?semt=ais_hybrid" },
 ];
 
 const renderLocationRows = () => {
     return locationVocabulary.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
             <View style={localStyles.imageContainer}>
-                <Image source={{ uri: item.image }} style={localStyles.vocabImage} />
+                <ImageContainer uri={item.image} style={localStyles.vocabImage} />
             </View>
+            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
         </View>
     ));
@@ -51,8 +50,8 @@ const VocabularioLaUbicacionScreen = () => {
                     <CardDefault title="Vocabulario de la Ubicación">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                                 <Text style={styles.tableHeaderCell}>Imagen</Text>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                                 <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderLocationRows()}

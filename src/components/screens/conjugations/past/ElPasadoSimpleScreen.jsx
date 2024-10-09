@@ -1,11 +1,13 @@
-// src/components/ElPasadoSimpleScreen.jsx
-
 import React from 'react';
-import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, Image, Dimensions, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
+const { width } = Dimensions.get('window');
+
 const pasadoSimpleData = {
     title: "El pasado simple",
     subtitle: "Yallirka pacha",
@@ -23,42 +25,38 @@ const pasadoSimpleData = {
         { subject: "Kiinkuna", ending: "rkankichik" },
         { subject: "Paykuna", ending: "rkakuna" },
     ],
-    examplesTitle: "Shinakuna",
-    examplesSubtitle: "Ejemplos",
     examples: [
         {
             verb: "Rimana",
             root: "rima",
-            image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
+            image: "https://img.freepik.com/vector-gratis/dibujado-mano-personas-hablando_23-2149067041.jpg?semt=ais_hybrid",
             conjugations: [
-                { subject: "Ñuka", root: "rima", particle: "rka", ending: "ni", verb: "rimarkani", translation: "Yo hablé" },
-                { subject: "Kan", root: "rima", particle: "rka", ending: "nki", verb: "rimarkanki", translation: "Tú hablaste" },
-                { subject: "Kikin", root: "rima", particle: "rka", ending: "nki", verb: "rimarkanki", translation: "Usted habló" },
-                { subject: "Pay", root: "rima", particle: "rka", ending: "-", verb: "rimarka", translation: "Él/Ella habló" },
-                { subject: "Ñukanchik", root: "rima", particle: "rka", ending: "nchik", verb: "rimarkanchik", translation: "Nosotros hablamos" },
-                { subject: "Kankuna", root: "rima", particle: "rka", ending: "nkichik", verb: "rimarkankichik", translation: "Ustedes hablaron" },
-                { subject: "Kiinkuna", root: "rima", particle: "rka", ending: "nkichik", verb: "rimarkankichik", translation: "Ustedes hablaron" },
-                { subject: "Paykuna", root: "rima", particle: "rka", ending: "kuna", verb: "rimarkakuna", translation: "Ellos/ellas hablaron" },
+                { subject: "Ñuka", root: "rima", particle: "rka", ending: "ni", verb: "Ñuka rimarkani", translation: "Yo hablé" },
+                { subject: "Kan", root: "rima", particle: "rka", ending: "nki", verb: "Kan rimarkanki", translation: "Tú hablaste" },
+                { subject: "Kikin", root: "rima", particle: "rka", ending: "nki", verb: "Kikin rimarkanki", translation: "Usted habló" },
+                { subject: "Pay", root: "rima", particle: "rka", ending: "-", verb: "Pay rimarka", translation: "Él/Ella habló" },
+                { subject: "Ñukanchik", root: "rima", particle: "rka", ending: "nchik", verb: "Ñukanchik rimarkanchik", translation: "Nosotros hablamos" },
+                { subject: "Kankuna", root: "rima", particle: "rka", ending: "nkichik", verb: "Kankuna rimarkankichik", translation: "Ustedes hablaron" },
+                { subject: "Paykuna", root: "rima", particle: "rka", ending: "kuna", verb: "Paykuna rimarkakuna", translation: "Ellos/ellas hablaron" },
             ],
         },
         {
             verb: "Rina",
             root: "ri",
-            image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
+            image: "https://img.freepik.com/foto-gratis/dia-internacional-educacion-estilo-futurista-salon-clases_23-2150998721.jpg?semt=ais_hybrid",
             conjugations: [
-                { subject: "Ñuka", root: "ri", particle: "rka", ending: "ni", verb: "rirkani", translation: "Yo fui" },
-                { subject: "Kan", root: "ri", particle: "rka", ending: "nki", verb: "rirkanki", translation: "Tú fuiste" },
-                { subject: "Kikin", root: "ri", particle: "rka", ending: "nki", verb: "rirkanki", translation: "Usted fue" },
-                { subject: "Pay", root: "ri", particle: "rka", ending: "-", verb: "rirka", translation: "Él/Ella fue" },
-                { subject: "Ñukanchik", root: "ri", particle: "rka", ending: "nchik", verb: "rirkanchik", translation: "Nosotros fuimos" },
-                { subject: "Kankuna", root: "ri", particle: "rka", ending: "nkichik", verb: "rirkankichik", translation: "Ustedes fueron" },
-                { subject: "Kiinkuna", root: "ri", particle: "rka", ending: "nkichik", verb: "rirkankichik", translation: "Ustedes fueron" },
-                { subject: "Paykuna", root: "ri", particle: "rka", ending: "kuna", verb: "rirkakuna", translation: "Ellos/ellas fueron" },
+                { subject: "Ñuka", root: "ri", particle: "rka", ending: "ni", verb: "Ñuka rirkani", translation: "Yo fui" },
+                { subject: "Kan", root: "ri", particle: "rka", ending: "nki", verb: "Kan rirkanki", translation: "Tú fuiste" },
+                { subject: "Pay", root: "ri", particle: "rka", ending: "-", verb: "Pay rirka", translation: "Él/Ella fue" },
+                { subject: "Ñukanchik", root: "ri", particle: "rka", ending: "nchik", verb: "Ñukanchik rirkanchik", translation: "Nosotros fuimos" },
+                { subject: "Kankuna", root: "ri", particle: "rka", ending: "nkichik", verb: "Kankuna rirkankichik", translation: "Ustedes fueron" },
+                { subject: "Paykuna", root: "ri", particle: "rka", ending: "kuna", verb: "Paykuna rirkakuna", translation: "Ellos/ellas fueron" },
             ],
         },
     ],
 };
 
+// Función para renderizar las terminaciones
 const renderTerminationsRows = () => {
     return pasadoSimpleData.terminations.map((item, index) => (
         <View key={index} style={styles.tableRow}>
@@ -68,33 +66,32 @@ const renderTerminationsRows = () => {
     ));
 };
 
-const renderExamples = (examples) => {
-    return examples.map((example, index) => (
-        <CardDefault key={index} title={example.verb}>
-            <Image source={{ uri: example.image }} style={localStyles.exampleImage} />
-            <View style={styles.vocabularyTable}>
-                <View style={styles.tableHeader}>
-                    <Text style={styles.tableHeaderCell}>Sujeto</Text>
-                    <Text style={styles.tableHeaderCell}>Raíz</Text>
-                    <Text style={styles.tableHeaderCell}>Partícula</Text>
-                    <Text style={styles.tableHeaderCell}>Terminación</Text>
-                    <Text style={styles.tableHeaderCell}>Verbo conjugado</Text>
-                    <Text style={styles.tableHeaderCell}>Traducción</Text>
-                </View>
-                {example.conjugations.map((conjugation, index) => (
-                    <View key={index} style={styles.tableRow}>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.subject}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.root}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.particle}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.ending}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.verb}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.translation}</Text>
-                    </View>
-                ))}
-            </View>
-        </CardDefault>
-    ));
-};
+// Función para renderizar cada conjugación en un carrusel
+const renderConjugationCard = (conjugation, index) => (
+    <View key={index} style={styles.carouselCard}>
+        <Text style={styles.carouselSubject}>{conjugation.subject}</Text>
+        <Text style={styles.carouselDetail}>Raíz: {conjugation.root}</Text>
+        <Text style={styles.carouselDetail}>Partícula: {conjugation.particle}</Text>
+        <Text style={styles.carouselDetail}>Terminación: {conjugation.ending}</Text>
+        <Text style={styles.carouselDetail}>Verbo conjugado: {conjugation.verb}</Text>
+        <Text style={styles.carouselDetail}>Traducción: {conjugation.translation}</Text>
+    </View>
+);
+
+// Función para renderizar los ejemplos con carrusel
+const renderExampleCard = (example, index) => (
+    <CardDefault key={index} title={example.verb}>
+        <Image source={{ uri: example.image }} style={localStyles.exampleImage} />
+        <Carousel
+            width={width * 0.8}
+            height={220}
+            data={example.conjugations}
+            renderItem={({ item, index }) => renderConjugationCard(item, index)}
+            mode="parallax"
+            pagingEnabled={true}
+        />
+    </CardDefault>
+);
 
 const ElPasadoSimpleScreen = () => {
     const navigation = useNavigation();
@@ -122,8 +119,9 @@ const ElPasadoSimpleScreen = () => {
                             {renderTerminationsRows()}
                         </View>
                     </CardDefault>
-                    {renderExamples(pasadoSimpleData.examples)}
+                    {pasadoSimpleData.examples.map((example, index) => renderExampleCard(example, index))}
                 </View>
+
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('ElParticipioPasado'); }}>
                         <View style={styles.buttonDefault}>
@@ -158,6 +156,7 @@ const localStyles = StyleSheet.create({
     exampleImage: {
         width: '100%',
         height: 150,
+        resizeMode: 'contain',
         marginVertical: 10,
     },
     textCenter: {

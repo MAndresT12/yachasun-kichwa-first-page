@@ -1,30 +1,30 @@
 // src/components/VocabularioLaCocinaScreen.jsx
 
 import React from 'react';
-import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
-
+import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 const kitchenVocabulary = [
-    { kichwa: "wisha", spanish: "cuchara", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kisa", spanish: "olla grande de barro", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "mulu", spanish: "plato", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "mati", spanish: "tazón para tomar chicha", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "pintu", spanish: "toalla para cocina", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kupa, ñuku", spanish: "basura", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "manka", spanish: "olla", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "walla", spanish: "litro, jarra", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kuchuna", spanish: "cuchillo", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "charichina", spanish: "tenedor", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "pilchi", spanish: "vaso", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "yanuna tullpa", spanish: "cocina metal", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "pataku", spanish: "mesa", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "tiyarina", spanish: "silla", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "yanta", spanish: "leña", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "nina", spanish: "fuego", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "pakuyla", spanish: "fósforo", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "wisha", spanish: "cuchara", image: "https://img.freepik.com/vector-gratis/diseno-etiqueta-equipo-cocina-cuchara-madera-aislado_1308-77190.jpg?semt=ais_hybrid" },
+    { kichwa: "kisa", spanish: "olla grande de barro", image: "https://img.freepik.com/vector-gratis/dibujado-mano-deliciosa-ilustracion-locro_23-2149206072.jpg?semt=ais_hybrid" },
+    { kichwa: "mulu", spanish: "plato", image: "https://img.freepik.com/vector-gratis/plato-vacio-tenedor-cuchara-vector_53876-166365.jpg?semt=ais_hybrid" },
+    { kichwa: "mati", spanish: "tazón para tomar chicha", image: "https://img.freepik.com/vector-gratis/delicioso-desayuno-avena-manana_1308-167099.jpg?semt=ais_hybrid" },
+    { kichwa: "pintu", spanish: "toalla para cocina", image: "https://img.pikbest.com/png-images/qiantu/plaid-tablecloth-picnic-cloth-cartoon-png_2725893.png!w700wp" },
+    { kichwa: "kupa, ñuku", spanish: "basura", image: "https://img.freepik.com/vector-gratis/bolsas-basura-sucias-comida-podrida-piso_1308-35416.jpg?semt=ais_hybrid" },
+    { kichwa: "manka", spanish: "olla", image: "https://img.freepik.com/vector-gratis/sopa-olla-esta-hirviendo-estufa-gas_1308-76071.jpg?semt=ais_hybrid" },
+    { kichwa: "walla", spanish: "litro, jarra", image: "https://img.freepik.com/vector-gratis/dibujado-mano-ilustracion-dibujos-animados-te_23-2150866230.jpg?semt=ais_hybrid" },
+    { kichwa: "kuchuna", spanish: "cuchillo", image: "https://img.freepik.com/vector-gratis/ilustracion-icono-vector-dibujos-animados-cuchillo-flotante-concepto-icono-objeto-comida-aislado-vector-premium_138676-5784.jpg?semt=ais_hybrid" },
+    { kichwa: "charichina", spanish: "tenedor", image: "https://img.freepik.com/foto-gratis/composicion-vajilla-ecologica_23-2148902934.jpg?semt=ais_hybrid" },
+    { kichwa: "pilchi", spanish: "vaso", image: "https://img.freepik.com/vector-gratis/dibujado-mano-ilustracion-dibujos-animados-limonada_23-2150837522.jpg?semt=ais_hybrid" },
+    { kichwa: "yanuna tullpa", spanish: "cocina metal", image: "https://img.freepik.com/vector-gratis/estufa-electrica-horno-aislado-sobre-fondo-blanco_1308-59051.jpg?semt=ais_hybrid" },
+    { kichwa: "pataku", spanish: "mesa", image: "https://img.freepik.com/vector-gratis/mesa-madera-taburetes-sobre-fondo-blanco_1308-72340.jpg?semt=ais_hybrid" },
+    { kichwa: "tiyarina", spanish: "silla", image: "https://img.freepik.com/psd-gratis/ilustracion-muebles-casa-sillon_23-2150983028.jpg?semt=ais_hybrid" },
+    { kichwa: "yanta", spanish: "leña", image: "https://img.freepik.com/vector-gratis/pila-troncos-sobre-fondo-blanco_1308-131049.jpg?semt=ais_hybrid" },
+    { kichwa: "nina", spanish: "fuego", image: "https://img.freepik.com/vector-gratis/coleccion-hogueras_23-2147608535.jpg?semt=ais_hybrid" },
+    { kichwa: "pakuyla", spanish: "fósforo", image: "https://img.freepik.com/vector-gratis/detener-tema-coincidencias-coronavirus_23-2148505974.jpg?semt=ais_hybrid" },
 ];
 
 const verbs = [
@@ -43,10 +43,10 @@ const verbs = [
 const renderVocabularyRows = () => {
     return kitchenVocabulary.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
             <View style={localStyles.imageContainer}>
-                <Image source={{ uri: item.image }} style={localStyles.vocabImage} />
+                <ImageContainer uri={item.image} style={localStyles.vocabImage} />
             </View>
+            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
         </View>
     ));
@@ -76,9 +76,9 @@ const VocabularioLaCocinaScreen = () => {
                     <CardDefault title="Vocabulario de la Cocina">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                                 <Text style={styles.tableHeaderCell}>Imagen</Text>
-                                <Text style={styles.tableHeaderCell}>spanish</Text>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
+                                <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderVocabularyRows()}
                         </View>
@@ -114,6 +114,7 @@ const localStyles = StyleSheet.create({
     vocabImage: {
         width: 50,
         height: 50,
+        borderRadius: 25,
     },
     textCenter: {
         textAlign: 'center',

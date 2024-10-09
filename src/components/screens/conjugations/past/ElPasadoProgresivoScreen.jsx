@@ -1,68 +1,70 @@
-// src/components/ElPasadoProgresivoScreen.jsx
-
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
+const { width } = Dimensions.get('window');
+
 const pasadoProgresivoData = [
     {
         title: "Karana",
-        image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
-        data: [
-            ["Ñuka", "kara", "ku", "rka", "ni", "karakurkani", "Yo estaba dando"],
-            ["Kan", "kara", "ku", "rka", "nki", "karakurkanki", "Tú estabas dando"],
-            ["Kikin", "kara", "ku", "rka", "nki", "karakurkanki", "Usted estaba dando"],
-            ["Pay", "kara", "ku", "rka", "n", "karakurka", "Él/Ella estaba dando"],
-            ["Ñukanchik", "kara", "ku", "rka", "nchik", "karakurkanchik", "Nosotros estábamos dando"],
-            ["Kankuna", "kara", "ku", "rka", "nkichik", "karakurkankichik", "Ustedes estaban dando"],
-            ["Kiinkuna", "kara", "ku", "rka", "nkichik", "karakurkankichik", "Ustedes estaban dando"],
-            ["Paykuna", "kara", "ku", "rka", "kuna", "karakurkakuna", "Ellos/Ellas estaban dando"]
-        ]
+        image: "https://img.freepik.com/vector-gratis/concepto-donacion-ropa-dibujada-mano_52683-54708.jpg?semt=ais_hybrid",
+        conjugations: [
+            { subject: "Ñuka", root: "kara", particle1: "ku", particle2: "rka", ending: "ni", verb: "Ñuka karakurkani", translation: "Yo estaba dando" },
+            { subject: "Kan", root: "kara", particle1: "ku", particle2: "rka", ending: "nki", verb: "Kan karakurkanki", translation: "Tú estabas dando" },
+            { subject: "Kikin", root: "kara", particle1: "ku", particle2: "rka", ending: "nki", verb: "Kikin karakurkanki", translation: "Usted estaba dando" },
+            { subject: "Pay", root: "kara", particle1: "ku", particle2: "rka", ending: "n", verb: "Pay karakurka", translation: "Él/Ella estaba dando" },
+            { subject: "Ñukanchik", root: "kara", particle1: "ku", particle2: "rka", ending: "nchik", verb: "Ñukanchik karakurkanchik", translation: "Nosotros estábamos dando" },
+            { subject: "Kankuna", root: "kara", particle1: "ku", particle2: "rka", ending: "nkichik", verb: "Kankuna karakurkankichik", translation: "Ustedes estaban dando" },
+            { subject: "Kikinkuna", root: "kara", particle1: "ku", particle2: "rka", ending: "nkichik", verb: "Kikinkuna karakurkankichik", translation: "Ustedes estaban dando" },
+            { subject: "Paykuna", root: "kara", particle1: "ku", particle2: "rka", ending: "kuna", verb: "Paykuna karakurkakuna", translation: "Ellos/Ellas estaban dando" },
+        ],
     },
     {
         title: "Mikuna",
-        image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
-        data: [
-            ["Ñuka", "miku", "ku", "rka", "ni", "mikukurkani", "Yo estaba comiendo"],
-            ["Kan", "miku", "ku", "rka", "nki", "mikukurkanki", "Tú estabas comiendo"],
-            ["Kikin", "miku", "ku", "rka", "nki", "mikukurkanki", "Usted estaba comiendo"],
-            ["Pay", "miku", "ku", "rka", "n", "mikukurka", "Él/Ella estaba comiendo"],
-            ["Ñukanchik", "miku", "ku", "rka", "nchik", "mikukurkanchik", "Nosotros estábamos comiendo"],
-            ["Kankuna", "miku", "ku", "rka", "nkichik", "mikukurkankichik", "Ustedes estaban comiendo"],
-            ["Kiinkuna", "miku", "ku", "rka", "nkichik", "mikukurkankichik", "Ustedes estaban comiendo"],
-            ["Paykuna", "miku", "ku", "rka", "kuna", "mikukurkakuna", "Ellos/Ellas estaban comiendo"]
-        ]
+        image: "https://img.freepik.com/vector-gratis/nino-feliz-disfrutando-comida_1308-133338.jpg?semt=ais_hybrid",
+        conjugations: [
+            { subject: "Ñuka", root: "miku", particle1: "ku", particle2: "rka", ending: "ni", verb: "Ñuka mikukurkani", translation: "Yo estaba comiendo" },
+            { subject: "Kan", root: "miku", particle1: "ku", particle2: "rka", ending: "nki", verb: "Kan mikukurkanki", translation: "Tú estabas comiendo" },
+            { subject: "Kikin", root: "miku", particle1: "ku", particle2: "rka", ending: "nki", verb: "Kikin mikukurkanki", translation: "Usted estaba comiendo" },
+            { subject: "Pay", root: "miku", particle1: "ku", particle2: "rka", ending: "n", verb: "Pay mikukurka", translation: "Él/Ella estaba comiendo" },
+            { subject: "Ñukanchik", root: "miku", particle1: "ku", particle2: "rka", ending: "nchik", verb: "Ñukanchik mikukurkanchik", translation: "Nosotros estábamos comiendo" },
+            { subject: "Kankuna", root: "miku", particle1: "ku", particle2: "rka", ending: "nkichik", verb: "Kankuna mikukurkankichik", translation: "Ustedes estaban comiendo" },
+            { subject: "Kikinkuna", root: "miku", particle1: "ku", particle2: "rka", ending: "nkichik", verb: "Kikinkuna mikukurkankichik", translation: "Ustedes estaban comiendo" },
+            { subject: "Paykuna", root: "miku", particle1: "ku", particle2: "rka", ending: "kuna", verb: "Paykuna mikukurkakuna", translation: "Ellos/Ellas estaban comiendo" },
+        ],
     }
 ];
 
-const renderConjugationTable = (conjugation) => (
-    <View key={conjugation.title}>
-        <View style={localStyles.conjugationHeader}>
-            <Text style={localStyles.conjugationTitle}>{conjugation.title}</Text>
-            <Image source={{ uri: conjugation.image }} style={localStyles.conjugationImage} />
-        </View>
-        <View style={localStyles.table}>
-            <View style={localStyles.tableRow}>
-                <Text style={localStyles.tableCell}>Sujeto</Text>
-                <Text style={localStyles.tableCell}>Raíz</Text>
-                <Text style={localStyles.tableCell}>Partícula 1</Text>
-                <Text style={localStyles.tableCell}>Partícula 2</Text>
-                <Text style={localStyles.tableCell}>Terminación</Text>
-                <Text style={localStyles.tableCell}>Verbo conjugado</Text>
-                <Text style={localStyles.tableCell}>Traducción</Text>
-            </View>
-            {conjugation.data.map((row, index) => (
-                <View key={index} style={localStyles.tableRow}>
-                    {row.map((cell, cellIndex) => (
-                        <Text key={cellIndex} style={localStyles.tableCell}>{cell}</Text>
-                    ))}
-                </View>
-            ))}
-        </View>
+// Función para renderizar cada conjugación en un carrusel
+const renderConjugationCard = (conjugation, index) => (
+    <View key={index} style={styles.carouselCard}>
+        <Text style={styles.carouselSubject}>{conjugation.subject}</Text>
+        <Text style={styles.carouselDetail}>Raíz: {conjugation.root}</Text>
+        <Text style={styles.carouselDetail}>Partícula 1: {conjugation.particle1}</Text>
+        <Text style={styles.carouselDetail}>Partícula 2: {conjugation.particle2}</Text>
+        <Text style={styles.carouselDetail}>Terminación: {conjugation.ending}</Text>
+        <Text style={styles.carouselDetail}>Verbo conjugado: {conjugation.verb}</Text>
+        <Text style={styles.carouselDetail}>Traducción: {conjugation.translation}</Text>
     </View>
+);
+
+// Función para renderizar los ejemplos con carrusel
+const renderExampleCard = (example, index) => (
+    <CardDefault key={index} title={example.title}>
+        <Image source={{ uri: example.image }} style={localStyles.image} />
+        <Carousel
+            width={width * 0.8}
+            height={250}
+            data={example.conjugations}
+            renderItem={({ item, index }) => renderConjugationCard(item, index)}
+            mode="parallax"
+            pagingEnabled={true}
+        />
+    </CardDefault>
 );
 
 const ElPasadoProgresivoScreen = () => {
@@ -79,12 +81,13 @@ const ElPasadoProgresivoScreen = () => {
                 <View style={styles.body}>
                     <CardDefault title="Yallirka katiy pacha">
                         <Text style={localStyles.descriptionText}>
-                            Con esta manera de tiempo vamos a ver que la aglutinación continúa, ahora son dos partículas (ku - del progresivo, y -rka - del pasado) que intervienen en el medio del verbo, manteniendo las terminaciones de los verbos del presente.
+                            Para formar el pasado progresivo, utilizamos las partículas "-ku" y "-rka", seguidas por las terminaciones del presente.
                         </Text>
                         <Text style={localStyles.particulaText}>-kurka</Text>
                     </CardDefault>
-                    {pasadoProgresivoData.map(conjugation => renderConjugationTable(conjugation))}
+                    {pasadoProgresivoData.map((example, index) => renderExampleCard(example, index))}
                 </View>
+
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('ConjugacionPresenteProgresivo'); }}>
                         <View style={styles.buttonDefault}>
@@ -98,43 +101,21 @@ const ElPasadoProgresivoScreen = () => {
 };
 
 const localStyles = StyleSheet.create({
-    conjugationHeader: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 10,
-    },
-    conjugationTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    conjugationImage: {
-        width: 50,
-        height: 50,
-    },
-    table: {
-        marginBottom: 20,
-    },
-    tableRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingVertical: 5,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
-    },
-    tableCell: {
-        flex: 1,
-        textAlign: 'center',
-        fontSize: 14,
-    },
     descriptionText: {
         fontSize: 16,
-        marginBottom: 10,
+        marginVertical: 10,
+        textAlign: 'center',
     },
     particulaText: {
         fontSize: 24,
         fontWeight: 'bold',
         textAlign: 'center',
+        color: 'red',
+    },
+    image: {
+        width: '100%',
+        height: 150,
+        resizeMode: 'contain',
         marginVertical: 10,
     },
 });

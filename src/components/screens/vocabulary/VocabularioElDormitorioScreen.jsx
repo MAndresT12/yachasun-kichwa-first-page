@@ -1,24 +1,22 @@
-// src/components/VocabularioElDormitorioScreen.jsx
-
 import React from 'react';
-import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
-import { WORDS_ENDPOINT } from "../../../../constants"
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
+import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 
 const bedroomVocabulary = [
-    { kichwa: "puñuna uku", spanish: "dormitorio", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kawitu", spanish: "cama", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "sawna", spanish: "almohada", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "pacha", spanish: "sábana", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "katana", spanish: "cobija", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "churana wakaychina", spanish: "armario", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "killka pataku", spanish: "escritorio", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "mantana", spanish: "alfombra", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "puñuna", spanish: "dormir", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "muskuna", spanish: "soñar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "puñuna uku", spanish: "dormitorio", image: "https://img.freepik.com/vector-gratis/plantilla-fondo-interior-dormitorio-dibujos-animados-acogedora-habitacion-moderna-luz-manana_33099-171.jpg?semt=ais_hybrid" },
+    { kichwa: "kawitu", spanish: "cama", image: "https://img.freepik.com/vector-gratis/goldilocks-tres-osos-cama_1308-168802.jpg?semt=ais_hybrid" },
+    { kichwa: "sawna", spanish: "almohada", image: "https://img.freepik.com/vector-gratis/icono-vectorial-dibujos-animados-ilustracion-icono-objeto-naturaleza-vector-plano-aislado_138676-11986.jpg?semt=ais_hybrid" },
+    { kichwa: "pacha", spanish: "sábana", image: "https://img.freepik.com/vector-gratis/plantilla-etiqueta-ropa-doblada-aislada_1308-69238.jpg?semt=ais_hybrid" },
+    { kichwa: "katana", spanish: "cobija", image: "https://img.freepik.com/vector-gratis/cama-manta-amarilla-almohada_1308-16767.jpg?semt=ais_hybrid" },
+    { kichwa: "churana wakaychina", spanish: "armario", image: "https://img.freepik.com/vector-gratis/ropa-armario_1308-53713.jpg?semt=ais_hybrid" },
+    { kichwa: "killka pataku", spanish: "escritorio", image: "https://img.freepik.com/vector-gratis/ilustracion-interior-gabinete_1284-4239.jpg?semt=ais_hybrid" },
+    { kichwa: "mantana", spanish: "alfombra", image: "https://img.freepik.com/psd-gratis/renderizacion-3d-icono-muebles_23-2151841310.jpg?semt=ais_hybrid" },
+    { kichwa: "puñuna", spanish: "dormir", image: "https://img.freepik.com/vector-gratis/dormido_1308-84115.jpg?semt=ais_hybrid" },
+    { kichwa: "muskuna", spanish: "soñar", image: "https://img.freepik.com/vector-gratis/nina-durmiendo-contar-ovejas-su-sueno_1308-34986.jpg?semt=ais_hybrid" },
 ];
 
 const verbs = [
@@ -29,10 +27,10 @@ const verbs = [
 const renderVocabularyRows = () => {
     return bedroomVocabulary.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
             <View style={localStyles.imageContainer}>
-                <Image source={{ uri: item.image }} style={localStyles.vocabImage} />
+                <ImageContainer uri={item.image} style={localStyles.vocabImage} />
             </View>
+            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
         </View>
     ));
@@ -62,8 +60,8 @@ const VocabularioElDormitorioScreen = () => {
                     <CardDefault title="Vocabulario del Dormitorio">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                                 <Text style={styles.tableHeaderCell}>Imagen</Text>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                                 <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderVocabularyRows()}
@@ -80,7 +78,7 @@ const VocabularioElDormitorioScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game4'); }}>
+                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Module4'); }}>
                         <View style={styles.buttonDefault}>
                             <Text style={styles.buttonText}>Siguiente</Text>
                         </View>

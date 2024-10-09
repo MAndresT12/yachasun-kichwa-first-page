@@ -1,53 +1,74 @@
-// src/components/ElParticipioPasadoScreen.jsx
-
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback, Image } from 'react-native';
+import { View, Text, ScrollView, Image, Dimensions, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
-const participioData = [
-    {
-        title: "Yallishka pacha",
-        description: "Para formar el participio pasado, después de la raíz del verbo ponemos la partícula -shka y las terminaciones del presente.",
-        image: require('../../../../../assets/images/prototype/diablo-prototype.png'),
-    },
-    {
-        title: "Shinakuna",
-        subtitle: "Ejemplos",
-        data: [
-            {
-                verb: "Rimana",
-                image: require('../../../../../assets/images/prototype/diablo-prototype.png'),
-                table: [
-                    ["Ñuka", "rima", "shka", "ni", "rimashkani", "Yo he hablado"],
-                    ["Kan", "rima", "shka", "nki", "rimashkanki", "Tú has hablado"],
-                    ["Kikin", "rima", "shka", "nki", "rimashkanki", "Usted ha hablado"],
-                    ["Pay", "rima", "shka", "-", "rimashka", "Él o Ella ha hablado"],
-                    ["Ñukanchik", "rima", "shka", "nchik", "rimashkanchik", "Nosotros hemos hablado"],
-                    ["Kankuna", "rima", "shka", "nkichik", "rimashkankichik", "Ustedes han hablado"],
-                    ["Kikinkuna", "rima", "shka", "nkichik", "rimashkankichik", "Ustedes han hablado"],
-                    ["Paykuna", "rima", "shka", "kuna", "rimashkakuna", "Ellos o ellas han hablado"],
-                ],
-            },
-            {
-                verb: "Mikuna",
-                image: require('../../../../../assets/images/prototype/diablo-prototype.png'),
-                table: [
-                    ["Ñuka", "miku", "shka", "ni", "mikushkani", "Yo he comido"],
-                    ["Kan", "miku", "shka", "nki", "mikushkanki", "Tú has comido"],
-                    ["Kikin", "miku", "shka", "nki", "mikushkanki", "Usted ha comido"],
-                    ["Pay", "miku", "shka", "-", "mikushka", "Él/Ella ha comido"],
-                    ["Ñukanchik", "miku", "shka", "nchik", "mikushkanchik", "Nosotros hemos comido"],
-                    ["Kankuna", "miku", "shka", "nkichik", "mikushkankichik", "Ustedes han comido"],
-                    ["Kikinkuna", "miku", "shka", "nkichik", "mikushkankichik", "Ustedes han comido"],
-                    ["Paykuna", "miku", "shka", "kuna", "mikushkakuna", "Ellos/ellas han comido"],
-                ],
-            },
-        ],
-    },
-];
+const { width } = Dimensions.get('window');
+
+const participioData = {
+    title: "Yallishka pacha",
+    description: "Para formar el participio pasado, después de la raíz del verbo ponemos la partícula -shka y las terminaciones del presente.",
+    examples: [
+        {
+            verb: "Rimana",
+            root: "rima",
+            image: "https://img.freepik.com/vector-gratis/dibujado-mano-personas-hablando_23-2149067041.jpg?semt=ais_hybrid",
+            conjugations: [
+                { subject: "Ñuka", root: "rima", particle: "shka", ending: "ni", verb: "Ñuka rimashkani", translation: "Yo he hablado" },
+                { subject: "Kan", root: "rima", particle: "shka", ending: "nki", verb: "Kan rimashkanki", translation: "Tú has hablado" },
+                { subject: "Kikin", root: "rima", particle: "shka", ending: "nki", verb: "Kikin rimashkanki", translation: "Usted ha hablado" },
+                { subject: "Pay", root: "rima", particle: "shka", ending: "-", verb: "Pay rimashka", translation: "Él/Ella ha hablado" },
+                { subject: "Ñukanchik", root: "rima", particle: "shka", ending: "nchik", verb: "Ñukanchik rimashkanchik", translation: "Nosotros hemos hablado" },
+                { subject: "Kankuna", root: "rima", particle: "shka", ending: "nkichik", verb: "Kankuna rimashkankichik", translation: "Ustedes han hablado" },
+                { subject: "Paykuna", root: "rima", particle: "shka", ending: "kuna", verb: "Paykuna rimashkakuna", translation: "Ellos/ellas han hablado" },
+            ],
+        },
+        {
+            verb: "Mikuna",
+            root: "miku",
+            image: "https://img.freepik.com/vector-gratis/nino-feliz-disfrutando-comida_1308-133338.jpg?semt=ais_hybrid",
+            conjugations: [
+                { subject: "Ñuka", root: "miku", particle: "shka", ending: "ni", verb: "Ñuka mikushkani", translation: "Yo he comido" },
+                { subject: "Kan", root: "miku", particle: "shka", ending: "nki", verb: "Kan mikushkanki", translation: "Tú has comido" },
+                { subject: "Kikin", root: "miku", particle: "shka", ending: "nki", verb: "Kikin mikushkanki", translation: "Usted ha comido" },
+                { subject: "Pay", root: "miku", particle: "shka", ending: "-", verb: "Pay mikushka", translation: "Él/Ella ha comido" },
+                { subject: "Ñukanchik", root: "miku", particle: "shka", ending: "nchik", verb: "Ñukanchik mikushkanchik", translation: "Nosotros hemos comido" },
+                { subject: "Kankuna", root: "miku", particle: "shka", ending: "nkichik", verb: "Kankuna mikushkankichik", translation: "Ustedes han comido" },
+                { subject: "Paykuna", root: "miku", particle: "shka", ending: "kuna", verb: "Paykuna mikushkakuna", translation: "Ellos/Ellas han comido" },
+            ],
+        },
+    ],
+};
+
+// Función para renderizar cada conjugación en un carrusel
+const renderConjugationCard = (conjugation, index) => (
+    <View key={index} style={styles.carouselCard}>
+        <Text style={styles.carouselSubject}>{conjugation.subject}</Text>
+        <Text style={styles.carouselDetail}>Raíz: {conjugation.root}</Text>
+        <Text style={styles.carouselDetail}>Partícula: {conjugation.particle}</Text>
+        <Text style={styles.carouselDetail}>Terminación: {conjugation.ending}</Text>
+        <Text style={styles.carouselDetail}>Verbo conjugado: {conjugation.verb}</Text>
+        <Text style={styles.carouselDetail}>Traducción: {conjugation.translation}</Text>
+    </View>
+);
+
+// Función para renderizar los ejemplos con carrusel
+const renderExampleCard = (example, index) => (
+    <CardDefault key={index} title={example.verb}>
+        <Image source={{ uri: example.image }} style={localStyles.image} />
+        <Carousel
+            width={width * 0.8}
+            height={220}
+            data={example.conjugations}
+            renderItem={({ item, index }) => renderConjugationCard(item, index)}
+            mode="parallax"
+            pagingEnabled={true}
+        />
+    </CardDefault>
+);
 
 const ElParticipioPasadoScreen = () => {
     const navigation = useNavigation();
@@ -61,35 +82,14 @@ const ElParticipioPasadoScreen = () => {
                 </View>
 
                 <View style={styles.body}>
-                    <CardDefault title={participioData[0].title}>
-                        <Text style={localStyles.description}>{participioData[0].description}</Text>
-                        <Image source={participioData[0].image} style={localStyles.image} />
+                    <CardDefault title={participioData.title}>
+                        <Text style={localStyles.description}>{participioData.description}</Text>
                     </CardDefault>
-                    {participioData[1].data.map((item, index) => (
-                        <CardDefault key={index} title={`${participioData[1].subtitle}: ${item.verb}`}>
-                            <Image source={item.image} style={localStyles.image} />
-                            <View style={styles.vocabularyTable}>
-                                <View style={styles.tableHeader}>
-                                    <Text style={styles.tableHeaderCell}>Sujeto</Text>
-                                    <Text style={styles.tableHeaderCell}>Raíz</Text>
-                                    <Text style={styles.tableHeaderCell}>Partícula</Text>
-                                    <Text style={styles.tableHeaderCell}>Terminación</Text>
-                                    <Text style={styles.tableHeaderCell}>Verbo conjugado</Text>
-                                    <Text style={styles.tableHeaderCell}>Traducción</Text>
-                                </View>
-                                {item.table.map((row, rowIndex) => (
-                                    <View key={rowIndex} style={styles.tableRow}>
-                                        {row.map((cell, cellIndex) => (
-                                            <Text key={cellIndex} style={styles.tableCell}>{cell}</Text>
-                                        ))}
-                                    </View>
-                                ))}
-                            </View>
-                        </CardDefault>
-                    ))}
+                    {participioData.examples.map((example, index) => renderExampleCard(example, index))}
                 </View>
+
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game5'); }}>
+                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Module5'); }}>
                         <View style={styles.buttonDefault}>
                             <Text style={styles.buttonText}>Siguiente</Text>
                         </View>

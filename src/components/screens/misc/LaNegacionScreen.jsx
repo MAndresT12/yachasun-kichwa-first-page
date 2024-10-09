@@ -91,7 +91,7 @@ const LaNegacionScreen = () => {
                 </View>
 
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Game2'); }}>
+                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Module2'); }}>
                         <View style={styles.buttonDefault}>
                             <Text style={styles.buttonText}>Siguiente</Text>
                         </View>

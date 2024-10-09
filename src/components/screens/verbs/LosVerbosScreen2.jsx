@@ -1,52 +1,47 @@
 import React from 'react';
-import { View, Text, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../styles/globalStyles'
+import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
+import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 
 const verbData = [
-    { kichwa: "rina", spanish: "ir", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "tikrana", spanish: "regresar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "chayana", spanish: "llegar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "llukshina", spanish: "salir", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "shamuna", spanish: "venir", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kallpana", spanish: "correr", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "rimana", spanish: "hablar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "tapuna", spanish: "preguntar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "pukllana", spanish: "jugar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "hamuktana", spanish: "comprender", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "purina", spanish: "caminar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "rikuna", spanish: "ver, mirar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "mikuna", spanish: "comer", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "uyana", spanish: "oír", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "yuyuna", spanish: "pensar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "llakina", spanish: "querer", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "shina", spanish: "hacer", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "tarpuna", spanish: "sembrar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kawsana", spanish: "vivir", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "yachachina", spanish: "enseñar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "llamkana", spanish: "trabajar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "charina", spanish: "tener", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "sakina", spanish: "dejar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "hapina", spanish: "coger", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "yanapana", spanish: "ayudar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "killkana", spanish: "escribir", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kayana", spanish: "llamar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "kuyana", spanish: "amar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "rantina", spanish: "comprar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "mañana", spanish: "pedir", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "yanuna", spanish: "cocinar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
-    { kichwa: "karana", spanish: "dar", image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg" },
+    { kichwa: "rina", spanish: "ir", image: "https://img.freepik.com/vector-gratis/personaje-dibujos-animados-simple-chico-activo_1308-101456.jpg?semt=ais_hybrid" },
+    { kichwa: "tikrana", spanish: "regresar", image: "https://img.freepik.com/vector-gratis/ninos-cole-felices-saludando_23-2147906118.jpg?semt=ais_hybrid" },
+    { kichwa: "chayana", spanish: "llegar", image: "https://img.freepik.com/psd-gratis/personaje-femenino-3d-llegando-linea-meta_23-2148938910.jpg?semt=ais_hybrid" },
+    { kichwa: "llukshina", spanish: "salir", image: "https://img.freepik.com/vector-gratis/ilustracion-renuncia-dibujada-mano_23-2150336788.jpg?semt=ais_hybrid" },
+    { kichwa: "shamuna", spanish: "venir", image: "https://img.freepik.com/vector-gratis/coleccion-estudiantes-universitarios_23-2148180058.jpg?semt=ais_hybrid" },
+    { kichwa: "kallpana", spanish: "correr", image: "https://img.freepik.com/vector-gratis/etiqueta-engomada-personaje-dibujos-animados-nina-corriendo-sobre-fondo-blanco_1308-79976.jpg?semt=ais_hybrid" },
+    { kichwa: "rimana", spanish: "hablar", image: "https://img.freepik.com/vector-gratis/gente-hablando-telefono_1308-25829.jpg?semt=ais_hybrid" },
+    { kichwa: "tapuna", spanish: "preguntar", image: "https://img.freepik.com/vector-gratis/conjunto-personas-planas-organicas-haciendo-preguntas_23-2148914081.jpg?semt=ais_hybrid" },
+    { kichwa: "pukllana", spanish: "jugar", image: "https://img.freepik.com/vector-gratis/set-dibujado-mano-ninos-colores-jugando_23-2147607325.jpg?semt=ais_hybrid" },
+    { kichwa: "hamuktana", spanish: "comprender", image: "https://img.freepik.com/vector-gratis/ninos-jugando-ipad-bocadillo_1308-100969.jpg?semt=ais_hybrid" },
+    { kichwa: "purina", spanish: "caminar", image: "https://img.freepik.com/vector-gratis/ilustracion-dibujos-animados-caminantes-dibujados-mano_23-2150818427.jpg?semt=ais_hybrid" },
+    { kichwa: "rikuna", spanish: "ver, mirar", image: "https://img.freepik.com/foto-gratis/gente-cine-viendo-pelicula_23-2151005486.jpg?semt=ais_hybrid" },
+    { kichwa: "shina", spanish: "hacer", image: "https://img.freepik.com/vector-gratis/concepto-taller-creativo-bricolaje_23-2148552121.jpg?semt=ais_hybrid" },
+    { kichwa: "tarpuna", spanish: "sembrar", image: "https://img.freepik.com/vector-gratis/agricultor-plantando-pequena-planta-suelo-aislado_1308-135356.jpg?semt=ais_hybrid" },
+    { kichwa: "kawsana", spanish: "vivir", image: "https://img.freepik.com/vector-gratis/dibujos-animados-nina-adolescente_24640-47180.jpg?semt=ais_hybrid" },
+    { kichwa: "yachachina", spanish: "enseñar", image: "https://img.freepik.com/foto-gratis/vista-3d-macho-profesor_23-2150709996.jpg?semt=ais_hybrid" },
+    { kichwa: "llamkana", spanish: "trabajar", image: "https://img.freepik.com/vector-gratis/hombre-negocios-trabajando-oficina_1012-335.jpg?semt=ais_hybrid" },
+    { kichwa: "charina", spanish: "tener", image: "https://img.freepik.com/vector-gratis/ilustracion-regreso-casa-dibujada-mano_23-2149414633.jpg?semt=ais_hybrid" },
+    { kichwa: "sakina", spanish: "dejar", image: "https://img.freepik.com/vector-gratis/juego-cornhole-diseno-plano-dibujado-mano_23-2149285963.jpg?semt=ais_hybrid" },
+    { kichwa: "hapina", spanish: "coger", image: "https://img.freepik.com/vector-gratis/personaje-dibujos-animados-simple-chico-activo_1308-102577.jpg?semt=ais_hybrid" },
+    { kichwa: "yanapana", spanish: "ayudar", image: "https://img.freepik.com/vector-gratis/ilustracion-plana-dia-mundial-humanitario-persona-que-ofrece-apoyo-nino_23-2149459773.jpg?semt=ais_hybrid" },
+    { kichwa: "kayana", spanish: "llamar", image: "https://img.freepik.com/vector-gratis/hombre-negocios-gritando-megafono_23-2147511376.jpg?semt=ais_hybrid" },
+    { kichwa: "rantina", spanish: "comprar", image: "https://img.freepik.com/vector-gratis/gente-dibujada-mano-plana-comprando-venta-ilustracion_23-2148829598.jpg?semt=ais_hybrid" },
+    { kichwa: "mañana", spanish: "pedir", image: "https://img.freepik.com/vector-gratis/adolescente-recibiendo-consejos-cuidado-piel-amigo-solidario_1308-133764.jpg?semt=ais_hybrid" },
+    { kichwa: "yanuna", spanish: "cocinar", image: "https://img.freepik.com/vector-gratis/etiqueta-engomada-personaje-dibujos-animados-chica-chef-cocinando_1308-63960.jpg?semt=ais_hybrid" },
+    { kichwa: "karana", spanish: "dar", image: "https://img.freepik.com/vector-gratis/feliz-nino-nina-regalo_24908-59476.jpg?semt=ais_hybrid" },
 ];
 
 const renderRows = () => {
     return verbData.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
             <View style={localStyles.imageContainer}>
-                <Image source={{ uri: item.image }} style={localStyles.vocabImage} />
+                <ImageContainer uri={item.image} style={localStyles.vocabImage} />
             </View>
+            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
         </View>
     ));
@@ -67,8 +62,8 @@ const LosVerbosScreen2 = () => {
                     <CardDefault title="Imachikkuna">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                                 <Text style={styles.tableHeaderCell}>Imagen</Text>
+                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                                 <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderRows()}

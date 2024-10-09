@@ -1,11 +1,12 @@
-// src/components/ConjugacionTiempoPresenteProgresivo.jsx
-
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
+const { width } = Dimensions.get('window');
 
 const conjugacionData = {
     title: "La conjugación en tiempo presente progresivo",
@@ -20,79 +21,69 @@ const conjugacionData = {
         { subject: "Pay", ending: "kun" },
         { subject: "Ñukanchik", ending: "kunchik" },
         { subject: "Kankuna", ending: "kunkichik" },
-        { subject: "Kiinkuna", ending: "kunkichik" },
+        { subject: "Kikinkuna", ending: "kunkichik" },
         { subject: "Paykuna", ending: "kunkuna" },
     ],
     examples: [
         {
             verb: "Mikuna",
             root: "miku",
-            image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
+            image: "https://img.freepik.com/vector-gratis/nino-feliz-disfrutando-comida_1308-133338.jpg?semt=ais_hybrid",
             conjugations: [
-                { subject: "Ñuka", root: "miku", particle: "ku", ending: "ni", verb: "mikukuni", translation: "Yo estoy comiendo" },
-                { subject: "Kan", root: "miku", particle: "ku", ending: "nki", verb: "mikukunki", translation: "Tú estás comiendo" },
-                { subject: "Kikin", root: "miku", particle: "ku", ending: "nki", verb: "mikukunki", translation: "Usted está comiendo" },
-                { subject: "Pay", root: "miku", particle: "ku", ending: "n", verb: "mikukun", translation: "Él/Ella está comiendo" },
-                { subject: "Ñukanchik", root: "miku", particle: "ku", ending: "nchik", verb: "mikukunchik", translation: "Nosotros estamos comiendo" },
-                { subject: "Kankuna", root: "miku", particle: "ku", ending: "nkichik", verb: "mikukunkichik", translation: "Ustedes están comiendo" },
-                { subject: "Kiinkuna", root: "miku", particle: "ku", ending: "nkichik", verb: "mikukunkichik", translation: "Ustedes están comiendo" },
-                { subject: "Paykuna", root: "miku", particle: "ku", ending: "nkuna", verb: "mikukunkuna", translation: "Ellos/Ellas están comiendo" },
+                { subject: "Ñuka", root: "miku", particle: "ku", ending: "ni", verb: "Ñuka mikukuni", translation: "Yo estoy comiendo" },
+                { subject: "Kan", root: "miku", particle: "ku", ending: "nki", verb: "Kan mikukunki", translation: "Tú estás comiendo" },
+                { subject: "Kikin", root: "miku", particle: "ku", ending: "nki", verb: "Kikin mikukunki", translation: "Usted está comiendo" },
+                { subject: "Pay", root: "miku", particle: "ku", ending: "n", verb: "Pay mikukun", translation: "Él/Ella está comiendo" },
+                { subject: "Ñukanchik", root: "miku", particle: "ku", ending: "nchik", verb: "Ñukanchik mikukunchik", translation: "Nosotros estamos comiendo" },
+                { subject: "Kankuna", root: "miku", particle: "ku", ending: "nkichik", verb: "Kankuna mikukunkichik", translation: "Ustedes están comiendo" },
+                { subject: "Kikinkuna", root: "miku", particle: "ku", ending: "nkichik", verb: "Kikinkuna mikukunkichik", translation: "Ustedes están comiendo" },
+                { subject: "Paykuna", root: "miku", particle: "ku", ending: "nkuna", verb: "Paykuna mikukunkuna", translation: "Ellos/Ellas están comiendo" },
             ],
         },
         {
             verb: "Rimana",
             root: "rima",
-            image: "https://t3.ftcdn.net/jpg/04/19/17/68/360_F_419176802_9s4AoYMfzxDt3kaSYV55whCkTB76NsHN.jpg",
+            image: "https://img.freepik.com/vector-gratis/dibujado-mano-personas-hablando_23-2149067041.jpg?semt=ais_hybrid",
             conjugations: [
-                { subject: "Ñuka", root: "rima", particle: "ku", ending: "ni", verb: "rimakuni", translation: "Yo estoy hablando" },
-                { subject: "Kan", root: "rima", particle: "ku", ending: "nki", verb: "rimakunki", translation: "Tú estás hablando" },
-                { subject: "Kikin", root: "rima", particle: "ku", ending: "nki", verb: "rimakunki", translation: "Usted está hablando" },
-                { subject: "Pay", root: "rima", particle: "ku", ending: "n", verb: "rimakun", translation: "Él/Ella está hablando" },
-                { subject: "Ñukanchik", root: "rima", particle: "ku", ending: "nchik", verb: "rimakunchik", translation: "Nosotros estamos hablando" },
-                { subject: "Kankuna", root: "rima", particle: "ku", ending: "nkichik", verb: "rimakunkichik", translation: "Ustedes están hablando" },
-                { subject: "Kiinkuna", root: "rima", particle: "ku", ending: "nkichik", verb: "rimakunkichik", translation: "Ustedes están hablando" },
-                { subject: "Paykuna", root: "rima", particle: "ku", ending: "nkuna", verb: "rimakunkuna", translation: "Ellos/Ellas están hablando" },
+                { subject: "Ñuka", root: "rima", particle: "ku", ending: "ni", verb: "Ñuka rimakuni", translation: "Yo estoy hablando" },
+                { subject: "Kan", root: "rima", particle: "ku", ending: "nki", verb: "Kan rimakunki", translation: "Tú estás hablando" },
+                { subject: "Kikin", root: "rima", particle: "ku", ending: "nki", verb: "Kikin rimakunki", translation: "Usted está hablando" },
+                { subject: "Pay", root: "rima", particle: "ku", ending: "n", verb: "Pay rimakun", translation: "Él/Ella está hablando" },
+                { subject: "Ñukanchik", root: "rima", particle: "ku", ending: "nchik", verb: "Ñukanchik rimakunchik", translation: "Nosotros estamos hablando" },
+                { subject: "Kankuna", root: "rima", particle: "ku", ending: "nkichik", verb: "Kankuna rimakunkichik", translation: "Ustedes están hablando" },
+                { subject: "Kikinkuna", root: "rima", particle: "ku", ending: "nkichik", verb: "Kikinkuna rimakunkichik", translation: "Ustedes están hablando" },
+                { subject: "Paykuna", root: "rima", particle: "ku", ending: "nkuna", verb: "Paykuna rimakunkuna", translation: "Ellos/Ellas están hablando" },
             ],
         },
     ],
 };
 
-const renderTerminationsRows = () => {
-    return conjugacionData.terminations.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.subject}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.ending}</Text>
-        </View>
-    ));
-};
+// Función para renderizar cada conjugación en un carrusel
+const renderConjugationCard = (conjugation, index) => (
+    <View key={index} style={styles.carouselCard}>
+        <Text style={styles.carouselSubject}>{conjugation.subject}</Text>
+        <Text style={styles.carouselDetail}>Raíz: {conjugation.root}</Text>
+        <Text style={styles.carouselDetail}>Partícula: {conjugation.particle}</Text>
+        <Text style={styles.carouselDetail}>Terminación: {conjugation.ending}</Text>
+        <Text style={styles.carouselDetail}>Verbo conjugado: {conjugation.verb}</Text>
+        <Text style={styles.carouselDetail}>Traducción: {conjugation.translation}</Text>
+    </View>
+);
 
-const renderExamples = (examples) => {
-    return examples.map((example, index) => (
-        <CardDefault key={index} title={example.verb}>
-            <Image source={{ uri: example.image }} style={localStyles.exampleImage} />
-            <View style={styles.vocabularyTable}>
-                <View style={styles.tableHeader}>
-                    <Text style={styles.tableHeaderCell}>Sujeto</Text>
-                    <Text style={styles.tableHeaderCell}>Raíz</Text>
-                    <Text style={styles.tableHeaderCell}>Partícula</Text>
-                    <Text style={styles.tableHeaderCell}>Terminación</Text>
-                    <Text style={styles.tableHeaderCell}>Verbo conjugado</Text>
-                    <Text style={styles.tableHeaderCell}>Traducción</Text>
-                </View>
-                {example.conjugations.map((conjugation, index) => (
-                    <View key={index} style={styles.tableRow}>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.subject}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.root}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.particle}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.ending}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.verb}</Text>
-                        <Text style={[styles.tableCell, localStyles.textCenter]}>{conjugation.translation}</Text>
-                    </View>
-                ))}
-            </View>
-        </CardDefault>
-    ));
-};
+// Función para renderizar los ejemplos con carrusel
+const renderExampleCard = (example, index) => (
+    <CardDefault key={index} title={example.verb}>
+        <Image source={{ uri: example.image }} style={localStyles.exampleImage} />
+        <Carousel
+            width={width * 0.8}
+            height={220}
+            data={example.conjugations}
+            renderItem={({ item, index }) => renderConjugationCard(item, index)}
+            mode="parallax"
+            pagingEnabled={true}
+        />
+    </CardDefault>
+);
 
 const ConjugacionTiempoPresenteProgresivoScreen = () => {
     const navigation = useNavigation();
@@ -109,6 +100,7 @@ const ConjugacionTiempoPresenteProgresivoScreen = () => {
                     <CardDefault title={conjugacionData.subtitle}>
                         <Text style={localStyles.descriptionText}>{conjugacionData.description}</Text>
                     </CardDefault>
+
                     <CardDefault title={conjugacionData.terminationsTitle}>
                         <Text style={localStyles.subtitle}>{conjugacionData.terminationsSubtitle}</Text>
                         <View style={styles.vocabularyTable}>
@@ -116,11 +108,18 @@ const ConjugacionTiempoPresenteProgresivoScreen = () => {
                                 <Text style={styles.tableHeaderCell}>Sujeto</Text>
                                 <Text style={styles.tableHeaderCell}>Terminación</Text>
                             </View>
-                            {renderTerminationsRows()}
+                            {conjugacionData.terminations.map((item, index) => (
+                                <View key={index} style={styles.tableRow}>
+                                    <Text style={[styles.tableCell, localStyles.textCenter]}>{item.subject}</Text>
+                                    <Text style={[styles.tableCell, localStyles.textCenter]}>{item.ending}</Text>
+                                </View>
+                            ))}
                         </View>
                     </CardDefault>
-                    {renderExamples(conjugacionData.examples)}
+
+                    {conjugacionData.examples.map((example, index) => renderExampleCard(example, index))}
                 </View>
+
                 <View style={styles.footer}>
                     <TouchableWithoutFeedback onPress={() => { navigation.navigate('FuturoProximo'); }}>
                         <View style={styles.buttonDefault}>
@@ -147,6 +146,7 @@ const localStyles = StyleSheet.create({
     exampleImage: {
         width: '100%',
         height: 150,
+        resizeMode: 'contain',
         marginVertical: 10,
     },
     textCenter: {
