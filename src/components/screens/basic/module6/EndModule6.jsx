@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
+import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 
 const EndModule2 = ({ route }) => {
     const { score, totalQuestions } = route.params;

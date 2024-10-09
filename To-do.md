@@ -46,6 +46,29 @@
 - Conectar con el Backend
 
 
+### Correcciones con el inge
+- Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa
+- En menu de inicio, poner creditos, la poli, facu, estudiantes y tutor para el título
+- Usar el personaje desde el menu de inicio
+- Debe salir el nombre del usuario al ingresar, en niveles tambien
+- Progreso falta y perfil también
+- En pantalla de inicio que diga hola soy hummu y estoy listo para jogar, aquí una descrpción del Kichwa, una intro al idioma (hacer componente para luego ver cómo poner)
+- Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral
+- Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
+- En losscrollpaths deshabilitar todos los módulos que no sean el primero e ir habilitando según pase los niveles
+- Cuando se aplasta la insignia que diga por qué se desbloqueo y una frase info que se vea bonito
+- Poner el Kichwa en verdey espanol en azul todos los textos.  
+- Definir la paleta de colores de la app, dejar en amarillo y naranja siempre
+- Cambiar a todos los puntos de vida por los trofeos
+- Alfabeto: Redactar mejor, hacer la A a del modal más grande para todo el alfabeto, en el modal, la A a primero, luego pronunciacion, Ejemplo, y imagen. En curiosidades en conoce las vocales (cambiar el título a esto <-) y quitar a, solo es e y o. Redactar mejor las curiosidades.
+- Los numeros: Resaltar más los números (opcional), poner curiosidades para que sepan que combinando salen los números, cómo se dice por ejemplo 421 o algo así, al menos dos ejemplos
+- Colores: Curiosidades, aquí están los colores básico, no existen los colores más complejos, y otra para decir que para decir claro se añade el chawa y el yanaka (buscar que es en diccionario)
+- Juegos: Info ayuda poner varios bubbles de comic para humu
+- End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo
+
+
+
+
 
 Aquí te ayudo con un guion más detallado para el video de introducción y te explico cómo implementar la secuencia de video, pantalla de carga, y navegación hacia la pantalla de inicio de sesión y el home screen.
 
