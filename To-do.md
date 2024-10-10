@@ -55,7 +55,7 @@
 - En pantalla de inicio que diga hola soy hummu y estoy listo para jogar, aquí una descrpción del Kichwa, una intro al idioma (hacer componente para luego ver cómo poner)
 - Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral
 - Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
-- En losscrollpaths deshabilitar todos los módulos que no sean el primero e ir habilitando según pase los niveles
+- En los scrollpaths deshabilitar todos los módulos que no sean el primero e ir habilitando según pase los niveles
 - Cuando se aplasta la insignia que diga por qué se desbloqueo y una frase info que se vea bonito
 - Poner el Kichwa en verdey espanol en azul todos los textos.  
 - Definir la paleta de colores de la app, dejar en amarillo y naranja siempre
