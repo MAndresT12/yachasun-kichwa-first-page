@@ -45,7 +45,6 @@
 - En family poner emojis de género para que se vea mejor la tabla de hermanos
 - Conectar con el Backend
 
-
 ### Correcciones con el inge
 - Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa
 - En menu de inicio, poner creditos, la poli, facu, estudiantes y tutor para el título
@@ -60,11 +59,54 @@
 - Poner el Kichwa en verdey espanol en azul todos los textos.  
 - Definir la paleta de colores de la app, dejar en amarillo y naranja siempre
 - Cambiar a todos los puntos de vida por los trofeos
-- Alfabeto: Redactar mejor, hacer la A a del modal más grande para todo el alfabeto, en el modal, la A a primero, luego pronunciacion, Ejemplo, y imagen. En curiosidades en conoce las vocales (cambiar el título a esto <-) y quitar a, solo es e y o. Redactar mejor las curiosidades.
-- Los numeros: Resaltar más los números (opcional), poner curiosidades para que sepan que combinando salen los números, cómo se dice por ejemplo 421 o algo así, al menos dos ejemplos
-- Colores: Curiosidades, aquí están los colores básico, no existen los colores más complejos, y otra para decir que para decir claro se añade el chawa y el yanaka (buscar que es en diccionario)
-- Juegos: Info ayuda poner varios bubbles de comic para humu
-- End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo
+-Las insignias colocar al final despues de la evaluacion y colocar Modulo X al inicio de los temas modulos.
+-Seguir logica de curiosidades colocar "curiosidades", los saludos part 1 (colocar que en esta ciudad hay hablantes del idioma conlo sque puedes practicar), colocar dentro de acordeon siempre alinicio curiosidades
+-saludos parte 2 colocar flecha al jalar el humu
+-en pantallas (por ejemplo pronombres personales) colocar en card vamos a aprender verbo kana etc, y asi para otras paginas que lo requieran.
+-Pag pronombres personales (pay el/ella) PARRAFO de verbo kana solo hasta ser o estar, en tarjetas cambiar por tabla., cambiar titulo "algo lindo de los apellidos"
+-Logica primero español luego kichwa
+-Pagina La familia parte 1 (redactar mejor) yo mucho amo
+-adaptar juegos de basicos
+-En levels En lugar de la familia parte 1, colocar solo familia
+-En levels colocar bien las traducciones de modulos etc
+-Dar titulos a modulos (familia, verbos, varios, etc)
+-MODULO 3
+- FAMILIA P2 colocar pachamama entre parentesis el significado (madre tierra)
+-En lugar de cargas en pag partes del cuerpo (colocar tab, la imagen español kichwa), curriosidad rkopa de ellos tradicional es costosa.
+-Pantalla cosas de la casa (la casa dif, una choza)
+-En pantalla de creditos inicial colocar los links de los libros
+-Pantalla Aula la data de los cards esta igual a la de cosas de la casa toca cambiarle bien.
+-AGREGAR EN PANTALLA UN BOTON QUE DIRIJA AL INICIO (CAMINO LEVELS)
+-Pagina La Naturaleza en la tabla colocar imagenes que correspondan.
+-Página Los Alimentos (colocar imagenes en las frutas etc).
+-Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa
+-Paginalos animales (como que para comer=?????)
+-Pagina la plurización eliminar en kichwa la descripcion
+-Pagina el genero redundante femenio o masculino desc, tambien tabla masculino/femenino debe haber ambas, colocar mensaje de girar la card masc fem
+-Página la cantidad, colocar español kichwa e imagenes
+-Pagina Tamaño la card de descripcion esta mal habla de familia, en ejemplos en lugar de conversación solo como frases separadas, oraciones, tildes en algunas cards.
+-Pagina la conjugacion en tiempo eliminar chat, solo frases
+
+-INTERMEDIO
+Las frases como que el muñeco te habla, colocar el componente del boton siguiente, maneras de introducir el personaje en pantallas, boton juegos y temas, CARD INTRODUCTORIA DEL HUMU hablando que vamos a aprender etc, poner recordar infinitivos terminan con na (paginas de verbos por ejme0lo)
+-Modulo 1
+-Pagina los numeros, poner tilde en el nav de regresar, los colores y colocar español primero luego kichwa, y poner curiosidades.
+-Página Los alimentos en lugar de spanish español y ver lo de kichwa primero o español, card introductoria.
+-Pagina lasparticulasen kichwa parte 1, Colocar card que se gira (santi) para en kichwa y luego en kichwa.
+-Juego en frases en lugar de traduccion poner español, juego de emparejar (igual), boton de siguiente en juegos, en ultimo juego poner en boton siguiente juego solo siguiente porque ya pasa a evaluacion.
+-Pantalla evaluacion el boton siguiente ir a camino levels.
+-En juegos colocar que cuando ganas humu feliz y cuando pierdes triste.
+-MODULO 2
+-Pantalla las particulas en kichwa parte2, colocar kichwa y español (para las frases ), curiosidad como alguna frase simple ejemplo.
+-Por ejemplo en Página La Negación, separar en los contenidos y ejemplos comosanti primero la descripcion y luego ejemplos.
+-En pantallas ver tíldes.
+-Página Los verbos agregar al muñeco. (ver interacciones del santi) agregar tankana (al verbo tanka).
+
+-MODULO 4 
+-TituloImachikkuna poner en español.
+
+-Modulo 5
+-Curiosidades
 
 
 
