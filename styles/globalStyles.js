@@ -196,7 +196,7 @@ export const styles = StyleSheet.create({
         padding: 10,
     },
     pronunciation: {
-        fontSize: 18,
+        fontSize: 20,
         marginBottom: 10,
     },
     translationContainer: {
@@ -205,12 +205,13 @@ export const styles = StyleSheet.create({
         width: '100%',
         marginBottom: 20,
     },
+
     kichwaText: {
-        fontSize: 16,
+        fontSize: 20,
         color: 'green',
     },
     spanishText: {
-        fontSize: 16,
+        fontSize: 20,
         color: 'blue',
     },
 
@@ -934,5 +935,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         perspective: 1000,
+    },
+
+    titleAlphabet: {
+        fontSize: 50,
+        fontWeight: 'bold',
     },
 });

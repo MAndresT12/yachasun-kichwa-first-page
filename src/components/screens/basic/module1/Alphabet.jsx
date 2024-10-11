@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
-import { cardStyles } from '../../../../../styles/cardStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
@@ -143,26 +142,26 @@ const alphabet_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'Curiosidades del alfabeto Kichwa',
+        title: 'Curiosidades - El increíble alfabeto Kichwa',
         text: 'Sabías que en el alfabeto Kichwa existen solamente 3 vocales: a, i, u; y 17 consonantes. ¡Increíble!',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
     {
         key: '2',
-        title: '¡Conoce a las vocales!',
-        text: 'Tal vez no sabías que a e y o no se utilizan en el idioma kichwa.',
+        title: 'Curiosidades - ¡Conoce a las vocales!',
+        text: 'Si te diste cuenta la e y o no se utilizan en el idioma Kichwa.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
     {
         key: '3',
-        title: 'Veámos que se dice de las consonantes',
+        title: 'Reglas - Veámos que se dice de las consonantes',
         text: 'Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
         imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
     },
 ];
 
 const Alphabet = () => {
-    const progress = 0.25;
+    const progress = 1 / 6;
 
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedLetter, setSelectedLetter] = useState(null);
@@ -203,9 +202,13 @@ const Alphabet = () => {
                 <View style={styles.body}>
                     <CardDefault title="La escritura en Kichwa" >
                         <Text style={styles.cardContent}>
-                            El Kichwa no tiene una escritura estandarizada definida por todas las regiones.
-                            Pero juntos usaremos el alfabeto en español.{"\n\n"}
-                            Conocerás el alfabeto en Kichwa usando ejemplos en español. ¿Listo para aprender?
+                            ¡Bienvenidos mis amigos! Comenzamos nuestra gran aventura.{"\n\n"}
+                            Antes de comenzar con todas nuestras lecciones del nivel básico,
+                            es importante conocer el alfabeto en Kichwa. En Ecuador, aunque no
+                            existe una escritura estandarizada del Kichwa para todas las regiones,
+                            utilizaremos el alfabeto en Español como referencia.{"\n\n"}
+                            Aprenderás el alfabeto en Kichwa a través de ejemplos en Español.
+                            ¿Estás listo para comenzar?
                         </Text>
                     </CardDefault>
                     <View style={styles.gridContainer}>
@@ -280,13 +283,13 @@ const Alphabet = () => {
                     >
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
-                                <Text style={styles.title}>{selectedLetter.letters}</Text>
-                                <ImageContainer uri={selectedLetter.imageExample} style={styles.imageModal} />
+                                <Text style={styles.titleAlphabet}>{selectedLetter.letters}</Text>
                                 <Text style={styles.pronunciation}>Pronunciación: {selectedLetter.pronunciation}</Text>
                                 <View style={styles.translationContainer}>
-                                    <Text style={styles.kichwaText}>Kichwa: {selectedLetter.kichwa}</Text>
                                     <Text style={styles.spanishText}>Español: {selectedLetter.spanish}</Text>
+                                    <Text style={styles.kichwaText}>Kichwa: {selectedLetter.kichwa}</Text>
                                 </View>
+                                <ImageContainer uri={selectedLetter.imageExample} style={styles.imageModal} />
                                 <View style={styles.buttonContainerAlphabet}>
                                     <TouchableOpacity onPress={() => setModalVisible(false)}>
                                         <View style={styles.buttonDefaultAlphabet}>
