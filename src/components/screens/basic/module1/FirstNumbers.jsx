@@ -9,6 +9,7 @@ import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const images = {
     number0: require('../../../../../assets/images/basic/module1/numbers/number0.png'),
@@ -141,6 +142,8 @@ const FlipCard = ({ item }) => {
 };
 
 const FirstNumbers = () => {
+    const progress = 1/6;
+
     const [showHelp, setShowHelp] = useState(null);
 
     const navigation = useNavigation();
@@ -154,10 +157,7 @@ const FirstNumbers = () => {
             <StatusBar barStyle="default" backgroundColor="#003366" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los Primeros Números</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>

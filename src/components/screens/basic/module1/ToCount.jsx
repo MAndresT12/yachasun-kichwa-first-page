@@ -5,6 +5,7 @@ import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const { width } = Dimensions.get('window');
 
@@ -72,6 +73,8 @@ const ElevenTo20Route = () => (
 );
 
 const ToCount = () => {
+    const progress = 1/6;
+
     const navigation = useNavigation();
 
     const [index, setIndex] = useState(0);
@@ -90,10 +93,7 @@ const ToCount = () => {
             <StatusBar barStyle="default" backgroundColor="#003366" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los Números Ordinales</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.body}>
                     <CardDefault title="¿Cómo se hace?" >

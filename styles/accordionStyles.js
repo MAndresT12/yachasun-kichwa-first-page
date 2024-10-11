@@ -7,7 +7,6 @@ export const accordionStyles = StyleSheet.create({
         borderRadius: 8,
         backgroundColor: 'white',
         marginBottom: '2%',
-        overflow: 'hidden',
     },
     textTitle: {
         fontSize: 16,
