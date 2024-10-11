@@ -7,6 +7,7 @@ import ImageWordMatchGame from '../ui/ImageWordMatchGame';
 import JuegoCompletarFrases from '../ui/JuegoCompletarFrases';
 import RuletaGame from '../ui/RuletaGame';
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 
@@ -15,19 +16,19 @@ const sentenceDataModule6 = [
     {
         sentenceParts: ["Ñuka ", ""],
         correctWords: ["karakurkani"],
-        options: ["karakurkani", "mikukurkanki", "karakurka"],
+        options: ["Pay", "mikukurkanki", "karakurka"],
         translation: "Yo estaba dando",
     },
     {
         sentenceParts: ["Kankuna ", ""],
         correctWords: ["karakurkankichik"],
-        options: ["Pay", "karakurkankichik", "karakurkani"],
+        options: ["pay", "karakurkankichik", "kan"],
         translation: "Ustedes estaban dando",
     },
     {
         sentenceParts: ["Kan ", ""],
         correctWords: ["mikukurkanki"],
-        options: ["shamusha", "mikukurkanki", "Ñukanchik"],
+        options: ["ñuka", "mikukurkanki", "Ñukanchik"],
         translation: "Tú estabas comiendo",
     },
     {
@@ -72,9 +73,11 @@ const Module6 = () => {
     ];
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.container}>
             {games[currentGame]}
-        </View>
+        </LinearGradient>
     );
 };
 
@@ -83,7 +86,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#18a7ac',
     },
 });
 

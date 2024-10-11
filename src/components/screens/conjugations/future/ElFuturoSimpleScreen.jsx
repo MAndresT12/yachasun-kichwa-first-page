@@ -6,6 +6,8 @@ import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
 
@@ -77,7 +79,10 @@ const ElFuturoSimpleScreen = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
 
             <ScrollView>
                 <View style={styles.header}>
@@ -101,14 +106,12 @@ const ElFuturoSimpleScreen = () => {
                     />
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Evaluation5'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('IntroduccionJuegosScreen6')} />
+
                 </View>
             </ScrollView >
-        </View>
+        </LinearGradient>
     );
 };
 

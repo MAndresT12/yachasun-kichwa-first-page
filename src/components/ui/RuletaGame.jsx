@@ -7,7 +7,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { ComicBubble } from './bubbles/ComicBubble';
 import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
-
+import { ButtonDefault } from './buttons/ButtonDefault';
 
 const RuletaGame = ({ data, onNext, helpText }) => {
     const [selectedWord, setSelectedWord] = useState(null);
@@ -146,11 +146,8 @@ const RuletaGame = ({ data, onNext, helpText }) => {
                 </Modal>
                 {showNextButton && (
                     <View style={styles.buttonContainerAlphabet}>
-                        <TouchableOpacity onPress={onNext}>
-                            <View style={styles.buttonDefaultAlphabet}>
-                                <Text style={styles.buttonTextAlphabet}>Siguiente juego</Text>
-                            </View>
-                        </TouchableOpacity>
+                        <ButtonDefault label="Siguiente" onPress={onNext} />
+
                     </View>
                 )}
 

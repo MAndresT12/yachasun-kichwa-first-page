@@ -6,7 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
-
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { LinearGradient } from 'expo-linear-gradient';
 const timeVocabulary = [
     { kichwa: "puncha", spanish: "día" },
     { kichwa: "hunkay", spanish: "semana" },
@@ -63,7 +64,10 @@ const VocabularioElTiempoScreen = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
@@ -99,14 +103,12 @@ const VocabularioElTiempoScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('ElPasadoSimple'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ElPasadoSimple')} />
+
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

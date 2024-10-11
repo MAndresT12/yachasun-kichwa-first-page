@@ -5,7 +5,8 @@ import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
-
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { LinearGradient } from 'expo-linear-gradient';
 const adjectives = [
     { kichwa: "ruku", spanish: "viejo (personas)", image: "https://img.freepik.com/vector-gratis/lindo-personaje-dibujos-animados-abuelos_1308-135128.jpg?semt=ais_hybrid" },
     { kichwa: "maltun", spanish: "joven", image: "https://img.freepik.com/vector-gratis/muchacho-lindo-ejemplo-icono-vector-historieta-signo-paz-concepto-icono-moda-personas-aislado-vector-premium-estilo-dibujos-animados-plana_138676-3946.jpg?semt=ais_hybrid" },
@@ -59,7 +60,10 @@ const LosAdjetivosScreen2 = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
@@ -71,7 +75,7 @@ const LosAdjetivosScreen2 = () => {
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Imagen</Text>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Spanish</Text>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
                             </View>
                             {renderAdjectiveRows()}
                         </View>
@@ -81,21 +85,19 @@ const LosAdjetivosScreen2 = () => {
                             <View style={styles.tableHeader}>
                                 <Text style={styles.tableHeaderCell}>Imagen</Text>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Spanish</Text>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
                             </View>
                             {renderDescriptionRows()}
                         </View>
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('ElDormitorio'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ElDormitorio')} />
+
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

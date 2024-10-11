@@ -1,8 +1,11 @@
 // src/components/Main.jsx
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, StatusBar, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
+import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonDefault } from '../ui/buttons/ButtonDefault';
+
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { CardDefault } from '../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../headers/ProgressCircleWithTophies';
@@ -62,7 +65,9 @@ const Main = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+        >
             <StatusBar barStyle="default" backgroundColor="#5B4D28" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
@@ -79,16 +84,14 @@ const Main = () => {
                     </View>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Food'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Food')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
+
+
 
 export default Main;
 

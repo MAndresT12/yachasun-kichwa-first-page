@@ -7,6 +7,8 @@ import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { LinearGradient } from 'expo-linear-gradient';
 const kitchenVocabulary = [
     { kichwa: "wisha", spanish: "cuchara", image: "https://img.freepik.com/vector-gratis/diseno-etiqueta-equipo-cocina-cuchara-madera-aislado_1308-77190.jpg?semt=ais_hybrid" },
     { kichwa: "kisa", spanish: "olla grande de barro", image: "https://img.freepik.com/vector-gratis/dibujado-mano-deliciosa-ilustracion-locro_23-2149206072.jpg?semt=ais_hybrid" },
@@ -66,7 +68,10 @@ const VocabularioLaCocinaScreen = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
@@ -94,14 +99,12 @@ const VocabularioLaCocinaScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('LosVerbos2'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosVerbos2')} />
+
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

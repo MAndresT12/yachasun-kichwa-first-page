@@ -7,7 +7,7 @@ import { styles } from '../../../styles/globalStyles';
 import { ComicBubble } from './bubbles/ComicBubble';
 import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
-
+import { ButtonDefault } from './buttons/ButtonDefault';
 // Función para generar un color aleatorio claro
 const getRandomLightColor = () => {
     const r = Math.floor(Math.random() * 156) + 100; // Valores entre 100 y 255 para asegurar que el color sea claro
@@ -179,9 +179,8 @@ const ImageWordMatchGame = ({ data, onNext, helpText }) => {
                 </View>
             </Modal>
             {showNextButton && (
-                <TouchableOpacity style={stylesGame.nextButton} onPress={onNext}>
-                    <Text style={stylesGame.nextButtonText}>Siguiente</Text>
-                </TouchableOpacity>
+                <ButtonDefault label="Siguiente" onPress={onNext} />
+
             )}
             {showConfetti && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} fadeOut />}
         </ScrollView>
@@ -194,7 +193,7 @@ const stylesGame = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 15,
-        backgroundColor: '#18a7ac',
+        // backgroundColor: '#18a7ac',
     },
     titleContainer: {
         position: 'relative',  // Permite que el icono esté en posición absoluta respecto al contenedor

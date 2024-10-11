@@ -4,8 +4,9 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Modal, Ima
 import { FontAwesome } from '@expo/vector-icons';
 import DraggableWord from '../customs/DraggableWord';
 import ConfettiCannon from 'react-native-confetti-cannon';
-
-
+import { LinearGradient } from 'expo-linear-gradient';
+import { styles as globalStyles } from '../../../styles/globalStyles';
+import { ButtonDefault } from './buttons/ButtonDefault';
 
 const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
     const [currentSentenceIndex, setCurrentSentenceIndex] = useState(Math.floor(Math.random() * data.length));
@@ -35,60 +36,63 @@ const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
     };
 
     return (
-        <ScrollView contentContainerStyle={styles.container}>
-            <TouchableOpacity style={styles.helpIcon} onPress={() => setShowHelp(true)}>
-                <FontAwesome name="question-circle" size={40} color="#fff" />
-            </TouchableOpacity>
-
-            <Text style={styles.title}>Completa la frase en Kichwa</Text>
-            <Text style={styles.translation}>Traducción: {currentSentence.translation}</Text>
-
-            <View style={styles.sentenceContainer}>
-                <Text style={styles.sentence}>
-                    {currentSentence.sentenceParts[0]}
-                    <View style={styles.dropZone}>
-                        <Text>{selectedWord ? selectedWord : "_"}</Text>
-                    </View>
-                    {currentSentence.sentenceParts[1]}
-                </Text>
-            </View>
-
-            <View style={styles.optionsContainer}>
-                {currentSentence.options.map((word, index) => (
-                    <DraggableWord key={index} word={word} onDrop={handleDrop} />
-                ))}
-            </View>
-
-            {showConfetti && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} fadeOut />}
-
-            {showNextButton && (
-                <TouchableOpacity style={styles.nextButton} onPress={onNext}>
-                    <Text style={styles.nextButtonText}>Siguiente</Text>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+        >
+            <ScrollView contentContainerStyle={styles.container}>
+                <TouchableOpacity style={styles.helpIcon} onPress={() => setShowHelp(true)}>
+                    <FontAwesome name="question-circle" size={40} color="#fff" />
                 </TouchableOpacity>
-            )}
 
-            <TouchableOpacity style={styles.restartButton} onPress={handleRestart}>
-                <Text style={styles.restartButtonText}>Reiniciar</Text>
-            </TouchableOpacity>
+                <Text style={styles.title}>Completa la frase en Kichwa</Text>
+                <Text style={styles.translation}>Traducción: {currentSentence.translation}</Text>
 
-            {/* Modal de ayuda */}
-            <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
-                <View style={styles.modalContainer}>
-                    <View style={styles.modalContent}>
-                        <View style={styles.contentContainer}>
-                            <Image source={require('../../../assets/images/humu/humu-talking.png')} style={styles.image} />
-                            <View style={styles.speechBubble}>
-                                <Text style={styles.bubbleText}>{helpText}</Text>
-                                <View style={styles.bubbleTail} />
-                            </View>
+                <View style={styles.sentenceContainer}>
+                    <Text style={styles.sentence}>
+                        {currentSentence.sentenceParts[0]}
+                        <View style={styles.dropZone}>
+                            <Text>{selectedWord ? selectedWord : "_"}</Text>
                         </View>
-                        <TouchableOpacity onPress={() => setShowHelp(false)}>
-                            <Text style={styles.closeButtonText}>Cerrar</Text>
-                        </TouchableOpacity>
-                    </View>
+                        {currentSentence.sentenceParts[1]}
+                    </Text>
                 </View>
-            </Modal>
-        </ScrollView>
+
+                <View style={styles.optionsContainer}>
+                    {currentSentence.options.map((word, index) => (
+                        <DraggableWord key={index} word={word} onDrop={handleDrop} />
+                    ))}
+                </View>
+
+                {showConfetti && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} fadeOut />}
+
+                {showNextButton && (
+                    <ButtonDefault label="Siguiente" onPress={onNext} />
+
+                )}
+
+                <TouchableOpacity style={styles.restartButton} onPress={handleRestart}>
+                    <Text style={styles.restartButtonText}>Reiniciar</Text>
+                </TouchableOpacity>
+
+                {/* Modal de ayuda */}
+                <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
+                    <View style={styles.modalContainer}>
+                        <View style={styles.modalContent}>
+                            <View style={styles.contentContainer}>
+                                <Image source={require('../../../assets/images/humu/humu-talking.png')} style={styles.image} />
+                                <View style={styles.speechBubble}>
+                                    <Text style={styles.bubbleText}>{helpText}</Text>
+                                    <View style={styles.bubbleTail} />
+                                </View>
+                            </View>
+                            <TouchableOpacity onPress={() => setShowHelp(false)}>
+                                <Text style={styles.closeButtonText}>Cerrar</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </Modal>
+            </ScrollView>
+        </LinearGradient>
     );
 };
 
@@ -98,7 +102,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#18a7ac',
+        // backgroundColor: '#18a7ac',
     },
     title: {
         fontSize: 24,

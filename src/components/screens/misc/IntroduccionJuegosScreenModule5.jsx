@@ -4,7 +4,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles as globalStyles } from '../../../../styles/globalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
-
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 const IntroduccionJuegoScreenModule5 = () => {
     const navigation = useNavigation();
 
@@ -34,11 +34,8 @@ const IntroduccionJuegoScreenModule5 = () => {
             </View>
 
             <View style={globalStyles.footer}>
-                <TouchableOpacity onPress={() => navigation.navigate('Module5')}>
-                    <View style={globalStyles.buttonDefault}>
-                        <Text style={globalStyles.buttonText}>Siguiente</Text>
-                    </View>
-                </TouchableOpacity>
+                <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Module5')} />
+
             </View>
         </LinearGradient>
     );

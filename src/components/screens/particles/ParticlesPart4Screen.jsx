@@ -4,6 +4,8 @@ import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { LinearGradient } from 'expo-linear-gradient';
 
 // Data para la pantalla de partículas parte 4
 const particlesPart4Data = {
@@ -49,7 +51,10 @@ const ParticlesPart4Screen = () => {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={particlesPart4Data.progress} level={particlesPart4Data.level} />
@@ -65,14 +70,12 @@ const ParticlesPart4Screen = () => {
                 </View>
 
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('LaNegacion'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LaNegacion')} />
+
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

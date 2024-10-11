@@ -8,7 +8,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { ComicBubble } from './bubbles/ComicBubble';
 import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
-
+import { ButtonDefault } from './buttons/ButtonDefault';
 const HangmanGame = ({ words, onNext, helpText }) => {
     const navigation = useNavigation();
 
@@ -137,11 +137,8 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                 {showConfetti && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} fadeOut />}
                 {gameWon && (
                     <View>
-                        <TouchableWithoutFeedback onPress={onNext}>
-                            <View style={styles.buttonDefault}>
-                                <Text style={styles.buttonText}>Siguiente</Text>
-                            </View>
-                        </TouchableWithoutFeedback>
+                        <ButtonDefault label="Siguiente" onPress={onNext} />
+
                     </View>
                 )}
             </View>
@@ -155,7 +152,7 @@ const stylesHangman = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#18a7ac',
+        // backgroundColor: '#18a7ac',
     },
     title: {
         fontSize: 24,

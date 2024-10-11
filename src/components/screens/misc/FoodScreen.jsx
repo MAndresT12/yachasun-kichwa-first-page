@@ -2,7 +2,8 @@
 import React from 'react';
 import { Text, View, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
@@ -51,7 +52,10 @@ const FoodScreen = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
@@ -70,14 +74,10 @@ const FoodScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Animals'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Animals')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 }
 

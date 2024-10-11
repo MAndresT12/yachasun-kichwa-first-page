@@ -101,6 +101,7 @@ import EvaluationScreen2 from './src/components/screens/evaluations/EvaluationSc
 
 //Module 3 Intermedio
 import LosVerbosScreen1 from './src/components/screens/verbs/LosVerbosScreen1.jsx';
+//Arreglar el carousel
 import LosVerbosConjugacionesScreen1 from './src/components/screens/verbs/LosVerbosConjugacionesScreen1.jsx';
 import LosAdjetivosScreen1 from './src/components/screens/adjectives/LosAdjetivosScreen1.jsx';
 import VocabularioLaCiudadScreen from './src/components/screens/vocabulary/VocabularioLaCiudadScreen.jsx';
@@ -231,7 +232,7 @@ function HomeStack() {
         headerStyle: { backgroundColor: '#003366' }, //5B4D28
         headerTintColor: '#fff',
         headerTitleStyle: { fontWeight: 'bold' },
-        cardStyle: { backgroundColor: '#9FC516' },
+        // cardStyle: { backgroundColor: '#9FC516' },
       }}
     >
       <Stack.Screen

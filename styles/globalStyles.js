@@ -3,14 +3,18 @@ import { StyleSheet, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
+    gradient: {
+        flex: 1, // El gradiente debe ocupar toda la pantalla
+    },
     container: {
         flex: 1,
-        backgroundColor: '#52bcd6', //E0F7FA antes 18a7ac
+        // backgroundColor: '#52bcd6', //E0F7FA antes 18a7ac
         justifyContent: 'center',
         // alignItems: 'center',
     },
     scrollView: {
         flexGrow: 1,
+
     },
     header: {
         // backgroundColor: '#223bb8',

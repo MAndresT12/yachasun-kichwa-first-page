@@ -6,7 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles'
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
-
+import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 const verbData = [
     { kichwa: "killkakatina", spanish: "leer", image: "https://img.freepik.com/vector-gratis/dibujado-mano-ilustracion-dia-mundial-libro_23-2148871666.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1728259200&semt=ais_hybrid" },
     { kichwa: "killkana", spanish: "escribir", image: "https://img.freepik.com/vector-gratis/etiqueta-engomada-personaje-dibujos-animados-nina-escribiendo-papel-blanco_1308-67895.jpg?semt=ais_hybrid" },
@@ -63,7 +64,10 @@ const LosVerbosScreen1 = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
@@ -82,14 +86,11 @@ const LosVerbosScreen1 = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('LosVerbosConjugaciones1'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosVerbosConjugaciones1')} />
+
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

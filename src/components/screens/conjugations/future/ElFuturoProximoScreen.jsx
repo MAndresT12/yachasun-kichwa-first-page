@@ -7,7 +7,8 @@ import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 const { width } = Dimensions.get('window');
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
-
+import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const futuroProximoData = {
     title: "El futuro próximo",
@@ -79,7 +80,10 @@ const ElFuturoProximoScreen = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
@@ -102,14 +106,12 @@ const ElFuturoProximoScreen = () => {
                 </View>
 
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('FuturoSimple'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FuturoSimple')} />
+
                 </View>
             </ScrollView >
-        </View >
+        </LinearGradient >
     );
 };
 

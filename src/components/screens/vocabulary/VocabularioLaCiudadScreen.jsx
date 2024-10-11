@@ -7,7 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
-
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { LinearGradient } from 'expo-linear-gradient';
 const cityVocabulary = [
     { kichwa: "antawa", spanish: "carro, camioneta", image: "https://img.freepik.com/vector-gratis/coche-sedan-rojo-estilo-dibujos-animados-aislado-sobre-fondo-blanco_1308-64900.jpg?t=st=1728411182~exp=1728414782~hmac=d4c27ae2915397cacd5cb9cfc3f0176513598eadf3d66133eb85500614c8461a&w=1380" },
     { kichwa: "antanka", spanish: "avión", image: "https://img.freepik.com/vector-gratis/feliz-avion-dibujos-animados-listo-despegue_1308-165126.jpg?t=st=1728411214~exp=1728414814~hmac=b9fc8416fe0437121d0731884195cb0cd60bd09babed7830ed08c327496a9794&w=1380" },
@@ -43,7 +44,10 @@ const VocabularioLaCiudadScreen = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
@@ -62,14 +66,12 @@ const VocabularioLaCiudadScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Module3'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Module3')} />
+
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 }
 

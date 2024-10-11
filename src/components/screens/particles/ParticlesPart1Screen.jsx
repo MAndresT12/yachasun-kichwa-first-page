@@ -6,7 +6,8 @@ import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
-
+import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 // Data para la pantalla de partículas parte 1
 const particlesData = {
     header: "Las Partículas en Kichwa Parte 1",
@@ -114,7 +115,10 @@ const ParticlesPart1Screen = () => {
     const progress = 0.75;
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
@@ -136,14 +140,10 @@ const ParticlesPart1Screen = () => {
                 </View>
 
                 <View style={styles.footer}>
-                    <TouchableWithoutFeedback onPress={() => { navigation.navigate('Module1'); }}>
-                        <View style={styles.buttonDefault}>
-                            <Text style={styles.buttonText}>Siguiente</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('IntroduccionJuegosScreen1')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

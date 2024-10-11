@@ -4,13 +4,17 @@ import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
-
+import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 const EvaluationScreen1 = ({ route }) => {
     const { score, totalQuestions } = route.params;
     const navigation = useNavigation();
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <Text style={styles.titleTema}>Evaluación Final</Text>
@@ -24,21 +28,13 @@ const EvaluationScreen1 = ({ route }) => {
                             Puntuación: {score} / {totalQuestions}
                         </Text>
                     </View>
-                    <TouchableOpacity
-                        style={localStyles.button}
-                        onPress={() => navigation.navigate('Main')}
-                    >
-                        <Text style={localStyles.buttonText}>Volver al Inicio</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={localStyles.button}
-                        onPress={() => navigation.navigate('ParticlesPart2')}
-                    >
-                        <Text style={localStyles.buttonText}>Siguiente</Text>
-                    </TouchableOpacity>
+                    <ButtonDefault label="Volver al inicio" onPress={() => navigation.navigate('CaminoLevels')} />
+
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ParticlesPart2')} />
+
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

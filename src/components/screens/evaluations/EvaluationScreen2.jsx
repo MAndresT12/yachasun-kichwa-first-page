@@ -4,7 +4,7 @@ import React from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
-
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 const EvaluationScreen2 = ({ route }) => {
     const { score, totalQuestions } = route.params;
     const navigation = useNavigation();
@@ -22,18 +22,10 @@ const EvaluationScreen2 = ({ route }) => {
                             Puntuación: {score} / {totalQuestions}
                         </Text>
                     </View>
-                    <TouchableOpacity
-                        style={localStyles.button}
-                        onPress={() => navigation.navigate('Main')}
-                    >
-                        <Text style={localStyles.buttonText}>Volver al Inicio</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={localStyles.button}
-                        onPress={() => navigation.navigate('LosVerbos1')}
-                    >
-                        <Text style={localStyles.buttonText}>Siguiente</Text>
-                    </TouchableOpacity>
+                    <ButtonDefault label="Volver al inicio" onPress={() => navigation.navigate('CaminoLevels')} />
+
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosVerbos1')} />
+
                 </View>
             </ScrollView>
         </View>

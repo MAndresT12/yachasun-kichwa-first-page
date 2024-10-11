@@ -8,7 +8,7 @@ import { styles } from '../../../styles/globalStyles';
 import { ComicBubble } from './bubbles/ComicBubble';
 import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
-
+import { ButtonDefault } from './buttons/ButtonDefault';
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
 const Card = ({ card, isFlipped, onPress }) => {
@@ -140,11 +140,8 @@ const MatchGame = ({ data, onNext, helpText }) => {
             </Modal>
             {showNextButton && (
                 <View style={styles.buttonContainerAlphabet}>
-                    <TouchableOpacity onPress={onNext}>
-                        <View style={styles.buttonDefaultAlphabet}>
-                            <Text style={styles.buttonTextAlphabet}>Siguiente juego</Text>
-                        </View>
-                    </TouchableOpacity>
+                    <ButtonDefault label="Siguiente" onPress={onNext} />
+
                 </View>
                 // <TouchableOpacity style={stylesMatch.nextButton} onPress={onNext}>
                 //     <Text style={stylesMatch.nextButtonText}>Siguiente</Text>
@@ -161,7 +158,7 @@ const stylesMatch = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#18a7ac',
+        // backgroundColor: '#18a7ac',
     },
     title: {
         fontSize: 24,

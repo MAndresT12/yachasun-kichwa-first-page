@@ -7,6 +7,8 @@ import ImageWordMatchGame from '../ui/ImageWordMatchGame';
 import JuegoCompletarFrases from '../ui/JuegoCompletarFrases';
 import RuletaGame from '../ui/RuletaGame';
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
+
 const ahorcadoDataModule3 = [
     { word: 'chaka', translation: 'Puente' },
     { word: 'antawa', translation: 'Carro, camioneta' },
@@ -98,9 +100,11 @@ const Module3 = () => {
     ];
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.container}>
             {games[currentGame]}
-        </View>
+        </LinearGradient>
     );
 };
 
@@ -109,7 +113,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#18a7ac',
     },
 });
 
