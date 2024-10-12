@@ -23,29 +23,28 @@
 - Poner tablas en componente de tabs o pestañas [x]
 - La paleta de colores como una mancha de pintura envez de un cuadrado [x]
 - Completar contenido [x]
+- Poner animaciones a las letras o cambiar el font, poner diseño en las cards [x]
+- Completar lecciones y juegos para modulos 2 al 6 [x]
+
+
+
 - Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe..... [Mejorar_faltan_animaciones]
-- imagenes animadas un estadar, si vamos a usar ai el mismo prompt [Mejorar]
-- Poner animaciones a las letras o cambiar el font, poner diseño en las cards [Mejorar]
-- Completar el contenido [X]
-- Empezar a incorporar el personaje, añadir a los juegos cuando te equivocas y eso [Continuar_Otros_Modulos]
-- Hay que poner Text bubles en todos los elementos donde aparezca humu y los signos de interrogación [Continuar_Demas_Juegos_Milton]
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo) [Mejorar]
-- Completar lecciones y juegos para modulos 2 al 6
+
+
+
 - Configuracion en el Home Screen y icono de config en toda la app (quitar volumen porque no sirve y poner otra cosa)
-- Letras de colores animadas y más grandes y que las letras no sean arcoíris. (hablarlo con los demás)
 - Cuando emparejas algo suena cómo se pronuncia (juegos)
 - Poner la animación de palpitar para humu en saludos parte 2 y family part 2 además hay que bloquear a humu cuando se hace el flip al front porque se queda ahí y se pudre
 - Hacer animales con sonidos
-- Problemas con implementar el carousel no permite estar antes de algún otro elemento
-- En cosas de la casa poner un carrusel en vez de flip cards
-- Poner los mismo colores del texto de kichwa-español, se quita el título en kichwa y se hace más grande el texto de traduccion
-- Puntos y vidas no está implementado, en vez de puntos y vidas que te dirija a una modal de cómo desbloquear insignias o trofeos, que explique, los trofeos que vas obteniendo y que se pinten cuando obtienes uno y eso.
 - Hacer una barra de carga de verdad
-- Para family poner un árbol genealógico en vez de cartas. Ver react-native-family-tree aunque es muy vieja la librería
-- En family poner emojis de género para que se vea mejor la tabla de hermanos
 - Conectar con el Backend
 
 ### Correcciones con el inge
+- Alfabeto: Redactar mejor, hacer la A a del modal más grande para todo el alfabeto, en el modal, la A a primero, luego pronunciacion, Ejemplo, y imagen. En curiosidades en conoce las vocales (cambiar el título a esto <-) y quitar a, solo es e y o. Redactar mejor las curiosidades. [x]
+
+
+
 - Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa
 - En menu de inicio, poner creditos, la poli, facu, estudiantes y tutor para el título
 - Usar el personaje desde el menu de inicio
@@ -64,7 +63,6 @@
 - Poner el Kichwa en verdey espanol en azul todos los textos.  
 - Definir la paleta de colores de la app, dejar en amarillo y naranja siempre
 - Cambiar a todos los puntos de vida por los trofeos
-- Alfabeto: Redactar mejor, hacer la A a del modal más grande para todo el alfabeto, en el modal, la A a primero, luego pronunciacion, Ejemplo, y imagen. En curiosidades en conoce las vocales (cambiar el título a esto <-) y quitar a, solo es e y o. Redactar mejor las curiosidades.
 - Los numeros: Resaltar más los números (opcional), poner curiosidades para que sepan que combinando salen los números, cómo se dice por ejemplo 421 o algo así, al menos dos ejemplos
 - Colores: Curiosidades, aquí están los colores básico, no existen los colores más complejos, y otra para decir que para decir claro se añade el chawa y el yanaka (buscar que es en diccionario)
 - Juegos: Info ayuda poner varios bubbles de comic para humu
@@ -81,6 +79,7 @@
 - En levels colocar bien las traducciones de modulos etc
 - Dar titulos a modulos (familia, verbos, varios, etc)
 - MODULO 3
+- En family poner emojis de género para que se vea mejor la tabla de hermanos
 - FAMILIA P2 colocar pachamama entre parentesis el significado (madre tierra)
 -En lugar de cargas en pag partes del cuerpo (colocar tab, la imagen español kichwa), curriosidad rkopa de ellos tradicional es costosa.
 -Pantalla cosas de la casa (la casa dif, una choza)
