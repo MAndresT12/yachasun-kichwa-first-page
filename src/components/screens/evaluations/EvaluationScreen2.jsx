@@ -5,6 +5,7 @@ import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-nati
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const EvaluationScreen2 = ({ route }) => {
     const { score, totalQuestions } = route.params;
     const navigation = useNavigation();
@@ -22,7 +23,7 @@ const EvaluationScreen2 = ({ route }) => {
                             Puntuación: {score} / {totalQuestions}
                         </Text>
                     </View>
-                    <ButtonDefault label="Volver al inicio" onPress={() => navigation.navigate('CaminoLevels')} />
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosVerbos1')} />
 

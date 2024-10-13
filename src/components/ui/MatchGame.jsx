@@ -9,6 +9,7 @@ import { ComicBubble } from './bubbles/ComicBubble';
 import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
 import { ButtonDefault } from './buttons/ButtonDefault';
+import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
 const Card = ({ card, isFlipped, onPress }) => {
@@ -102,9 +103,9 @@ const MatchGame = ({ data, onNext, helpText }) => {
                     />
                 ))}
             </View>
-            <TouchableOpacity style={stylesMatch.resetButton} onPress={resetGame}>
-                <Text style={stylesMatch.resetButtonText}>Reiniciar</Text>
-            </TouchableOpacity>
+
+            <ButtonLevelsInicio label="Reiniciar" onPress={resetGame} />
+            <ButtonLevelsInicio label="Inicio" />
             {/* Modal de ayuda */}
             <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                 <View style={stylesMatch.modalContainer}>

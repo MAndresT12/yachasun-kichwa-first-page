@@ -7,6 +7,7 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const verbData = [
     { kichwa: "rina", spanish: "ir", image: "https://img.freepik.com/vector-gratis/personaje-dibujos-animados-simple-chico-activo_1308-101456.jpg?semt=ais_hybrid" },
     { kichwa: "tikrana", spanish: "regresar", image: "https://img.freepik.com/vector-gratis/ninos-cole-felices-saludando_23-2147906118.jpg?semt=ais_hybrid" },
@@ -75,6 +76,7 @@ const LosVerbosScreen2 = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosAdjetivos2')} />
 

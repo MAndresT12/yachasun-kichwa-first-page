@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 
 // Data para la pantalla de partículas parte 4
 const particlesPart4Data = {
@@ -70,6 +71,7 @@ const ParticlesPart4Screen = () => {
                 </View>
 
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LaNegacion')} />
 

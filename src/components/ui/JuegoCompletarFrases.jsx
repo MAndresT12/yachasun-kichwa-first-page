@@ -7,6 +7,7 @@ import ConfettiCannon from 'react-native-confetti-cannon';
 import { LinearGradient } from 'expo-linear-gradient';
 import { styles as globalStyles } from '../../../styles/globalStyles';
 import { ButtonDefault } from './buttons/ButtonDefault';
+import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
 
 const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
     const [currentSentenceIndex, setCurrentSentenceIndex] = useState(Math.floor(Math.random() * data.length));
@@ -38,6 +39,7 @@ const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
+            style={styles.linearContent}
         >
             <ScrollView contentContainerStyle={styles.container}>
                 <TouchableOpacity style={styles.helpIcon} onPress={() => setShowHelp(true)}>
@@ -70,9 +72,9 @@ const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
 
                 )}
 
-                <TouchableOpacity style={styles.restartButton} onPress={handleRestart}>
-                    <Text style={styles.restartButtonText}>Reiniciar</Text>
-                </TouchableOpacity>
+                <ButtonLevelsInicio label="Reiniciar" onPress={handleRestart} />
+                <ButtonLevelsInicio label="Inicio" />
+
 
                 {/* Modal de ayuda */}
                 <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
@@ -97,6 +99,10 @@ const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
 };
 
 const styles = StyleSheet.create({
+    linearContent: {
+        flexGrow: 1,
+        // backgroundColor: '#18a7ac',
+    },
     container: {
         flexGrow: 1,
         justifyContent: 'center',

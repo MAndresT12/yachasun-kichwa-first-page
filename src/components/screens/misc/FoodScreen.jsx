@@ -7,6 +7,7 @@ import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const foodData = [
     { kichwa: "tutamanta mikuna", spanish: "desayuno", image: "https://img.freepik.com/vector-premium/dibujos-animados-delicioso-desayuno-sabroso_24640-53952.jpg?w=1060" },
     { kichwa: "chawpi puncha mikuna", spanish: "almuerzo", image: "https://i.pinimg.com/originals/fa/23/de/fa23deb5bc1d50dbbc1d91f97283f8b4.jpg" },
@@ -74,6 +75,7 @@ const FoodScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Animals')} />
                 </View>
             </ScrollView>

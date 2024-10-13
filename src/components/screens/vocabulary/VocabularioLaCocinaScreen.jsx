@@ -9,6 +9,7 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const kitchenVocabulary = [
     { kichwa: "wisha", spanish: "cuchara", image: "https://img.freepik.com/vector-gratis/diseno-etiqueta-equipo-cocina-cuchara-madera-aislado_1308-77190.jpg?semt=ais_hybrid" },
     { kichwa: "kisa", spanish: "olla grande de barro", image: "https://img.freepik.com/vector-gratis/dibujado-mano-deliciosa-ilustracion-locro_23-2149206072.jpg?semt=ais_hybrid" },
@@ -99,6 +100,7 @@ const VocabularioLaCocinaScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosVerbos2')} />
 

@@ -8,6 +8,8 @@ import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
+
 const verbData = [
     { kichwa: "killkakatina", spanish: "leer", image: "https://img.freepik.com/vector-gratis/dibujado-mano-ilustracion-dia-mundial-libro_23-2148871666.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1728259200&semt=ais_hybrid" },
     { kichwa: "killkana", spanish: "escribir", image: "https://img.freepik.com/vector-gratis/etiqueta-engomada-personaje-dibujos-animados-nina-escribiendo-papel-blanco_1308-67895.jpg?semt=ais_hybrid" },
@@ -86,6 +88,8 @@ const LosVerbosScreen1 = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
+
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosVerbosConjugaciones1')} />
 
                 </View>

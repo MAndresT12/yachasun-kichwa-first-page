@@ -7,6 +7,7 @@ import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 import { LinearGradient } from 'expo-linear-gradient';
 const adjectiveData = [
     { kichwa: "hatun", spanish: "grande, alto", image: "https://img.freepik.com/vector-premium/jirafa-dibujos-animados-midiendo-su-altura-escala-sobre-fondo-beige_98402-204684.jpg?semt=ais_hybrid" },
@@ -65,6 +66,7 @@ const LosAdjetivosScreen1 = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LaCiudad')} />
 

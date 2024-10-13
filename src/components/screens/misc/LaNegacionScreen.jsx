@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 // Data para la pantalla de la negación
 const laNegacionData = {
     progress: 0.75,
@@ -95,9 +96,8 @@ const LaNegacionScreen = () => {
                 </View>
 
                 <View style={styles.footer}>
-
+                    <ButtonLevelsInicio label="Inicio" />
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('IntroduccionJuegosScreen2')} />
-
                 </View>
             </ScrollView>
         </LinearGradient>

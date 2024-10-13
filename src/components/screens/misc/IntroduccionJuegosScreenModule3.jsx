@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { styles as globalStyles } from '../../../../styles/globalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const IntroduccionJuegoScreenModule3 = () => {
     const navigation = useNavigation();
 
@@ -34,6 +35,8 @@ const IntroduccionJuegoScreenModule3 = () => {
             </View>
 
             <View style={globalStyles.footer}>
+                <ButtonLevelsInicio label="Inicio" />
+
                 <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Module3')} />
 
             </View>

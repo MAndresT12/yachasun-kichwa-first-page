@@ -7,6 +7,7 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const locationVocabulary = [
     { kichwa: "karu", spanish: "lejos, distante, lejano", image: "https://img.freepik.com/vector-gratis/explorador-mochila_23-2148146728.jpg?t=st=1728426379~exp=1728429979~hmac=66649f1a102b8e327920096acbf6805e5ea43a65e787566c80e3fa9edddae185&w=740" },
     { kichwa: "kuchulla", spanish: "cerca", image: "https://img.freepik.com/vector-gratis/dibujos-animados-chico-adolescente_24640-47216.jpg?semt=ais_hybrid" },
@@ -63,6 +64,7 @@ const VocabularioLaUbicacionScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ElTiempo')} />
 

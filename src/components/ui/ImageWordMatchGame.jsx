@@ -8,6 +8,7 @@ import { ComicBubble } from './bubbles/ComicBubble';
 import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
 import { ButtonDefault } from './buttons/ButtonDefault';
+import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
 // Función para generar un color aleatorio claro
 const getRandomLightColor = () => {
     const r = Math.floor(Math.random() * 156) + 100; // Valores entre 100 y 255 para asegurar que el color sea claro
@@ -142,9 +143,9 @@ const ImageWordMatchGame = ({ data, onNext, helpText }) => {
                     })}
                 </View>
             </View>
-            <TouchableOpacity style={stylesGame.resetButton} onPress={resetGame}>
-                <Text style={stylesGame.resetButtonText}>Reiniciar</Text>
-            </TouchableOpacity>
+
+            <ButtonLevelsInicio label="Reiniciar" onPress={resetGame} />
+            <ButtonLevelsInicio label="Inicio" />
             {/* Modal de ayuda */}
             <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                 <View style={stylesGame.modalContainer}>

@@ -7,6 +7,7 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const bedroomVocabulary = [
     { kichwa: "puñuna uku", spanish: "dormitorio", image: "https://img.freepik.com/vector-gratis/plantilla-fondo-interior-dormitorio-dibujos-animados-acogedora-habitacion-moderna-luz-manana_33099-171.jpg?semt=ais_hybrid" },
     { kichwa: "kawitu", spanish: "cama", image: "https://img.freepik.com/vector-gratis/goldilocks-tres-osos-cama_1308-168802.jpg?semt=ais_hybrid" },
@@ -82,8 +83,9 @@ const VocabularioElDormitorioScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Module4')} />
+                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('IntroduccionJuegosScreen4')} />
 
                 </View>
             </ScrollView>

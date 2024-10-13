@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
-
+import { ButtonLevelsInicio } from '../ui/buttons/ButtonLevelsInicio';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { CardDefault } from '../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../headers/ProgressCircleWithTophies';
@@ -83,7 +83,9 @@ const Main = () => {
                         ))}
                     </View>
                 </View>
+
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Food')} />
                 </View>
             </ScrollView>

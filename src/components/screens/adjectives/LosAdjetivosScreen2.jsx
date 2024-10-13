@@ -7,6 +7,7 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const adjectives = [
     { kichwa: "ruku", spanish: "viejo (personas)", image: "https://img.freepik.com/vector-gratis/lindo-personaje-dibujos-animados-abuelos_1308-135128.jpg?semt=ais_hybrid" },
     { kichwa: "maltun", spanish: "joven", image: "https://img.freepik.com/vector-gratis/muchacho-lindo-ejemplo-icono-vector-historieta-signo-paz-concepto-icono-moda-personas-aislado-vector-premium-estilo-dibujos-animados-plana_138676-3946.jpg?semt=ais_hybrid" },
@@ -92,6 +93,7 @@ const LosAdjetivosScreen2 = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ElDormitorio')} />
 

@@ -9,6 +9,8 @@ import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
+
 const animalsData = [
     { kichwa: "allku", spanish: "perro", image: "https://img.freepik.com/vector-premium/lindo-vector-caricatura-perro-cachorro-sabueso_549857-8253.jpg?w=360" },
     { kichwa: "misi", spanish: "gato", image: "https://img.freepik.com/vector-gratis/ilustracion-icono-vector-dibujos-animados-lindo-gato-sentado-concepto-icono-naturaleza-animal-aislado-premium-vector-estilo-dibujos-animados-plana_138676-4148.jpg?size=338&ext=jpg&ga=GA1.1.34264412.1717545600&semt=ais_user" },
@@ -84,6 +86,8 @@ const AnimalsScreen = () => {
                     </CardDefault>
                 </View>
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
+
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ParticlesPart1')} />
                 </View>
             </ScrollView>

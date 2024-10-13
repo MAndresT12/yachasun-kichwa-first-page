@@ -28,7 +28,7 @@ const EvaluationScreen1 = ({ route }) => {
                             Puntuación: {score} / {totalQuestions}
                         </Text>
                     </View>
-                    <ButtonDefault label="Volver al inicio" onPress={() => navigation.navigate('CaminoLevels')} />
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ParticlesPart2')} />
 

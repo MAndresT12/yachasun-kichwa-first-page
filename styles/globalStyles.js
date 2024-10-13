@@ -123,10 +123,17 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
     },
     footer: {
+        // marginTop: 20,
+        // marginBottom: 20,
+        // alignItems: 'flex-end',
+        // marginRight: 10,
         marginTop: 20,
         marginBottom: 20,
-        alignItems: 'flex-end',
         marginRight: 10,
+        marginLeft: 10,
+        flexDirection: 'row',      // Colocar los elementos en fila
+        justifyContent: 'space-between', // Espacio entre los botones
+        alignItems: 'center',      // Alineación vertical de los botones
     },
 
 

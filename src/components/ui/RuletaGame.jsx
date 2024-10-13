@@ -8,7 +8,7 @@ import { ComicBubble } from './bubbles/ComicBubble';
 import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
 import { ButtonDefault } from './buttons/ButtonDefault';
-
+import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
 const RuletaGame = ({ data, onNext, helpText }) => {
     const [selectedWord, setSelectedWord] = useState(null);
     const [inputTranslation, setInputTranslation] = useState('');
@@ -61,7 +61,7 @@ const RuletaGame = ({ data, onNext, helpText }) => {
     });
 
     return (
-        <ScrollView>
+        <ScrollView style={stylesRuleta.scrollContainer}>
             <View style={stylesRuleta.container}>
                 {/* Icono de ayuda */}
                 <TouchableOpacity style={stylesRuleta.helpIcon} onPress={() => setShowHelp(true)}>
@@ -90,9 +90,12 @@ const RuletaGame = ({ data, onNext, helpText }) => {
                     </Animated.View>
                 </View>
 
-                <TouchableOpacity style={stylesRuleta.spinButton} onPress={spinPointer} disabled={isSpinning}>
+                {/* <TouchableOpacity style={stylesRuleta.spinButton} onPress={spinPointer} disabled={isSpinning}>
                     <Text style={stylesRuleta.spinButtonText}>Girar</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+
+                <ButtonLevelsInicio label="Girar" onPress={spinPointer} disabled={isSpinning} />
+                <ButtonLevelsInicio label="Inicio" />
 
                 {selectedWord && (
                     <View style={stylesRuleta.resultContainer}>
@@ -106,9 +109,11 @@ const RuletaGame = ({ data, onNext, helpText }) => {
                             onChangeText={setInputTranslation}
                             placeholder="Traducción"
                         />
-                        <TouchableOpacity style={stylesRuleta.checkButton} onPress={checkTranslation}>
+                        {/* <TouchableOpacity style={stylesRuleta.checkButton} onPress={checkTranslation}>
                             <Text style={stylesRuleta.checkButtonText}>Verificar</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
+                        <ButtonLevelsInicio label="Verificar" onPress={checkTranslation} />
+
                     </View>
                 )}
                 {/* Modal de ayuda */}
@@ -158,11 +163,14 @@ const RuletaGame = ({ data, onNext, helpText }) => {
 };
 
 const stylesRuleta = StyleSheet.create({
+    scrollContainer: {
+        flex: 1,
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
+        paddingTop: 20,
     },
     title: {
         fontSize: 24,

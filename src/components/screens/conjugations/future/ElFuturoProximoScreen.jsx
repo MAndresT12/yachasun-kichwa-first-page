@@ -9,6 +9,7 @@ const { width } = Dimensions.get('window');
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 
 const futuroProximoData = {
     title: "El futuro próximo",
@@ -106,6 +107,7 @@ const ElFuturoProximoScreen = () => {
                 </View>
 
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FuturoSimple')} />
 

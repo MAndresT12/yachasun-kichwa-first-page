@@ -3,6 +3,7 @@ import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Alert } from 'rea
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const questions = [
     {
@@ -53,7 +54,10 @@ const GameScreen5 = () => {
     };
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
 
                 <View style={styles.body}>
@@ -71,7 +75,7 @@ const GameScreen5 = () => {
                     </CardDefault>
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const particlesPart2Data = {
     progress: 0.75,
     level: "intermedio",
@@ -76,6 +77,7 @@ const ParticlesPart2Screen = () => {
                 </View>
 
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ParticlesPart3')} />
 

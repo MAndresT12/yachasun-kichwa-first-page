@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 // Data para la pantalla de partículas parte 1
 const particlesData = {
     header: "Las Partículas en Kichwa Parte 1",
@@ -140,6 +141,8 @@ const ParticlesPart1Screen = () => {
                 </View>
 
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
+
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('IntroduccionJuegosScreen1')} />
                 </View>
             </ScrollView>

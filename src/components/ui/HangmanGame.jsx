@@ -9,6 +9,7 @@ import { ComicBubble } from './bubbles/ComicBubble';
 import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
 import { ButtonDefault } from './buttons/ButtonDefault';
+import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
 const HangmanGame = ({ words, onNext, helpText }) => {
     const navigation = useNavigation();
 
@@ -89,7 +90,7 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                 <View style={stylesHangman.wordContainer}>{renderWord()}</View>
                 <View style={stylesHangman.buttonsContainer}>{renderButtons()}</View>
                 <Text style={stylesHangman.wrongGuesses}>Errores: {wrongGuesses}</Text>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                     style={stylesHangman.restartButton}
                     onPress={() => {
                         setSelectedWord(words[Math.floor(Math.random() * words.length)]);
@@ -100,7 +101,16 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                     }}
                 >
                     <Text style={stylesHangman.restartButtonText}>Reiniciar</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+
+                <ButtonLevelsInicio label="Reiniciar" onPress={() => {
+                    setSelectedWord(words[Math.floor(Math.random() * words.length)]);
+                    setGuessedLetters([]);
+                    setWrongGuesses(0);
+                    setShowConfetti(false);
+                    setGameWon(false);
+                }} />
+                <ButtonLevelsInicio label="Inicio" />
                 {/* Modal de ayuda */}
                 <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                     <View style={stylesHangman.modalContainer}>

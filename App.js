@@ -131,8 +131,8 @@ import EvaluationScreen5 from './src/components/screens/evaluations/EvaluationSc
 //Module 6 Intermedio
 import ElPasadoProgresivoScreen from './src/components/screens/conjugations/past/ElPasadoProgresivoScreen.jsx';
 import ConjugacionTiempoPresenteProgresivoScreen from './src/components/screens/conjugations/present/ConjugacionTiempoPresenteProgresivoScreen.jsx';
-import ElFuturoSimpleScreen from './src/components/screens/conjugations/future/ElFuturoSimpleScreen.jsx';
 import ElFuturoProximoScreen from './src/components/screens/conjugations/future/ElFuturoProximoScreen.jsx';
+import ElFuturoSimpleScreen from './src/components/screens/conjugations/future/ElFuturoSimpleScreen.jsx';
 import Module6 from './src/components/modules/Module6.jsx';
 import GameScreen6 from './src/components/screens/games/GameScreen6.jsx';
 import EvaluationScreen6 from './src/components/screens/evaluations/EvaluationScreen6.jsx';

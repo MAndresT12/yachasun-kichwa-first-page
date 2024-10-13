@@ -7,6 +7,7 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 const { width } = Dimensions.get('window');
 
 const pasadoProgresivoData = [
@@ -93,6 +94,7 @@ const ElPasadoProgresivoScreen = () => {
                 </View>
 
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" />
 
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ConjugacionPresenteProgresivo')} />
 
