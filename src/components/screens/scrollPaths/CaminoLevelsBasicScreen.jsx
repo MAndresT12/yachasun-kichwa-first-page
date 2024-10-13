@@ -343,7 +343,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 {/*Modulo 6 */}
-                <ImageContainer path={require('../../../../assets/images/basic/badges/orientation.png')} style={styles.islandImage} />
+                <ImageContainer path={require('../../../../assets/images/basic/badges/present.png')} style={styles.islandImage} />
 
                 <View style={localStyles.pathRow}>
                     <TouchableOpacity

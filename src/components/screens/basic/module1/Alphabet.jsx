@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Animated } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
@@ -12,26 +13,26 @@ import { FloatingHumu } from '../../../animations/FloatingHumu';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const images = {
-    letterA: require('../../../../../assets/images/basic/module1/letters/letterA.png'),
-    letterI: require('../../../../../assets/images/basic/module1/letters/letterI.png'),
-    letterU: require('../../../../../assets/images/basic/module1/letters/letterU.png'),
-    letterCH: require('../../../../../assets/images/basic/module1/letters/letterCH.png'),
-    letterH: require('../../../../../assets/images/basic/module1/letters/letterH.png'),
-    letterK: require('../../../../../assets/images/basic/module1/letters/letterK.png'),
-    letterL: require('../../../../../assets/images/basic/module1/letters/letterL.png'),
-    letterLL: require('../../../../../assets/images/basic/module1/letters/letterLL.png'),
-    letterM: require('../../../../../assets/images/basic/module1/letters/letterM.png'),
-    letterN: require('../../../../../assets/images/basic/module1/letters/letterN.png'),
-    letterÑ: require('../../../../../assets/images/basic/module1/letters/letterÑ.png'),
-    letterP: require('../../../../../assets/images/basic/module1/letters/letterP.png'),
-    letterR: require('../../../../../assets/images/basic/module1/letters/letterR.png'),
-    letterS: require('../../../../../assets/images/basic/module1/letters/letterS.png'),
-    letterSH: require('../../../../../assets/images/basic/module1/letters/letterSH.png'),
-    letterT: require('../../../../../assets/images/basic/module1/letters/letterT.png'),
-    letterTS: require('../../../../../assets/images/basic/module1/letters/letterTS.png'),
-    letterW: require('../../../../../assets/images/basic/module1/letters/letterW.png'),
-    letterY: require('../../../../../assets/images/basic/module1/letters/letterY.png'),
-    letterZ: require('../../../../../assets/images/basic/module1/letters/letterZ.png'),
+    letterA: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterA.png' },
+    letterI: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterI.png' },
+    letterU: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterU.png' },
+    letterCH: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterCH.png' },
+    letterH: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterH.png' },
+    letterK: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterK.png' },
+    letterL: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterL.png' },
+    letterLL: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterLL.png' },
+    letterM: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterM.png' },
+    letterN: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterN.png' },
+    letterÑ: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letter%C3%91.png' },
+    letterP: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterP.png' },
+    letterR: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterR.png' },
+    letterS: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterS.png' },
+    letterSH: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterSH.png' },
+    letterT: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterT.png' },
+    letterTS: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterTS.png' },
+    letterW: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterW.png' },
+    letterY: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterY.png' },
+    letterZ: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterZ.png' },
 };
 
 
@@ -142,23 +143,24 @@ const alphabet_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'Curiosidades - El increíble alfabeto Kichwa',
-        text: 'Sabías que en el alfabeto Kichwa existen solamente 3 vocales: a, i, u; y 17 consonantes. ¡Increíble!',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        title: 'Curiosidades - El asombroso alfabeto Kichwa',
+        text: '¿Sabías que el alfabeto Kichwa solo tiene 3 vocales: a, i, u, y 17 consonantes? ¡Sorprendente!',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
     },
     {
         key: '2',
-        title: 'Curiosidades - ¡Conoce a las vocales!',
-        text: 'Si te diste cuenta la e y o no se utilizan en el idioma Kichwa.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        title: 'Curiosidades - ¡Descubre las vocales!',
+        text: 'En el idioma Kichwa, las vocales e y o no se utilizan. ¿Lo habías notado?',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
     },
     {
         key: '3',
-        title: 'Reglas - Veámos que se dice de las consonantes',
-        text: 'Las c, q y g son reemplazadas por la k. La d es reemplazada por la t. Las b, v y f son reemplazadas por la p.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        title: 'Reglas - Y sobre las consonantes...',
+        text: 'En Kichwa, las letras c, q y g son reemplazadas por la k; la d por la t; y las b, v y f por la p.',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
     },
 ];
+
 
 const Alphabet = () => {
     const progress = 1 / 6;
@@ -188,8 +190,10 @@ const Alphabet = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="basic" />
@@ -216,7 +220,7 @@ const Alphabet = () => {
                             <TouchableWithoutFeedback key={letter.letters} onPress={() => handleLetterPress(letter)}>
                                 <View style={styles.cardInGrid}>
                                     <CardDefault styleCard={styles.cardPopUp} styleTitle={styles.cardTitleAlphabet} >
-                                        <ImageContainer path={letter.imageLetter} style={styles.imageCards} />
+                                        <ImageContainer uri={letter.imageLetter.uri} style={styles.imageCards} />
                                     </CardDefault>
                                 </View>
                             </TouchableWithoutFeedback>
@@ -232,7 +236,7 @@ const Alphabet = () => {
                         >
                             <View style={styles.curiositiesContent}>
                                 <FloatingHumu >
-                                    <ImageContainer path={item.imagePath} style={styles.imageModal} />
+                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
@@ -255,10 +259,10 @@ const Alphabet = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en cada tarjeta de una letra del alfabeto para ver su pronunciación en Kichwa.'
+                                        text='Presiona en cada tarjeta de una letra para ver su pronunciación.'
                                         arrowDirection="left"
                                     />
                                 </View>
@@ -285,10 +289,8 @@ const Alphabet = () => {
                             <View style={styles.modalContent}>
                                 <Text style={styles.titleAlphabet}>{selectedLetter.letters}</Text>
                                 <Text style={styles.pronunciation}>Pronunciación: {selectedLetter.pronunciation}</Text>
-                                <View style={styles.translationContainer}>
-                                    <Text style={styles.spanishText}>Español: {selectedLetter.spanish}</Text>
-                                    <Text style={styles.kichwaText}>Kichwa: {selectedLetter.kichwa}</Text>
-                                </View>
+                                <Text style={styles.spanishText}>Español: {selectedLetter.spanish}</Text>
+                                <Text style={styles.kichwaText}>Kichwa: {selectedLetter.kichwa}</Text>
                                 <ImageContainer uri={selectedLetter.imageExample} style={styles.imageModal} />
                                 <View style={styles.buttonContainerAlphabet}>
                                     <TouchableOpacity onPress={() => setModalVisible(false)}>
@@ -305,7 +307,7 @@ const Alphabet = () => {
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FirstNumbers')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 
