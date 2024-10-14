@@ -45,7 +45,7 @@ const curiosity_data = [
     {
         key: '2',
         title: 'Reglas - Sobre formar los números...',
-        text: 'Recuerda que se usan combinaciones para formarlos, número "dos" es "ishkay", por ejemplo "dos mil dos" se diría "ishkay waranka iskhay".',
+        text: 'Recuerda que se usan combinaciones para formarlos, número "dos" es "ishkay", por ejemplo "dos mil dos" se diría "ishkay waranka iskhay pero cuando estamos en".',
         imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
     },
 ];
