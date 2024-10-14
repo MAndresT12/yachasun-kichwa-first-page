@@ -206,7 +206,7 @@ export const AccordionDefault = ({ children, title = 'Datos curiosos', isOpen, o
                     style={[
                         accordionStyles.body,
                         {
-                            height: bodyHeightInterpolation,
+                            // height: bodyHeightInterpolation,
                             opacity: bodyOpacity,
                             overflow: 'hidden',
                         },
