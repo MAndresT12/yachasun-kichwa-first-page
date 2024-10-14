@@ -1,6 +1,6 @@
 // src/components/Main.jsx
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StyleSheet, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, StatusBar, TouchableWithoutFeedback, Modal, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -9,6 +9,15 @@ import { ButtonLevelsInicio } from '../ui/buttons/ButtonLevelsInicio';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { CardDefault } from '../ui/cards/CardDefault';
 import ProgressCircleWithTrophies from '../headers/ProgressCircleWithTophies';
+
+import { ImageContainer } from '../ui/imageContainers/ImageContainer';
+
+import { FloatingHumu } from '../animations/FloatingHumu';
+import { FontAwesome } from '@expo/vector-icons';
+import { ComicBubble } from '../ui/bubbles/ComicBubble';
+import { AccordionDefault } from '../ui/buttons/AccordionDefault';
+
+
 const numberData = [
     { number: "1000", kichwa: "shuk waranka", spanish: "mil" },
     { number: "1001", kichwa: "shuk waranka shuk", spanish: "mil uno" },
@@ -26,8 +35,25 @@ const numberData = [
     { number: "1000000", kichwa: "hunu", spanish: "millón" },
 ];
 
+const curiosity_data = [
+    {
+        key: '1',
+        title: 'Curiosidades - Para que sepas...',
+        text: 'Los números son muy importantes para poder contar y ordenar las cosas a nuestro alrededor.',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+    },
+    {
+        key: '2',
+        title: 'Reglas - Sobre formar los números...',
+        text: 'Recuerda que se usan combinaciones para formarlos, número "dos" es "ishkay", por ejemplo "dos mil dos" se diría "ishkay waranka iskhay".',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+    },
+];
+
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
+
+
     const rotateY = useSharedValue(0);
 
     const animatedStyleFront = useAnimatedStyle(() => ({
@@ -61,6 +87,20 @@ const FlipCard = ({ item }) => {
 };
 
 const Main = () => {
+    const [modalVisible, setModalVisible] = useState(false);
+    const [showHelp, setShowHelp] = useState(null);
+    const [activeAccordion, setActiveAccordion] = useState(null);
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
+    };
+
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
+    };
     const navigation = useNavigation();
     const progress = 0.75;
 
@@ -74,16 +114,74 @@ const Main = () => {
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
 
                 </View>
-
+                <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={toggleHelpModal}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.body}>
-                    <CardDefault title="Números en Kichwa" content="Aprende los números en Kichwa y su correspondencia en español." />
+                    <CardDefault title="Los Números" >
+                        <Text style={styles.cardContent}>
+                            ¡Hola amigos! Bienvenidos a una nueva aventura llena de aprendizaje.{"\n\n"}
+                            Hoy aprenderemos más sobre los números en Kichwa.{"\n\n"}
+                            Aquí verás tarjetas que te mostrarán los números en Kichwa, acompañados de su traducción en español.{"\n\n"}
+                            ¿Estás listo para contar en Kichwa? ¡Vamos a empezar!
+                        </Text>
+                    </CardDefault>
                     <View style={styles.gridContainer}>
                         {numberData.map((item, index) => (
                             <FlipCard key={index} item={item} />
                         ))}
                     </View>
-                </View>
 
+                    {curiosity_data.map((item) => (
+                        <AccordionDefault
+                            key={item.key}
+                            title={item.title}
+                            isOpen={activeAccordion === item.key}
+                            onPress={() => toggleAccordion(item.key)}
+                        >
+                            <View style={styles.curiositiesContent}>
+                                <FloatingHumu >
+                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                </FloatingHumu>
+                                <ComicBubble
+                                    text={item.text}
+                                    arrowDirection="left"
+                                />
+                            </View>
+                        </AccordionDefault>
+                    ))}
+                </View>
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => toggleHelpModal()}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <View style={styles.helpModalContent}>
+                                    <FloatingHumu >
+                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
+                                    </FloatingHumu>
+                                    <ComicBubble
+                                        text='Presiona en cada una las tarjetas para ver su traducción.'
+                                        arrowDirection="left"
+                                    />
+                                </View>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Food')} />
