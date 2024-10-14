@@ -76,6 +76,7 @@ const FoodScreen = () => {
                 </View>
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
+
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Animals')} />
                 </View>
             </ScrollView>

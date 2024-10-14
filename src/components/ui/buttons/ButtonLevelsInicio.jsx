@@ -1,18 +1,18 @@
 import React from 'react';
-import { Text, View, TouchableWithoutFeedback } from 'react-native';
+import { Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { buttonStyles } from '../../../../styles/buttonStyles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export const ButtonLevelsInicio = ({ children, label = 'Inicio', onPress, styleContainer, styleButton, showLabel = true }) => {
+export const ButtonLevelsInicio = ({ children, label = 'Inicio', onPress, navigationTarget = 'CaminoLevels', styleContainer, styleButton, showLabel = true }) => {
     const navigation = useNavigation();
 
     const handlePress = () => {
         if (onPress) {
             onPress();
         } else {
-            // Si no se proporciona una función onPress, navega a CaminoLevels
-            navigation.navigate('CaminoLevels');
+            // Si no se proporciona una función onPress, navega al valor de navigationTarget
+            navigation.navigate(navigationTarget);
         }
     };
 
