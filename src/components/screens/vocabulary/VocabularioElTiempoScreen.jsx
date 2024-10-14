@@ -1,7 +1,7 @@
 // src/components/VocabularioElTiempoScreen.jsx
 
-import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback, Modal, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
@@ -9,6 +9,12 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
+import { FloatingHumu } from '../../animations/FloatingHumu';
+import { FontAwesome } from '@expo/vector-icons';
+import { ComicBubble } from '../../ui/bubbles/ComicBubble';
+import { AccordionDefault } from '../../ui/buttons/AccordionDefault';
+import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
+
 const timeVocabulary = [
     { kichwa: "puncha", spanish: "día" },
     { kichwa: "hunkay", spanish: "semana" },
@@ -61,6 +67,20 @@ const renderRows = (data) => {
 };
 
 const VocabularioElTiempoScreen = () => {
+    const [modalVisible, setModalVisible] = useState(false);
+    const [showHelp, setShowHelp] = useState(null);
+    const [activeAccordion, setActiveAccordion] = useState(null);
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
+    };
+
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
+    };
     const navigation = useNavigation();
     const progress = 0.75;
 
@@ -73,7 +93,11 @@ const VocabularioElTiempoScreen = () => {
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-
+                {/* <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={toggleHelpModal}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
+                </View> */}
                 <View style={styles.body}>
                     <CardDefault title="Pacha (El tiempo)">
                         <View style={styles.vocabularyTable}>
@@ -103,6 +127,35 @@ const VocabularioElTiempoScreen = () => {
                         </View>
                     </CardDefault>
                 </View>
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => toggleHelpModal()}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <View style={styles.helpModalContent}>
+                                    <FloatingHumu >
+                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
+                                    </FloatingHumu>
+                                    <ComicBubble
+                                        text='Presiona en cada una las tarjetas para ver su traducción.'
+                                        arrowDirection="left"
+                                    />
+                                </View>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
 

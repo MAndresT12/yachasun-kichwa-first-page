@@ -1,15 +1,20 @@
 // src/components/AnimalsScreen.jsx
 
-import React from 'react';
-import { Text, View, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { styles } from '../../../../styles/globalStyles'
+import React, { useState } from 'react';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
+import { FontAwesome } from '@expo/vector-icons';
+import { FloatingHumu } from '../../animations/FloatingHumu';
+import { ComicBubble } from '../../ui/bubbles/ComicBubble';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
+import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
+import { AccordionDefault } from '../../ui/buttons/AccordionDefault';
 
 const animalsData = [
     { kichwa: "allku", spanish: "perro", image: "https://img.freepik.com/vector-premium/lindo-vector-caricatura-perro-cachorro-sabueso_549857-8253.jpg?w=360" },
@@ -44,47 +49,139 @@ const animalsData = [
     { kichwa: "mashu", spanish: "murciélago", image: "https://i.pinimg.com/564x/98/44/fb/9844fbf49ee8c4c765964294e77b713c.jpg" }
 ];
 
+const curiosity_data = [
 
-const renderAnimalRows = () => {
-    return animalsData.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <View style={localStyles.imageContainer}>
-                <ImageContainer uri={item.image} style={localStyles.animalImage} />
-                {/* <Image source={{ uri: item.image }} style={localStyles.animalImage} /> */}
+];
+
+const FlipCard = ({ item }) => {
+    const [flipped, setFlipped] = useState(false);
+    const rotateY = useSharedValue(0);
+
+    const animatedStyleFront = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value}deg` }],
+    }));
+
+    const animatedStyleBack = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
+    }));
+
+    const handleFlip = () => {
+        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        setFlipped(!flipped);
+    };
+
+    return (
+        <TouchableWithoutFeedback onPress={handleFlip}>
+            <View style={styles.flipCard}>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
+                    <ImageContainer uri={item.image} style={styles.imageCards} />
+                </Animated.View>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
+                    <Text style={styles.translationLabel}>Español:</Text>
+                    <Text style={styles.spanishText}>{item.spanish}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
+                </Animated.View>
             </View>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
-        </View>
-    ));
+        </TouchableWithoutFeedback>
+    );
 };
 
 const AnimalsScreen = () => {
-    const navigation = useNavigation();
     const progress = 0.75;
+    const [showHelp, setShowHelp] = useState(false);
+    const [activeAccordion, setActiveAccordion] = useState(null);
+
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
+    };
+
+    const navigation = useNavigation();
+
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
+    };
 
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
-
         >
+            <StatusBar barStyle="default" backgroundColor="#003366" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
-
                 </View>
-
+                <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={toggleHelpModal}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.body}>
-                    <CardDefault title="Vocabulario">
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Imagen</Text>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>spanish</Text>
-                            </View>
-                            {renderAnimalRows()}
-                        </View>
+                    <CardDefault title="Animales en Kichwa">
+                        <Text style={styles.cardContent}>
+                            Hoy aprenderemos sobre los nombres de los animales en Kichwa.{"\n\n"}
+                            ¡Prepárate para explorar el fascinante mundo de los animales en Kichwa!
+                        </Text>
                     </CardDefault>
+                    <View style={styles.gridContainer}>
+                        {animalsData.map((item, index) => (
+                            <FlipCard key={index} item={item} />
+                        ))}
+                    </View>
+                    {curiosity_data.map((item) => (
+                        <AccordionDefault
+                            key={item.key}
+                            title={item.title}
+                            isOpen={activeAccordion === item.key}
+                            onPress={() => toggleAccordion(item.key)}
+                        >
+                            <View style={styles.curiositiesContent}>
+                                <FloatingHumu >
+                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                </FloatingHumu>
+                                <ComicBubble
+                                    text={item.text}
+                                    arrowDirection="left"
+                                />
+                            </View>
+                        </AccordionDefault>
+                    ))}
                 </View>
+
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => toggleHelpModal()}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <View style={styles.helpModalContent}>
+                                    <FloatingHumu>
+                                        <ImageContainer path={require('../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                    </FloatingHumu>
+                                    <ComicBubble
+                                        text="Presiona en las tarjetas de animales para ver su traducción y nombre en Kichwa."
+                                        arrowDirection="left"
+                                    />
+                                </View>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
+
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
 
@@ -93,23 +190,6 @@ const AnimalsScreen = () => {
             </ScrollView>
         </LinearGradient>
     );
-}
-
-const localStyles = StyleSheet.create({
-    imageContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-    },
-    animalImage: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-    },
-    textCenter: {
-        textAlign: 'center',
-        flex: 1,
-    },
-});
+};
 
 export default AnimalsScreen;

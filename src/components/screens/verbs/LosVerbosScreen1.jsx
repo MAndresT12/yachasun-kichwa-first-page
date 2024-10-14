@@ -1,14 +1,20 @@
 // src/components/LosVerbosScreen1.jsx
 
-import React from 'react';
-import { Text, View, ScrollView, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../styles/globalStyles'
+import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
+import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
+import { FontAwesome } from '@expo/vector-icons';
+import { FloatingHumu } from '../../animations/FloatingHumu';
+import { ComicBubble } from '../../ui/bubbles/ComicBubble';
 import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { LinearGradient } from 'expo-linear-gradient';
-import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
+import { AccordionDefault } from '../../ui/buttons/AccordionDefault';
 
 const verbData = [
     { kichwa: "killkakatina", spanish: "leer", image: "https://img.freepik.com/vector-gratis/dibujado-mano-ilustracion-dia-mundial-libro_23-2148871666.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1728259200&semt=ais_hybrid" },
@@ -49,70 +55,146 @@ const verbData = [
 
 ];
 
-const renderVerbRows = () => {
-    return verbData.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <View style={localStyles.imageContainer}>
-                <Image source={{ uri: item.image }} style={localStyles.verbImage} />
+const curiosity_data = [
+
+];
+
+const FlipCard = ({ item }) => {
+    const [flipped, setFlipped] = useState(false);
+    const rotateY = useSharedValue(0);
+
+    const animatedStyleFront = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value}deg` }],
+    }));
+
+    const animatedStyleBack = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
+    }));
+
+    const handleFlip = () => {
+        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        setFlipped(!flipped);
+    };
+
+    return (
+        <TouchableWithoutFeedback onPress={handleFlip}>
+            <View style={styles.flipCard}>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
+                    <ImageContainer uri={item.image} style={styles.imageCards} />
+                </Animated.View>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
+                    <Text style={styles.translationLabel}>Español:</Text>
+                    <Text style={styles.spanishText}>{item.spanish}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
+                </Animated.View>
             </View>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
-        </View>
-    ));
+        </TouchableWithoutFeedback>
+    );
 };
 
 const LosVerbosScreen1 = () => {
-    const navigation = useNavigation();
     const progress = 0.75;
+    const [showHelp, setShowHelp] = useState(false);
+    const [activeAccordion, setActiveAccordion] = useState(null);
+
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
+    };
+
+    const navigation = useNavigation();
+
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
+    };
 
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
-            style={styles.gradient}
         >
+            <StatusBar barStyle="default" backgroundColor="#003366" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-
-                <View style={styles.body}>
-                    <CardDefault title="Vocabulario">
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Imagen</Text>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Spanish</Text>
-                            </View>
-                            {renderVerbRows()}
-                        </View>
-                    </CardDefault>
+                <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={toggleHelpModal}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
                 </View>
+                <View style={styles.body}>
+                    <CardDefault title="Los Verbos en Kichwa">
+                        <Text style={styles.cardContent}>
+                            Hoy aprenderemos algunos verbos en Kichwa.{"\n\n"}
+                            ¡Prepárate para explorar el mundo de los verbos en Kichwa!
+                        </Text>
+                    </CardDefault>
+                    <View style={styles.gridContainer}>
+                        {verbData.map((item, index) => (
+                            <FlipCard key={index} item={item} />
+                        ))}
+                    </View>
+                    {curiosity_data.map((item) => (
+                        <AccordionDefault
+                            key={item.key}
+                            title={item.title}
+                            isOpen={activeAccordion === item.key}
+                            onPress={() => toggleAccordion(item.key)}
+                        >
+                            <View style={styles.curiositiesContent}>
+                                <FloatingHumu>
+                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                </FloatingHumu>
+                                <ComicBubble
+                                    text={item.text}
+                                    arrowDirection="left"
+                                />
+                            </View>
+                        </AccordionDefault>
+                    ))}
+                </View>
+
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => toggleHelpModal()}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <View style={styles.helpModalContent}>
+                                    <FloatingHumu>
+                                        <ImageContainer path={require('../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                    </FloatingHumu>
+                                    <ComicBubble
+                                        text="Presiona en las tarjetas para ver su traducción y nombre en Kichwa."
+                                        arrowDirection="left"
+                                    />
+                                </View>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
+
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
-
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosVerbosConjugaciones1')} />
-
                 </View>
             </ScrollView>
         </LinearGradient>
     );
 };
-
-const localStyles = StyleSheet.create({
-    imageContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-    },
-    verbImage: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-    },
-    textCenter: {
-        textAlign: 'center',
-        flex: 1,
-    },
-});
 
 export default LosVerbosScreen1;

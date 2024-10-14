@@ -1,13 +1,19 @@
-import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, ScrollView, StatusBar, TouchableOpacity, TouchableWithoutFeedback, Modal, StyleSheet } from 'react-native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
-import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
-import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
+import { FontAwesome } from '@expo/vector-icons';
+import { FloatingHumu } from '../../animations/FloatingHumu';
+import { ComicBubble } from '../../ui/bubbles/ComicBubble';
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
+import { AccordionDefault } from '../../ui/buttons/AccordionDefault';
+
 const verbData = [
     { kichwa: "rina", spanish: "ir", image: "https://img.freepik.com/vector-gratis/personaje-dibujos-animados-simple-chico-activo_1308-101456.jpg?semt=ais_hybrid" },
     { kichwa: "tikrana", spanish: "regresar", image: "https://img.freepik.com/vector-gratis/ninos-cole-felices-saludando_23-2147906118.jpg?semt=ais_hybrid" },
@@ -37,49 +43,142 @@ const verbData = [
     { kichwa: "karana", spanish: "dar", image: "https://img.freepik.com/vector-gratis/feliz-nino-nina-regalo_24908-59476.jpg?semt=ais_hybrid" },
 ];
 
-const renderRows = () => {
-    return verbData.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <View style={localStyles.imageContainer}>
-                <ImageContainer uri={item.image} style={localStyles.vocabImage} />
+const curiosity_data = [
+
+];
+
+const FlipCard = ({ item }) => {
+    const [flipped, setFlipped] = useState(false);
+    const rotateY = useSharedValue(0);
+
+    const animatedStyleFront = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value}deg` }],
+    }));
+
+    const animatedStyleBack = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
+    }));
+
+    const handleFlip = () => {
+        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        setFlipped(!flipped);
+    };
+
+    return (
+        <TouchableWithoutFeedback onPress={handleFlip}>
+            <View style={styles.flipCard}>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
+                    <ImageContainer uri={item.image} style={styles.imageCards} />
+                </Animated.View>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
+                    <Text style={styles.translationLabel}>Español:</Text>
+                    <Text style={styles.spanishText}>{item.spanish}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
+                </Animated.View>
             </View>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
-        </View>
-    ));
+        </TouchableWithoutFeedback>
+    );
 };
 
 const LosVerbosScreen2 = () => {
-    const navigation = useNavigation();
     const progress = 0.75;
+    const [showHelp, setShowHelp] = useState(false);
+    const [activeAccordion, setActiveAccordion] = useState(null);
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
+    };
+
+    const navigation = useNavigation();
+
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
+    };
 
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
-            style={styles.gradient}
         >
+            <StatusBar barStyle="default" backgroundColor="#003366" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-
-                <View style={styles.body}>
-                    <CardDefault title="Imachikkuna">
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Imagen</Text>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Spanish</Text>
-                            </View>
-                            {renderRows()}
-                        </View>
-                    </CardDefault>
+                <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={toggleHelpModal}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
                 </View>
+                <View style={styles.body}>
+                    {/* Imachikkuna */}
+                    <CardDefault title="Verbos">
+                        <Text style={styles.cardContent}>
+                            Hoy aprenderemos más verbos en Kichwa.{"\n\n"}
+                            ¡Prepárate para explorar el mundo de los verbos en Kichwa!
+                        </Text>
+                    </CardDefault>
+                    <View style={styles.gridContainer}>
+                        {verbData.map((item, index) => (
+                            <FlipCard key={index} item={item} />
+                        ))}
+                    </View>
+                    {curiosity_data.map((item) => (
+                        <AccordionDefault
+                            key={item.key}
+                            title={item.title}
+                            isOpen={activeAccordion === item.key}
+                            onPress={() => toggleAccordion(item.key)}
+                        >
+                            <View style={styles.curiositiesContent}>
+                                <FloatingHumu>
+                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                </FloatingHumu>
+                                <ComicBubble
+                                    text={item.text}
+                                    arrowDirection="left"
+                                />
+                            </View>
+                        </AccordionDefault>
+                    ))}
+                </View>
+
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => toggleHelpModal()}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <View style={styles.helpModalContent}>
+                                    <FloatingHumu>
+                                        <ImageContainer path={require('../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                    </FloatingHumu>
+                                    <ComicBubble
+                                        text="Presiona en las tarjetas de verbos para ver su traducción y nombre en Kichwa."
+                                        arrowDirection="left"
+                                    />
+                                </View>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
+
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
-
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosAdjetivos2')} />
-
                 </View>
             </ScrollView>
         </LinearGradient>
@@ -95,6 +194,7 @@ const localStyles = StyleSheet.create({
     vocabImage: {
         width: 50,
         height: 50,
+        borderRadius: 25,
     },
     textCenter: {
         textAlign: 'center',

@@ -1,13 +1,19 @@
-import React from 'react';
-import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, ScrollView, StatusBar, TouchableOpacity, Modal, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { CardDefault } from '../../ui/cards/CardDefault';
-import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
-import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../../ui/imageContainers/ImageContainer';
+import { FontAwesome } from '@expo/vector-icons';
+import { FloatingHumu } from '../../animations/FloatingHumu';
+import { ComicBubble } from '../../ui/bubbles/ComicBubble';
+import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
+import { AccordionDefault } from '../../ui/buttons/AccordionDefault';
+
 const locationVocabulary = [
     { kichwa: "karu", spanish: "lejos, distante, lejano", image: "https://img.freepik.com/vector-gratis/explorador-mochila_23-2148146728.jpg?t=st=1728426379~exp=1728429979~hmac=66649f1a102b8e327920096acbf6805e5ea43a65e787566c80e3fa9edddae185&w=740" },
     { kichwa: "kuchulla", spanish: "cerca", image: "https://img.freepik.com/vector-gratis/dibujos-animados-chico-adolescente_24640-47216.jpg?semt=ais_hybrid" },
@@ -25,49 +31,107 @@ const locationVocabulary = [
     { kichwa: "llakta", spanish: "comunidad, pueblo", image: "https://img.freepik.com/vector-gratis/ilustracion-pueblo-viejo-degradado_23-2149453258.jpg?semt=ais_hybrid" },
 ];
 
-const renderLocationRows = () => {
-    return locationVocabulary.map((item, index) => (
-        <View key={index} style={styles.tableRow}>
-            <View style={localStyles.imageContainer}>
-                <ImageContainer uri={item.image} style={localStyles.vocabImage} />
+const FlipCard = ({ item }) => {
+    const [flipped, setFlipped] = useState(false);
+    const rotateY = useSharedValue(0);
+
+    const animatedStyleFront = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value}deg` }],
+    }));
+
+    const animatedStyleBack = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
+    }));
+
+    const handleFlip = () => {
+        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        setFlipped(!flipped);
+    };
+
+    return (
+        <TouchableWithoutFeedback onPress={handleFlip}>
+            <View style={styles.flipCard}>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
+                    <ImageContainer uri={item.image} style={styles.imageCards} />
+                </Animated.View>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
+                    <Text style={styles.translationLabel}>Español:</Text>
+                    <Text style={styles.spanishText}>{item.spanish}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
+                </Animated.View>
             </View>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
-        </View>
-    ));
+        </TouchableWithoutFeedback>
+    );
 };
 
 const VocabularioLaUbicacionScreen = () => {
+    const [modalVisible, setModalVisible] = useState(false);
+    const [showHelp, setShowHelp] = useState(false);
     const navigation = useNavigation();
     const progress = 0.75;
 
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
-            style={styles.gradient}
         >
+            <StatusBar barStyle="default" backgroundColor="#003366" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
                 </View>
-
+                <View style={styles.questionIconContainer}>
+                    <TouchableOpacity onPress={() => setShowHelp(true)}>
+                        <FontAwesome name="question-circle" size={40} color="#fff" />
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.body}>
                     <CardDefault title="Vocabulario de la Ubicación">
-                        <View style={styles.vocabularyTable}>
-                            <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Imagen</Text>
-                                <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Spanish</Text>
-                            </View>
-                            {renderLocationRows()}
-                        </View>
+                        <Text style={styles.cardContent}>
+                            Hoy aprenderemos algunas palabras en Kichwa relacionadas con la ubicación.{"\n\n"}
+                            ¡Explora el vocabulario de la ubicación y diviértete aprendiendo!
+                        </Text>
                     </CardDefault>
+                    <View style={styles.gridContainer}>
+                        {locationVocabulary.map((item, index) => (
+                            <FlipCard key={index} item={item} />
+                        ))}
+                    </View>
                 </View>
+
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => setShowHelp(false)}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <View style={styles.helpModalContent}>
+                                    <FloatingHumu>
+                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
+                                    </FloatingHumu>
+                                    <ComicBubble
+                                        text='Presiona en cada tarjeta de ubicación para ver su traducción y nombre en Kichwa.'
+                                        arrowDirection="left"
+                                    />
+                                </View>
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => setShowHelp(false)}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
+
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
-
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ElTiempo')} />
-
                 </View>
             </ScrollView>
         </LinearGradient>

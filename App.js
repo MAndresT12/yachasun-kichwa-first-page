@@ -121,6 +121,7 @@ import EvaluationScreen4 from './src/components/screens/evaluations/EvaluationSc
 
 //Module 5 Intermedio
 import VocabularioLaUbicacionScreen from './src/components/screens/vocabulary/VocabularioLaUbicacionScreen.jsx';
+//Mejorar diseño de el tiempo
 import VocabularioElTiempoScreen from './src/components/screens/vocabulary/VocabularioElTiempoScreen.jsx';
 import ElPasadoSimpleScreen from './src/components/screens/conjugations/past/ElPasadoSimpleScreen.jsx';
 import ElParticipioPasadoScreen from './src/components/screens/conjugations/past/ElParticipioPasadoScreen.jsx';
