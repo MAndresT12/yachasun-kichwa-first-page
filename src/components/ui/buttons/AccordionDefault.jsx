@@ -109,9 +109,9 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { Text, View, TouchableOpacity, Animated, LayoutAnimation, UIManager, Platform } from 'react-native';
 import { accordionStyles } from '../../../../styles/accordionStyles';
 
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-    UIManager.setLayoutAnimationEnabledExperimental(true);
-}
+// if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+//     UIManager.setLayoutAnimationEnabledExperimental(true);
+// }
 
 const toggleAnimation = {
     duration: 300,
