@@ -218,11 +218,11 @@ export const styles = StyleSheet.create({
     },
 
     kichwaText: {
-        fontSize: 20,
+        fontSize: 16, //antes 20
         color: 'green',
     },
     spanishText: {
-        fontSize: 20,
+        fontSize: 16, //antes 20
         color: 'blue',
     },
 
