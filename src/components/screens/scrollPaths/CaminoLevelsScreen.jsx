@@ -116,23 +116,28 @@ const CaminoLevelsScreen = () => {
                     />
                 </View>
                 <View style={localStyles.pathRow}>
-                    <TouchableOpacity
-                        style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('IntroduccionJuegosScreen1')}
-                    >
-                        <FontAwesome name="gamepad" size={28} color="#FFF" />
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_IntroduccionJuegosScreen1"
+                        title="Juego: Módulo 1 / Pukllana: Shukniki  Tantachiy Yachay"
+                        iconName="gamepad"
+                        type="game"
+                        nextScreen="IntroduccionJuegosScreen1"
+                        progressKey="level_IntroduccionJuegosScreen1_completed"
+                    />
                     <BouncyText>Juego: Módulo 1 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
 
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText >Evaluación: Módulo 1 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
-                    <TouchableOpacity
-                        style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Game1')}
-                    >
-                        <FontAwesome name="pencil" size={24} color="#FFF" />
-                    </TouchableOpacity>
+
+                    <LevelCard
+                        levelKey="level_Game1"
+                        title="Evaluación: Módulo 1 / Ruraykuna: Shukniki  Tantachiy Yachay"
+                        iconName="pencil"
+                        type="evaluation"
+                        nextScreen="Game1"
+                        progressKey="level_Game1_completed"
+                    />
                 </View>
 
                 {/* Modulo 2 (Trofeo de Modulo 2)*/}
@@ -182,26 +187,28 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 <View style={localStyles.pathRow}>
-                    <TouchableOpacity
-                        style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('IntroduccionJuegosScreen2')}
-                    >
-                        <FontAwesome name="gamepad" size={28} color="#FFF" />
-
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_IntroduccionJuegosScreen2"
+                        title="Juego: Módulo 2 / Pukllana: Ishkayniki Tantachiy Yachay"
+                        iconName="gamepad"
+                        type="game"
+                        nextScreen="IntroduccionJuegosScreen2"
+                        progressKey="level_IntroduccionJuegosScreen2_completed"
+                    />
                     <BouncyText>Juego: Módulo 2 / Pukllana: Ishkayniki Tantachiy Yachay</BouncyText>
 
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 2 / Ruraykuna: Ishkayniki Tantachiy Yachay</BouncyText>
-                    <TouchableOpacity
-                        style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Game2')}
-                    >
-                        <FontAwesome name="pencil" size={24} color="#FFF" />
-
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_Game2"
+                        title="Evaluación: Módulo 2 / Ruraykuna: Ishkayniki Tantachiy Yachay"
+                        iconName="pencil"
+                        type="evaluation"
+                        nextScreen="Game2"
+                        progressKey="level_Game2_completed"
+                    />
                 </View>
                 {/* Modulo 3 (Trofeo de Módulo 3) */}
                 <Image source={require('../../../../assets/images/animals/guacamayo.png')} style={localStyles.islandImage} />
@@ -252,26 +259,30 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 <View style={localStyles.pathRow}>
-                    <TouchableOpacity
-                        style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('IntroduccionJuegosScreen3')}
-                    >
-                        <FontAwesome name="gamepad" size={28} color="#FFF" />
 
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_IntroduccionJuegosScreen3"
+                        title="Juego: Módulo 3 / Pukllana: Kimsaniki Tantachiy Yachay"
+                        iconName="gamepad"
+                        type="game"
+                        nextScreen="IntroduccionJuegosScreen3"
+                        progressKey="level_IntroduccionJuegosScreen3_completed"
+                    />
                     <BouncyText>Juego: Módulo 3 / Pukllana: Kimsaniki Tantachiy Yachay</BouncyText>
 
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 3 / Ruraykuna: Kimsaniki Tantachiy Yachay</BouncyText>
-                    <TouchableOpacity
-                        style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Game3')}
-                    >
-                        <FontAwesome name="pencil" size={24} color="#FFF" />
 
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_Game3"
+                        title="Evaluación: Módulo 3 / Ruraykuna: Kimsaniki Tantachiy Yachay"
+                        iconName="pencil"
+                        type="evaluation"
+                        nextScreen="Game3"
+                        progressKey="level_Game3_completed"
+                    />
                 </View>
 
                 {/* Modulo 4 (Trofeo de Módulo 4) */}
@@ -325,26 +336,30 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 <View style={localStyles.pathRow}>
-                    <TouchableOpacity
-                        style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('IntroduccionJuegosScreen4')}
-                    >
-                        <FontAwesome name="gamepad" size={28} color="#FFF" />
 
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_IntroduccionJuegosScreen4"
+                        title="Juego: Módulo 4 / Pukllana: Chuskuniki Tantachiy Yachay"
+                        iconName="gamepad"
+                        type="game"
+                        nextScreen="IntroduccionJuegosScreen4"
+                        progressKey="level_IntroduccionJuegosScreen4_completed"
+                    />
                     <BouncyText>Juego: Módulo 4 / Pukllana: Chuskuniki Tantachiy Yachay</BouncyText>
 
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 4 / Ruraykuna: Chuskuniki Tantachiy Yachay</BouncyText>
-                    <TouchableOpacity
-                        style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Game4')}
-                    >
-                        <FontAwesome name="pencil" size={24} color="#FFF" />
 
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_Game4"
+                        title="Evaluación: Módulo 4 / Ruraykuna: Chuskuniki Tantachiy Yachay"
+                        iconName="pencil"
+                        type="evaluation"
+                        nextScreen="Game4"
+                        progressKey="level_Game4_completed"
+                    />
                 </View>
 
                 {/*Modulo 5 (Trofeo Módulo 5) */}
@@ -398,26 +413,30 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 <View style={localStyles.pathRow}>
-                    <TouchableOpacity
-                        style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('IntroduccionJuegosScreen5')}
-                    >
-                        <FontAwesome name="gamepad" size={28} color="#FFF" />
 
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_IntroduccionJuegosScreen5"
+                        title="Juego: Módulo 5 / Pukllana: Pichkaniki Tantachiy Yachay"
+                        iconName="gamepad"
+                        type="game"
+                        nextScreen="IntroduccionJuegosScreen5"
+                        progressKey="level_IntroduccionJuegosScreen5_completed"
+                    />
                     <BouncyText>Juego: Módulo 5 / Pukllana: Pichkaniki Tantachiy Yachay</BouncyText>
 
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 5 / Ruraykuna: Pichkaniki Tantachiy Yachay</BouncyText>
-                    <TouchableOpacity
-                        style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Game5')}
-                    >
-                        <FontAwesome name="pencil" size={24} color="#FFF" />
 
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_Game5"
+                        title="Evaluación: Módulo 5 / Ruraykuna: Pichkaniki Tantachiy Yachay"
+                        iconName="pencil"
+                        type="evaluation"
+                        nextScreen="Game5"
+                        progressKey="level_Game5_completed"
+                    />
                 </View>
 
                 {/* Modulo 6 (Trofeo Módulo 6)*/}
@@ -470,26 +489,28 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 <View style={localStyles.pathRow}>
-                    <TouchableOpacity
-                        style={[localStyles.circleLevel, localStyles.game]}
-                        onPress={() => navigation.navigate('IntroduccionJuegosScreen6')}
-                    >
-                        <FontAwesome name="gamepad" size={28} color="#FFF" />
-
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_IntroduccionJuegosScreen6"
+                        title="Juego: Módulo 6 / Pukllana: Suktaniki Tantachiy Yachay"
+                        iconName="gamepad"
+                        type="game"
+                        nextScreen="IntroduccionJuegosScreen6"
+                        progressKey="level_IntroduccionJuegosScreen6_completed"
+                    />
                     <BouncyText>Juego: Módulo 6 / Pukllana: Suktaniki Tantachiy Yachay</BouncyText>
 
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 6 / Ruraykuna: Suktaniki Tantachiy Yachay</BouncyText>
-                    <TouchableOpacity
-                        style={[localStyles.circle, localStyles.evaluation]}
-                        onPress={() => navigation.navigate('Game6')}
-                    >
-                        <FontAwesome name="pencil" size={24} color="#FFF" />
-
-                    </TouchableOpacity>
+                    <LevelCard
+                        levelKey="level_Game6"
+                        title="Evaluación: Módulo 6 / Ruraykuna: Suktaniki Tantachiy Yachay"
+                        iconName="pencil"
+                        type="evaluation"
+                        nextScreen="Game6"
+                        progressKey="level_Game6_completed"
+                    />
                 </View>
 
 
