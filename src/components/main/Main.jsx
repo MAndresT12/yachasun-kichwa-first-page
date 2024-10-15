@@ -16,6 +16,7 @@ import { FloatingHumu } from '../animations/FloatingHumu';
 import { FontAwesome } from '@expo/vector-icons';
 import { ComicBubble } from '../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../ui/buttons/AccordionDefault';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const numberData = [
@@ -91,6 +92,8 @@ const Main = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+
     const toggleAccordion = (key) => {
         if (activeAccordion === key) {
             setActiveAccordion(null);
@@ -101,6 +104,15 @@ const Main = () => {
 
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
+    };
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_Food_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
     };
     const navigation = useNavigation();
     const progress = 0.75;
@@ -185,7 +197,13 @@ const Main = () => {
                 )}
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Food')} />
+                    <ButtonDefault
+                        title="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('Food');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>

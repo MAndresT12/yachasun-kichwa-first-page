@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
+
 const EvaluationScreen2 = ({ route }) => {
     const { score, totalQuestions } = route.params;
     const navigation = useNavigation();

@@ -14,6 +14,7 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 import { AccordionDefault } from '../../ui/buttons/AccordionDefault';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const foodData = [
     { kichwa: "tutamanta mikuna", spanish: "desayuno", image: "https://img.freepik.com/vector-premium/dibujos-animados-delicioso-desayuno-sabroso_24640-53952.jpg?w=1060" },
@@ -97,6 +98,8 @@ const FoodScreen = () => {
     const progress = 0.75;
     const [showHelp, setShowHelp] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+
     const toggleAccordion = (key) => {
         if (activeAccordion === key) {
             setActiveAccordion(null);
@@ -108,6 +111,15 @@ const FoodScreen = () => {
 
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
+    };
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_Animals_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
     };
 
     return (
@@ -190,7 +202,10 @@ const FoodScreen = () => {
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
 
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Animals')} />
+                    <ButtonDefault label="Siguiente" onPress={() => {
+                        completeLevel();
+                        navigation.navigate('Animals');
+                    }} />
                 </View>
             </ScrollView>
         </LinearGradient>

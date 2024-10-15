@@ -15,6 +15,7 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 import { AccordionDefault } from '../../ui/buttons/AccordionDefault';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const animalsData = [
     { kichwa: "allku", spanish: "perro", image: "https://img.freepik.com/vector-premium/lindo-vector-caricatura-perro-cachorro-sabueso_549857-8253.jpg?w=360" },
@@ -91,6 +92,8 @@ const AnimalsScreen = () => {
     const progress = 0.75;
     const [showHelp, setShowHelp] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+
 
     const toggleAccordion = (key) => {
         if (activeAccordion === key) {
@@ -104,6 +107,15 @@ const AnimalsScreen = () => {
 
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
+    };
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_ParticlesPart1_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
     };
 
     return (
@@ -185,7 +197,7 @@ const AnimalsScreen = () => {
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
 
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ParticlesPart1')} />
+                    <ButtonDefault label="Siguiente" onPress={() => { completeLevel(); navigation.navigate('ParticlesPart1'); }} />
                 </View>
             </ScrollView>
         </LinearGradient>
