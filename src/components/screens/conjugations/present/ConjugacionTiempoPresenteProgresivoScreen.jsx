@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, ScrollView, StyleSheet, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Carousel from 'react-native-reanimated-carousel';
@@ -90,7 +91,17 @@ const renderExampleCard = (example, index) => (
 const ConjugacionTiempoPresenteProgresivoScreen = () => {
     const navigation = useNavigation();
     const progress = 0.75;
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_FuturoProximo_completed', 'true');
 
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -127,8 +138,13 @@ const ConjugacionTiempoPresenteProgresivoScreen = () => {
 
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
-
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FuturoProximo')} />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('FuturoProximo');
+                        }}
+                    />
 
                 </View>
             </ScrollView>

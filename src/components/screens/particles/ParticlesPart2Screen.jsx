@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles';
@@ -56,7 +57,16 @@ const renderExamples = (examples) => {
 
 const ParticlesPart2Screen = () => {
     const navigation = useNavigation();
-
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_ParticlesPart3_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -79,8 +89,14 @@ const ParticlesPart2Screen = () => {
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
 
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ParticlesPart3')} />
-
+                    {/* <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ParticlesPart3')} /> */}
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('ParticlesPart3');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>

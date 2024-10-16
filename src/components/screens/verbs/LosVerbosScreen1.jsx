@@ -1,6 +1,7 @@
 // src/components/LosVerbosScreen1.jsx
 
 import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
@@ -97,7 +98,16 @@ const LosVerbosScreen1 = () => {
     const progress = 0.75;
     const [showHelp, setShowHelp] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
-
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_LosVerbosConjugaciones1_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
     const toggleAccordion = (key) => {
         if (activeAccordion === key) {
             setActiveAccordion(null);
@@ -190,7 +200,13 @@ const LosVerbosScreen1 = () => {
 
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosVerbosConjugaciones1')} />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('LosVerbosConjugaciones1');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>

@@ -1,5 +1,8 @@
 // src/components/Main.jsx
+
 import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { Text, View, ScrollView, StyleSheet, StatusBar, TouchableWithoutFeedback, Modal, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../styles/globalStyles';
@@ -16,7 +19,6 @@ import { FloatingHumu } from '../animations/FloatingHumu';
 import { FontAwesome } from '@expo/vector-icons';
 import { ComicBubble } from '../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../ui/buttons/AccordionDefault';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const numberData = [
@@ -92,7 +94,17 @@ const Main = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
+
     const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_Food_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
 
     const toggleAccordion = (key) => {
         if (activeAccordion === key) {
@@ -105,15 +117,7 @@ const Main = () => {
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
     };
-    // Función para marcar el nivel como completado y desbloquear el siguiente
-    const completeLevel = async () => {
-        try {
-            await AsyncStorage.setItem('level_Food_completed', 'true');
-            setIsNextLevelUnlocked(true);
-        } catch (error) {
-            console.log('Error guardando el progreso', error);
-        }
-    };
+
     const navigation = useNavigation();
     const progress = 0.75;
 
@@ -198,7 +202,7 @@ const Main = () => {
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
                     <ButtonDefault
-                        title="Siguiente"
+                        label="Siguiente"
                         onPress={() => {
                             completeLevel(); // Completar el nivel actual
                             navigation.navigate('Food');

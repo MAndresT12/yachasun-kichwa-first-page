@@ -1,6 +1,8 @@
 // src/components/ParticlesPart1Screen.jsx
 
-import React from 'react';
+
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { CardDefault } from '../../ui/cards/CardDefault';
 import { styles } from '../../../../styles/globalStyles';
@@ -114,7 +116,18 @@ const renderTable = (table, type = 'normal') => {
 const ParticlesPart1Screen = () => {
     const navigation = useNavigation();
     const progress = 0.75;
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_IntroduccionJuegosScreen1_completed', 'true');
+            await AsyncStorage.setItem('level_Game1_completed', 'true');
 
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -143,7 +156,13 @@ const ParticlesPart1Screen = () => {
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
 
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('IntroduccionJuegosScreen1')} />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('IntroduccionJuegosScreen1');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>

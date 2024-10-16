@@ -1,14 +1,27 @@
 // src/components/EvaluationScreen3.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
+import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const EvaluationScreen3 = ({ route }) => {
     const { score, totalQuestions } = route.params;
     const navigation = useNavigation();
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('trofeo_modulo3_intermedio', 'true');
+            await AsyncStorage.setItem('level_LaCocina_completed', 'true');
 
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
@@ -23,8 +36,14 @@ const EvaluationScreen3 = ({ route }) => {
                         </Text>
                     </View>
 
-                    <ButtonDefault label="Volver al inicio" onPress={() => navigation.navigate('CaminoLevels')} />
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LaCocina')} />
+                    <ButtonLevelsInicio label="Inicio" />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('LaCocina');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </View>

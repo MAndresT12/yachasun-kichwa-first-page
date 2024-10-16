@@ -1,6 +1,7 @@
 // src/components/VocabularioLaCocinaScreen.jsx
 
 import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
@@ -114,6 +115,17 @@ const VocabularioLaCocinaScreen = () => {
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
     };
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_LosVerbos2_completed', 'true');
+
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
 
     return (
         <LinearGradient
@@ -203,7 +215,13 @@ const VocabularioLaCocinaScreen = () => {
 
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('LosVerbos2')} />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('LosVerbos2');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>

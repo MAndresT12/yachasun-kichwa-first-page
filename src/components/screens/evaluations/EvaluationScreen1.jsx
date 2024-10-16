@@ -1,6 +1,8 @@
 // src/components/EvaluationScreen.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
@@ -10,6 +12,19 @@ import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
 const EvaluationScreen1 = ({ route }) => {
     const { score, totalQuestions } = route.params;
     const navigation = useNavigation();
+    //Trofeo solo debería desbloquearse cuando calif es 4 o mayor
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('trofeo_modulo1_intermedio', 'true');
+            await AsyncStorage.setItem('level_ParticlesPart2_completed', 'true');
+
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
 
     return (
         <LinearGradient
@@ -31,8 +46,14 @@ const EvaluationScreen1 = ({ route }) => {
                     </View>
                     <ButtonLevelsInicio label="Inicio" />
 
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ParticlesPart2')} />
-
+                    {/* <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ParticlesPart2')} /> */}
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('ParticlesPart2');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>

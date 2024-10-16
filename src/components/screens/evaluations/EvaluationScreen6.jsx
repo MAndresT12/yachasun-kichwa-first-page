@@ -1,6 +1,7 @@
 // src/components/EvaluationScreen6.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
@@ -8,7 +9,20 @@ import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 const EvaluationScreen6 = ({ route }) => {
     const { score, totalQuestions } = route.params;
     const navigation = useNavigation();
+    //Trofeo solo debería desbloquearse cuando calif es 4 o mayor
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('trofeo_modulo6_intermedio', 'true');
+            //luego dirigir a una pantalla de felicitaciones por completar el nivel intermedio, etc
+            // await AsyncStorage.setItem('level_ParticlesPart2_completed', 'true');
 
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
@@ -22,9 +36,15 @@ const EvaluationScreen6 = ({ route }) => {
                             Puntuación: {score} / {totalQuestions}
                         </Text>
                     </View>
-                    <ButtonDefault label="Volver al inicio" onPress={() => navigation.navigate('CaminoLevels')} />
-                    {/*Aca debe de dirigir a pantalla final de creditos has alcanzado blabla*/}
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('CaminoLevels')} />
+                    <ButtonLevelsInicio label="Inicio" />
+
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('CaminoLevels');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </View>

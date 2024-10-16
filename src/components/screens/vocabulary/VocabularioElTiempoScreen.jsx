@@ -1,6 +1,7 @@
 // src/components/VocabularioElTiempoScreen.jsx
 
 import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, ScrollView, StyleSheet, TouchableWithoutFeedback, Modal, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../styles/globalStyles';
@@ -83,7 +84,17 @@ const VocabularioElTiempoScreen = () => {
     };
     const navigation = useNavigation();
     const progress = 0.75;
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_ElPasadoSimple_completed', 'true');
 
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -158,8 +169,14 @@ const VocabularioElTiempoScreen = () => {
                 )}
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('ElPasadoSimple');
+                        }}
+                    />
 
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ElPasadoSimple')} />
 
                 </View>
             </ScrollView>

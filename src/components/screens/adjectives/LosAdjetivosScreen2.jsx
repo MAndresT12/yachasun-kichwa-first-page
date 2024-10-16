@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, ScrollView, StatusBar, TouchableOpacity, Modal, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
@@ -92,7 +93,17 @@ const LosAdjetivosScreen2 = () => {
     };
     const navigation = useNavigation();
     const progress = 0.75;
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    // Función para marcar el nivel como completado y desbloquear el siguiente
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_ElDormitorio_completed', 'true');
 
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -190,7 +201,13 @@ const LosAdjetivosScreen2 = () => {
                 )}
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio" />
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ElDormitorio')} />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel(); // Completar el nivel actual
+                            navigation.navigate('ElDormitorio');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>
