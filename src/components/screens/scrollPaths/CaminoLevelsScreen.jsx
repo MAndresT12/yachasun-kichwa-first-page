@@ -12,7 +12,7 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LevelCard from '../../ui/cards/LevelCard';
 import { useFocusEffect } from '@react-navigation/native';
-
+import TrophyCard from '../../ui/cards/TrophyCard';
 
 const BouncyText = ({ children }) => {
     const scale = useSharedValue(1);
@@ -39,29 +39,69 @@ const BouncyText = ({ children }) => {
     );
 };
 
+const BouncyTextTitulo = ({ children }) => {
+    const scale = useSharedValue(1);
+
+    useEffect(() => {
+        scale.value = withRepeat(
+            withSequence(
+                withTiming(1.1, { duration: 1000 }),
+                withTiming(1, { duration: 1000 })
+            ),
+            -1,  // Infinite loop
+            true // Reverse on repeat
+        );
+    }, []);
+
+    const animatedStyle = useAnimatedStyle(() => ({
+        transform: [{ scale: scale.value }],
+    }));
+
+    return (
+        <Animated.Text style={[localStyles.bouncyTextTitulo]}>
+            {children}
+        </Animated.Text>
+    );
+};
+
 
 const CaminoLevelsScreen = () => {
     const navigation = useNavigation();
 
-    //Aca seria calcular respecto a los modulos completados o trofeos obtenidos el porcentaje
-    const progress = 0.75;
-    // Cargar el progreso de los niveles cada vez que la pantalla gana foco
+    const [progress, setProgress] = useState(0);
+
+    const trofeoKeys = [
+        'trofeo_modulo1_intermedio',
+        'trofeo_modulo2_intermedio',
+        'trofeo_modulo3_intermedio',
+        'trofeo_modulo4_intermedio',
+        'trofeo_modulo5_intermedio',
+        'trofeo_modulo6_intermedio',
+    ];
+
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
     useFocusEffect(
         React.useCallback(() => {
-            const loadProgress = async () => {
-                // Puedes actualizar aquí el progreso basado en AsyncStorage o algún cálculo
-                const numerosCompleted = await AsyncStorage.getItem('level_Numeros_completed');
-                const foodCompleted = await AsyncStorage.getItem('level_Food_completed');
-                const animalsCompleted = await AsyncStorage.getItem('level_Animals_completed');
-
-                // Actualizar el progreso o cualquier estado relevante aquí si lo necesitas
-                // Por ejemplo, podrías calcular un nuevo valor de progreso basado en niveles completados
-                // setProgress(calculo);
-            };
-
-            loadProgress();
+            loadTrophyProgress();
         }, [])
     );
+
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -73,7 +113,9 @@ const CaminoLevelsScreen = () => {
             </View>
             <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
                 {/* Modulo 1 (Trofeo de Módulo 1)*/}
-                <Image source={require('../../../../assets/images/animals/tortuga.png')} style={localStyles.islandImage} />
+                {/* <Image source={require('../../../../assets/images/animals/tortuga.png')} style={localStyles.islandImage} /> */}
+
+                <BouncyTextTitulo>Módulo 1 / Shukniki  Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
                     <LevelCard
@@ -139,9 +181,15 @@ const CaminoLevelsScreen = () => {
                         progressKey="level_Game1_completed"
                     />
                 </View>
+                <TrophyCard
+                    trophyKey="trofeo_modulo1_intermedio"
+                    imageSource={require('../../../../assets/images/animals/tortuga.png')}
+                />
 
                 {/* Modulo 2 (Trofeo de Modulo 2)*/}
-                <Image source={require('../../../../assets/images/animals/jaguar.png')} style={localStyles.islandImage} />
+                <BouncyTextTitulo>Módulo 2 / Ishkayniki Tantachiy Yachay</BouncyTextTitulo>
+
+                {/* <Image source={require('../../../../assets/images/animals/jaguar.png')} style={localStyles.islandImage} /> */}
                 <View style={localStyles.pathRow}>
                     <LevelCard
                         levelKey="level_ParticlesPart2"
@@ -210,8 +258,16 @@ const CaminoLevelsScreen = () => {
                         progressKey="level_Game2_completed"
                     />
                 </View>
+                <TrophyCard
+                    trophyKey="trofeo_modulo2_intermedio"
+                    imageSource={require('../../../../assets/images/animals/jaguar.png')}
+                />
+
+
                 {/* Modulo 3 (Trofeo de Módulo 3) */}
-                <Image source={require('../../../../assets/images/animals/guacamayo.png')} style={localStyles.islandImage} />
+                <BouncyTextTitulo>Módulo 3 / Kimsaniki Tantachiy Yachay</BouncyTextTitulo>
+
+                {/* <Image source={require('../../../../assets/images/animals/guacamayo.png')} style={localStyles.islandImage} /> */}
                 <View style={localStyles.pathRow}>
                     <LevelCard
                         levelKey="level_LosVerbos1"
@@ -284,9 +340,16 @@ const CaminoLevelsScreen = () => {
                         progressKey="level_Game3_completed"
                     />
                 </View>
+                <TrophyCard
+                    trophyKey="trofeo_modulo3_intermedio"
+                    imageSource={require('../../../../assets/images/animals/guacamayo.png')}
+                />
+
 
                 {/* Modulo 4 (Trofeo de Módulo 4) */}
-                <Image source={require('../../../../assets/images/animals/cuy2.png')} style={localStyles.islandImage} />
+                <BouncyTextTitulo>Módulo 4 / Chuskuniki Tantachiy Yachay</BouncyTextTitulo>
+
+                {/* <Image source={require('../../../../assets/images/animals/cuy2.png')} style={localStyles.islandImage} /> */}
                 <View style={localStyles.pathRow}>
 
                     <LevelCard
@@ -361,9 +424,16 @@ const CaminoLevelsScreen = () => {
                         progressKey="level_Game4_completed"
                     />
                 </View>
+                <TrophyCard
+                    trophyKey="trofeo_modulo4_intermedio"
+                    imageSource={require('../../../../assets/images/animals/cuy2.png')}
+                />
+
 
                 {/*Modulo 5 (Trofeo Módulo 5) */}
-                <Image source={require('../../../../assets/images/animals/llama.png')} style={localStyles.islandImage} />
+                <BouncyTextTitulo>Módulo 5 / Pichkaniki Tantachiy Yachay</BouncyTextTitulo>
+
+                {/* <Image source={require('../../../../assets/images/animals/llama.png')} style={localStyles.islandImage} /> */}
                 <View style={localStyles.pathRow}>
 
                     <LevelCard
@@ -439,9 +509,14 @@ const CaminoLevelsScreen = () => {
                     />
                 </View>
 
-                {/* Modulo 6 (Trofeo Módulo 6)*/}
+                <TrophyCard
+                    trophyKey="trofeo_modulo5_intermedio"
+                    imageSource={require('../../../../assets/images/animals/llama.png')}
+                />
 
-                <Image source={require('../../../../assets/images/animals/condor.png')} style={localStyles.islandImage} />
+                {/* Modulo 6 (Trofeo Módulo 6)*/}
+                <BouncyTextTitulo>Módulo 6 / Suktaniki Tantachiy Yachay</BouncyTextTitulo>
+                {/* <Image source={require('../../../../assets/images/animals/condor.png')} style={localStyles.islandImage} /> */}
                 <View style={localStyles.pathRow}>
 
                     <LevelCard
@@ -513,7 +588,10 @@ const CaminoLevelsScreen = () => {
                     />
                 </View>
 
-
+                <TrophyCard
+                    trophyKey="trofeo_modulo6_intermedio"
+                    imageSource={require('../../../../assets/images/animals/condor.png')}
+                />
             </ScrollView>
         </LinearGradient>
     );
@@ -570,6 +648,17 @@ const localStyles = StyleSheet.create({
     },
     bouncyText: {
         fontSize: 20,
+        fontWeight: 'bold',
+        color: '#212752', // Color similar a globos #212752 antes #212b68
+        textAlign: 'center',
+        textShadowColor: 'rgba(0, 0, 0, 0.3)',
+        textShadowOffset: { width: 1, height: 2 },
+        textShadowRadius: 4,
+        borderRadius: 10,
+        padding: 15,
+    },
+    bouncyTextTitulo: {
+        fontSize: 35,
         fontWeight: 'bold',
         color: '#212752', // Color similar a globos #212752 antes #212b68
         textAlign: 'center',

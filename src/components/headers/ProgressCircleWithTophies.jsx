@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Image } from 'react-native';
 import Svg, { Circle, G, Path } from 'react-native-svg';
+import { FontAwesome } from '@expo/vector-icons';
 
 const ProgressCircleWithTrophies = ({ progress, level }) => {
     const sections = 6;
@@ -70,14 +71,25 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
                         {/* Mostrar las imágenes de los trofeos obtenidos en una cuadrícula de 3x2 */}
                         <View style={styles.trophyGrid}>
                             {trophyImages.map((image, index) => (
-                                <Image
-                                    key={index}
-                                    source={image}
-                                    style={[
-                                        styles.trophyImage,
-                                        { opacity: index < completedSections ? 1 : 0.3 }, // Mostrar trofeos completados en color, los incompletos en opacidad
-                                    ]}
-                                />
+                                <View key={index} style={styles.trophyContainer}>
+                                    <Image
+                                        source={image}
+                                        style={[
+                                            styles.trophyImage,
+                                            {
+                                                opacity: index < completedSections ? 1 : 0.45,
+                                                tintColor: index >= completedSections ? 'black' : null, // Tinte negro a trofeos no completados
+                                                filter: index >= completedSections ? 'grayscale(100%)' : null,
+                                            },
+                                        ]}
+                                    />
+                                    {/* Si el trofeo no está desbloqueado, mostrar el ícono de pregunta */}
+                                    {index >= completedSections && (
+                                        <View style={styles.lockOverlay}>
+                                            <FontAwesome name="question" size={40} color="#FFF" />
+                                        </View>
+                                    )}
+                                </View>
                             ))}
                         </View>
 
@@ -132,11 +144,23 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         width: '100%',
     },
+    trophyContainer: {
+        position: 'relative', // Necesario para posicionar el ícono de pregunta
+        margin: 10,
+    },
     trophyImage: {
         width: 80,
         height: 80,
         resizeMode: 'contain',
-        margin: 10,
+    },
+    lockOverlay: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     closeButton: {
         marginTop: 20,
