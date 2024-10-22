@@ -45,6 +45,8 @@
 - Los numeros: Resaltar más los números (opcional), poner curiosidades para que sepan que combinando salen los números, cómo se dice por ejemplo 421 o algo así, al menos dos ejemplos [x]
 - Colores: Curiosidades, aquí están los colores básico, no existen los colores más complejos, y otra para decir que para decir claro se añade el chawa y el yanaka (buscar que es en diccionario) [x]
 - Definir la paleta de colores de la app, dejar en amarillo y naranja siempre [x]
+- Seguir logica de curiosidades colocar "curiosidades", los saludos part 1 (colocar que en esta ciudad hay hablantes del idioma conlo sque puedes practicar), colocar dentro de acordeon siempre alinicio curiosidades [x]
+- saludos parte 2 colocar flecha al jalar el humu
 
 
 - Poner el Kichwa en verdey espanol en azul todos los textos. 
@@ -69,8 +71,6 @@
  
 
 
-- Seguir logica de curiosidades colocar "curiosidades", los saludos part 1 (colocar que en esta ciudad hay hablantes del idioma conlo sque puedes practicar), colocar dentro de acordeon siempre alinicio curiosidades
-- saludos parte 2 colocar flecha al jalar el humu
 - en pantallas (por ejemplo pronombres personales) colocar en card vamos a aprender verbo kana etc, y asi para otras paginas que lo requieran.
 - Pag pronombres personales (pay el/ella) PARRAFO de verbo kana solo hasta ser o estar, en tarjetas cambiar por tabla., cambiar titulo "algo lindo de los apellidos"
 - Logica primero español luego kichwa

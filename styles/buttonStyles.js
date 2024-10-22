@@ -18,7 +18,8 @@ export const buttonStyles = StyleSheet.create({
     },
     buttonText: {
         color: '#fff',
-        fontSize: 18,
+        fontSize: 14,
+        textAlign: 'center',
     },
     buttonContainerSpaceAround: {
         flexDirection: 'row',

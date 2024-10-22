@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
-import { LinearGradient } from 'expo-linear-gradient';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
@@ -160,8 +160,14 @@ const goodbyes_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'La ciudad de Otavalo',
-        text: 'Sabías que Otavalo es una ciudad de Ecuador, conocida por su mercado artesanal y el Parque Cóndor.',
+        title: 'Curiosidades - La ciudad de Otavalo',
+        text: 'Sabías que Otavalo es una ciudad de Ecuador, conocida por su mercado artesanal.',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+    },
+    {
+        key: '2',
+        title: 'Curiosidades - Kichwa hablantes',
+        text: 'En Otavalo, puedes practicar Kichwa con las personas que viven ahí.',
         imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
     },
 ];
