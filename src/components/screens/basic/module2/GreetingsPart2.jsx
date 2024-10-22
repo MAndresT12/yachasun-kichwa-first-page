@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
@@ -158,6 +158,7 @@ const FlipCard = ({ item }) => {
     const rotateY = useSharedValue(0);
     const humuOpacity = useSharedValue(0);
     const humuLeftPosition = useSharedValue(-width * 0.008);
+    const arrowOpacity = useSharedValue(0); // Arrow opacity control
     const cardOpacity = useSharedValue(0);
     const cardTranslateX = useSharedValue(-width * 0.43);
 
@@ -172,6 +173,10 @@ const FlipCard = ({ item }) => {
     const animatedHumuStyle = useAnimatedStyle(() => ({
         opacity: humuOpacity.value,
         transform: [{ translateX: humuLeftPosition.value }],
+    }));
+
+    const animatedArrowStyle = useAnimatedStyle(() => ({
+        opacity: arrowOpacity.value, // Control arrow opacity here
     }));
 
     const animatedCardStyle = useAnimatedStyle(() => ({
@@ -191,6 +196,9 @@ const FlipCard = ({ item }) => {
                         humuLeftPosition.value = withTiming(width * 0.28, {
                             duration: 200,
                             easing: Easing.bounce,
+                        }, () => {
+                            // Arrow fades in after Humu's animation finishes
+                            arrowOpacity.value = withTiming(0.8, { duration: 500 });
                         });
                     }
                 );
@@ -200,6 +208,7 @@ const FlipCard = ({ item }) => {
             humuOpacity.value = withTiming(0, { duration: 300 }, () => {
                 humuLeftPosition.value = -width * 0.008;
             });
+            arrowOpacity.value = withTiming(0, { duration: 300 }); // Hide the arrow when flipped back
             cardOpacity.value = withTiming(0, { duration: 300 });
             cardTranslateX.value = withTiming(-width * 0.43, { duration: 300 });
         }
@@ -211,6 +220,8 @@ const FlipCard = ({ item }) => {
 
         if (translationX > 50) {
             humuLeftPosition.value = withTiming(width, { duration: 300 });
+            // Arrow fades out rapidly when gesture is triggered
+            arrowOpacity.value = withTiming(0, { duration: 100 });
             setTimeout(() => {
                 cardOpacity.value = withTiming(1, { duration: 300 });
                 cardTranslateX.value = withTiming(0, { duration: 300 });
@@ -241,6 +252,11 @@ const FlipCard = ({ item }) => {
                 />
             </PanGestureHandler>
 
+            {/* Arrow that appears after Humu animation */}
+            <Animated.View style={[animatedArrowStyle, { position: 'absolute', left: '65%', top: '50%' }]}>
+                <FontAwesome name="arrow-right" size={24} color="#223bb8" />
+            </Animated.View>
+
             <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
                 <CardDefault styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}>
                     <Text style={styles.spanishText}>Español:</Text>
@@ -252,6 +268,8 @@ const FlipCard = ({ item }) => {
         </View>
     );
 };
+
+
 
 const renderCourtesies = () => {
     return courtesy_data.map((item, index) => (
