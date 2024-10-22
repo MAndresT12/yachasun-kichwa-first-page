@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
+import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
@@ -12,51 +14,51 @@ import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const images = {
-    number0: require('../../../../../assets/images/basic/module1/numbers/number0.png'),
-    number1: require('../../../../../assets/images/basic/module1/numbers/number1.png'),
-    number2: require('../../../../../assets/images/basic/module1/numbers/number2.png'),
-    number3: require('../../../../../assets/images/basic/module1/numbers/number3.png'),
-    number4: require('../../../../../assets/images/basic/module1/numbers/number4.png'),
-    number5: require('../../../../../assets/images/basic/module1/numbers/number5.png'),
-    number6: require('../../../../../assets/images/basic/module1/numbers/number6.png'),
-    number7: require('../../../../../assets/images/basic/module1/numbers/number7.png'),
-    number8: require('../../../../../assets/images/basic/module1/numbers/number8.png'),
-    number9: require('../../../../../assets/images/basic/module1/numbers/number9.png'),
-    number10: require('../../../../../assets/images/basic/module1/numbers/number10.png'),
-    number11: require('../../../../../assets/images/basic/module1/numbers/number11.png'),
-    number12: require('../../../../../assets/images/basic/module1/numbers/number12.png'),
-    number13: require('../../../../../assets/images/basic/module1/numbers/number13.png'),
-    number14: require('../../../../../assets/images/basic/module1/numbers/number14.png'),
-    number15: require('../../../../../assets/images/basic/module1/numbers/number15.png'),
-    number16: require('../../../../../assets/images/basic/module1/numbers/number16.png'),
-    number17: require('../../../../../assets/images/basic/module1/numbers/number17.png'),
-    number18: require('../../../../../assets/images/basic/module1/numbers/number18.png'),
-    number19: require('../../../../../assets/images/basic/module1/numbers/number19.png'),
-    number20: require('../../../../../assets/images/basic/module1/numbers/number20.png'),
-    number30: require('../../../../../assets/images/basic/module1/numbers/number30.png'),
-    number40: require('../../../../../assets/images/basic/module1/numbers/number40.png'),
-    number50: require('../../../../../assets/images/basic/module1/numbers/number50.png'),
-    number60: require('../../../../../assets/images/basic/module1/numbers/number60.png'),
-    number70: require('../../../../../assets/images/basic/module1/numbers/number70.png'),
-    number80: require('../../../../../assets/images/basic/module1/numbers/number80.png'),
-    number90: require('../../../../../assets/images/basic/module1/numbers/number90.png'),
-    number100: require('../../../../../assets/images/basic/module1/numbers/number100.png'),
-    number101: require('../../../../../assets/images/basic/module1/numbers/number101.png'),
-    number102: require('../../../../../assets/images/basic/module1/numbers/number102.png'),
-    number103: require('../../../../../assets/images/basic/module1/numbers/number103.png'),
-    number110: require('../../../../../assets/images/basic/module1/numbers/number110.png'),
-    number120: require('../../../../../assets/images/basic/module1/numbers/number120.png'),
-    number130: require('../../../../../assets/images/basic/module1/numbers/number130.png'),
-    number140: require('../../../../../assets/images/basic/module1/numbers/number140.png'),
-    number150: require('../../../../../assets/images/basic/module1/numbers/number150.png'),
-    number160: require('../../../../../assets/images/basic/module1/numbers/number160.png'),
-    number170: require('../../../../../assets/images/basic/module1/numbers/number170.png'),
-    number180: require('../../../../../assets/images/basic/module1/numbers/number180.png'),
-    number190: require('../../../../../assets/images/basic/module1/numbers/number190.png'),
-    number200: require('../../../../../assets/images/basic/module1/numbers/number200.png'),
-    number300: require('../../../../../assets/images/basic/module1/numbers/number300.png'),
-    number400: require('../../../../../assets/images/basic/module1/numbers/number400.png'),
-    number500: require('../../../../../assets/images/basic/module1/numbers/number500.png'),
+    number0: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number0.png',
+    number1: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number1.png',
+    number2: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number2.png',
+    number3: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number3.png',
+    number4: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number4.png',
+    number5: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number5.png',
+    number6: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number6.png',
+    number7: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number7.png',
+    number8: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number8.png',
+    number9: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number9.png',
+    number10: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number10.png',
+    number11: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number11.png',
+    number12: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number12.png',
+    number13: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number13.png',
+    number14: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number14.png',
+    number15: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number15.png',
+    number16: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number16.png',
+    number17: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number17.png',
+    number18: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number18.png',
+    number19: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number19.png',
+    number20: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number20.png',
+    number30: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number30.png',
+    number40: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number40.png',
+    number50: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number50.png',
+    number60: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number60.png',
+    number70: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number70.png',
+    number80: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number80.png',
+    number90: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number90.png',
+    number100: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number100.png',
+    number101: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number101.png',
+    number102: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number102.png',
+    number103: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number103.png',
+    number110: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number110.png',
+    number120: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number120.png',
+    number130: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number130.png',
+    number140: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number140.png',
+    number150: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number150.png',
+    number160: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number160.png',
+    number170: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number170.png',
+    number180: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number180.png',
+    number190: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number190.png',
+    number200: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number200.png',
+    number300: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number300.png',
+    number400: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number400.png',
+    number500: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number500.png'
 };
 
 const first_number_data = [
@@ -107,6 +109,27 @@ const first_number_data = [
     { numberImage: images.number500, kichwa: "Pichka patsak", spanish: "Quinientos" }
 ];
 
+const curiosity_data = [
+    {
+        key: '1',
+        title: 'Reglas - ¿Cómo combinar números en Kichwa?',
+        text: 'Se pueden combinar las unidaes, decenas, centenas, etc. para formar números más complejos.',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+    },
+    {
+        key: '2',
+        title: 'Reglas - Te muestro un ejemplo',
+        text: 'Si queremos decir 231, se combinan los números para formar "Ishkay patsak kimsa chunka shuk".',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+    },
+    {
+        key: '3',
+        title: 'Reglas - Aquí te mando otro',
+        text: 'Ahora si queremos decir 117 en Kichwa, se dice "Patsak chunka kanchis".',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+    },
+];
+
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
     const rotateY = useSharedValue(0);
@@ -128,13 +151,13 @@ const FlipCard = ({ item }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <ImageContainer path={item.numberImage} style={styles.imageCards} />
+                    <ImageContainer uri={item.numberImage} style={styles.imageCards} />
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
-                    <Text style={styles.translationLabel}>Kichwa:</Text>
-                    <Text style={styles.translationText}>{item.kichwa}</Text>
-                    <Text style={styles.translationLabel}>Español:</Text>
-                    <Text style={styles.translationText}>{item.spanish}</Text>
+                    <Text style={styles.spanishText}>Español:</Text>
+                    <Text style={styles.spanishText}>{item.spanish}{'\n'}</Text>
+                    <Text style={styles.kichwaText}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
                 </Animated.View>
             </View>
         </TouchableWithoutFeedback>
@@ -142,19 +165,30 @@ const FlipCard = ({ item }) => {
 };
 
 const FirstNumbers = () => {
-    const progress = 1/6;
+    const progress = 1 / 6;
 
     const [showHelp, setShowHelp] = useState(null);
+    const [activeAccordion, setActiveAccordion] = useState(null);
 
     const navigation = useNavigation();
+
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
+    };
 
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
     };
 
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="basic" />
@@ -176,6 +210,25 @@ const FirstNumbers = () => {
                             <FlipCard key={index} item={item} />
                         ))}
                     </View>
+
+                    {curiosity_data.map((item) => (
+                        <AccordionDefault
+                            key={item.key}
+                            title={item.title}
+                            isOpen={activeAccordion === item.key}
+                            onPress={() => toggleAccordion(item.key)}
+                        >
+                            <View style={styles.curiositiesContent}>
+                                <FloatingHumu >
+                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                </FloatingHumu>
+                                <ComicBubble
+                                    text={item.text}
+                                    arrowDirection="left"
+                                />
+                            </View>
+                        </AccordionDefault>
+                    ))}
                 </View>
 
                 {showHelp && (
@@ -189,7 +242,7 @@ const FirstNumbers = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona la tarjeta de un número (pintados en rojo) para ver su pronunciación en Kichwa.'
@@ -212,61 +265,8 @@ const FirstNumbers = () => {
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ToCount')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 
 export default FirstNumbers;
-
-// Previous code with counter for numbers
-// const FirstNumbers = () => {
-//     const navigation = useNavigation();
-//     const [counter, setCounter] = useState(0);
-
-//     const handleIncrease = () => {
-//         setCounter((prevCounter) => (prevCounter + 1) % first_number_data.length);
-//     };
-
-//     const handleDecrease = () => {
-//         setCounter((prevCounter) => (prevCounter - 1 + first_number_data.length) % first_number_data.length);
-//     };
-
-//     return (
-//         <View style={styles.container}>
-//             <StatusBar barStyle="default" backgroundColor="#003366" />
-//             <ScrollView style={styles.scrollView}>
-//                 <View style={styles.header}>
-//                     <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-//                 </View>
-//                 <View style={styles.header}>
-//                     <Text style={styles.titleTema}>Los primeros números</Text>
-//                 </View>
-//                 <View style={styles.body}>
-//                     <CardDefault title="Primeros Números en Kichwa">
-//                         <Text style={styles.cardContent}>Aprende los primeros números en Kichwa y su correspondencia en español. Usa los botones de más y menos para navegar entre los números</Text>
-//                     </CardDefault>
-//                     <Text style={styles.title}>Número Actual:</Text>
-//                     <ImageContainer uri={first_number_data[counter].image} />
-//                     <Text style={styles.title}>{first_number_data[counter].number} (temporal, poner demas fotos)</Text>
-//                     <View>
-//                         <Text style={styles.spanishText}>Español: {first_number_data[counter].spanish}</Text>
-//                     </View>
-//                     <View>
-//                         <Text style={styles.kichwaText}>Kichwa: {first_number_data[counter].kichwa}</Text>
-//                     </View>
-//                     <View style={styles.row}>
-//                         <ButtonDefault onPress={handleDecrease} styleButton={buttonStyles.buttonFirstNumbers} showLabel={false}>
-//                             <ImageContainer uri="https://static.vecteezy.com/system/resources/previews/011/912/005/original/minus-sign-icon-free-png.png" style={imageStyles.iconImage} />
-//                         </ButtonDefault>
-//                         <ButtonDefault onPress={handleIncrease} styleButton={buttonStyles.buttonFirstNumbers} showLabel={false}>
-//                             <ImageContainer uri="https://static.vecteezy.com/system/resources/previews/011/912/003/non_2x/plus-sign-icon-free-png.png" style={imageStyles.iconImage} />
-//                         </ButtonDefault>
-//                     </View>
-//                 </View>
-//                 <View style={styles.footer}>
-//                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Colors')} />
-//                 </View>
-//             </ScrollView>
-//         </View>
-//     );
-// };

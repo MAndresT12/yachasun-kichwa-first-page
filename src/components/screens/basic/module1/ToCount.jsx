@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, Dimensions } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
@@ -79,8 +80,8 @@ const ToCount = () => {
 
     const [index, setIndex] = useState(0);
     const [routes] = useState([
-        { key: 'Oneto10', title: 'Ordinales del 1 al 10' },
-        { key: 'ElevenTo20', title: 'Ordinales del 11 al 20' },
+        { key: 'Oneto10', title: 'Ordinales: Parte 1' },
+        { key: 'ElevenTo20', title: 'Ordinales: Parte 2' },
     ]);
 
     const renderScene = SceneMap({
@@ -89,8 +90,9 @@ const ToCount = () => {
     });
 
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="basic" />
@@ -105,7 +107,7 @@ const ToCount = () => {
                             al número normal según su posición.
                         </Text>
                     </CardDefault>
-                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 560 }} >
+                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 700 }} >
                         <TabView
                             navigationState={{ index, routes }}
                             renderScene={renderScene}
@@ -150,7 +152,7 @@ const ToCount = () => {
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Colors')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

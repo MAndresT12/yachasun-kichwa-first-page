@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../../styles/globalStyles';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import { LinearGradient } from 'expo-linear-gradient';
+import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { FontAwesome } from '@expo/vector-icons';
 import { useFonts, RibeyeMarrow_400Regular } from '@expo-google-fonts/ribeye-marrow';
-import { LinearGradient } from 'expo-linear-gradient';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
+import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { SplashBubble } from '../../../ui/bubbles/SplashBubble';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const colors = ['#FF6347', '#4682B4', '#FFD700', '#32CD32', '#8A2BE2', '#FF4500'];
 
@@ -31,6 +33,27 @@ const colors_data = [
     { kichwa: "Maywa", spanish: "Morado", hexadecimalColor: "#800080" },
     { kichwa: "Suku", spanish: "Plomo", hexadecimalColor: "#808080" },
     { kichwa: "Kishpu", spanish: "Naranja", hexadecimalColor: "#FFA500" },
+];
+
+const curiosity_data = [
+    {
+        key: '1',
+        title: 'Curiosidades - Claro',
+        text: 'Se usa la palabra "chawa" antes del color para indicar que es claro.',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+    },
+    {
+        key: '2',
+        title: 'Curiosidades - Oscuro',
+        text: 'Para indicar que un color es oscuro se usa la palabra "yanalla" antes del color.',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+    },
+    {
+        key: '3',
+        title: 'Curiosidades - Colores básicos',
+        text: 'En esta lección solo te muestro solo los colores básicos y unos cuantos más.',
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+    },
 ];
 
 const getColorForLetter = (index) => {
@@ -69,8 +92,8 @@ const FlipCard = ({ item, fontsLoaded }) => {
                     </View>
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
-                    <Text style={styles.translationLabel}>Kichwa:</Text>
-                    <Text style={styles.translationText}>{item.kichwa}</Text>
+                    <Text style={styles.kichwaText}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
                     <View style={[styles.colorBox]}>
                         <SplashBubble fillColor={item.hexadecimalColor} />
                     </View>
@@ -81,12 +104,23 @@ const FlipCard = ({ item, fontsLoaded }) => {
 };
 
 const Colors = () => {
+    const progress = 1 / 6;
+
     const [showHelp, setShowHelp] = useState(null);
+    const [activeAccordion, setActiveAccordion] = useState(null);
     const [fontsLoaded] = useFonts({
         RibeyeMarrow_400Regular,
     });
 
     const navigation = useNavigation();
+
+    const toggleAccordion = (key) => {
+        if (activeAccordion === key) {
+            setActiveAccordion(null);
+        } else {
+            setActiveAccordion(key);
+        }
+    };
 
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
@@ -106,20 +140,38 @@ const Colors = () => {
                     <FlipCard key={index} item={item} fontsLoaded={fontsLoaded} />
                 ))}
             </View>
+
+            {curiosity_data.map((item) => (
+                <AccordionDefault
+                    key={item.key}
+                    title={item.title}
+                    isOpen={activeAccordion === item.key}
+                    onPress={() => toggleAccordion(item.key)}
+                >
+                    <View style={styles.curiositiesContent}>
+                        <FloatingHumu >
+                            <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                        </FloatingHumu>
+                        <ComicBubble
+                            text={item.text}
+                            arrowDirection="left"
+                        />
+                    </View>
+                </AccordionDefault>
+            ))}
         </View>
     ) : (
         <ActivityIndicator size="large" color="#0000ff" />
     );
 
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los Colores</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -162,7 +214,7 @@ const Colors = () => {
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule1')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

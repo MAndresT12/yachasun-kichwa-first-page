@@ -106,12 +106,8 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { Text, View, TouchableOpacity, Animated, LayoutAnimation, UIManager, Platform } from 'react-native';
+import { Text, View, TouchableOpacity, Animated, LayoutAnimation } from 'react-native';
 import { accordionStyles } from '../../../../styles/accordionStyles';
-
-// if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-//     UIManager.setLayoutAnimationEnabledExperimental(true);
-// }
 
 const toggleAnimation = {
     duration: 300,
@@ -206,7 +202,7 @@ export const AccordionDefault = ({ children, title = 'Datos curiosos', isOpen, o
                     style={[
                         accordionStyles.body,
                         {
-                            // height: bodyHeightInterpolation,
+                            height: bodyHeightInterpolation,
                             opacity: bodyOpacity,
                             overflow: 'hidden',
                         },

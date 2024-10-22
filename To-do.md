@@ -42,6 +42,9 @@
 
 ### Correcciones con el inge
 - Alfabeto: Redactar mejor, hacer la A a del modal más grande para todo el alfabeto, en el modal, la A a primero, luego pronunciacion, Ejemplo, y imagen. En curiosidades en conoce las vocales (cambiar el título a esto <-) y quitar a, solo es e y o. Redactar mejor las curiosidades. [x]
+- Los numeros: Resaltar más los números (opcional), poner curiosidades para que sepan que combinando salen los números, cómo se dice por ejemplo 421 o algo así, al menos dos ejemplos [x]
+- Colores: Curiosidades, aquí están los colores básico, no existen los colores más complejos, y otra para decir que para decir claro se añade el chawa y el yanaka (buscar que es en diccionario) [x]
+- Juegos: Info ayuda poner varios bubbles de comic para humu
 
 
 
@@ -55,10 +58,8 @@
 - Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
 - En losscrollpaths deshabilitar todos los módulos que no sean el primero e ir habilitando según pase los niveles
 - Cuando se aplasta la insignia que diga por qué se desbloqueo y una frase info que se vea bonito
-- Alfabeto: Redactar mejor, hacer la A a del modal más grande para todo el alfabeto, en el modal, la A a primero, luego pronunciacion, Ejemplo, y imagen. En curiosidades en conoce las vocales (cambiar el título a esto <-) y quitar a, solo es e y o. Redactar mejor las curiosidades.
-- Los numeros: Resaltar más los números (opcional), poner curiosidades para que sepan que combinando salen los números, cómo se dice por ejemplo 421 o algo así, al menos dos ejemplos
-- Colores: Curiosidades, aquí están los colores básico, no existen los colores más complejos, y otra para decir que para decir claro se añade el chawa y el yanaka (buscar que es en diccionario)
-- Juegos: Info ayuda poner varios bubbles de comic para humu
+
+
 - End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo
 - Poner el Kichwa en verdey espanol en azul todos los textos.  
 - Definir la paleta de colores de la app, dejar en amarillo y naranja siempre

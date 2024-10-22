@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Animated } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
@@ -13,26 +13,26 @@ import { FloatingHumu } from '../../../animations/FloatingHumu';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const images = {
-    letterA: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterA.png' },
-    letterI: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterI.png' },
-    letterU: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterU.png' },
-    letterCH: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterCH.png' },
-    letterH: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterH.png' },
-    letterK: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterK.png' },
-    letterL: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterL.png' },
-    letterLL: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterLL.png' },
-    letterM: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterM.png' },
-    letterN: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterN.png' },
-    letterÑ: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letter%C3%91.png' },
-    letterP: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterP.png' },
-    letterR: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterR.png' },
-    letterS: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterS.png' },
-    letterSH: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterSH.png' },
-    letterT: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterT.png' },
-    letterTS: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterTS.png' },
-    letterW: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterW.png' },
-    letterY: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterY.png' },
-    letterZ: { uri: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterZ.png' },
+    letterA: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterA.png',
+    letterI: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterI.png',
+    letterU: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterU.png',
+    letterCH: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterCH.png',
+    letterH: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterH.png',
+    letterK: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterK.png',
+    letterL: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterL.png',
+    letterLL: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterLL.png',
+    letterM: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterM.png',
+    letterN: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterN.png',
+    letterÑ: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letter%C3%91.png',
+    letterP: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterP.png',
+    letterR: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterR.png',
+    letterS: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterS.png',
+    letterSH: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterSH.png',
+    letterT: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterT.png',
+    letterTS: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterTS.png',
+    letterW: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterW.png',
+    letterY: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterY.png',
+    letterZ: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterZ.png',
 };
 
 
@@ -220,7 +220,7 @@ const Alphabet = () => {
                             <TouchableWithoutFeedback key={letter.letters} onPress={() => handleLetterPress(letter)}>
                                 <View style={styles.cardInGrid}>
                                     <CardDefault styleCard={styles.cardPopUp} styleTitle={styles.cardTitleAlphabet} >
-                                        <ImageContainer uri={letter.imageLetter.uri} style={styles.imageCards} />
+                                        <ImageContainer uri={letter.imageLetter} style={styles.imageCards} />
                                     </CardDefault>
                                 </View>
                             </TouchableWithoutFeedback>
