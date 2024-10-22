@@ -467,6 +467,9 @@ function HomeStack() {
         component={EndModule6}
         options={{ title: 'Básico Módulo 6: Puntuación Final' }}
       />
+      {/* INTERMEDIO */}
+      {/* Modulo 1 */}
+
       <Stack.Screen
         name="Main"
         component={Main}

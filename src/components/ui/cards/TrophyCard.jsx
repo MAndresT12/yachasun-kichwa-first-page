@@ -1,12 +1,13 @@
-// src/components/TrophyCard.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated'; // Importar react-native-reanimated
 
-const TrophyCard = ({ trophyKey, imageSource }) => {
+const TrophyCard = ({ trophyKey, imageSource, isAnimated, isInProgresoScreen }) => {
     const [isObtained, setIsObtained] = useState(false);
+    const animationValue = useSharedValue(0); // Valor compartido para animación
 
     // Cargar el estado del trofeo desde AsyncStorage
     const loadTrophyStatus = async () => {
@@ -18,6 +19,19 @@ const TrophyCard = ({ trophyKey, imageSource }) => {
         }
     };
 
+    // Animación de desbloqueo si isAnimated es true y el trofeo está desbloqueado
+    useEffect(() => {
+        if (isAnimated && isObtained) {
+            animationValue.value = withTiming(1, { duration: 4000 }); // Animar el valor de 0 a 1
+        }
+    }, [isAnimated, isObtained]);
+
+    // Estilo animado para la transición de bloqueo a desbloqueo
+    const animatedStyle = useAnimatedStyle(() => ({
+        opacity: animationValue.value, // Controlar la opacidad de la imagen
+        filter: animationValue.value === 1 ? 'none' : 'grayscale(100%)', // Aplicar filtro según el valor de animación
+    }));
+
     // Usar useFocusEffect para recargar el estado cuando la pantalla gana foco
     useFocusEffect(
         React.useCallback(() => {
@@ -26,12 +40,13 @@ const TrophyCard = ({ trophyKey, imageSource }) => {
     );
 
     return (
-        <View style={styles.trophyContainer}>
-            <Image
+        <View style={isInProgresoScreen ? styles.smallTrophyContainer : styles.largeTrophyContainer}>
+            <Animated.Image
                 source={imageSource}
                 style={[
                     styles.trophyImage,
-                    !isObtained && styles.trophyLocked // Aplica el estilo de bloqueo si no está obtenido
+                    !isObtained && styles.trophyLocked, // Aplica el estilo de bloqueo si no está obtenido
+                    isAnimated && isObtained && animatedStyle, // Aplica la animación si es necesario
                 ]}
             />
             {!isObtained && (
@@ -44,11 +59,19 @@ const TrophyCard = ({ trophyKey, imageSource }) => {
 };
 
 const styles = StyleSheet.create({
-    trophyContainer: {
-        position: 'relative', // Necesario para posicionar el ícono de pregunta
+    largeTrophyContainer: {
+        position: 'relative',
         width: '100%',
         height: 200,
         marginVertical: 20,
+    },
+    smallTrophyContainer: {
+        position: 'relative',
+        width: 100,
+        height: 100,
+        marginVertical: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     trophyImage: {
         width: '100%',
@@ -56,11 +79,9 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     trophyLocked: {
-        opacity: 0.45, // Aplica opacidad oscura
-        //Comentar el tintColor y filter a ver como esta mejor
-        tintColor: 'black', // Añade un tinte negro a la imagen
-
-        filter: 'grayscale(100%)', // Aplica escala de grises para dar efecto de "silueta"
+        opacity: 0.45,
+        tintColor: 'black',
+        filter: 'grayscale(100%)',
     },
     lockOverlay: {
         position: 'absolute',

@@ -1,7 +1,10 @@
 // src/components/CaminoLevelsScreen.jsx
 
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+
+
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat, withSequence } from 'react-native-reanimated';
 import { styles } from '../../../../styles/globalStyles';
@@ -11,7 +14,6 @@ import ProgressCircleWithTrophies from '../../headers/ProgressCircleWithTophies'
 //import { FontAwesomeIcon } from '@fontawesome/react-native-fontawesome'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LevelCard from '../../ui/cards/LevelCard';
-import { useFocusEffect } from '@react-navigation/native';
 import TrophyCard from '../../ui/cards/TrophyCard';
 
 const BouncyText = ({ children }) => {
@@ -67,9 +69,10 @@ const BouncyTextTitulo = ({ children }) => {
 
 const CaminoLevelsScreen = () => {
     const navigation = useNavigation();
+    const [selectedTrophy, setSelectedTrophy] = useState(null); // Estado para el trofeo seleccionado
+    const [showModal, setShowModal] = useState(false); // Estado del modal
 
     const [progress, setProgress] = useState(0);
-
     const trofeoKeys = [
         'trofeo_modulo1_intermedio',
         'trofeo_modulo2_intermedio',
@@ -78,7 +81,6 @@ const CaminoLevelsScreen = () => {
         'trofeo_modulo5_intermedio',
         'trofeo_modulo6_intermedio',
     ];
-
     // Función para cargar el estado de los trofeos desde AsyncStorage
     const loadTrophyProgress = async () => {
         let obtainedCount = 0;
@@ -101,7 +103,51 @@ const CaminoLevelsScreen = () => {
             loadTrophyProgress();
         }, [])
     );
+    // Función para abrir el modal al seleccionar un trofeo
+    const handleTrophyClick = (trophy) => {
+        setSelectedTrophy(trophy);
+        setShowModal(true);
+    };
 
+    // Datos de los trofeos (puedes agregar más según tus necesidades)
+    const trophiesIntermedio = [
+        {
+            key: 'trofeo_modulo1_intermedio',
+            image: require('../../../../assets/images/animals/tortuga.png'),
+            titulo: '¡Tortuga!',
+            description: '¡Este trofeo de la tortuga es muy especial! Obtenerlo significa que ya puedes contar números grandes como los miles, ¡e incluso un millón! También sobre cómo hablar de la comida y animales. Además, de que ya puedes hacer preguntas, dar respuestas y hablar de cosas que te pertenecen, ¡Todo en Kichwa!',
+        },
+        {
+            key: 'trofeo_modulo2_intermedio',
+            image: require('../../../../assets/images/animals/jaguar.png'),
+            titulo: '¡Jaguar!',
+            description: '¡Este trofeo del jaguar es muy poderoso! Obtenerlo significa que ya puedes hablar sobre el origen de las cosas, lo que haces, con quién estás y hasta cómo moverte de un lugar a otro. También ya puedes dar énfasis y hablar de lugares, direcciones y límites. ¡Y lo mejor de todo, saber cómo decir que no en Kichwa!',
+        },
+        {
+            key: 'trofeo_modulo3_intermedio',
+            image: require('../../../../assets/images/animals/guacamayo.png'),
+            titulo: '¡Guacamayo!',
+            description: '¡Este trofeo del guacamayo es muy colorido y especial! Obtenerlo significa que ya conoces algunos de los verbos más importantes en Kichwa, como leer, escribir y caminar. También vas a poder conjugar verbos para hablar de lo que tú y los demás hacen. ¡Y no solo eso! Sabrás como describir las cosas con adjetivos como grande, pequeño o hermoso. Además, ya podrás hablar sobre la ciudad y objetos que te rodean, como el carro, la bicicleta y más. ¡Estás listo para volar con todo este conocimiento!',
+        },
+        {
+            key: 'trofeo_modulo4_intermedio',
+            image: require('../../../../assets/images/animals/cuy2.png'),
+            titulo: '¡Cuy!',
+            description: '¡Este trofeo del cuy es muy divertido! Obtenerlo significa que ya conoces los nombres de muchos objetos de la cocina, como la cuchara, la olla y el plato. También sabrás cómo decir algunos verbos importantes, como cocinar, hervir y calentar. ¡Pero eso no es todo! Ahora podrás describir cosas con adjetivos como suave, duro o sucio. Además, sabrás cómo hablar sobre el dormitorio, la cama, las cobijas, y hasta los sueños en Kichwa. ',
+        },
+        {
+            key: 'trofeo_modulo5_intermedio',
+            image: require('../../../../assets/images/animals/llama.png'),
+            titulo: '¡Llama!',
+            description: '¡Este trofeo de la llama es increíble! Obtenerlo significa que ya sabes cómo hablar de lugares y ubicaciones, como: aquí, allí y más allá. También podrás hablar sobre el tiempo, decir palabras como: ayer, hoy, y hasta los días de la semana en Kichwa. ¡Y eso no es todo! Serás capaz de contar historias sobre lo que sucedió en el pasado, usando el pasado simple y el participio pasado. ¡Este trofeo demuestra que dominas cómo decir dónde, cuándo y qué pasó!',
+        },
+        {
+            key: 'trofeo_modulo6_intermedio',
+            image: require('../../../../assets/images/animals/condor.png'),
+            titulo: '¡Cóndor!',
+            description: '¡Este trofeo del cóndor es majestuoso! Obtenerlo significa que ya sabes cómo hablar de cosas que estaban ocurriendo en el pasado. Además podrás decir lo que estás haciendo en este mismo momento. ¡Pero eso no es todo! También serás capaz de contar lo que harás pronto, y hasta lo que harás en el futuro. ¡Con este trofeo habrás completado toda esta gran aventura!',
+        },
+    ];
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -181,10 +227,13 @@ const CaminoLevelsScreen = () => {
                         progressKey="level_Game1_completed"
                     />
                 </View>
-                <TrophyCard
-                    trophyKey="trofeo_modulo1_intermedio"
-                    imageSource={require('../../../../assets/images/animals/tortuga.png')}
-                />
+                {/* Modulo 1 (Trofeo de Módulo 1)*/}
+                <TouchableOpacity onPress={() => handleTrophyClick(trophiesIntermedio[0])}>
+                    <TrophyCard
+                        trophyKey="trofeo_modulo1_intermedio"
+                        imageSource={require('../../../../assets/images/animals/tortuga.png')}
+                    />
+                </TouchableOpacity>
 
                 {/* Modulo 2 (Trofeo de Modulo 2)*/}
                 <BouncyTextTitulo>Módulo 2 / Ishkayniki Tantachiy Yachay</BouncyTextTitulo>
@@ -258,10 +307,14 @@ const CaminoLevelsScreen = () => {
                         progressKey="level_Game2_completed"
                     />
                 </View>
-                <TrophyCard
-                    trophyKey="trofeo_modulo2_intermedio"
-                    imageSource={require('../../../../assets/images/animals/jaguar.png')}
-                />
+
+                {/* Modulo 2 (Trofeo de Módulo 2)*/}
+                <TouchableOpacity onPress={() => handleTrophyClick(trophiesIntermedio[1])}>
+                    <TrophyCard
+                        trophyKey="trofeo_modulo2_intermedio"
+                        imageSource={require('../../../../assets/images/animals/jaguar.png')}
+                    />
+                </TouchableOpacity>
 
 
                 {/* Modulo 3 (Trofeo de Módulo 3) */}
@@ -340,11 +393,13 @@ const CaminoLevelsScreen = () => {
                         progressKey="level_Game3_completed"
                     />
                 </View>
-                <TrophyCard
-                    trophyKey="trofeo_modulo3_intermedio"
-                    imageSource={require('../../../../assets/images/animals/guacamayo.png')}
-                />
 
+                <TouchableOpacity onPress={() => handleTrophyClick(trophiesIntermedio[2])}>
+                    <TrophyCard
+                        trophyKey="trofeo_modulo3_intermedio"
+                        imageSource={require('../../../../assets/images/animals/guacamayo.png')}
+                    />
+                </TouchableOpacity>
 
                 {/* Modulo 4 (Trofeo de Módulo 4) */}
                 <BouncyTextTitulo>Módulo 4 / Chuskuniki Tantachiy Yachay</BouncyTextTitulo>
@@ -424,11 +479,13 @@ const CaminoLevelsScreen = () => {
                         progressKey="level_Game4_completed"
                     />
                 </View>
-                <TrophyCard
-                    trophyKey="trofeo_modulo4_intermedio"
-                    imageSource={require('../../../../assets/images/animals/cuy2.png')}
-                />
 
+                <TouchableOpacity onPress={() => handleTrophyClick(trophiesIntermedio[3])}>
+                    <TrophyCard
+                        trophyKey="trofeo_modulo4_intermedio"
+                        imageSource={require('../../../../assets/images/animals/cuy2.png')}
+                    />
+                </TouchableOpacity>
 
                 {/*Modulo 5 (Trofeo Módulo 5) */}
                 <BouncyTextTitulo>Módulo 5 / Pichkaniki Tantachiy Yachay</BouncyTextTitulo>
@@ -509,10 +566,13 @@ const CaminoLevelsScreen = () => {
                     />
                 </View>
 
-                <TrophyCard
-                    trophyKey="trofeo_modulo5_intermedio"
-                    imageSource={require('../../../../assets/images/animals/llama.png')}
-                />
+
+                <TouchableOpacity onPress={() => handleTrophyClick(trophiesIntermedio[4])}>
+                    <TrophyCard
+                        trophyKey="trofeo_modulo5_intermedio"
+                        imageSource={require('../../../../assets/images/animals/llama.png')}
+                    />
+                </TouchableOpacity>
 
                 {/* Modulo 6 (Trofeo Módulo 6)*/}
                 <BouncyTextTitulo>Módulo 6 / Suktaniki Tantachiy Yachay</BouncyTextTitulo>
@@ -588,10 +648,33 @@ const CaminoLevelsScreen = () => {
                     />
                 </View>
 
-                <TrophyCard
-                    trophyKey="trofeo_modulo6_intermedio"
-                    imageSource={require('../../../../assets/images/animals/condor.png')}
-                />
+
+                <TouchableOpacity onPress={() => handleTrophyClick(trophiesIntermedio[5])}>
+                    <TrophyCard
+                        trophyKey="trofeo_modulo6_intermedio"
+                        imageSource={require('../../../../assets/images/animals/condor.png')}
+                    />
+                </TouchableOpacity>
+
+                {/* Modal para mostrar la descripción del trofeo */}
+                {selectedTrophy && (
+                    <Modal animationType="slide" transparent={true} visible={showModal} onRequestClose={() => setShowModal(false)}>
+                        <View style={localStyles.modalContainer}>
+                            <View style={localStyles.modalContent}>
+                                <Text style={localStyles.modalTitle}>{selectedTrophy.titulo}</Text>
+                                <Text style={localStyles.modalMessage}>{selectedTrophy.description}</Text>
+
+                                <View style={styles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => setShowModal(false)}>
+                                        <View style={styles.buttonDefaultAlphabet}>
+                                            <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
             </ScrollView>
         </LinearGradient>
     );
@@ -639,6 +722,38 @@ const localStyles = StyleSheet.create({
     evaluation: {
         backgroundColor: '#F44336', // Rojo para el nivel de evaluación
         borderColor: '#E53935',
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    modalContent: {
+        width: '80%',
+        backgroundColor: '#fff',
+        padding: 20,
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+    modalTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 10,
+    },
+    modalMessage: {
+        fontSize: 16,
+        textAlign: 'center',
+        marginBottom: 20,
+    },
+    closeButton: {
+        backgroundColor: '#4CAF50',
+        padding: 10,
+        borderRadius: 5,
+    },
+    closeButtonText: {
+        color: '#fff',
+        fontWeight: 'bold',
     },
     islandImage: {
         width: '100%',

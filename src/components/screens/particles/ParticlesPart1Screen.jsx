@@ -1,7 +1,8 @@
 // src/components/ParticlesPart1Screen.jsx
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { CardDefault } from '../../ui/cards/CardDefault';
@@ -115,8 +116,37 @@ const renderTable = (table, type = 'normal') => {
 
 const ParticlesPart1Screen = () => {
     const navigation = useNavigation();
-    const progress = 0.75;
-    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const trofeoKeys = [
+        'trofeo_modulo1_intermedio',
+        'trofeo_modulo2_intermedio',
+        'trofeo_modulo3_intermedio',
+        'trofeo_modulo4_intermedio',
+        'trofeo_modulo5_intermedio',
+        'trofeo_modulo6_intermedio',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    ); const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
     // Función para marcar el nivel como completado y desbloquear el siguiente
     const completeLevel = async () => {
         try {

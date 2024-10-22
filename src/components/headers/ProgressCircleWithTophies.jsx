@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Image } from 'react-native';
 import Svg, { Circle, G, Path } from 'react-native-svg';
 import { FontAwesome } from '@expo/vector-icons';
-
+import { styles } from '../../../styles/globalStyles';
 const ProgressCircleWithTrophies = ({ progress, level }) => {
     const sections = 6;
     const completedSections = Math.floor(progress * sections); // Progreso basado en el número de secciones completadas
@@ -49,7 +49,7 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
     return (
         <View>
             <TouchableOpacity onPress={() => setShowModal(true)}>
-                <View style={styles.container}>
+                <View style={localStyles.container}>
                     <Svg height="50" width="50" viewBox="0 0 100 100">
                         <G>
                             {Array.from({ length: sections }).map((_, index) =>
@@ -58,24 +58,24 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
                         </G>
                         <Circle cx="50" cy="50" r="28" fill="#FFFFFF" />
                     </Svg>
-                    <Text style={styles.label}>Trofeos</Text>
+                    <Text style={localStyles.label}>Trofeos</Text>
                 </View>
             </TouchableOpacity>
 
             <Modal animationType="slide" transparent={true} visible={showModal} onRequestClose={() => setShowModal(false)}>
-                <View style={styles.modalContainer}>
-                    <View style={styles.modalContent}>
-                        <Text style={styles.modalTitle}>Desbloquea trofeos completando los módulos</Text>
-                        <Text style={styles.modalSubtitle}>Trofeos obtenidos: {completedSections} de {sections}</Text>
+                <View style={localStyles.modalContainer}>
+                    <View style={localStyles.modalContent}>
+                        <Text style={localStyles.modalTitle}>Desbloquea trofeos completando los módulos</Text>
+                        <Text style={localStyles.modalSubtitle}>Trofeos obtenidos: {completedSections} de {sections}</Text>
 
                         {/* Mostrar las imágenes de los trofeos obtenidos en una cuadrícula de 3x2 */}
-                        <View style={styles.trophyGrid}>
+                        <View style={localStyles.trophyGrid}>
                             {trophyImages.map((image, index) => (
-                                <View key={index} style={styles.trophyContainer}>
+                                <View key={index} style={localStyles.trophyContainer}>
                                     <Image
                                         source={image}
                                         style={[
-                                            styles.trophyImage,
+                                            localStyles.trophyImage,
                                             {
                                                 opacity: index < completedSections ? 1 : 0.45,
                                                 tintColor: index >= completedSections ? 'black' : null, // Tinte negro a trofeos no completados
@@ -85,7 +85,7 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
                                     />
                                     {/* Si el trofeo no está desbloqueado, mostrar el ícono de pregunta */}
                                     {index >= completedSections && (
-                                        <View style={styles.lockOverlay}>
+                                        <View style={localStyles.lockOverlay}>
                                             <FontAwesome name="question" size={40} color="#FFF" />
                                         </View>
                                     )}
@@ -93,9 +93,14 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
                             ))}
                         </View>
 
-                        <TouchableOpacity onPress={() => setShowModal(false)} style={styles.closeButton}>
-                            <Text style={styles.closeButtonText}>Cerrar</Text>
-                        </TouchableOpacity>
+                        <View style={styles.buttonContainerAlphabet}>
+                            <TouchableOpacity onPress={() => setShowModal(false)}>
+                                <View style={styles.buttonDefaultAlphabet}>
+                                    <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+
                     </View>
                 </View>
             </Modal>
@@ -103,7 +108,7 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
     );
 };
 
-const styles = StyleSheet.create({
+const localStyles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',

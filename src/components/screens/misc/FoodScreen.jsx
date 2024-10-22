@@ -1,5 +1,6 @@
 // src/components/FoodScreen.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
@@ -95,8 +96,37 @@ const FlipCard = ({ item }) => {
 };
 
 const FoodScreen = () => {
-    const progress = 0.75;
-    const [showHelp, setShowHelp] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const trofeoKeys = [
+        'trofeo_modulo1_intermedio',
+        'trofeo_modulo2_intermedio',
+        'trofeo_modulo3_intermedio',
+        'trofeo_modulo4_intermedio',
+        'trofeo_modulo5_intermedio',
+        'trofeo_modulo6_intermedio',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    ); const [showHelp, setShowHelp] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
     const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
 
