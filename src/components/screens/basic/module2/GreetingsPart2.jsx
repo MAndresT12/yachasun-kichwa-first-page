@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing, withRepeat  } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
@@ -198,7 +198,14 @@ const FlipCard = ({ item }) => {
                             easing: Easing.bounce,
                         }, () => {
                             // Arrow fades in after Humu's animation finishes
-                            arrowOpacity.value = withTiming(0.8, { duration: 500 });
+                            arrowOpacity.value = withTiming(0.8, { duration: 500 }, () => {
+                                // Start the loop once the arrow appears
+                                arrowOpacity.value = withRepeat(
+                                    withTiming(0.2, { duration: 800 }),
+                                    -1,
+                                    true // This makes it go back and forth between 0.2 and 0.8
+                                );
+                            });
                         });
                     }
                 );
@@ -254,7 +261,7 @@ const FlipCard = ({ item }) => {
 
             {/* Arrow that appears after Humu animation */}
             <Animated.View style={[animatedArrowStyle, { position: 'absolute', left: '65%', top: '50%' }]}>
-                <FontAwesome name="arrow-right" size={24} color="#223bb8" />
+                <FontAwesome name="arrow-right" size={24} color="white" />
             </Animated.View>
 
             <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
@@ -268,8 +275,6 @@ const FlipCard = ({ item }) => {
         </View>
     );
 };
-
-
 
 const renderCourtesies = () => {
     return courtesy_data.map((item, index) => (
