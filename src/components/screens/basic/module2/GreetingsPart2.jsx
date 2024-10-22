@@ -199,13 +199,19 @@ const FlipCard = ({ item }) => {
                         }, () => {
                             // Arrow fades in after Humu's animation finishes
                             arrowOpacity.value = withTiming(0.8, { duration: 500 }, () => {
-                                // Start the loop once the arrow appears
+                                // Start the arrow loop
                                 arrowOpacity.value = withRepeat(
                                     withTiming(0.2, { duration: 800 }),
                                     -1,
                                     true // This makes it go back and forth between 0.2 and 0.8
                                 );
                             });
+                            // Start the Humu loop moving back and forth
+                            humuLeftPosition.value = withRepeat(
+                                withTiming(width * 0.3, { duration: 1000 }),
+                                -1,
+                                true // Moves back and forth smoothly
+                            );
                         });
                     }
                 );
