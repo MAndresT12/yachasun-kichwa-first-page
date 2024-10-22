@@ -40,102 +40,102 @@ const alphabet_data = [
     {
         letters: "A a", pronunciation: "/a/", kichwa: "Allik", spanish: "Derecha",
         imageLetter: images.letterA,
-        imageExample: "https://cdn-icons-png.flaticon.com/512/7218/7218671.png"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/hand-right.png"
     },
     {
         letters: "I i", pronunciation: "/i/", kichwa: "Iskun", spanish: "Nueve",
         imageLetter: images.letterI,
-        imageExample: "https://cdn5.dibujos.net/dibujos/pintados/201218/numero-9-letras-y-numeros-numeros-pintado-por-meulois-9737798.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/nine.png"
     },
     {
         letters: "U u", pronunciation: "/u/", kichwa: "Uma", spanish: "Cabeza",
         imageLetter: images.letterU,
-        imageExample: "https://static.vecteezy.com/system/resources/previews/002/508/274/non_2x/young-teenager-boy-kid-head-character-vector.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/head.png"
     },
     {
         letters: "Ch ch", pronunciation: "/cha/", kichwa: "Chukllu", spanish: "Choclo",
         imageLetter: images.letterCH,
-        imageExample: "https://img.freepik.com/vector-gratis/simple-caricatura-maiz_1308-124847.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/corn.png"
     },
     {
         letters: "H h", pronunciation: "/ha/", kichwa: "Hatun wasi", spanish: "Edificio",
         imageLetter: images.letterH,
-        imageExample: "https://img.freepik.com/foto-gratis/vista-edificio-arquitectura-estilo-dibujos-animados_23-2151154971.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/building.png"
     },
     {
         letters: "K k", pronunciation: "/ka/", kichwa: "Kawitu", spanish: "Cama",
         imageLetter: images.letterK,
-        imageExample: "https://img.freepik.com/vector-gratis/goldilocks-tres-osos-cama_1308-168802.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/bed.png"
     },
     {
         letters: "L l", pronunciation: "/la/", kichwa: "Lumu", spanish: "Yuca",
         imageLetter: images.letterL,
-        imageExample: "https://www.mercontrol.com/wp-content/uploads/2023/03/Que-es-la-yuca.-Propiedades-y-beneficios.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/yuca.png"
     },
     {
         letters: "Ll ll", pronunciation: "/lla/-/sha/", kichwa: "Llakta", spanish: "Ciudad",
         imageLetter: images.letterLL,
-        imageExample: "https://img.freepik.com/vector-gratis/calle-ciudad-vectores_23-2147751403.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/city.png"
     },
     {
         letters: "M m", pronunciation: "/ma/", kichwa: "Misi", spanish: "Gato",
         imageLetter: images.letterM,
-        imageExample: "https://img.freepik.com/vector-gratis/ilustracion-icono-vector-dibujos-animados-lindo-gato-sentado-concepto-icono-naturaleza-animal-aislado-premium-vector-estilo-dibujos-animados-plana_138676-4148.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/cat.png"
     },
     {
         letters: "N n", pronunciation: "/na/", kichwa: "Napana", spanish: "Saludar",
         imageLetter: images.letterN,
-        imageExample: "https://s3.voyapon.com/wp-content/uploads/sites/3/2020/03/20034614/aisatsu_sayounara.png"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/greet.png"
     },
     {
         letters: "Ñ ñ", pronunciation: "/ña/", kichwa: "Ñan", spanish: "Camino",
         imageLetter: images.letterÑ,
-        imageExample: "https://img.freepik.com/foto-gratis/tiro-horizontal-arbol-aislado-campo-verde-camino-cielo-nublado_181624-5064.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/path.png"
     },
     {
         letters: "P p", pronunciation: "/pa/", kichwa: "Puyu", spanish: "Nube",
         imageLetter: images.letterP,
-        imageExample: "https://png.pngtree.com/png-clipart/20231005/original/pngtree-childish-cartoon-character-cloud-png-image_13123290.png"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/cloud.png"
     },
     {
         letters: "R r", pronunciation: "/ra/", kichwa: "Rikra", spanish: "Brazo",
         imageLetter: images.letterR,
-        imageExample: "https://cdn5.dibujos.net/dibujos/pintados/202213/brazo-el-cuerpo-humano-12464261.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/arm.png"
     },
     {
         letters: "S s", pronunciation: "/sa/", kichwa: "Sapi", spanish: "Raíz",
         imageLetter: images.letterS,
-        imageExample: "https://www.abc.com.py/resizer/qSdoMyZmlLjv9qyZuW2eK7qvgCc=/arc-anglerfish-arc2-prod-abccolor/public/JOAJY52BPFDM7AUXLEOWHLILLY.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/root.png"
     },
     {
         letters: "Sh sh", pronunciation: "/sha/", kichwa: "Shañu", spanish: "Café",
         imageLetter: images.letterSH,
-        imageExample: "https://cafeselcriollo.com/wp-content/uploads/2022/01/beneficios-del-cafe-en-grano_.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/coffee.png"
     },
     {
         letters: "T t", pronunciation: "/ta/", kichwa: "Tanta", spanish: "Pan",
         imageLetter: images.letterT,
-        imageExample: "https://img.freepik.com/vector-gratis/ilustracion-cocina-americana-dibujada-mano_23-2149330330.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/bread.png"
     },
     {
         letters: "Ts ts", pronunciation: "/tsa/", kichwa: "Tsini", spanish: "Ortiga",
         imageLetter: images.letterTS,
-        imageExample: "https://actualfruveg.com/wp-content/uploads/2022/11/ortiga-2.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/nettle.png"
     },
     {
         letters: "W w", pronunciation: "/ua/", kichwa: "Wiksa", spanish: "Estómago",
         imageLetter: images.letterW,
-        imageExample: "https://previews.123rf.com/images/seamartini/seamartini2301/seamartini230100415/197569464-personaje-de-%C3%B3rgano-del-cuerpo-humano-del-est%C3%B3mago-de-dibujos-animados-personaje-del-sistema.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/stomach.png"
     },
     {
         letters: "Y y", pronunciation: "/ya/", kichwa: "Yura", spanish: "Planta",
         imageLetter: images.letterY,
-        imageExample: "https://i.pinimg.com/originals/08/10/12/081012676b69a2142c6c609e30612bd8.png"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/plant.png"
     },
     {
         letters: "Z z", pronunciation: "/za/", kichwa: "Zirpu", spanish: "Churón",
         imageLetter: images.letterZ,
-        imageExample: "https://i.pinimg.com/736x/0c/9e/bc/0c9ebc0250a2c4c642a5b6f455ef0ceb.jpg"
+        imageExample: "https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/examples/curly.png"
     },
 ];
 

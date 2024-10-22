@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import { LinearGradient } from 'expo-linear-gradient';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
@@ -12,6 +13,7 @@ import ChatModal from '../../../ui/modals/ChatModal';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const { width } = Dimensions.get('window');
 
@@ -23,9 +25,9 @@ const initial_chat_messages = [
         user: {
             _id: 2,
             name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
         },
-        image: 'https://www.juiciocrudo.com/pics/nocrop/1280x960/c295164145.jpg',
+        image: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/otavalo.jpg',
     },
     {
         _id: 2,
@@ -34,7 +36,7 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
         },
     },
     {
@@ -44,7 +46,7 @@ const initial_chat_messages = [
         user: {
             _id: 2,
             name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
         },
     },
     {
@@ -54,7 +56,7 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
         },
     },
     {
@@ -64,7 +66,7 @@ const initial_chat_messages = [
         user: {
             _id: 2,
             name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
         },
     },
     {
@@ -74,7 +76,7 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
         },
     },
     {
@@ -84,7 +86,7 @@ const initial_chat_messages = [
         user: {
             _id: 2,
             name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
         },
     },
     {
@@ -94,7 +96,7 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
         },
     },
     {
@@ -104,7 +106,7 @@ const initial_chat_messages = [
         user: {
             _id: 2,
             name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
         },
     },
     {
@@ -114,39 +116,28 @@ const initial_chat_messages = [
         user: {
             _id: 1,
             name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
         },
     },
 ];
 
 const images = {
-    greeting1: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting2: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting3: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting4: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting5: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting6: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting7: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting8: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting9: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting10: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting11: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
-    greeting12: require('../../../../../assets/images/basic/module2/greetings/greeting1.png'),
+    greeting1: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Greetings/greeting1.png',
 };
 
 const greetings_data = [
     { kichwa: "Imanalla", spanish: "Hola, ¿Qué tal?", imageCard: images.greeting1 },
-    { kichwa: "Alli puncha", spanish: "Buenos días", imageCard: images.greeting2 },
-    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageCard: images.greeting3 },
-    { kichwa: "Alli tuta", spanish: "Buenas noches", imageCard: images.greeting4 },
-    { kichwa: "Kikinka imanallatak kanki", spanish: "¿Cómo está usted?", imageCard: images.greeting5 },
-    { kichwa: "Allimi kani", spanish: "Estoy bien", imageCard: images.greeting6 },
-    { kichwa: "Kikinka imashutitak kanki", spanish: "¿Cómo se llama usted?", imageCard: images.greeting7 },
-    { kichwa: "Ñukapak shutika Humumi kan", spanish: "Mi nombre es Humu", imageCard: images.greeting8 },
-    { kichwa: "Kikinka maymantatak kanki", spanish: "¿De dónde es usted?", imageCard: images.greeting9 },
-    { kichwa: "Ecuador llaktamantami kani", spanish: "Soy de Ecuador", imageCard: images.greeting10 },
-    { kichwa: "Kikinka", spanish: "¿Y usted?", imageCard: images.greeting11 },
-    { kichwa: "Mashi", spanish: "Amigo", imageCard: images.greeting12 },
+    { kichwa: "Alli puncha", spanish: "Buenos días", imageCard: images.greeting1 },
+    { kichwa: "Alli chishi", spanish: "Buenas tardes", imageCard: images.greeting1 },
+    { kichwa: "Alli tuta", spanish: "Buenas noches", imageCard: images.greeting1 },
+    { kichwa: "Kikinka imanallatak kanki", spanish: "¿Cómo está usted?", imageCard: images.greeting1 },
+    { kichwa: "Allimi kani", spanish: "Estoy bien", imageCard: images.greeting1 },
+    { kichwa: "Kikinka imashutitak kanki", spanish: "¿Cómo se llama usted?", imageCard: images.greeting1 },
+    { kichwa: "Ñukapak shutika Humumi kan", spanish: "Mi nombre es Humu", imageCard: images.greeting1 },
+    { kichwa: "Kikinka maymantatak kanki", spanish: "¿De dónde es usted?", imageCard: images.greeting1 },
+    { kichwa: "Ecuador llaktamantami kani", spanish: "Soy de Ecuador", imageCard: images.greeting1 },
+    { kichwa: "Kikinka", spanish: "¿Y usted?", imageCard: images.greeting1 },
+    { kichwa: "Mashi", spanish: "Amigo", imageCard: images.greeting1 },
 ];
 
 const courtesy_data = [
@@ -171,7 +162,7 @@ const curiosity_data = [
         key: '1',
         title: 'La ciudad de Otavalo',
         text: 'Sabías que Otavalo es una ciudad de Ecuador, conocida por su mercado artesanal y el Parque Cóndor.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
     },
 ];
 
@@ -196,13 +187,13 @@ const FlipCard = ({ item }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <ImageContainer path={item.imageCard} style={styles.imageCards} />
+                    <ImageContainer uri={item.imageCard} style={styles.imageCards} />
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
-                    <Text style={styles.translationLabel}>Kichwa:</Text>
-                    <Text style={styles.translationText}>{item.kichwa}</Text>
-                    <Text style={styles.translationLabel}>Español:</Text>
-                    <Text style={styles.translationText}>{item.spanish}</Text>
+                    <Text style={styles.spanishText}>Español:</Text>
+                    <Text style={styles.spanishText}>{item.spanish}{'\n'}</Text>
+                    <Text style={styles.kichwaText}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
                 </Animated.View>
             </View>
         </TouchableWithoutFeedback>
@@ -254,6 +245,8 @@ const GoodbyesRoute = () => (
 );
 
 const GreetingsPart1 = () => {
+    const progress = 1 / 6;
+
     const [showHelp, setShowHelp] = useState(null);
     const [showChat, setShowChat] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
@@ -288,14 +281,13 @@ const GreetingsPart1 = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Los Saludos Parte 1</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -312,7 +304,7 @@ const GreetingsPart1 = () => {
 
                     <CardDefault title="¿Y cómo me despido? ¿Hay formas de ser amable?" content="Te muestro dos tablas que responden a estas maravillosas preguntas." />
 
-                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 360 }} >
+                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 430 }} >
                         <TabView
                             navigationState={{ index, routes }}
                             renderScene={renderScene}
@@ -374,7 +366,7 @@ const GreetingsPart1 = () => {
                         >
                             <View style={styles.curiositiesContent}>
                                 <FloatingHumu >
-                                    <ImageContainer path={item.imagePath} style={styles.imageModal} />
+                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
@@ -397,7 +389,7 @@ const GreetingsPart1 = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa.'
@@ -422,7 +414,7 @@ const GreetingsPart1 = () => {
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GreetingsPart2')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

@@ -44,7 +44,11 @@
 - Alfabeto: Redactar mejor, hacer la A a del modal más grande para todo el alfabeto, en el modal, la A a primero, luego pronunciacion, Ejemplo, y imagen. En curiosidades en conoce las vocales (cambiar el título a esto <-) y quitar a, solo es e y o. Redactar mejor las curiosidades. [x]
 - Los numeros: Resaltar más los números (opcional), poner curiosidades para que sepan que combinando salen los números, cómo se dice por ejemplo 421 o algo así, al menos dos ejemplos [x]
 - Colores: Curiosidades, aquí están los colores básico, no existen los colores más complejos, y otra para decir que para decir claro se añade el chawa y el yanaka (buscar que es en diccionario) [x]
-- Juegos: Info ayuda poner varios bubbles de comic para humu
+- Definir la paleta de colores de la app, dejar en amarillo y naranja siempre [x]
+
+
+- Poner el Kichwa en verdey espanol en azul todos los textos. 
+- Cambiar a todos los puntos de vida por los trofeos
 
 
 
@@ -58,17 +62,13 @@
 - Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
 - En losscrollpaths deshabilitar todos los módulos que no sean el primero e ir habilitando según pase los niveles
 - Cuando se aplasta la insignia que diga por qué se desbloqueo y una frase info que se vea bonito
-
-
-- End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo
-- Poner el Kichwa en verdey espanol en azul todos los textos.  
-- Definir la paleta de colores de la app, dejar en amarillo y naranja siempre
-- Cambiar a todos los puntos de vida por los trofeos
-- Los numeros: Resaltar más los números (opcional), poner curiosidades para que sepan que combinando salen los números, cómo se dice por ejemplo 421 o algo así, al menos dos ejemplos
-- Colores: Curiosidades, aquí están los colores básico, no existen los colores más complejos, y otra para decir que para decir claro se añade el chawa y el yanaka (buscar que es en diccionario)
 - Juegos: Info ayuda poner varios bubbles de comic para humu
 - End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo
 - Las insignias colocar al final despues de la evaluacion y colocar Modulo X al inicio de los temas modulos.
+
+ 
+
+
 - Seguir logica de curiosidades colocar "curiosidades", los saludos part 1 (colocar que en esta ciudad hay hablantes del idioma conlo sque puedes practicar), colocar dentro de acordeon siempre alinicio curiosidades
 - saludos parte 2 colocar flecha al jalar el humu
 - en pantallas (por ejemplo pronombres personales) colocar en card vamos a aprender verbo kana etc, y asi para otras paginas que lo requieran.
@@ -96,6 +96,9 @@
 -Página la cantidad, colocar español kichwa e imagenes
 -Pagina Tamaño la card de descripcion esta mal habla de familia, en ejemplos en lugar de conversación solo como frases separadas, oraciones, tildes en algunas cards.
 -Pagina la conjugacion en tiempo eliminar chat, solo frases
+
+
+
 
 -INTERMEDIO
 Las frases como que el muñeco te habla, colocar el componente del boton siguiente, maneras de introducir el personaje en pantallas, boton juegos y temas, CARD INTRODUCTORIA DEL HUMU hablando que vamos a aprender etc, poner recordar infinitivos terminan con na (paginas de verbos por ejme0lo)
