@@ -25,6 +25,9 @@ const ProgresoScreen = () => {
             await AsyncStorage.setItem('trofeo_modulo1_intermedio', 'true');
             await AsyncStorage.setItem('level_Numeros_completed', 'true');
 
+            await AsyncStorage.setItem('trofeo_modulo1_basic', 'true');
+            await AsyncStorage.setItem('level_Alphabet_completed', 'true');
+
             //Agregar mas en caso de ser necesario
             setIsNextLevelUnlocked(true);
         } catch (error) {
@@ -86,9 +89,45 @@ const ProgresoScreen = () => {
     };
 
     // Trofeos y sus descripciones
-    const trophiesBasico = [
-        //Aqui pon tus trofeos y las key tuyas santi gggg
+    const trophiesBasic = [
+        {
+            key: 'trofeo_modulo1_basic',
+            image: require('../../../assets/images/basic/badges/abc.jpg'),
+            titulo: '¡ABC!',
+            description: '¡Este trofeo marca el comienzo de tu aventura en Kichwa! Ahora conoces el alfabeto y las vocales del idioma Kichwa, ¡y puedes pronunciar palabras básicas! Ya puedes identificar letras como la "A", "I", y "U", ¡todo en Kichwa!',
+        },
+        {
+            key: 'trofeo_modulo2_basic',
+            image: require('../../../assets/images/basic/badges/family.jpg'),
+            titulo: '¡Familia!',
+            description: '¡Felicitaciones! Este trofeo significa que ahora sabes cómo hablar sobre tu familia en Kichwa. Conoces las palabras para mamá, papá, hermanos y más, ¡y puedes presentarlos con orgullo!',
+        },
+        {
+            key: 'trofeo_modulo3_basic',
+            image: require('../../../assets/images/basic/badges/home-food-school.jpg'),
+            titulo: '¡El hogar, comida y la escuela!',
+            description: '¡Lo lograste! Con este trofeo, puedes hablar sobre tu hogar, los alimentos que comes, y las cosas que encuentras en la escuela. Ahora puedes nombrar objetos y lugares cotidianos en Kichwa.',
+        },
+        {
+            key: 'trofeo_modulo4_basic',
+            image: require('../../../assets/images/basic/badges/valley-flowers.jpg'),
+            titulo: '¡Valle de flores!',
+            description: '¡Has conquistado el valle de las flores! Este trofeo demuestra que ya sabes sobre la naturaleza, animales y las maravillas del entorno en Kichwa. ¡Incluso puedes hablar sobre la vida en el campo!',
+        },
+        {
+            key: 'trofeo_modulo5_basic',
+            image: require('../../../assets/images/basic/badges/orientation.jpg'),
+            titulo: '¡Simón dice!',
+            description: '¡Qué divertido! Este trofeo significa que sabes cómo seguir instrucciones y dar direcciones en Kichwa. Puedes decir dónde están las cosas, ¡y moverte como un experto usando tu orientación!',
+        },
+        {
+            key: 'trofeo_modulo6_basic',
+            image: require('../../../assets/images/basic/badges/present.jpg'),
+            titulo: '¡Atardecer!',
+            description: '¡Atardecer perfecto! Este trofeo significa que puedes hablar sobre acciones en el presente en Kichwa. Ahora sabes cómo describir lo que estás haciendo en este momento, ¡todo en Kichwa!',
+        },
     ];
+    
     const trophiesIntermedio = [
         {
             key: 'trofeo_modulo1_intermedio',
@@ -137,7 +176,7 @@ const ProgresoScreen = () => {
                 {/* Cuadrícula de trofeos Basico*/}
                 <BouncyTextTitulo2>Trofeos Módulo Basico</BouncyTextTitulo2>
                 <View style={localStyles.trophyGrid}>
-                    {trophiesBasico.map((trophy, index) => (
+                    {trophiesBasic.map((trophy, index) => (
                         <TouchableOpacity key={index} onPress={() => handleTrophyClick(trophy)}>
                             <TrophyCard trophyKey={trophy.key} imageSource={trophy.image} isInProgresoScreen={true} />
                         </TouchableOpacity>

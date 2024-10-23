@@ -29,7 +29,7 @@ const Instructions = () => {
         >
             <View style={imageStyles.halfImageContainer}>
                 <ImageContainer
-                    path={require('../../../assets/images/prototype/diablo-prototype.png')}
+                    path={require('../../../assets/images/humu/humu-happy.png')}
                     style={imageStyles.halfImage}
                 />
             </View>

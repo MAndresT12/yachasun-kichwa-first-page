@@ -148,6 +148,7 @@ const CaminoLevelsScreen = () => {
             description: '¡Este trofeo del cóndor es majestuoso! Obtenerlo significa que ya sabes cómo hablar de cosas que estaban ocurriendo en el pasado. Además podrás decir lo que estás haciendo en este mismo momento. ¡Pero eso no es todo! También serás capaz de contar lo que harás pronto, y hasta lo que harás en el futuro. ¡Con este trofeo habrás completado toda esta gran aventura!',
         },
     ];
+    
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -715,13 +716,16 @@ const localStyles = StyleSheet.create({
         borderRadius: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 12,
+        //borderWidth: 12,
+        borderWidth: 5,
         borderColor: '#8BC34A', // Verde brillante para resaltar niveles
-        backgroundColor: '#C8E6C9',
+        //backgroundColor: '#C8E6C9',
+        backgroundColor: '#228825',
     },
     evaluation: {
         backgroundColor: '#F44336', // Rojo para el nivel de evaluación
         borderColor: '#E53935',
+        borderWidth: 5,
     },
     modalContainer: {
         flex: 1,

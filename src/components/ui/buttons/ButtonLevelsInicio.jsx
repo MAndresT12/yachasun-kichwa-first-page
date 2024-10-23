@@ -1,15 +1,16 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { buttonStyles } from '../../../../styles/buttonStyles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { buttonStyles } from '../../../../styles/buttonStyles';
 
 export const ButtonLevelsInicio = ({ children, label = 'Inicio', onPress, navigationTarget = 'CaminoLevels', styleContainer, styleButton, showLabel = true }) => {
     const navigation = useNavigation();
     // Función para borrar AsyncStorage excepto "level_Numeros_completed" LECCION 1 DE INTERMEDIO (Santi debe agregar la key de su primera leccion tambien)
     const clearAsyncStorage = async () => {
-        const keysToPreserve = ['level_Numeros_completed', 'aqui_clave_santi'];  // Clave que no se va a eliminar
+        const keysToPreserve = ['level_Numeros_completed', 'level_Alphabet_completed'];  // Clave que no se va a eliminar
 
         try {
             // Obtener todas las claves almacenadas en AsyncStorage

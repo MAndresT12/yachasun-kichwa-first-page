@@ -27,12 +27,12 @@ const Levels = () => {
         >
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <CardDefault style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <ImageContainer path={require('../../../assets/images/humu/humu-happy.png')}
+                    <ImageContainer path={require('../../../assets/images/humu/humu-happy.jpg')}
                     />
                     <ButtonDefault label="Básico" onPress={handlePressBasic} />
                 </CardDefault>
                 <CardDefault>
-                    <ImageContainer path={require('../../../assets/images/humu/humu-fuckup.png')}
+                    <ImageContainer path={require('../../../assets/images/humu/humu-fuckup.jpg')}
                     />
                     <ButtonDefault label="Intermedio" onPress={handlePressMid} />
                 </CardDefault>

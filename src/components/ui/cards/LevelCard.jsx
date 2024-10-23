@@ -4,6 +4,7 @@ import { TouchableOpacity, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat, withSequence } from 'react-native-reanimated';
+
 import { FontAwesome } from '@expo/vector-icons';
 
 const BouncyText = ({ children }) => {
@@ -105,14 +106,17 @@ const styles = StyleSheet.create({
         borderRadius: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 12,
+        //borderWidth: 12,
+        borderWidth: 5,
         borderColor: '#8BC34A', // Verde brillante para resaltar niveles
-        backgroundColor: '#C8E6C9',
+        backgroundColor: '#228825',
+        //backgroundColor: '#C8E6C9',
 
     },
     evaluation: {
         backgroundColor: '#F44336', // Rojo para el nivel de evaluación
         borderColor: '#E53935',
+        borderWidth: 5,
     },
     disabled: {
         opacity: 0.5, // Estilo para niveles bloqueados
