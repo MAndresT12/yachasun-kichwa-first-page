@@ -13,52 +13,54 @@ import { FloatingHumu } from '../../../animations/FloatingHumu';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
+
 const images = {
-    number0: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number0.png',
-    number1: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number1.png',
-    number2: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number2.png',
-    number3: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number3.png',
-    number4: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number4.png',
-    number5: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number5.png',
-    number6: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number6.png',
-    number7: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number7.png',
-    number8: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number8.png',
-    number9: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number9.png',
-    number10: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number10.png',
-    number11: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number11.png',
-    number12: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number12.png',
-    number13: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number13.png',
-    number14: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number14.png',
-    number15: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number15.png',
-    number16: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number16.png',
-    number17: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number17.png',
-    number18: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number18.png',
-    number19: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number19.png',
-    number20: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number20.png',
-    number30: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number30.png',
-    number40: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number40.png',
-    number50: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number50.png',
-    number60: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number60.png',
-    number70: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number70.png',
-    number80: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number80.png',
-    number90: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number90.png',
-    number100: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number100.png',
-    number101: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number101.png',
-    number102: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number102.png',
-    number103: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number103.png',
-    number110: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number110.png',
-    number120: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number120.png',
-    number130: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number130.png',
-    number140: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number140.png',
-    number150: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number150.png',
-    number160: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number160.png',
-    number170: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number170.png',
-    number180: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number180.png',
-    number190: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number190.png',
-    number200: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number200.png',
-    number300: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number300.png',
-    number400: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number400.png',
-    number500: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Numbers/number500.png'
+    number0: require('../../../../../assets/images/basic/module1/numbers/number0.jpg'),
+    number1: require('../../../../../assets/images/basic/module1/numbers/number1.jpg'),
+    number2: require('../../../../../assets/images/basic/module1/numbers/number2.jpg'),
+    number3: require('../../../../../assets/images/basic/module1/numbers/number3.jpg'),
+    number4: require('../../../../../assets/images/basic/module1/numbers/number4.jpg'),
+    number5: require('../../../../../assets/images/basic/module1/numbers/number5.jpg'),
+    number6: require('../../../../../assets/images/basic/module1/numbers/number6.jpg'),
+    number7: require('../../../../../assets/images/basic/module1/numbers/number7.jpg'),
+    number8: require('../../../../../assets/images/basic/module1/numbers/number8.jpg'),
+    number9: require('../../../../../assets/images/basic/module1/numbers/number9.jpg'),
+    number10: require('../../../../../assets/images/basic/module1/numbers/number10.jpg'),
+    number11: require('../../../../../assets/images/basic/module1/numbers/number11.jpg'),
+    number12: require('../../../../../assets/images/basic/module1/numbers/number12.jpg'),
+    number13: require('../../../../../assets/images/basic/module1/numbers/number13.jpg'),
+    number14: require('../../../../../assets/images/basic/module1/numbers/number14.jpg'),
+    number15: require('../../../../../assets/images/basic/module1/numbers/number15.jpg'),
+    number16: require('../../../../../assets/images/basic/module1/numbers/number16.jpg'),
+    number17: require('../../../../../assets/images/basic/module1/numbers/number17.jpg'),
+    number18: require('../../../../../assets/images/basic/module1/numbers/number18.jpg'),
+    number19: require('../../../../../assets/images/basic/module1/numbers/number19.jpg'),
+    number20: require('../../../../../assets/images/basic/module1/numbers/number20.jpg'),
+    number30: require('../../../../../assets/images/basic/module1/numbers/number30.jpg'),
+    number40: require('../../../../../assets/images/basic/module1/numbers/number40.jpg'),
+    number50: require('../../../../../assets/images/basic/module1/numbers/number50.jpg'),
+    number60: require('../../../../../assets/images/basic/module1/numbers/number60.jpg'),
+    number70: require('../../../../../assets/images/basic/module1/numbers/number70.jpg'),
+    number80: require('../../../../../assets/images/basic/module1/numbers/number80.jpg'),
+    number90: require('../../../../../assets/images/basic/module1/numbers/number90.jpg'),
+    number100: require('../../../../../assets/images/basic/module1/numbers/number100.jpg'),
+    number101: require('../../../../../assets/images/basic/module1/numbers/number101.jpg'),
+    number102: require('../../../../../assets/images/basic/module1/numbers/number102.jpg'),
+    number103: require('../../../../../assets/images/basic/module1/numbers/number103.jpg'),
+    number110: require('../../../../../assets/images/basic/module1/numbers/number110.jpg'),
+    number120: require('../../../../../assets/images/basic/module1/numbers/number120.jpg'),
+    number130: require('../../../../../assets/images/basic/module1/numbers/number130.jpg'),
+    number140: require('../../../../../assets/images/basic/module1/numbers/number140.jpg'),
+    number150: require('../../../../../assets/images/basic/module1/numbers/number150.jpg'),
+    number160: require('../../../../../assets/images/basic/module1/numbers/number160.jpg'),
+    number170: require('../../../../../assets/images/basic/module1/numbers/number170.jpg'),
+    number180: require('../../../../../assets/images/basic/module1/numbers/number180.jpg'),
+    number190: require('../../../../../assets/images/basic/module1/numbers/number190.jpg'),
+    number200: require('../../../../../assets/images/basic/module1/numbers/number200.jpg'),
+    number300: require('../../../../../assets/images/basic/module1/numbers/number300.jpg'),
+    number400: require('../../../../../assets/images/basic/module1/numbers/number400.jpg'),
+    number500: require('../../../../../assets/images/basic/module1/numbers/number500.jpg'),
 };
 
 const first_number_data = [
@@ -114,19 +116,19 @@ const curiosity_data = [
         key: '1',
         title: 'Reglas - ¿Cómo combinar números en Kichwa?',
         text: 'Se pueden combinar las unidaes, decenas, centenas, etc. para formar números más complejos.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
     {
         key: '2',
         title: 'Reglas - Te muestro un ejemplo',
         text: 'Si queremos decir 231, se combinan los números para formar "Ishkay patsak kimsa chunka shuk".',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
     {
         key: '3',
         title: 'Reglas - Aquí te mando otro',
         text: 'Ahora si queremos decir 117 en Kichwa, se dice "Patsak chunka kanchis".',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
 ];
 
@@ -151,12 +153,12 @@ const FlipCard = ({ item }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <ImageContainer uri={item.numberImage} style={styles.imageCards} />
+                    <ImageContainer path={item.numberImage} style={styles.imageCards} />
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
-                    <Text style={styles.spanishText}>Español:</Text>
-                    <Text style={styles.spanishText}>{item.spanish}{'\n'}</Text>
-                    <Text style={styles.kichwaText}>Kichwa:</Text>
+                    <Text style={styles.translationLabel}>Español:</Text>
+                    <Text style={styles.spanishText}>{item.spanish}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
                     <Text style={styles.kichwaText}>{item.kichwa}</Text>
                 </Animated.View>
             </View>
@@ -220,7 +222,7 @@ const FirstNumbers = () => {
                         >
                             <View style={styles.curiositiesContent}>
                                 <FloatingHumu >
-                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                    <ImageContainer path={item.imagePath} style={styles.imageModal} />
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
@@ -242,7 +244,7 @@ const FirstNumbers = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona la tarjeta de un número (pintados en rojo) para ver su pronunciación en Kichwa.'

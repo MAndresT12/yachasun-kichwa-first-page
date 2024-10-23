@@ -21,6 +21,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { ComicBubble } from '../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../ui/buttons/AccordionDefault';
 
+const humuTalking = require('../../../assets/images/humu/humu-talking.png');
 
 const numberData = [
     { number: "1000", kichwa: "shuk waranka", spanish: "mil" },
@@ -44,13 +45,13 @@ const curiosity_data = [
         key: '1',
         title: 'Curiosidades - Para que sepas...',
         text: 'Los números son muy importantes para poder contar y ordenar las cosas a nuestro alrededor.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
     {
         key: '2',
         title: 'Reglas - Sobre formar los números...',
         text: 'Recuerda que se usan combinaciones para formarlos, número "dos" es "ishkay", por ejemplo "dos mil dos" se diría "ishkay waranka iskhay pero cuando estamos en".',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
 ];
 
