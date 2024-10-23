@@ -851,7 +851,7 @@ export const styles = StyleSheet.create({
     },
     pronounBigFlipCardContainer: {
         width: '94%',
-        height: 230,
+        height: 270,
         margin: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -885,6 +885,15 @@ export const styles = StyleSheet.create({
         color: '#004d40',
     },
 
+    pronounsKichwaText: {
+        color: 'green',
+        textAlign: 'center',
+    },
+
+    pronounsSpanishText: {
+        color: 'blue',
+        textAlign: 'center',
+    },
 
     familyBigFlipCardContainer: {
         width: '94%',

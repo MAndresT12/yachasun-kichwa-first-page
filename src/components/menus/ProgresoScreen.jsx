@@ -23,6 +23,7 @@ const ProgresoScreen = () => {
     const completeLevel = async () => {
         try {
             await AsyncStorage.setItem('trofeo_modulo1_intermedio', 'true');
+            await AsyncStorage.setItem('level_Numeros_completed', 'true');
 
             //Agregar mas en caso de ser necesario
             setIsNextLevelUnlocked(true);

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
@@ -11,11 +12,13 @@ import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
 
 const { width } = Dimensions.get('window');
 
 const images = {
-    pronoun1: require('../../../../../assets/images/basic/module2/pronouns/pronoun1.png'),
+    pronoun1: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Pronouns/pronouns1.png',
 };
 
 const singular_pronoun_data = [
@@ -56,19 +59,19 @@ const curiosity_data = [
         key: '1',
         title: 'Un cambio de estructura en la oración',
         text: 'Como pudiste ver en Kichwa el complemento viene antes que verbo. En español es al revés.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
     },
     {
         key: '2',
         title: 'Algo lindo de los Apellidos en Kichwa',
         text: 'La palabra Ango significa jefe, señor o gobernador. En el idioma Kayambi, significa espíritu y unidad.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
     },
     {
         key: '3',
         title: 'Personajes importantes',
         text: 'Dolores Cacuango (-ango) es una líder indígena ecuatoriana que luchó por los derechos de los indígenas y campesinos.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
     },
 ];
 
@@ -93,27 +96,27 @@ const FlipCard = ({ item }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <ImageContainer path={item.numberImage} style={styles.imageCards} />
+                    <ImageContainer uri={item.numberImage} style={styles.imageCards} />
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
                     <View style={styles.pronounSmallFlipCard}>
                         <View>
-                            <Text style={styles.translationLabelPronouns}>P. Kichwa:</Text>
-                            <Text style={styles.translationTextPronouns}>{item.kichwaPron}</Text>
+                            <Text style={[styles.translationLabelPronouns, styles.pronounsSpanishText]}>P. Español:</Text>
+                            <Text style={[styles.translationTextPronouns, styles.pronounsSpanishText]}>{item.spanishPron}</Text>
                         </View>
                         <View>
-                            <Text style={styles.translationLabelPronouns}>Kana:</Text>
-                            <Text style={styles.translationTextPronouns}>{item.kana}</Text>
+                            <Text style={[styles.translationLabelPronouns, styles.pronounsSpanishText]}>Ser / Estar:</Text>
+                            <Text style={[styles.translationTextPronouns, styles.pronounsSpanishText]}>{item.be}</Text>
                         </View>
                     </View>
                     <View style={styles.pronounSmallFlipCard}>
                         <View>
-                            <Text style={styles.translationLabelPronouns}>P. Español:</Text>
-                            <Text style={styles.translationTextPronouns}>{item.spanishPron}</Text>
+                            <Text style={[styles.translationLabelPronouns, styles.pronounsKichwaText]}>P. Kichwa:</Text>
+                            <Text style={[styles.translationTextPronouns, styles.pronounsKichwaText]}>{item.kichwaPron}</Text>
                         </View>
                         <View>
-                            <Text style={styles.translationLabelPronouns}>Ser / Estar:</Text>
-                            <Text style={styles.translationTextPronouns}>{item.be}</Text>
+                            <Text style={[styles.translationLabelPronouns, styles.pronounsKichwaText]}>Kana:</Text>
+                            <Text style={[styles.translationTextPronouns, styles.pronounsKichwaText]}>{item.kana}</Text>
                         </View>
                     </View>
                 </Animated.View>
@@ -194,8 +197,8 @@ const BigFlipCard = ({ data1, data2 }) => {
 const renderPronouns = (pronoun_data) => {
     return pronoun_data.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
         </View>
     ));
 };
@@ -205,8 +208,8 @@ const SingularPronRoute = () => (
         <Text style={styles.title}>Pronombres en Singular</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderPronouns(singular_pronoun_data)}
         </View>
@@ -218,8 +221,8 @@ const PluralPronRoute = () => (
         <Text style={styles.title}>Pronombres en Plural</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderPronouns(plural_pronoun_data)}
         </View>
@@ -227,6 +230,8 @@ const PluralPronRoute = () => (
 );
 
 const PronounsSentence = () => {
+    const progress = 1 / 6;
+
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
 
@@ -256,16 +261,13 @@ const PronounsSentence = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>
-                        Los pronombres personales, el verbo kana y la estructura de una oración
-                    </Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -280,7 +282,7 @@ const PronounsSentence = () => {
                             ¡Veámos cuáles son!
                         </Text>
                     </CardDefault>
-                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 320 }} >
+                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 340 }} >
                         <TabView
                             navigationState={{ index, routes }}
                             renderScene={renderScene}
@@ -345,7 +347,7 @@ const PronounsSentence = () => {
                         >
                             <View style={styles.curiositiesContent}>
                                 <FloatingHumu >
-                                    <ImageContainer path={item.imagePath} style={styles.imageModal} />
+                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
@@ -367,7 +369,7 @@ const PronounsSentence = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona en las tarjetas para darles la vuelta y ver acerca del verbo kana y la oración.'
@@ -390,7 +392,7 @@ const PronounsSentence = () => {
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FamilyPart1')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

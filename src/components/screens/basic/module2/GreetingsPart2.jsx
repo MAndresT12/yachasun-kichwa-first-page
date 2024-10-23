@@ -285,8 +285,8 @@ const FlipCard = ({ item }) => {
 const renderCourtesies = () => {
     return courtesy_data.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
         </View>
     ));
 };
@@ -294,8 +294,8 @@ const renderCourtesies = () => {
 const renderGoodbyes = () => {
     return goodbyes_data.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
         </View>
     ));
 };
@@ -305,8 +305,8 @@ const CourtesyRoute = () => (
         <Text style={styles.title}>Frases de cortesía</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderCourtesies()}
         </View>
@@ -318,8 +318,8 @@ const GoodbyesRoute = () => (
         <Text style={styles.title}>Las Despedidas</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderGoodbyes()}
         </View>

@@ -11,6 +11,7 @@ import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 
 const images = {
     letterA: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Letters/letterA.png',
@@ -304,6 +305,8 @@ const Alphabet = () => {
                     </Modal>
                 )}
                 <View style={styles.footer}>
+                    <ButtonLevelsInicio label="Inicio" navigationTarget="CaminoLevelsBasic" />
+
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FirstNumbers')} />
                 </View>
             </ScrollView>

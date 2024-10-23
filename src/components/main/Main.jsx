@@ -156,7 +156,6 @@ const Main = () => {
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
         >
-            <StatusBar barStyle="default" backgroundColor="#5B4D28" />
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
                     <ProgressCircleWithTrophies progress={progress} level="intermedio" />
