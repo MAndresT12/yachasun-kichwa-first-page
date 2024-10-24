@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
+
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Modal } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat, withSequence } from 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -197,12 +198,12 @@ const CaminoLevelsScreen = () => {
                 </View>
                 <View style={localStyles.pathRow}>
                     <LevelCard
-                        levelKey="level_IntroduccionJuegosScreen1"
+                        levelKey="level_GamesBasicModule1"
                         title="Juego: Módulo 1 / Pukllana: Shukniki  Tantachiy Yachay"
                         iconName="gamepad"
                         type="game"
-                        nextScreen="IntroduccionJuegosScreen1"
-                        progressKey="level_IntroduccionJuegosScreen1_completed"
+                        nextScreen="GamesBasicModule1"
+                        progressKey="level_GamesBasicModule1_completed"
                     />
                     <BouncyText>Juego: Módulo 1 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
 
@@ -211,12 +212,12 @@ const CaminoLevelsScreen = () => {
                     <BouncyText >Evaluación: Módulo 1 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
 
                     <LevelCard
-                        levelKey="level_Game1"
+                        levelKey="level_EvaluationBasicModule1"
                         title="Evaluación: Módulo 1 / Ruraykuna: Shukniki  Tantachiy Yachay"
                         iconName="pencil"
                         type="evaluation"
-                        nextScreen="Game1"
-                        progressKey="level_Game1_completed"
+                        nextScreen="EvaluationBasicModule1"
+                        progressKey="level_EvaluationBasicModule1_completed"
                     />
                 </View>
                 {/* Modulo 1 (Trofeo de Módulo 1)*/}
@@ -276,12 +277,12 @@ const CaminoLevelsScreen = () => {
 
                 <View style={localStyles.pathRow}>
                     <LevelCard
-                        levelKey="level_IntroduccionJuegosScreen2"
+                        levelKey="level_GamesBasicModule2"
                         title="Juego: Módulo 2 / Pukllana: Ishkayniki Tantachiy Yachay"
                         iconName="gamepad"
                         type="game"
-                        nextScreen="IntroduccionJuegosScreen2"
-                        progressKey="level_IntroduccionJuegosScreen2_completed"
+                        nextScreen="GamesBasicModule2"
+                        progressKey="level_GamesBasicModule2_completed"
                     />
                     <BouncyText>Juego: Módulo 2 / Pukllana: Ishkayniki Tantachiy Yachay</BouncyText>
 
@@ -290,12 +291,12 @@ const CaminoLevelsScreen = () => {
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 2 / Ruraykuna: Ishkayniki Tantachiy Yachay</BouncyText>
                     <LevelCard
-                        levelKey="level_Game2"
+                        levelKey="level_EvaluationBasicModule2"
                         title="Evaluación: Módulo 2 / Ruraykuna: Ishkayniki Tantachiy Yachay"
                         iconName="pencil"
                         type="evaluation"
-                        nextScreen="Game2"
-                        progressKey="level_Game2_completed"
+                        nextScreen="EvaluationBasicModule2"
+                        progressKey="level_EvaluationBasicModule2_completed"
                     />
                 </View>
 
@@ -356,12 +357,12 @@ const CaminoLevelsScreen = () => {
 
                 <View style={localStyles.pathRow}>
                     <LevelCard
-                        levelKey="level_IntroduccionJuegosScreen3"
+                        levelKey="level_GamesBasicModule3"
                         title="Juego: Módulo 3 / Pukllana: Shukniki  Tantachiy Yachay"
                         iconName="gamepad"
                         type="game"
-                        nextScreen="IntroduccionJuegosScreen3"
-                        progressKey="level_IntroduccionJuegosScreen3_completed"
+                        nextScreen="GamesBasicModule3"
+                        progressKey="level_GamesBasicModule3_completed"
                     />
                     <BouncyText>Juego: Módulo 3 / Pukllana: Shukniki  Tantachiy Yachay</BouncyText>
 
@@ -370,12 +371,12 @@ const CaminoLevelsScreen = () => {
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 3 / Ruraykuna: Shukniki  Tantachiy Yachay</BouncyText>
                     <LevelCard
-                        levelKey="level_Game3"
+                        levelKey="level_EvaluationBasicModule3"
                         title="Evaluación: Módulo 3 / Ruraykuna: Shukniki  Tantachiy Yachay"
                         iconName="pencil"
                         type="evaluation"
-                        nextScreen="Game3"
-                        progressKey="level_Game3_completed"
+                        nextScreen="EvaluationBasicModule3"
+                        progressKey="level_EvaluationBasicModule3_completed"
                     />
                 </View>
 
@@ -436,12 +437,12 @@ const CaminoLevelsScreen = () => {
 
                 <View style={localStyles.pathRow}>
                     <LevelCard
-                        levelKey="level_IntroduccionJuegosScreen4"
+                        levelKey="level_GamesBasicModule4"
                         title="Juego: Módulo 4 / Pukllana: Chuskuniki Tantachiy Yachay"
                         iconName="gamepad"
                         type="game"
-                        nextScreen="IntroduccionJuegosScreen4"
-                        progressKey="level_IntroduccionJuegosScreen4_completed"
+                        nextScreen="GamesBasicModule4"
+                        progressKey="level_GamesBasicModule4_completed"
                     />
                     <BouncyText>Juego: Módulo 4 / Pukllana: Chuskuniki Tantachiy Yachay</BouncyText>
 
@@ -450,12 +451,12 @@ const CaminoLevelsScreen = () => {
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 4 / Ruraykuna: Chuskuniki Tantachiy Yachay</BouncyText>
                     <LevelCard
-                        levelKey="level_Game4"
+                        levelKey="level_EvaluationBasicModule4"
                         title="Evaluación: Módulo 4 / Ruraykuna: Chuskuniki Tantachiy Yachay"
                         iconName="pencil"
                         type="evaluation"
-                        nextScreen="Game4"
-                        progressKey="level_Game4_completed"
+                        nextScreen="EvaluationBasicModule4"
+                        progressKey="level_EvaluationBasicModule4_completed"
                     />
                 </View>
 
@@ -516,12 +517,12 @@ const CaminoLevelsScreen = () => {
 
                 <View style={localStyles.pathRow}>
                     <LevelCard
-                        levelKey="level_IntroduccionJuegosScreen5"
+                        levelKey="level_GamesBasicModule5"
                         title="Juego: Módulo 5 / Pukllana: Pichkaniki Tantachiy Yachay"
                         iconName="gamepad"
                         type="game"
-                        nextScreen="IntroduccionJuegosScreen5"
-                        progressKey="level_IntroduccionJuegosScreen5_completed"
+                        nextScreen="GamesBasicModule5"
+                        progressKey="level_GamesBasicModule5_completed"
                     />
                     <BouncyText>Juego: Módulo 5 / Pukllana: Pichkaniki Tantachiy Yachay</BouncyText>
 
@@ -530,12 +531,12 @@ const CaminoLevelsScreen = () => {
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 5 / Ruraykuna: Pichkaniki Tantachiy Yachay</BouncyText>
                     <LevelCard
-                        levelKey="level_Game5"
+                        levelKey="level_EvaluationBasicModule5"
                         title="Evaluación: Módulo 5 / Ruraykuna: Pichkaniki Tantachiy Yachay"
                         iconName="pencil"
                         type="evaluation"
-                        nextScreen="Game5"
-                        progressKey="level_Game5_completed"
+                        nextScreen="EvaluationBasicModule5"
+                        progressKey="level_EvaluationBasicModule5_completed"
                     />
                 </View>
 
@@ -573,12 +574,12 @@ const CaminoLevelsScreen = () => {
 
                 <View style={localStyles.pathRow}>
                     <LevelCard
-                        levelKey="level_IntroduccionJuegosScreen6"
+                        levelKey="level_GamesBasicModule6"
                         title="Juego: Módulo 6 / Pukllana: Suktaniki Tantachiy Yachay"
                         iconName="gamepad"
                         type="game"
-                        nextScreen="IntroduccionJuegosScreen6"
-                        progressKey="level_IntroduccionJuegosScreen6_completed"
+                        nextScreen="GamesBasicModule6"
+                        progressKey="level_GamesBasicModule6_completed"
                     />
                     <BouncyText>Juego: Módulo 6 / Pukllana: Suktaniki Tantachiy Yachay</BouncyText>
 
@@ -587,12 +588,12 @@ const CaminoLevelsScreen = () => {
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Evaluación: Módulo 6 / Ruraykuna: Suktaniki Tantachiy Yachay</BouncyText>
                     <LevelCard
-                        levelKey="level_Game6"
+                        levelKey="level_EvaluationBasicModule6"
                         title="Evaluación: Módulo 6 / Ruraykuna: Suktaniki Tantachiy Yachay"
                         iconName="pencil"
                         type="evaluation"
-                        nextScreen="Game6"
-                        progressKey="level_Game6_completed"
+                        nextScreen="EvaluationBasicModule6"
+                        progressKey="level_EvaluationBasicModule6_completed"
                     />
                 </View>
 

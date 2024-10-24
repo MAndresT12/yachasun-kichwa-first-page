@@ -20,12 +20,20 @@ const ProgresoScreen = () => {
     const [showModal, setShowModal] = useState(false); // Estado para el modal
     const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
     // Función para marcar el nivel como completado y desbloquear el siguiente
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            // loadTrophyProgress();
+        }, [])
+    );
+
     const completeLevel = async () => {
         try {
-            await AsyncStorage.setItem('trofeo_modulo1_intermedio', 'true');
+            await AsyncStorage.setItem('trofeo_modulo1_intermedio', 'false');
             await AsyncStorage.setItem('level_Numeros_completed', 'true');
 
-            await AsyncStorage.setItem('trofeo_modulo1_basic', 'true');
+            await AsyncStorage.setItem('trofeo_modulo1_basic', 'false');
             await AsyncStorage.setItem('level_Alphabet_completed', 'true');
 
             //Agregar mas en caso de ser necesario

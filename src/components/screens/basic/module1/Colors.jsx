@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+
 import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+import { useFonts, RibeyeMarrow_400Regular } from '@expo-google-fonts/ribeye-marrow';
+
 import { styles } from '../../../../../styles/globalStyles';
+
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
-import { FontAwesome } from '@expo/vector-icons';
-import { useFonts, RibeyeMarrow_400Regular } from '@expo-google-fonts/ribeye-marrow';
-import { FloatingHumu } from '../../../animations/FloatingHumu';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { SplashBubble } from '../../../ui/bubbles/SplashBubble';
-import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 
 const colors = ['#FF6347', '#4682B4', '#FFD700', '#32CD32', '#8A2BE2', '#FF4500'];
+
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
 
 const colors_data = [
     { kichwa: "Puka", spanish: "Rojo", hexadecimalColor: "#FF0000" },
@@ -40,19 +50,19 @@ const curiosity_data = [
         key: '1',
         title: 'Curiosidades - Claro',
         text: 'Se usa la palabra "chawa" antes del color para indicar que es claro.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
     {
         key: '2',
         title: 'Curiosidades - Oscuro',
         text: 'Para indicar que un color es oscuro se usa la palabra "yanalla" antes del color.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
     {
         key: '3',
         title: 'Curiosidades - Colores básicos',
         text: 'En esta lección solo te muestro solo los colores básicos y unos cuantos más.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
 ];
 
@@ -104,10 +114,11 @@ const FlipCard = ({ item, fontsLoaded }) => {
 };
 
 const Colors = () => {
-    const progress = 1 / 6;
 
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
     const [fontsLoaded] = useFonts({
         RibeyeMarrow_400Regular,
     });
@@ -125,6 +136,47 @@ const Colors = () => {
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
     };
+
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_GamesBasicModule1_completed', 'true');
+            await AsyncStorage.setItem('level_EvaluationBasicModule1_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
 
     const content = fontsLoaded ? (
         <View style={styles.body}>
@@ -150,7 +202,7 @@ const Colors = () => {
                 >
                     <View style={styles.curiositiesContent}>
                         <FloatingHumu >
-                            <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                            <ImageContainer path={item.imagePath} style={styles.imageModal} />
                         </FloatingHumu>
                         <ComicBubble
                             text={item.text}
@@ -191,7 +243,7 @@ const Colors = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona en cada tarjeta de un color para ver su pronunciación en Kichwa.'
@@ -211,7 +263,16 @@ const Colors = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule1')} />
+                <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('GamesBasicModule1');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>

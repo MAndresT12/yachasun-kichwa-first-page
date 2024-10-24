@@ -175,7 +175,7 @@ export const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalContent: {
-        width: 300,
+        width: 370,
         backgroundColor: '#fff',
         borderRadius: 8,
         padding: 20,

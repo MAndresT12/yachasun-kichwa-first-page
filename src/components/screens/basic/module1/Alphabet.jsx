@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
+
 import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -223,7 +224,7 @@ const Alphabet = () => {
 
     const completeLevel = async () => {
         try {
-            await AsyncStorage.setItem('level_Alphabet_completed', 'true');
+            await AsyncStorage.setItem('level_FirstNumbers_completed', 'true');
             setIsNextLevelUnlocked(true);
         } catch (error) {
             console.log('Error guardando el progreso', error);

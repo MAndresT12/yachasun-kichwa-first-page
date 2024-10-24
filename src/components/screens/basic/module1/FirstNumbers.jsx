@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+
 import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { styles } from '../../../../../styles/globalStyles';
+
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
-import { FontAwesome } from '@expo/vector-icons';
-import { FloatingHumu } from '../../../animations/FloatingHumu';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
-import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 
 const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
 
@@ -167,10 +175,11 @@ const FlipCard = ({ item }) => {
 };
 
 const FirstNumbers = () => {
-    const progress = 1 / 6;
-
+    
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
 
@@ -185,6 +194,46 @@ const FirstNumbers = () => {
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
     };
+
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_ToCount_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
 
     return (
         <LinearGradient
@@ -264,7 +313,16 @@ const FirstNumbers = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('ToCount')} />
+                    <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('ToCount');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>
