@@ -275,7 +275,7 @@ const FirstNumbers = () => {
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
-                                    arrowDirection="left"
+                                    arrowDirection="leftUp"
                                 />
                             </View>
                         </AccordionDefault>

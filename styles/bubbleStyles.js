@@ -9,6 +9,7 @@ export const bubbleStyles = StyleSheet.create({
         paddingBottom: moderateScale(7, 2),
         borderRadius: 20,
     },
+    // Container to keep arrowLeft aligned with text size changes
     arrowContainer: {
         position: 'absolute',
         top: 0,
@@ -16,27 +17,25 @@ export const bubbleStyles = StyleSheet.create({
         right: 0,
         bottom: 0,
         zIndex: 0,
-        flex: 1,
-    },
-    arrowLeftContainer: {
         justifyContent: 'flex-end',
         alignItems: 'flex-start',
     },
-    arrowRightContainer: {
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
+    // Specific container for arrowLeftUp to keep it stable
+    arrowLeftUpContainer: {
+        position: 'absolute',
+        top: moderateScale(2, 0.5),
+        left: moderateScale(-12, 0.5),
+        zIndex: 0,
     },
     arrowLeft: {
-        left: moderateScale(-6, 0.5),
+        left: moderateScale(-8.5, 0.5),
+        top: moderateScale(-0.5, 0.5),
+        transform: [{ rotate: '25deg' }],
     },
-    arrowRight: {
-        right: moderateScale(-6, 0.5),
-    },
-    curiositiesContent: {
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        alignContent: 'center',
-        justifyContent: 'center',
-        width: '100%',
+    arrowLeftUp: {
+        position: 'absolute',
+        top: moderateScale(2, 0.5),
+        left: moderateScale(0, 0.5),
+        transform: [{ rotate: '-75deg' }, { scaleY: -1 }],
     },
 });

@@ -206,7 +206,7 @@ const Colors = () => {
                         </FloatingHumu>
                         <ComicBubble
                             text={item.text}
-                            arrowDirection="left"
+                            arrowDirection="leftUp"
                         />
                     </View>
                 </AccordionDefault>
