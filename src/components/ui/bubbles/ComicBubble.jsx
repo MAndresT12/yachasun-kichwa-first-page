@@ -36,7 +36,7 @@ export const ComicBubble = ({ text, backgroundColor = '#00B4D8', arrowDirection 
                     style={bubbleStyles.arrowLeftCenter}
                     width={moderateScale(28.5, 0.6)}
                     height={moderateScale(30.5, 0.6)}
-                    viewBox="20.3 15.02 30 30" // Adjusted viewBox for larger triangle
+                    viewBox="20.3 15.02 30 30"
                 >
                     <Path d="M20.5,35 Q30,37 45,15 L45,45 Q30,37.5 20.5,35 Z" fill={backgroundColor} {...arrowBorder} />
                 </Svg>
