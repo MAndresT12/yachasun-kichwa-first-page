@@ -206,7 +206,8 @@ const Colors = () => {
                         </FloatingHumu>
                         <ComicBubble
                             text={item.text}
-                            arrowDirection="leftUp"
+                            arrowDirection="leftCenter"
+                            borderColor="#5f92cf"
                         />
                     </View>
                 </AccordionDefault>
@@ -247,7 +248,8 @@ const Colors = () => {
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona en cada tarjeta de un color para ver su pronunciación en Kichwa.'
-                                        arrowDirection="left"
+                                        arrowDirection="leftCenter"
+                                        borderColor="#5f92cf"
                                     />
                                 </View>
                                 <View style={styles.buttonContainerAlphabet}>
@@ -263,7 +265,7 @@ const Colors = () => {
                 )}
 
                 <View style={styles.footer}>
-                <ButtonLevelsInicio label="Inicio"
+                    <ButtonLevelsInicio label="Inicio"
                         navigationTarget="CaminoLevelsBasic"
                     />
                     <ButtonDefault
