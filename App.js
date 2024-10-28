@@ -164,7 +164,7 @@ function AppNavigator() {
       <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, title: 'Inicio' }}
       />
       <Stack.Screen
         name="Main"
@@ -473,7 +473,7 @@ function HomeStack() {
       <Stack.Screen
         name="Main"
         component={Main}
-        options={{ title: 'Los Numeros' }}
+        options={{ title: 'Los Números' }}
       />
       <Stack.Screen
         name="Food"

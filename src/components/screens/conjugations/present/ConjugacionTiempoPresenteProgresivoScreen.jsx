@@ -144,7 +144,11 @@ const ConjugacionTiempoPresenteProgresivoScreen = () => {
                 </View>
 
                 <View style={styles.body}>
-                    <CardDefault title={conjugacionData.subtitle}>
+                    <CardDefault title={conjugacionData.title}>
+                        <Text style={styles.kichwaText}>{conjugacionData.subtitle}</Text>
+
+                        <Text style={[styles.kichwaText, localStyles.particleText]}>-ku</Text>
+
                         <Text style={localStyles.descriptionText}>{conjugacionData.description}</Text>
                     </CardDefault>
 
@@ -187,6 +191,13 @@ const localStyles = StyleSheet.create({
     descriptionText: {
         fontSize: 16,
         marginVertical: 10,
+    },
+    particleText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 10,
+
     },
     subtitle: {
         fontSize: 20,

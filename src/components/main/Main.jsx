@@ -21,7 +21,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { ComicBubble } from '../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../ui/buttons/AccordionDefault';
 
-const humuTalking = require('../../../assets/images/humu/humu-talking.png');
+const humuTalking = require('../../../assets/images/humu/humu-talking.jpg');
 
 const numberData = [
     { number: "1000", kichwa: "shuk waranka", spanish: "mil" },
@@ -39,6 +39,7 @@ const numberData = [
     { number: "500000", kichwa: "pichka patsak waranka", spanish: "quinientos mil" },
     { number: "1000000", kichwa: "hunu", spanish: "millón" },
 ];
+
 
 const curiosity_data = [
     {
@@ -191,7 +192,7 @@ const Main = () => {
                         >
                             <View style={styles.curiositiesContent}>
                                 <FloatingHumu >
-                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                    <ImageContainer path={item.imagePath} style={styles.imageModal} />
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
@@ -212,7 +213,7 @@ const Main = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
+                                        <ImageContainer path={require('../../../assets/images/humu/humu-talking.jpg')} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona en cada una las tarjetas para ver su traducción.'

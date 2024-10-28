@@ -62,8 +62,9 @@ const months = [
 const renderRows = (data) => {
     return data.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.kichwa}</Text>
-            <Text style={[styles.tableCell, localStyles.textCenter]}>{item.spanish}</Text>
+            <Text style={[styles.tableCell, styles.spanishText]}>{item.spanish}</Text>
+
+            <Text style={[styles.tableCell, styles.kichwaText]}>{item.kichwa}</Text>
         </View>
     ));
 };
@@ -144,8 +145,8 @@ const VocabularioElTiempoScreen = () => {
                     <CardDefault title="Pacha (El tiempo)">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>spanish</Text>
                             </View>
                             {renderRows(timeVocabulary)}
                         </View>
@@ -153,8 +154,8 @@ const VocabularioElTiempoScreen = () => {
                     <CardDefault title="Hunkay punchakuna (Los días de la semana)">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderRows(daysOfWeek)}
                         </View>
@@ -162,8 +163,8 @@ const VocabularioElTiempoScreen = () => {
                     <CardDefault title="Killakuna (Los meses)">
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
                                 <Text style={styles.tableHeaderCell}>Kichwa</Text>
-                                <Text style={styles.tableHeaderCell}>Spanish</Text>
                             </View>
                             {renderRows(months)}
                         </View>
@@ -180,7 +181,9 @@ const VocabularioElTiempoScreen = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
+                                        <ImageContainer path={require('../../../../assets/images/humu/humu-talking.jpg')} style={styles.imageModalHelp} />
+
+
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona en cada una las tarjetas para ver su traducción.'

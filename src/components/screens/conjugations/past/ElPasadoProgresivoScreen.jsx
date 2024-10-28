@@ -126,11 +126,14 @@ const ElPasadoProgresivoScreen = () => {
                 </View>
 
                 <View style={styles.body}>
-                    <CardDefault title="Yallirka katiy pacha">
+                    <CardDefault title="El pasado Progresivo">
+                        <Text style={styles.kichwaText}>Yallirka katiy pacha</Text>
+
+                        <Text style={[styles.kichwaText, localStyles.particulaText]}>-kurka</Text>
+
                         <Text style={localStyles.descriptionText}>
                             Para formar el pasado progresivo, utilizamos las partículas "-ku" y "-rka", seguidas por las terminaciones del presente.
                         </Text>
-                        <Text style={localStyles.particulaText}>-kurka</Text>
                     </CardDefault>
                     {pasadoProgresivoData.map((example, index) => renderExampleCard(example, index))}
                 </View>
@@ -161,7 +164,7 @@ const localStyles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         textAlign: 'center',
-        color: 'red',
+
     },
     image: {
         width: '100%',

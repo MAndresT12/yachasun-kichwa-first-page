@@ -38,8 +38,12 @@ const Instructions = () => {
                 <CardDefault
                     title="Intermedio"
                     style={cardStyles.instructionsCardStyle}
-                    content="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
                 >
+                    <Text style={globalStyles.cardContent}>
+                        En este nivel de dificultad, te adentrarás más en el fascinante mundo del Kichwa, explorando conceptos más avanzados y aplicando todo lo que ya sabes.
+                        {"\n\n"}Comenzaremos con temas como los alimentos y los verbos esenciales, para luego aprender a formular preguntas, afirmaciones y expresar razones o pertenencias usando partículas especiales.
+                        {"\n\n"}Prepárate para descubrir nuevas maneras de expresarte en esta maravillosa aventura lingüística.
+                    </Text>
                 </CardDefault>
             </View>
             <View style={buttonStyles.buttonContainerSpaceAround}>

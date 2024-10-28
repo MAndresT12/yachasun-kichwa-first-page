@@ -42,7 +42,7 @@ const conjugationsData = [
         ]
     },
     {
-        verb: "Tanka (Empujar, Imperativo)",
+        verb: "Tankana (Empujar, Imperativo)",
         root: "tanka",
         image: "https://st.depositphotos.com/1695366/1400/v/450/depositphotos_14001481-stock-illustration-cartoon-man-up-against-a.jpg",
         conjugations: [

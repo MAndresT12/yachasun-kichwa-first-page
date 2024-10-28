@@ -6,6 +6,7 @@ import { styles as globalStyles } from '../../../../styles/globalStyles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
 import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
+import { ComicBubble } from '../../ui/bubbles/ComicBubble';
 const IntroduccionJuegoScreenModule4 = () => {
     const navigation = useNavigation();
 
@@ -23,14 +24,12 @@ const IntroduccionJuegoScreenModule4 = () => {
                 />
 
                 {/* Speech bubble al lado derecho */}
-                <View style={localStyles.speechBubble}>
-                    <View>
-                        <Text style={localStyles.bubbleText}>
-                            ¡Bienvenido! A continuación, se presentarán unos juegos para reforzar tus conocimientos.
-                            ¡Diviértete mientras aprendes!
-                        </Text>
-                    </View>
-                    <View style={localStyles.bubbleTail} />
+                <View style={localStyles.speechBubble2}>
+                    <ComicBubble
+                        text={"¡Bienvenido! A continuación, se presentarán unos juegos para reforzar tus conocimientos.¡Diviértete mientras aprendes! "}
+                        arrowDirection="leftCenter"
+                        borderColor="#5f92cf"
+                    />
                 </View>
             </View>
 
@@ -45,6 +44,11 @@ const IntroduccionJuegoScreenModule4 = () => {
 };
 
 const localStyles = StyleSheet.create({
+    speechBubble2: {
+        padding: 25,
+        maxWidth: '65%',
+        position: 'relative',
+    },
     contentContainer: {
         flexDirection: 'row',
         justifyContent: 'flex-start',

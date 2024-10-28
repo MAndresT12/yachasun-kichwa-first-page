@@ -50,8 +50,8 @@
 - en pantallas (por ejemplo pronombres personales) colocar en card vamos a aprender verbo kana etc, y asi para otras paginas que lo requieran. [x]
 
 
-- Poner el Kichwa en verdey espanol en azul todos los textos. 
-- Cambiar a todos los puntos de vida por los trofeos
+- Poner el Kichwa en verdey espanol en azul todos los textos. [x]
+- Cambiar a todos los puntos de vida por los trofeos[x]
 
 
 
@@ -59,21 +59,21 @@
 - En menu de inicio, poner creditos, la poli, facu, estudiantes y tutor para el título
 - Usar el personaje desde el menu de inicio
 - Debe salir el nombre del usuario al ingresar, en niveles tambien
-- Progreso falta y perfil también
+- Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 - En pantalla de inicio que diga hola soy hummu y estoy listo para jogar, aquí una descrpción del Kichwa, una intro al idioma (hacer componente para luego ver cómo poner)
 - Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral
 - Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
-- En losscrollpaths deshabilitar todos los módulos que no sean el primero e ir habilitando según pase los niveles
-- Cuando se aplasta la insignia que diga por qué se desbloqueo y una frase info que se vea bonito
-- Juegos: Info ayuda poner varios bubbles de comic para humu
-- End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo
-- Las insignias colocar al final despues de la evaluacion y colocar Modulo X al inicio de los temas modulos.
+- En losscrollpaths deshabilitar todos los módulos que no sean el primero e ir habilitando según pase los niveles [x]
+- Cuando se aplasta la insignia que diga por qué se desbloqueo y una frase info que se vea bonito [x]
+- Juegos: Info ayuda poner varios bubbles de comic para humu 
+- End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo [x]
+- Las insignias colocar al final despues de la evaluacion y colocar Modulo X al inicio de los temas modulos.[x]
 
  
 
 
 - Pag pronombres personales (pay el/ella) PARRAFO de verbo kana solo hasta ser o estar, en tarjetas cambiar por tabla., cambiar titulo "algo lindo de los apellidos"
-- Logica primero español luego kichwa
+- Logica primero español luego kichwa [x]
 - Pagina La familia parte 1 (redactar mejor) yo mucho amo
 - adaptar juegos de basicos
 - En levels En lugar de la familia parte 1, colocar solo familia
@@ -104,7 +104,7 @@
 Las frases como que el muñeco te habla, colocar el componente del boton siguiente, maneras de introducir el personaje en pantallas, boton juegos y temas, CARD INTRODUCTORIA DEL HUMU hablando que vamos a aprender etc, poner recordar infinitivos terminan con na (paginas de verbos por ejme0lo)
 -Modulo 1
 -Pagina los numeros, poner tilde en el nav de regresar, los colores y colocar español primero luego kichwa, y poner curiosidades.
--Página Los alimentos en lugar de spanish español y ver lo de kichwa primero o español, card introductoria.
+-Página Los alimentos en lugar de spanish español y ver lo de kichwa primero o español, card introductoria. [x]
 -Pagina lasparticulasen kichwa parte 1, Colocar card que se gira (santi) para en kichwa y luego en kichwa.
 -Juego en frases en lugar de traduccion poner español, juego de emparejar (igual), boton de siguiente en juegos, en ultimo juego poner en boton siguiente juego solo siguiente porque ya pasa a evaluacion.
 -Pantalla evaluacion el boton siguiente ir a camino levels.
@@ -113,10 +113,10 @@ Las frases como que el muñeco te habla, colocar el componente del boton siguien
 -Pantalla las particulas en kichwa parte2, colocar kichwa y español (para las frases ), curiosidad como alguna frase simple ejemplo.
 -Por ejemplo en Página La Negación, separar en los contenidos y ejemplos comosanti primero la descripcion y luego ejemplos.
 -En pantallas ver tíldes.
--Página Los verbos agregar al muñeco. (ver interacciones del santi) agregar tankana (al verbo tanka).
+-Página Los verbos agregar al muñeco. (ver interacciones del santi) conjugación verbos agregar tankana (al verbo tanka). [x] 
 
 -MODULO 4 
--TituloImachikkuna poner en español.
+-TituloImachikkuna poner en español. [x]
 
 -Modulo 5
 -Curiosidades

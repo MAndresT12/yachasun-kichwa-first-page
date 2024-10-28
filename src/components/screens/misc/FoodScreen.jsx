@@ -50,13 +50,13 @@ const curiosity_data = [
         key: '1',
         title: 'Curiosidades - El maíz...',
         text: 'En la serranía ecuatoriana la fuente principal de nutrición es el maíz. Considerado como un regalo de Dios, con este alimento se pueden preparar sopas, panes, dulces y bebidas, como por ejemplo, la chica.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: require('../../../../assets/images/humu/humu-talking.jpg'),
     },
     {
         key: '2',
         title: 'Curiosidades - La chicha...',
         text: 'La chicha es una bebida tradicional de la cultura indígena elaborada con maíz. En el pasado el chicha era utilizada para la celebración de rituales importantes',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: require('../../../../assets/images/humu/humu-talking.jpg'),
     },
 ];
 
@@ -188,7 +188,7 @@ const FoodScreen = () => {
                         >
                             <View style={styles.curiositiesContent}>
                                 <FloatingHumu >
-                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                    <ImageContainer path={item.imagePath} style={styles.imageModal} />
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}

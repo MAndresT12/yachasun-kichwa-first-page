@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing, withRepeat  } from 'react-native-reanimated';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing, withRepeat } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
@@ -472,7 +472,7 @@ const GreetingsPart2 = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../assets/images/humu/humu-talking.jpg')} style={styles.imageModalHelp} />
+                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
 
 
                                     </FloatingHumu>

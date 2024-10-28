@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { View, Text, ScrollView, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, Image, StyleSheet, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Carousel from 'react-native-reanimated-carousel';
 import { styles } from '../../../../../styles/globalStyles';
@@ -17,7 +17,7 @@ const { width } = Dimensions.get('window');
 const futuroSimpleData = {
     title: "El futuro simple",
     subtitle: "Shamuk pacha",
-    description: "Para formar el futuro simple, tomamos la raíz del verbo y añadimos las terminaciones del futuro simple.",
+    description: "Para formar el futuro simple, tomamos la raíz del verbo y añadimos las terminaciones del futuro simple (-sha,-nki,-nka,-shun,-nkichik,-nkakuna).",
     examples: [
         {
             verb: "Llamkana (Trabajar)",
@@ -136,7 +136,10 @@ const ElFuturoSimpleScreen = () => {
                 <View style={styles.body}>
 
                     <CardDefault title={futuroSimpleData.title}>
-                        <Text style={styles.carouselSubtitle}>{futuroSimpleData.subtitle}</Text>
+
+                        <Text style={styles.kichwaText}>{futuroSimpleData.subtitle}</Text>
+                        <Text style={[styles.kichwaText, localStyles.particleText]}>-sha,-nki,-nka,-shun,-nkichik,-nkakuna</Text>
+
                         <Text style={styles.carouselDescriptionText}>{futuroSimpleData.description}</Text>
                     </CardDefault>
 
@@ -164,5 +167,15 @@ const ElFuturoSimpleScreen = () => {
         </LinearGradient>
     );
 };
+const localStyles = StyleSheet.create({
 
+    particleText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 10,
+
+    },
+
+});
 export default ElFuturoSimpleScreen;

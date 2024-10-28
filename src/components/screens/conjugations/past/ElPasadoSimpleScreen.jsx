@@ -152,8 +152,10 @@ const ElPasadoSimpleScreen = () => {
                 </View>
 
                 <View style={styles.body}>
-                    <CardDefault title={pasadoSimpleData.subtitle}>
-                        <Text style={localStyles.particleText}>{pasadoSimpleData.particle}</Text>
+                    <CardDefault title={pasadoSimpleData.title}>
+                        <Text style={styles.kichwaText}>{pasadoSimpleData.subtitle}</Text>
+
+                        <Text style={[styles.kichwaText, localStyles.particleText]}>{pasadoSimpleData.particle}</Text>
                         <Text style={localStyles.descriptionText}>{pasadoSimpleData.description}</Text>
                     </CardDefault>
                     <CardDefault title={pasadoSimpleData.terminationsTitle}>
@@ -192,7 +194,7 @@ const localStyles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         marginVertical: 10,
-        color: 'red',
+
     },
     descriptionText: {
         fontSize: 16,

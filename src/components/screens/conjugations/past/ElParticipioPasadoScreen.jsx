@@ -14,6 +14,7 @@ const { width } = Dimensions.get('window');
 
 const participioData = {
     title: "Yallishka pacha",
+    particle: "-shka",
     description: "Para formar el participio pasado, después de la raíz del verbo ponemos la partícula -shka y las terminaciones del presente.",
     examples: [
         {
@@ -130,7 +131,11 @@ const ElParticipioPasadoScreen = () => {
                 </View>
 
                 <View style={styles.body}>
-                    <CardDefault title={participioData.title}>
+                    <CardDefault title="El participio pasado">
+                        <Text style={styles.kichwaText}>{participioData.title}</Text>
+
+                        <Text style={[styles.kichwaText, localStyles.particleText]}>{participioData.particle}</Text>
+
                         <Text style={localStyles.description}>{participioData.description}</Text>
                     </CardDefault>
                     {participioData.examples.map((example, index) => renderExampleCard(example, index))}
@@ -153,6 +158,13 @@ const ElParticipioPasadoScreen = () => {
 };
 
 const localStyles = StyleSheet.create({
+    particleText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 10,
+
+    },
     description: {
         fontSize: 16,
         marginVertical: 10,

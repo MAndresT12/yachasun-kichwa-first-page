@@ -152,7 +152,9 @@ const VocabularioLaUbicacionScreen = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu>
-                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
+                                        <ImageContainer path={require('../../../../assets/images/humu/humu-talking.jpg')} style={styles.imageModalHelp} />
+
+
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona en cada tarjeta de ubicación para ver su traducción y nombre en Kichwa.'

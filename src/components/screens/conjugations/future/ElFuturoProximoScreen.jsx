@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { View, Text, ScrollView, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import Carousel from 'react-native-reanimated-carousel';
@@ -134,8 +134,8 @@ const ElFuturoProximoScreen = () => {
 
                 <View style={styles.body}>
                     <CardDefault title={futuroProximoData.title}>
-                        <Text style={styles.carouselSubtitle}>{futuroProximoData.subtitle}</Text>
-                        <Text style={styles.carouselParticleText}>{futuroProximoData.particle}</Text>
+                        <Text style={styles.kichwaText}>{futuroProximoData.subtitle}</Text>
+                        <Text style={[styles.kichwaText, localStyles.particleText]}>{futuroProximoData.particle}</Text>
                         <Text style={styles.carouselDescriptionText}>{futuroProximoData.description}</Text>
                     </CardDefault>
                     <Carousel
@@ -164,4 +164,15 @@ const ElFuturoProximoScreen = () => {
     );
 };
 
+const localStyles = StyleSheet.create({
+
+    particleText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 10,
+
+    },
+
+});
 export default ElFuturoProximoScreen;
