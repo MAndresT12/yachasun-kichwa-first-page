@@ -472,7 +472,9 @@ const GreetingsPart2 = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
+                                        <ImageContainer path={require('../../../assets/images/humu/humu-talking.jpg')} style={styles.imageModalHelp} />
+
+
                                     </FloatingHumu>
                                     <ComicBubble
                                         text='Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa. Desliza a Humu para ver la respuesta al saludo.'
