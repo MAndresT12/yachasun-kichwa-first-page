@@ -259,7 +259,7 @@ function HomeStack() {
       <Stack.Screen
         name="CaminoLevels"
         component={CaminoLevelsScreen}
-        options={{ title: 'Niveles' }}
+        options={{ title: 'Módulos' }}
       />
       <Stack.Screen
         name="CaminoLevelsBasic"
