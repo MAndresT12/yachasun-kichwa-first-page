@@ -9,6 +9,7 @@ import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
 const images = {
@@ -163,7 +164,16 @@ const AnimalsBasic = () => {
                     </Modal>
                 )}
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule4')} />
+                <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('IntroGamesBasic4');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </View>

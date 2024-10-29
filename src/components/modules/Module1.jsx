@@ -71,6 +71,7 @@ const dataRuletaModule2 = [
     { spanish: 'perro', kichwa: 'allku' },
     { spanish: 'Gato', kichwa: 'misi' },
 ];
+
 const Module1 = () => {
     const navigation = useNavigation();
     const [currentGame, setCurrentGame] = useState(0);

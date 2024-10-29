@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+
+import { LinearGradient } from 'expo-linear-gradient';
+
 import { styles } from '../../../../../styles/globalStyles';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 
@@ -37,30 +41,41 @@ const EvaluationBasicModule2 = () => {
     const [score, setScore] = useState(0);
     const navigation = useNavigation();
 
+    // Resetear el score y el índice de preguntas cuando la pantalla gane foco
+    useFocusEffect(
+        React.useCallback(() => {
+            setCurrentQuestionIndex(0);
+            setScore(0);
+        }, [])
+    );
+
     const handleOptionPress = (option) => {
+        let newScore = score; // Crear una variable temporal para actualizar el score
+
         if (option === questions[currentQuestionIndex].answer) {
-            setScore(score + 1);
-            Alert.alert("Correcto!", "Has elegido la respuesta correcta.");
+            newScore += 1; // Incrementa el puntaje temporalmente si es correcto
+            Alert.alert("¡Correcto!", "Has elegido la respuesta correcta.");
         } else {
             Alert.alert("Incorrecto", "La respuesta correcta era: " + questions[currentQuestionIndex].answer);
         }
 
+        // Actualiza el score en el estado
+        setScore(newScore);
+
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         } else {
-            navigation.navigate('EndModule2', { score: score + 1, totalQuestions: questions.length });
+            // Navegar a la pantalla de evaluación y pasar el nuevo score
+            navigation.navigate('EndModule2', { score: newScore, totalQuestions: questions.length });
         }
     };
 
     return (
-        <View style={styles.container}>
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+            style={styles.gradient}
+        >
             <ScrollView style={styles.scrollView}>
-                <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>Juego de Repaso</Text>
-                </View>
                 <View style={styles.body}>
                     <CardDefault title={`Pregunta ${currentQuestionIndex + 1}`}>
                         <Text style={localStyles.questionText}>{questions[currentQuestionIndex].question}</Text>
@@ -76,7 +91,7 @@ const EvaluationBasicModule2 = () => {
                     </CardDefault>
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 
@@ -86,6 +101,7 @@ const localStyles = StyleSheet.create({
         marginBottom: 20,
         textAlign: 'center',
     },
+
     optionButton: {
         backgroundColor: '#5B4D28',
         padding: 15,

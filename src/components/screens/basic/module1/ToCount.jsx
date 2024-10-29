@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-
 import { Text, View, ScrollView, Dimensions, TouchableOpacity, Modal } from 'react-native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { LinearGradient } from 'expo-linear-gradient';
@@ -165,11 +164,11 @@ const ToCount = () => {
                 <View style={styles.body}>
                     <CardDefault title="¿Cómo se hace?" >
                         <Text style={styles.cardContent}>
-                            Ahora que sabes de números en Kichwa.
-                            Es importante que aprendamos cómo ordenar o posicionar.
+                            Ahora que sabes los números en Kichwa.
+                            Es importante que aprendamos cómo ordenar o posicionar elementos.
                             Aquí entran los números ordinales.{"\n\n"}
-                            Para crear los números ordinales en Kichwa, añadimos -niki
-                            al número normal según su posición.
+                            Para crear los números ordinales en Kichwa, añadimos 
+                            -niki al final de cada número normal según su posición.
                         </Text>
                     </CardDefault>
                     <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 700 }} >
@@ -228,7 +227,7 @@ const ToCount = () => {
                                         <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en cada pestaña para las tablas con la info de esta lección.'
+                                        text='Presiona en cada pestaña para ver la info de las diferentes tablas.'
                                         arrowDirection="left"
                                     />
                                 </View>

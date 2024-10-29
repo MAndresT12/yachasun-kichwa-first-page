@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-
 import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
-import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { LinearGradient } from 'expo-linear-gradient';
@@ -123,13 +122,13 @@ const curiosity_data = [
     {
         key: '1',
         title: 'Reglas - ¿Cómo combinar números en Kichwa?',
-        text: 'Se pueden combinar las unidaes, decenas, centenas, etc. para formar números más complejos.',
+        text: 'Se pueden combinar las unidades, decenas, centenas, etc. para formar números más complejos.',
         imagePath: humuTalking,
     },
     {
         key: '2',
         title: 'Reglas - Te muestro un ejemplo',
-        text: 'Si queremos decir 231, se combinan los números para formar "Ishkay patsak kimsa chunka shuk".',
+        text: 'Si queremos decir 231, se combinan las palabras para formar "Ishkay patsak kimsa chunka shuk".',
         imagePath: humuTalking,
     },
     {
@@ -252,7 +251,7 @@ const FirstNumbers = () => {
                 <View style={styles.body}>
                     <CardDefault title="Una aventura numérica">
                         <Text style={styles.cardContent}>
-                            Aquí aprenderemos los primeros números de Español a Kichwa.{"\n\n"}
+                            Aquí aprenderemos los primeros números. De Español a Kichwa.{"\n\n"}
                             ¡Prepárate para tener un tour matemático!
                         </Text>
                     </CardDefault>
@@ -296,7 +295,7 @@ const FirstNumbers = () => {
                                         <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona la tarjeta de un número (pintados en rojo) para ver su pronunciación en Kichwa.'
+                                        text='Presiona en cada tarjeta de un número para ver su traducción.'
                                         arrowDirection="left"
                                     />
                                 </View>

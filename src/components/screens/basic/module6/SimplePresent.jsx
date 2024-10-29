@@ -7,6 +7,8 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
+
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import ChatModal from '../../../ui/modals/ChatModal';
@@ -330,7 +332,16 @@ const SimplePresent = () => {
                 <ChatModal visible={showChat} onClose={toggleChatModal} initialMessages={chat_messages} />
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule6')} />
+                    <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('IntroGamesBasic6');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </View>

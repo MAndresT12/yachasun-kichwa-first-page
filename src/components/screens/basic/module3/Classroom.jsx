@@ -9,6 +9,7 @@ import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 import { PanGestureHandler } from 'react-native-gesture-handler';
 
 const { width } = Dimensions.get('window');
@@ -311,7 +312,16 @@ const Classroom = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule3')} />
+                    <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('IntroGamesBasic3');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </View>

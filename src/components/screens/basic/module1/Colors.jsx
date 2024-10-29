@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-
 import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal, ActivityIndicator } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -49,7 +48,7 @@ const curiosity_data = [
     {
         key: '1',
         title: 'Curiosidades - Claro',
-        text: 'Se usa la palabra "chawa" antes del color para indicar que es claro.',
+        text: 'Se usa la palabra "chawa" antes del color para indicar que este es claro.',
         imagePath: humuTalking,
     },
     {
@@ -139,7 +138,7 @@ const Colors = () => {
 
     const completeLevel = async () => {
         try {
-            await AsyncStorage.setItem('level_GamesBasicModule1_completed', 'true');
+            await AsyncStorage.setItem('level_IntroGamesBasic1_completed', 'true');
             await AsyncStorage.setItem('level_EvaluationBasicModule1_completed', 'true');
             setIsNextLevelUnlocked(true);
         } catch (error) {
@@ -246,7 +245,7 @@ const Colors = () => {
                                         <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en cada tarjeta de un color para ver su pronunciación en Kichwa.'
+                                        text='Presiona en cada tarjeta de un color para ver su traducción.'
                                         arrowDirection="left"
                                     />
                                 </View>
@@ -270,7 +269,7 @@ const Colors = () => {
                         label="Siguiente"
                         onPress={() => {
                             completeLevel();
-                            navigation.navigate('GamesBasicModule1');
+                            navigation.navigate('IntroGamesBasic1');
                         }}
                     />
                 </View>

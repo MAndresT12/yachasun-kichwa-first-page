@@ -89,7 +89,10 @@ const EvaluationScreen1 = ({ route }) => {
                     {score >= 4 ? (
                         <>
                             <Text style={localStyles.motivationalText}>
-                                ¡Felicidades! Has completado toda esta hermosa aventura, ya tienes una mejor comprensión de este hermoso idioma. ¡Ahora puedes volver a repetir los anteriores niveles para seguir practicando!
+                                ¡Felicidades! Has completado toda esta hermosa aventura, 
+                                ya tienes una mejor comprensión de este hermoso idioma. 
+                                ¡Ahora puedes volver a repetir los anteriores niveles 
+                                para seguir practicando!
                             </Text>
 
                             {/* Personaje Humu-Talking */}

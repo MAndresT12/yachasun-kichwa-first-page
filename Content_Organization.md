@@ -11,8 +11,8 @@
 
 - El alfabeto y las vocales
 - Los número del 0 - 500
-- Los colores
 - Los números ordinales
+- Los colores
 - Juego 1
 - Evaluación 1
 

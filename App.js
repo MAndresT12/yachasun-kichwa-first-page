@@ -33,6 +33,8 @@ import Alphabet from './src/components/screens/basic/module1/Alphabet.jsx';
 import FirstNumbers from './src/components/screens/basic/module1/FirstNumbers.jsx';
 import Colors from './src/components/screens/basic/module1/Colors.jsx';
 import ToCount from './src/components/screens/basic/module1/ToCount.jsx';
+
+import IntroGamesBasic1 from './src/components/screens/basic/module1/IntroGamesBasic1.jsx';
 import GamesBasicModule1 from './src/components/screens/basic/module1/GamesBasicModule1.jsx';
 import EvaluationBasicModule1 from './src/components/screens/basic/module1/EvaluationBasicModule1.jsx';
 import EndModule1 from './src/components/screens/basic/module1/EndModule1.jsx';
@@ -42,6 +44,8 @@ import GreetingsPart1 from './src/components/screens/basic/module2/GreetingsPart
 import GreetingsPart2 from './src/components/screens/basic/module2/GreetingsPart2.jsx';
 import PronounsSentence from './src/components/screens/basic/module2/PronounsSentence.jsx';
 import FamilyPart1 from './src/components/screens/basic/module2/FamilyPart1.jsx';
+
+import IntroGamesBasic2 from './src/components/screens/basic/module2/IntroGamesBasic2.jsx';
 import GamesBasicModule2 from './src/components/screens/basic/module2/GamesBasicModule2.jsx';
 import EvaluationBasicModule2 from './src/components/screens/basic/module2/EvaluationBasicModule2.jsx';
 import EndModule2 from './src/components/screens/basic/module2/EndModule2.jsx';
@@ -51,6 +55,8 @@ import FamilyPart2 from './src/components/screens/basic/module3/FamilyPart2.jsx'
 import BodyParts from './src/components/screens/basic/module3/BodyParts.jsx';
 import House from './src/components/screens/basic/module3/House.jsx';
 import Classroom from './src/components/screens/basic/module3/Classroom.jsx';
+
+import IntroGamesBasic3 from './src/components/screens/basic/module3/IntroGamesBasic3.jsx';
 import GamesBasicModule3 from './src/components/screens/basic/module3/GamesBasicModule3.jsx';
 import EvaluationBasicModule3 from './src/components/screens/basic/module3/EvaluationBasicModule3.jsx';
 import EndModule3 from './src/components/screens/basic/module3/EndModule3.jsx';
@@ -60,6 +66,8 @@ import Nature from './src/components/screens/basic/module4/Nature.jsx';
 import Foods from './src/components/screens/basic/module4/Foods.jsx';
 import Orientation from './src/components/screens/basic/module4/Orientation.jsx';
 import AnimalsBasic from './src/components/screens/basic/module4/AnimalsBasic.jsx';
+
+import IntroGamesBasic4 from './src/components/screens/basic/module4/IntroGamesBasic4.jsx';
 import GamesBasicModule4 from './src/components/screens/basic/module4/GamesBasicModule4.jsx';
 import EvaluationBasicModule4 from './src/components/screens/basic/module4/EvaluationBasicModule4.jsx';
 import EndModule4 from './src/components/screens/basic/module4/EndModule4.jsx';
@@ -69,6 +77,8 @@ import Pluralization from './src/components/screens/basic/module5/Pluralization.
 import Gender from './src/components/screens/basic/module5/Gender.jsx';
 import Quantity from './src/components/screens/basic/module5/Quantity.jsx';
 import Size from './src/components/screens/basic/module5/Size.jsx';
+
+import IntroGamesBasic5 from './src/components/screens/basic/module5/IntroGamesBasic5.jsx';
 import GamesBasicModule5 from './src/components/screens/basic/module5/GamesBasicModule5.jsx';
 import EvaluationBasicModule5 from './src/components/screens/basic/module5/EvaluationBasicModule5.jsx';
 import EndModule5 from './src/components/screens/basic/module5/EndModule5.jsx';
@@ -76,6 +86,8 @@ import EndModule5 from './src/components/screens/basic/module5/EndModule5.jsx';
 //Module 6 Basic
 import Imperative from './src/components/screens/basic/module6/Imperative.jsx';
 import SimplePresent from './src/components/screens/basic/module6/SimplePresent.jsx';
+
+import IntroGamesBasic6 from './src/components/screens/basic/module6/IntroGamesBasic6.jsx';
 import GamesBasicModule6 from './src/components/screens/basic/module6/GamesBasicModule6.jsx';
 import EvaluationBasicModule6 from './src/components/screens/basic/module6/EvaluationBasicModule6.jsx';
 import EndModule6 from './src/components/screens/basic/module6/EndModule6.jsx';
@@ -264,8 +276,11 @@ function HomeStack() {
       <Stack.Screen
         name="CaminoLevelsBasic"
         component={CaminoLevelsBasicScreen}
-        options={{ title: 'Niveles' }}
+        options={{ title: 'Módulos' }}
       />
+
+      {/* BASIC */}
+      {/* Modulo 1 */}
       <Stack.Screen
         name="Alphabet"
         component={Alphabet}
@@ -277,14 +292,21 @@ function HomeStack() {
         options={{ title: 'Los Números del 1 al 500' }}
       />
       <Stack.Screen
+        name="ToCount"
+        component={ToCount}
+        options={{ title: 'Los Números Ordinales' }}
+      />
+      <Stack.Screen
         name="Colors"
         component={Colors}
         options={{ title: 'Los Colores' }}
       />
+
+      {/* Games Module 1 */}
       <Stack.Screen
-        name="ToCount"
-        component={ToCount}
-        options={{ title: 'Los Números Ordinales' }}
+        name="IntroGamesBasic1"
+        component={IntroGamesBasic1}
+        options={{ title: 'Juegos' }}
       />
       <Stack.Screen
         name="GamesBasicModule1"
@@ -301,6 +323,8 @@ function HomeStack() {
         component={EndModule1}
         options={{ title: 'Básico Módulo 1: Puntuación Final' }}
       />
+
+      {/* Module 2 */}
       <Stack.Screen
         name="GreetingsPart1"
         component={GreetingsPart1}
@@ -311,7 +335,6 @@ function HomeStack() {
         component={GreetingsPart2}
         options={{ title: 'Los Saludos Parte 2' }}
       />
-      {/* Modulo 1 */}
       <Stack.Screen
         name="PronounsSentence"
         component={PronounsSentence}
@@ -321,6 +344,13 @@ function HomeStack() {
         name="FamilyPart1"
         component={FamilyPart1}
         options={{ title: 'La Familia Parte 1' }}
+      />
+
+      {/* Games Module 2 */}
+      <Stack.Screen
+        name="IntroGamesBasic2"
+        component={IntroGamesBasic2}
+        options={{ title: 'Juegos' }}
       />
       <Stack.Screen
         name="GamesBasicModule2"
@@ -337,6 +367,8 @@ function HomeStack() {
         component={EndModule2}
         options={{ title: 'Básico Módulo 2: Puntuación Final' }}
       />
+
+      {/* Module 3 */}
       <Stack.Screen
         name="FamilyPart2"
         component={FamilyPart2}
@@ -357,6 +389,13 @@ function HomeStack() {
         component={Classroom}
         options={{ title: 'El Aula' }}
       />
+
+      {/* Games Module 3 */}
+      <Stack.Screen
+        name="IntroGamesBasic3"
+        component={IntroGamesBasic3}
+        options={{ title: 'Juegos' }}
+      />
       <Stack.Screen
         name="GamesBasicModule3"
         component={GamesBasicModule3}
@@ -372,6 +411,7 @@ function HomeStack() {
         component={EndModule3}
         options={{ title: 'Básico Módulo 3: Puntuación Final' }}
       />
+      {/* Module 4 */}
       <Stack.Screen
         name="Nature"
         component={Nature}
@@ -392,6 +432,13 @@ function HomeStack() {
         component={AnimalsBasic}
         options={{ title: 'Los Animales' }}
       />
+
+      {/* Games Module 4 */}
+      <Stack.Screen
+        name="IntroGamesBasic4"
+        component={IntroGamesBasic4}
+        options={{ title: 'Juegos' }}
+      />
       <Stack.Screen
         name="GamesBasicModule4"
         component={GamesBasicModule4}
@@ -407,6 +454,8 @@ function HomeStack() {
         component={EndModule4}
         options={{ title: 'Básico Módulo 4: Puntuación Final' }}
       />
+
+      {/* Module 5 */}
       <Stack.Screen
         name="Pluralization"
         component={Pluralization}
@@ -427,6 +476,13 @@ function HomeStack() {
         component={Size}
         options={{ title: 'Tamaño' }}
       />
+
+      {/* Games Module 5 */}
+      <Stack.Screen
+        name="IntroGamesBasic5"
+        component={IntroGamesBasic5}
+        options={{ title: 'Juegos' }}
+      />
       <Stack.Screen
         name="GamesBasicModule5"
         component={GamesBasicModule5}
@@ -442,6 +498,8 @@ function HomeStack() {
         component={EndModule5}
         options={{ title: 'Básico Módulo 5: Puntuación Final' }}
       />
+
+      {/* Module 6 */}
       <Stack.Screen
         name="Imperative"
         component={Imperative}
@@ -451,6 +509,13 @@ function HomeStack() {
         name="SimplePresent"
         component={SimplePresent}
         options={{ title: 'La Conjugación en Tiempo Presente' }}
+      />
+
+      {/* Games Module 6 */}
+      <Stack.Screen
+        name="IntroGamesBasic6"
+        component={IntroGamesBasic6}
+        options={{ title: 'Juegos' }}
       />
       <Stack.Screen
         name="GamesBasicModule6"
@@ -467,6 +532,7 @@ function HomeStack() {
         component={EndModule6}
         options={{ title: 'Básico Módulo 6: Puntuación Final' }}
       />
+
       {/* INTERMEDIO */}
       {/* Modulo 1 */}
 

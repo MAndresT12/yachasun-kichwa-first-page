@@ -9,9 +9,9 @@ import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 import { FontAwesome } from '@expo/vector-icons';
 import { FloatingHumu } from '../../../animations/FloatingHumu';
-// import { FamilyTree } from '../../../ui/trees/FamilyTree';
 
 const images = {
     family1: require('../../../../../assets/images/basic/module2/family/family1.png'),
@@ -272,7 +272,16 @@ const FamilyPart1 = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule2')} />
+                <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('IntroGamesBasic2');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </View>
