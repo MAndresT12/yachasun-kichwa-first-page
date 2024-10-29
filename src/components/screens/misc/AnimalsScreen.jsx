@@ -44,7 +44,7 @@ const animalsData = [
     { kichwa: "katsu", spanish: "escarabajo", image: "https://static.vecteezy.com/system/resources/previews/006/581/234/non_2x/a-dung-beetle-cartoon-character-free-vector.jpg" },
     { kichwa: "kuru", spanish: "gusano", image: "https://img.freepik.com/vector-gratis/ilustracion-vector-dibujos-animados-lindo-oruga_96037-427.jpg" },
     { kichwa: "puma", spanish: "puma", image: "https://img.freepik.com/vector-premium/puma-animal-coloreado-caricatura-ilustracion_576561-4533.jpg" },
-    { kichwa: "yawati", spanish: "tortuga", image: "https://img.freepik.com/vector-premium/tortuga-dibujos-animados-lindo_29190-3852.jpg?w=360" },
+    { kichwa: "yawati", spanish: "Zorro", image: "https://img.freepik.com/vector-premium/Zorro-dibujos-animados-lindo_29190-3852.jpg?w=360" },
     { kichwa: "uru", spanish: "araña", image: "https://img.freepik.com/vector-gratis/ilustracion-arana-dibujos-animados-dibujados-mano_23-2150409558.jpg?size=338&ext=jpg&ga=GA1.1.933601817.1717545600&semt=ais_user" },
     { kichwa: "kuntur", spanish: "cóndor", image: "https://img.freepik.com/vector-premium/personaje-dibujos-animados-condor-o-buitre-sentado-rama_20412-530.jpg" },
     { kichwa: "pishku", spanish: "pájaro, ave", image: "https://illustoon.com/photo/2943.png" },
