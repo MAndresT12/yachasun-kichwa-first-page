@@ -169,7 +169,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_Numeros"
                         title="Números / Yupaykuna"
                         iconName="star"
-                        nextScreen="Main"
+                        nextScreen="IntroModuloI1"
                         progressKey="level_Numeros_completed"
                     />
                     <BouncyText>Números / Yupaykuna</BouncyText>
@@ -245,7 +245,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_ParticlesPart2"
                         title="Partículas: Origen, Acción, Compañia / Shimikukuna: manta, kaman, wan"
                         iconName="flag"
-                        nextScreen="ParticlesPart2"
+                        nextScreen="IntroModuloI2"
                         progressKey="level_ParticlesPart2_completed"
                     />
                     <BouncyText>Partículas: Origen, Acción, Compañia / Shimikukuna: manta, kaman, wan</BouncyText>
@@ -327,7 +327,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_LosVerbos1"
                         title="Verbos / Imachikkuna"
                         iconName="exchange"
-                        nextScreen="LosVerbos1"
+                        nextScreen="IntroModuloI3"
                         progressKey="level_LosVerbos1_completed"
                     />
                     <BouncyText>Verbos / Imachikkuna</BouncyText>
@@ -412,7 +412,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_LaCocina"
                         title="Cocina / Yanuna uku"
                         iconName="cutlery"
-                        nextScreen="LaCocina"
+                        nextScreen="IntroModuloI4"
                         progressKey="level_LaCocina_completed"
                     />
                     <BouncyText>Cocina / Yanuna uku</BouncyText>
@@ -498,7 +498,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_LaUbicacion"
                         title="Ubicación / Kuska rimaykuna"
                         iconName="map-marker"
-                        nextScreen="LaUbicacion"
+                        nextScreen="IntroModuloI5"
                         progressKey="level_LaUbicacion_completed"
                     />
                     <BouncyText>Ubicación / Kuska rimaykuna</BouncyText>
@@ -584,7 +584,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_ElPasadoProgresivo"
                         title="Pasado Progresivo / Yallirka katiy pacha"
                         iconName="spinner"
-                        nextScreen="ElPasadoProgresivo"
+                        nextScreen="IntroModuloI6"
                         progressKey="level_ElPasadoProgresivo_completed"
                     />
                     <BouncyText>Pasado Progresivo / Yallirka katiy pacha</BouncyText>

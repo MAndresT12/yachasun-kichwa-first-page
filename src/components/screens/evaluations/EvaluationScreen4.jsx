@@ -107,7 +107,7 @@ const EvaluationScreen1 = ({ route }) => {
                             <ButtonDefault
                                 label="Siguiente"
                                 onPress={() => {
-                                    navigation.navigate('LaUbicacion');
+                                    navigation.navigate('IntroModuloI5');
                                 }}
                             />
                         </>

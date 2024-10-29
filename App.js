@@ -17,6 +17,15 @@ import ProgresoScreen from './src/components/menus/ProgresoScreen.jsx';
 import Levels from './src/components/menus/Levels';
 import InstructionsBasic from './src/components/main/InstructionsBasic.jsx';
 import InstructionsMid from './src/components/main/InstructionsMid.jsx';
+//Introducciones a modulos (Intermedio)
+import IntroduccionModulo1Intermedio from './src/components/ui/IntroduccionModulo1Intermedio.jsx';
+import IntroduccionModulo2Intermedio from './src/components/ui/IntroduccionModulo2Intermedio.jsx';
+import IntroduccionModulo3Intermedio from './src/components/ui/IntroduccionModulo3Intermedio.jsx';
+import IntroduccionModulo4Intermedio from './src/components/ui/IntroduccionModulo4Intermedio.jsx';
+import IntroduccionModulo5Intermedio from './src/components/ui/IntroduccionModulo5Intermedio.jsx';
+import IntroduccionModulo6Intermedio from './src/components/ui/IntroduccionModulo6Intermedio.jsx';
+
+
 
 //Start screens and menus
 import LoadingScreen from './src/components/menus/LoadingScreen';
@@ -535,7 +544,11 @@ function HomeStack() {
 
       {/* INTERMEDIO */}
       {/* Modulo 1 */}
-
+      <Stack.Screen
+        name="IntroModuloI1"
+        component={IntroduccionModulo1Intermedio}
+        options={{ title: 'Módulo 1' }}
+      />
       <Stack.Screen
         name="Main"
         component={Main}
@@ -578,6 +591,11 @@ function HomeStack() {
       />
       {/* Modulo 2 */}
       <Stack.Screen
+        name="IntroModuloI2"
+        component={IntroduccionModulo2Intermedio}
+        options={{ title: 'Módulo 2' }}
+      />
+      <Stack.Screen
         name="ParticlesPart2"
         component={ParticlesPart2Screen}
         options={{ title: 'Las Partículas en Kichwa Parte 2' }}
@@ -618,6 +636,11 @@ function HomeStack() {
         options={{ title: 'Evaluación - Parte 2' }}
       />
       {/* Modulo 3 */}
+      <Stack.Screen
+        name="IntroModuloI3"
+        component={IntroduccionModulo3Intermedio}
+        options={{ title: 'Módulo 3' }}
+      />
       <Stack.Screen
         name="LosVerbos1"
         component={LosVerbosScreen1}
@@ -660,6 +683,11 @@ function HomeStack() {
       />
       {/* Modulo 4 */}
       <Stack.Screen
+        name="IntroModuloI4"
+        component={IntroduccionModulo4Intermedio}
+        options={{ title: 'Módulo 4' }}
+      />
+      <Stack.Screen
         name="LaCocina"
         component={VocabularioLaCocinaScreen}
         options={{ title: 'Vocabulario - La Cocina' }}
@@ -701,6 +729,11 @@ function HomeStack() {
       />
       {/* Modulo 5 */}
       <Stack.Screen
+        name="IntroModuloI5"
+        component={IntroduccionModulo5Intermedio}
+        options={{ title: 'Módulo 5' }}
+      />
+      <Stack.Screen
         name="LaUbicacion"
         component={VocabularioLaUbicacionScreen}
         options={{ title: 'Vocabulario - La Ubicación' }}
@@ -741,6 +774,11 @@ function HomeStack() {
         options={{ title: 'Evaluación - Parte 5' }}
       />
       {/* Modulo 6 */}
+      <Stack.Screen
+        name="IntroModuloI6"
+        component={IntroduccionModulo6Intermedio}
+        options={{ title: 'Módulo 6' }}
+      />
       <Stack.Screen
         name="ElPasadoProgresivo"
         component={ElPasadoProgresivoScreen}
