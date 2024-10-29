@@ -1,15 +1,20 @@
 import React from 'react';
 
-import { View, Image, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
 import { styles } from '../../../../../styles/globalStyles';
 
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
+import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
+
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.png');
 
 const IntroGamesBasic1 = () => {
     const navigation = useNavigation();
@@ -22,10 +27,9 @@ const IntroGamesBasic1 = () => {
         >
             <View style={localStyles.contentContainer}>
                 {/* Imagen al lado izquierdo */}
-                <Image
-                    source={require('../../../../../assets/images/humu/humu-talking.png')}
-                    style={localStyles.image}
-                />
+                <FloatingHumu >
+                    <ImageContainer path={humuTalking} style={localStyles.image} />
+                </FloatingHumu>
 
                 {/* Speech bubble al lado derecho */}
                 <View style={localStyles.speechBubble2}>

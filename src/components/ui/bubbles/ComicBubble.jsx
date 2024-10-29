@@ -6,7 +6,7 @@ import { bubbleStyles } from '../../../../styles/bubbleStyles';
 
 export const ComicBubble = ({ text, backgroundColor = '#00B4D8', arrowDirection = 'left', borderColor = 'none' }) => {
     const renderArrow = () => {
-        const arrowBorder = borderColor !== 'none' ? { stroke: borderColor, strokeWidth: 1 } : {};
+        const arrowBorder = borderColor !== 'none' ? { stroke: borderColor, strokeWidth: 2 } : {};
 
         if (arrowDirection === 'leftUp') {
             return (
@@ -38,7 +38,7 @@ export const ComicBubble = ({ text, backgroundColor = '#00B4D8', arrowDirection 
                     height={moderateScale(30.5, 0.6)}
                     viewBox="20.3 15.02 30 30"
                 >
-                    <Path d="M20.5,35 Q30,37 45,15 L45,45 Q30,37.5 20.5,35 Z" fill={backgroundColor} {...arrowBorder} />
+                    <Path d="M20.5,35 Q30,37 45,15 L45,45 Q30,37.5 20.5,35 Z" fill={borderColor} {...arrowBorder} />
                 </Svg>
             );
         }
@@ -62,7 +62,7 @@ export const ComicBubble = ({ text, backgroundColor = '#00B4D8', arrowDirection 
                 bubbleStyles.balloon,
                 {
                     backgroundColor,
-                    borderWidth: borderColor !== 'none' ? 1 : 0,
+                    borderWidth: borderColor !== 'none' ? 4 : 0,
                     borderColor: borderColor
                 }
             ]}>
