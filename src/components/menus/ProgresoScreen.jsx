@@ -135,13 +135,13 @@ const ProgresoScreen = () => {
             description: '¡Atardecer perfecto! Este trofeo significa que puedes hablar sobre acciones en el presente en Kichwa. Ahora sabes cómo describir lo que estás haciendo en este momento, ¡todo en Kichwa!',
         },
     ];
-    
+
     const trophiesIntermedio = [
         {
             key: 'trofeo_modulo1_intermedio',
-            image: require('../../../assets/images/animals/tortuga.png'),
-            titulo: '¡Tortuga!',
-            description: '¡Este trofeo de la tortuga es muy especial! Obtenerlo significa que ya puedes contar números grandes como los miles, ¡e incluso un millón! También sobre cómo hablar de la comida y animales. Además, de que ya puedes hacer preguntas, dar respuestas y hablar de cosas que te pertenecen, ¡Todo en Kichwa!',
+            image: require('../../../assets/images/animals/zorro.png'),
+            titulo: '¡Zorro!',
+            description: '¡Este trofeo del zorro es muy especial! Obtenerlo significa que ya puedes contar números grandes como los miles, ¡e incluso un millón! También sobre cómo hablar de la comida y animales. Además, de que ya puedes hacer preguntas, dar respuestas y hablar de cosas que te pertenecen, ¡Todo en Kichwa!',
         },
         {
             key: 'trofeo_modulo2_intermedio',

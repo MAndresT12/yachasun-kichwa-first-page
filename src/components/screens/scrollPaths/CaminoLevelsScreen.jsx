@@ -113,9 +113,9 @@ const CaminoLevelsScreen = () => {
     const trophiesIntermedio = [
         {
             key: 'trofeo_modulo1_intermedio',
-            image: require('../../../../assets/images/animals/tortuga.png'),
-            titulo: '¡Tortuga!',
-            description: '¡Este trofeo de la tortuga es muy especial! Obtenerlo significa que ya puedes contar números grandes como los miles, ¡e incluso un millón! También sobre cómo hablar de la comida y animales. Además, de que ya puedes hacer preguntas, dar respuestas y hablar de cosas que te pertenecen, ¡Todo en Kichwa!',
+            image: require('../../../../assets/images/animals/zorro.png'),
+            titulo: '¡Zorro!',
+            description: '¡Este trofeo del zorro es muy especial! Obtenerlo significa que ya puedes contar números grandes como los miles, ¡e incluso un millón! También sobre cómo hablar de la comida y animales. Además, de que ya puedes hacer preguntas, dar respuestas y hablar de cosas que te pertenecen, ¡Todo en Kichwa!',
         },
         {
             key: 'trofeo_modulo2_intermedio',
@@ -148,7 +148,7 @@ const CaminoLevelsScreen = () => {
             description: '¡Este trofeo del cóndor es majestuoso! Obtenerlo significa que ya sabes cómo hablar de cosas que estaban ocurriendo en el pasado. Además podrás decir lo que estás haciendo en este mismo momento. ¡Pero eso no es todo! También serás capaz de contar lo que harás pronto, y hasta lo que harás en el futuro. ¡Con este trofeo habrás completado toda esta gran aventura!',
         },
     ];
-    
+
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -160,7 +160,7 @@ const CaminoLevelsScreen = () => {
             </View>
             <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
                 {/* Modulo 1 (Trofeo de Módulo 1)*/}
-                {/* <Image source={require('../../../../assets/images/animals/tortuga.png')} style={localStyles.islandImage} /> */}
+                {/* <Image source={require('../../../../assets/images/animals/zorro.png')} style={localStyles.islandImage} /> */}
 
                 <BouncyTextTitulo>Módulo 1 / Shukniki  Tantachiy Yachay</BouncyTextTitulo>
 
@@ -232,7 +232,7 @@ const CaminoLevelsScreen = () => {
                 <TouchableOpacity onPress={() => handleTrophyClick(trophiesIntermedio[0])}>
                     <TrophyCard
                         trophyKey="trofeo_modulo1_intermedio"
-                        imageSource={require('../../../../assets/images/animals/tortuga.png')}
+                        imageSource={require('../../../../assets/images/animals/zorro.png')}
                     />
                 </TouchableOpacity>
 

@@ -35,7 +35,7 @@ const ProgressCircleWithTrophies = ({ progress, level }) => {
 
     // Trofeos de nivel intermedio
     const intermediateTrophyImages = [
-        require('../../../assets/images/animals/tortuga.png'),
+        require('../../../assets/images/animals/zorro.png'),
         require('../../../assets/images/animals/jaguar.png'),
         require('../../../assets/images/animals/guacamayo.png'),
         require('../../../assets/images/animals/cuy2.png'),
