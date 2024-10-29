@@ -136,7 +136,9 @@ const EndModule6 = ({ route }) => {
                     )}
 
                     {/* El botón de ir al inicio siempre está disponible */}
-                    <ButtonLevelsInicio label="Inicio" />
+                    <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
                 </View>
 
                 {/* Modal para mostrar el mensaje de trofeo desbloqueado */}
