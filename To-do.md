@@ -25,19 +25,21 @@
 - Completar contenido [x]
 - Poner animaciones a las letras o cambiar el font, poner diseño en las cards [x]
 - Completar lecciones y juegos para modulos 2 al 6 [x]
+- Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe..... [x]
+- Poner la animación de palpitar para humu en saludos parte 2 y family part 2 además hay que bloquear a humu cuando se hace el flip al front porque se queda ahí y se pudre [x]
 
 
 
-- Poner el mismo estilo de tarjeta para el alfabeto, para poner las reglas, dar una seccion de datos curiosos, consideraciones, reglas algo? Sale el bicho diciendo sabías que en el kichwa no existe..... [Mejorar_faltan_animaciones]
 - HomePage screen hacer que sea la del inicio y se cuenta la historia de la aplicacion y se introduce al bicho jaja (voz de dora la exploradora o voz de botas IA o de Zabumafoo, niño generico ecuatoriano, perro bau veo veo) [Mejorar]
+- Hacer animales con sonidos [solo_si_hay_tiempo]
+- Hacer una barra de carga de verdad [solo_si_hay_tiempo] o sino quitar mejor
+- Cuando emparejas algo suena cómo se pronuncia (juegos y sonidos en general en los juegos) [solo_si_hay_tiempo]
+- Configuracion en el Home Screen y icono de config en toda la app (quitar volumen porque no sirve y poner otra cosa) [solo_si_hay_tiempo] o sino quitar mejor 
 
 
 
-- Configuracion en el Home Screen y icono de config en toda la app (quitar volumen porque no sirve y poner otra cosa)
-- Cuando emparejas algo suena cómo se pronuncia (juegos)
-- Poner la animación de palpitar para humu en saludos parte 2 y family part 2 además hay que bloquear a humu cuando se hace el flip al front porque se queda ahí y se pudre
-- Hacer animales con sonidos
-- Hacer una barra de carga de verdad
+
+
 - Conectar con el Backend
 
 ### Correcciones con el inge
@@ -48,10 +50,16 @@
 - Seguir logica de curiosidades colocar "curiosidades", los saludos part 1 (colocar que en esta ciudad hay hablantes del idioma conlo sque puedes practicar), colocar dentro de acordeon siempre alinicio curiosidades [x]
 - saludos parte 2 colocar flecha al jalar el humu [x]
 - en pantallas (por ejemplo pronombres personales) colocar en card vamos a aprender verbo kana etc, y asi para otras paginas que lo requieran. [x]
+- En losscrollpaths deshabilitar todos los módulos que no sean el primero e ir habilitando según pase los niveles [x]
+- End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo [x]
+- Cuando se aplasta la insignia que diga por qué se desbloqueo y una frase info que se vea bonito [x]
+- Las insignias colocar al final despues de la evaluacion y colocar Modulo X al inicio de los temas modulos.[x]
 
 
-- Poner el Kichwa en verdey espanol en azul todos los textos. [x]
-- Cambiar a todos los puntos de vida por los trofeos[x]
+- Poner el Kichwa en verdey espanol en azul todos los textos. [en_progreso]
+- Cambiar a todos los puntos de vida por los trofeos[en_progreso]
+- Logica primero español luego kichwa [en_progreso]
+- Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 
 
 
@@ -59,21 +67,15 @@
 - En menu de inicio, poner creditos, la poli, facu, estudiantes y tutor para el título
 - Usar el personaje desde el menu de inicio
 - Debe salir el nombre del usuario al ingresar, en niveles tambien
-- Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 - En pantalla de inicio que diga hola soy hummu y estoy listo para jogar, aquí una descrpción del Kichwa, una intro al idioma (hacer componente para luego ver cómo poner)
 - Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral
 - Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
-- En losscrollpaths deshabilitar todos los módulos que no sean el primero e ir habilitando según pase los niveles [x]
-- Cuando se aplasta la insignia que diga por qué se desbloqueo y una frase info que se vea bonito [x]
 - Juegos: Info ayuda poner varios bubbles de comic para humu 
-- End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo [x]
-- Las insignias colocar al final despues de la evaluacion y colocar Modulo X al inicio de los temas modulos.[x]
 
  
 
 
 - Pag pronombres personales (pay el/ella) PARRAFO de verbo kana solo hasta ser o estar, en tarjetas cambiar por tabla., cambiar titulo "algo lindo de los apellidos"
-- Logica primero español luego kichwa [x]
 - Pagina La familia parte 1 (redactar mejor) yo mucho amo
 - adaptar juegos de basicos
 - En levels En lugar de la familia parte 1, colocar solo familia
