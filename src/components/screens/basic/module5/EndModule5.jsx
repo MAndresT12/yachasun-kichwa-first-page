@@ -98,7 +98,7 @@ const EndModule5 = ({ route }) => {
                             {/* Personaje Humu-Talking */}
                             <View style={localStyles.characterContainer}>
                                 <Image
-                                    source={require('../../../../assets/images/humu/humu-talking.png')}
+                                    source={require('../../../../../assets/images/humu/humu-talking.png')}
                                     style={localStyles.humuImage}
                                 />
                                 <Animated.View style={[localStyles.claimButton, animatedStyle]}>
@@ -121,7 +121,7 @@ const EndModule5 = ({ route }) => {
                             </Text>
                             <View style={localStyles.characterContainer}>
                                 <Image
-                                    source={require('../../../../assets/images/humu/humu-disappointed.png')}
+                                    source={require('../../../../../assets/images/humu/humu-disappointed.png')}
                                     style={localStyles.humuImage}
                                 />
 
@@ -152,7 +152,7 @@ const EndModule5 = ({ route }) => {
                             {/* Componente TrophyCard con animación */}
                             <TrophyCard
                                 trophyKey="trofeo_modulo5_basic"
-                                imageSource={require('../../../../assets/images/basic/badges/orientation.jpg')}
+                                imageSource={require('../../../../../assets/images/basic/badges/orientation.jpg')}
                                 isAnimated={true} // Activar animación
                             />
 

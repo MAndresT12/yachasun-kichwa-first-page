@@ -5,11 +5,11 @@ import { useNavigation } from '@react-navigation/native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
-import { styles } from '../../../../../styles/styles';
+import { styles } from '../../../../../styles/globalStyles';
 
-import { ButtonDefault } from '../../ui/buttons/ButtonDefault';
-import { ButtonLevelsInicio } from '../../ui/buttons/ButtonLevelsInicio';
-import { ComicBubble } from '../../ui/bubbles/ComicBubble';
+import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
+import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 
 const IntroGamesBasic1 = () => {
     const navigation = useNavigation();
@@ -23,7 +23,7 @@ const IntroGamesBasic1 = () => {
             <View style={localStyles.contentContainer}>
                 {/* Imagen al lado izquierdo */}
                 <Image
-                    source={require('../../../../assets/images/humu/humu-talking.png')}
+                    source={require('../../../../../assets/images/humu/humu-talking.png')}
                     style={localStyles.image}
                 />
 

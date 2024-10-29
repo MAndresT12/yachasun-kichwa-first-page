@@ -148,7 +148,7 @@ const EvaluationScreen1 = ({ route }) => {
 
                             {/* Componente TrophyCard con animación */}
                             <TrophyCard
-                                trophyKey="trofeo_modulo2_intermedio"
+                                trophyKey="trofeo_modulo5_intermedio"
                                 imageSource={require('../../../../assets/images/animals/llama.png')}
                                 isAnimated={true} // Activar animación
                             />
