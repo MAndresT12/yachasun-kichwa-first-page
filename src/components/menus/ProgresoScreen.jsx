@@ -1,17 +1,19 @@
 // src/components/ProgresoScreen.jsx
 
 import React, { useEffect, useState } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Modal } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat, withSequence } from 'react-native-reanimated';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { LinearGradient } from 'expo-linear-gradient';
+
+import { styles } from '../../../styles/globalStyles';
+
 import TrophyCard from '../ui/cards/TrophyCard';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault'; // O cualquier otro botón que quieras usar
 import { ButtonLevelsInicio } from '../ui/buttons/ButtonLevelsInicio';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native'; // Importar useNavigation
-import { styles } from '../../../styles/globalStyles';
 
 const ProgresoScreen = () => {
     const navigation = useNavigation(); // Acceder a la navegación
@@ -42,6 +44,113 @@ const ProgresoScreen = () => {
             console.log('Error guardando el progreso', error);
         }
     };
+
+    // Function for debugging unlocks all levels
+    const unlockAllLevels = async () => {
+        try {
+            await AsyncStorage.setItem('trofeo_modulo1_intermedio', 'true');
+            await AsyncStorage.setItem('trofeo_modulo2_intermedio', 'true');
+            await AsyncStorage.setItem('trofeo_modulo3_intermedio', 'true');
+            await AsyncStorage.setItem('trofeo_modulo4_intermedio', 'true');
+            await AsyncStorage.setItem('trofeo_modulo5_intermedio', 'true');
+            await AsyncStorage.setItem('trofeo_modulo6_intermedio', 'true');
+
+            await AsyncStorage.setItem('level_Numeros_completed', 'true');
+            await AsyncStorage.setItem('level_Food_completed', 'true');
+            await AsyncStorage.setItem('level_Animals_completed', 'true');
+            await AsyncStorage.setItem('level_ParticlesPart1_completed', 'true');
+            await AsyncStorage.setItem('level_IntroduccionJuegosScreen1_completed', 'true');
+            await AsyncStorage.setItem('level_Game1_completed', 'true');
+
+            await AsyncStorage.setItem('level_ParticlesPart2_completed', 'true');
+            await AsyncStorage.setItem('level_ParticlesPart3_completed', 'true');
+            await AsyncStorage.setItem('level_ParticlesPart4_completed', 'true');
+            await AsyncStorage.setItem('level_LaNegacion_completed', 'true');
+            await AsyncStorage.setItem('level_IntroduccionJuegosScreen2_completed', 'true');
+            await AsyncStorage.setItem('level_Game2_completed', 'true');
+
+            await AsyncStorage.setItem('level_LosVerbos1_completed', 'true');
+            await AsyncStorage.setItem('level_LosVerbosConjugaciones1_completed', 'true');
+            await AsyncStorage.setItem('level_LosAdjetivos1_completed', 'true');
+            await AsyncStorage.setItem('level_LaCiudad_completed', 'true');
+            await AsyncStorage.setItem('level_IntroduccionJuegosScreen3_completed', 'true');
+            await AsyncStorage.setItem('level_Game3_completed', 'true');
+
+            await AsyncStorage.setItem('level_LaCocina_completed', 'true');
+            await AsyncStorage.setItem('level_LosVerbos2_completed', 'true');
+            await AsyncStorage.setItem('level_LosAdjetivos2_completed', 'true');
+            await AsyncStorage.setItem('level_ElDormitorio_completed', 'true');
+            await AsyncStorage.setItem('level_IntroduccionJuegosScreen4_completed', 'true');
+            await AsyncStorage.setItem('level_Game4_completed', 'true');
+
+            await AsyncStorage.setItem('level_LaUbicacion_completed', 'true');
+            await AsyncStorage.setItem('level_ElTiempo_completed', 'true');
+            await AsyncStorage.setItem('level_ElPasadoSimple_completed', 'true');
+            await AsyncStorage.setItem('level_ElParticipioPasado_completed', 'true');
+            await AsyncStorage.setItem('level_IntroduccionJuegosScreen5_completed', 'true');
+            await AsyncStorage.setItem('level_Game5_completed', 'true');
+
+            await AsyncStorage.setItem('level_ElPasadoProgresivo_completed', 'true');
+            await AsyncStorage.setItem('level_ConjugacionPresenteProgresivo_completed', 'true');
+            await AsyncStorage.setItem('level_FuturoProximo_completed', 'true');
+            await AsyncStorage.setItem('level_FuturoSimple_completed', 'true');
+            await AsyncStorage.setItem('level_IntroduccionJuegosScreen6_completed', 'true');
+            await AsyncStorage.setItem('level_Game6_completed', 'true');
+
+            await AsyncStorage.setItem('trofeo_modulo1_basic', 'true');
+            await AsyncStorage.setItem('trofeo_modulo2_basic', 'true');
+            await AsyncStorage.setItem('trofeo_modulo3_basic', 'true');
+            await AsyncStorage.setItem('trofeo_modulo4_basic', 'true');
+            await AsyncStorage.setItem('trofeo_modulo5_basic', 'true');
+            await AsyncStorage.setItem('trofeo_modulo6_basic', 'true');
+
+            await AsyncStorage.setItem('level_Alphabet_completed', 'true');
+            await AsyncStorage.setItem('level_FirstNumbers_completed', 'true');
+            await AsyncStorage.setItem('level_ToCount_completed', 'true');
+            await AsyncStorage.setItem('level_Colors_completed', 'true');
+            await AsyncStorage.setItem('level_IntroGamesBasic1_completed', 'true');
+            await AsyncStorage.setItem('level_EvaluationBasicModule1_completed', 'true');
+
+            await AsyncStorage.setItem('level_GreetingsPart1_completed', 'true');
+            await AsyncStorage.setItem('level_GreetingsPart2_completed', 'true');
+            await AsyncStorage.setItem('level_PronounsSentence_completed', 'true');
+            await AsyncStorage.setItem('level_FamilyPart1_completed', 'true');
+            await AsyncStorage.setItem('level_IntroGamesBasic2_completed', 'true');
+            await AsyncStorage.setItem('level_EvaluationBasicModule2_completed', 'true');
+
+            await AsyncStorage.setItem('level_FamilyPart2_completed', 'true');
+            await AsyncStorage.setItem('level_BodyParts_completed', 'true');
+            await AsyncStorage.setItem('level_House_completed', 'true');
+            await AsyncStorage.setItem('level_Classroom_completed', 'true');
+            await AsyncStorage.setItem('level_IntroGamesBasic3_completed', 'true');
+            await AsyncStorage.setItem('level_EvaluationBasicModule3_completed', 'true');
+
+            await AsyncStorage.setItem('level_Nature_completed', 'true');
+            await AsyncStorage.setItem('level_Foods_completed', 'true');
+            await AsyncStorage.setItem('level_Orientation_completed', 'true');
+            await AsyncStorage.setItem('level_AnimalsBasic_completed', 'true');
+            await AsyncStorage.setItem('level_IntroGamesBasic4_completed', 'true');
+            await AsyncStorage.setItem('level_EvaluationBasicModule4_completed', 'true');
+
+            await AsyncStorage.setItem('level_Pluralization_completed', 'true');
+            await AsyncStorage.setItem('level_Gender_completed', 'true');
+            await AsyncStorage.setItem('level_Quantity_completed', 'true');
+            await AsyncStorage.setItem('level_Size_completed', 'true');
+            await AsyncStorage.setItem('level_IntroGamesBasic5_completed', 'true');
+            await AsyncStorage.setItem('level_EvaluationBasicModule5_completed', 'true');
+
+            await AsyncStorage.setItem('level_Imperative_completed', 'true');
+            await AsyncStorage.setItem('level_SimplePresent_completed', 'true');
+            await AsyncStorage.setItem('level_IntroGamesBasic6_completed', 'true');
+            await AsyncStorage.setItem('level_EvaluationBasicModule6_completed', 'true');
+
+            //Agregar mas en caso de ser necesario
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
     // Función para manejar la selección de un trofeo
     const handleTrophyClick = (trophy) => {
         setSelectedTrophy(trophy);
@@ -102,37 +211,37 @@ const ProgresoScreen = () => {
             key: 'trofeo_modulo1_basic',
             image: require('../../../assets/images/basic/badges/abc.jpg'),
             titulo: '¡ABC!',
-            description: '¡Este trofeo marca el comienzo de tu aventura en Kichwa! Ahora conoces el alfabeto y las vocales del idioma Kichwa, ¡y puedes pronunciar palabras básicas! Ya puedes identificar letras como la "A", "I", y "U", ¡todo en Kichwa!',
+            description: '¡Este trofeo marca el comienzo de tu aventura en Kichwa! Ahora conoces el alfabeto, los números y los colores, además, puedes pronunciar palabras básicas ¡todo en Kichwa!',
         },
         {
             key: 'trofeo_modulo2_basic',
             image: require('../../../assets/images/basic/badges/family.jpg'),
             titulo: '¡Familia!',
-            description: '¡Felicitaciones! Este trofeo significa que ahora sabes cómo hablar sobre tu familia en Kichwa. Conoces las palabras para mamá, papá, hermanos y más, ¡y puedes presentarlos con orgullo!',
+            description: '¡Felicitaciones! Este trofeo significa que ahora sabes cómo hablar sobre tu familia en Kichwa ¡y puedes presentarlos con orgullo!. También, puedes saludar y despedirte con cortesía, y conoces los pronombres. ¡Sigue así!',
         },
         {
             key: 'trofeo_modulo3_basic',
             image: require('../../../assets/images/basic/badges/home-food-school.jpg'),
             titulo: '¡El hogar, comida y la escuela!',
-            description: '¡Lo lograste! Con este trofeo, puedes hablar sobre tu hogar, los alimentos que comes, y las cosas que encuentras en la escuela. Ahora puedes nombrar objetos y lugares cotidianos en Kichwa.',
+            description: '¡Lo lograste! Con este trofeo, tienes la capacidad de hablar sobre tu hogar, las partes del cuerpo, las cosas que encuentras en la escuela, y como nombrar a tú familia extendida. Ahora puedes nombrar objetos y lugares cotidianos en Kichwa.',
         },
         {
             key: 'trofeo_modulo4_basic',
             image: require('../../../assets/images/basic/badges/valley-flowers.jpg'),
             titulo: '¡Valle de flores!',
-            description: '¡Has conquistado el valle de las flores! Este trofeo demuestra que ya sabes sobre la naturaleza, animales y las maravillas del entorno en Kichwa. ¡Incluso puedes hablar sobre la vida en el campo!',
+            description: '¡Has conquistado el valle de las flores! Este trofeo demuestra que ya sabes sobre la naturaleza y las maravillas del entorno, los animales, y la comida en Kichwa. Como un extra sabes cómo orientarte. ¡Haz llegado muy lejos!',
         },
         {
             key: 'trofeo_modulo5_basic',
             image: require('../../../assets/images/basic/badges/orientation.jpg'),
             titulo: '¡Simón dice!',
-            description: '¡Qué divertido! Este trofeo significa que sabes cómo seguir instrucciones y dar direcciones en Kichwa. Puedes decir dónde están las cosas, ¡y moverte como un experto usando tu orientación!',
+            description: '¡Qué divertido! Este trofeo significa que sabes cómo hablar de los objetos en cuanto a su cantidad, tamaño, cantidad y género. ¡Puedes describir todo a tu alrededor!',
         },
         {
             key: 'trofeo_modulo6_basic',
             image: require('../../../assets/images/basic/badges/present.jpg'),
             titulo: '¡Atardecer!',
-            description: '¡Atardecer perfecto! Este trofeo significa que puedes hablar sobre acciones en el presente en Kichwa. Ahora sabes cómo describir lo que estás haciendo en este momento, ¡todo en Kichwa!',
+            description: '¡Atardecer perfecto! Este trofeo significa que puedes hablar sobre acciones en el presente en Kichwa. También, puedes dar y recibir instrucciones usando el imperativo. Este es el trofeo final de nuestra aventura en el nivel básico. ¡Me llenas de orgullo!',
         },
     ];
 
@@ -208,6 +317,14 @@ const ProgresoScreen = () => {
                     label="Other"
                     onPress={() => {
                         completeLevel(); // Completar el nivel actual
+                    }}
+                />
+
+                {/* This button is used for debugging */}
+                <ButtonLevelsInicio
+                    label="Unlock All Levels"
+                    onPress={() => {
+                        unlockAllLevels(); // Unlock all levels
                     }}
                 />
             </ScrollView>

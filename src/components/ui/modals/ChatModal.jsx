@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Modal, View, TouchableOpacity, Text } from 'react-native';
+
 import { GiftedChat } from 'react-native-gifted-chat';
+
 import modalStyles from '../../../../styles/modalStyles.js';
 import { styles } from '../../../../styles/globalStyles.js';
 

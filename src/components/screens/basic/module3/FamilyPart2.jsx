@@ -1,17 +1,29 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing, withRepeat } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-import { useNavigation } from '@react-navigation/native';
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { styles } from '../../../../../styles/globalStyles';
+
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
-import { FontAwesome } from '@expo/vector-icons';
-import { FloatingHumu } from '../../../animations/FloatingHumu';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
+
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
+const humuTalkingPNG = require('../../../../../assets/images/humu/humu-talking.png');
 
 const { width } = Dimensions.get('window');
 
@@ -28,10 +40,10 @@ const ext_fam1_data = [
 
 const ext_fam2_data = [
     { kichwa: "Kuncha", spanish: "Sobrino" },
-    { kichwa: "Wawkiy", spanish: "Primo (Entre Varones)" },
-    { kichwa: "Turiy", spanish: "Primo (De Mujer A Varón)" },
-    { kichwa: "Ñañay", spanish: "Prima (De Mujer A Mujer)" },
-    { kichwa: "Paniy", spanish: "Prima (De Varón A Mujer)" },
+    { kichwa: "Wawkiy", spanish: "Primo (De Varón a Varón ♂️➡️♂️)" },
+    { kichwa: "Turiy", spanish: "Primo (De Mujer a Varón ♀️➡️♂️)" },
+    { kichwa: "Ñañay", spanish: "Prima (De Mujer a Mujer ♀️➡️♀️)" },
+    { kichwa: "Paniy", spanish: "Prima (De Varón a Mujer ♂️➡️♀️)" },
     { kichwa: "Mamay", spanish: "Tía" },
     { kichwa: "Yayay", spanish: "Tío" },
     { kichwa: "Ampullu", spanish: "Bisnieto, Bisnieta" },
@@ -40,9 +52,9 @@ const ext_fam2_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'El Matrimonio',
-        text: 'En las celebraciones culturales, como los matrimonios, se ofrece comida a la Pachamama en agradecimiento por lo que provee y se comparte.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        title: 'Curiosidades - Celebraciones',
+        text: 'En las celebraciones culturales, se ofrece comida a la madre tierra o Pachamama, en agradecimiento por lo que provee y se comparte.',
+        imagePath: humuTalking,
     },
 ];
 
@@ -103,8 +115,8 @@ const family_convs_data = [
 const renderExtendedFam = (data) => {
     return data.map((item, index) => (
         <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
         </View>
     ));
 };
@@ -114,8 +126,8 @@ const ExtFam1Route = () => (
         <Text style={styles.title}>Nuestra familia extendida</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderExtendedFam(ext_fam1_data)}
         </View>
@@ -127,8 +139,8 @@ const ExtFam2Route = () => (
         <Text style={styles.title}>Más familia</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderExtendedFam(ext_fam2_data)}
         </View>
@@ -186,7 +198,7 @@ const BigFlipCard = ({ data1, data2 }) => {
                     <CardDefault title="Kichwa" styleCard={styles.cardDefaultPronouns}>
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Sujeto   (Imak)</Text>
+                                <Text style={styles.tableHeaderCell}>Sujeto (Imak)</Text>
                                 <Text style={styles.tableHeaderCell}>Verbo (Imachik)</Text>
                             </View>
                             {renderTableKichwa(data2)}
@@ -203,6 +215,7 @@ const FlipCard = ({ item }) => {
     const rotateY = useSharedValue(0);
     const humuOpacity = useSharedValue(0);
     const humuLeftPosition = useSharedValue(-width * 0.008);
+    const arrowOpacity = useSharedValue(0); // Arrow opacity control
     const cardOpacity = useSharedValue(0);
     const cardTranslateX = useSharedValue(-width * 0.43);
 
@@ -217,6 +230,10 @@ const FlipCard = ({ item }) => {
     const animatedHumuStyle = useAnimatedStyle(() => ({
         opacity: humuOpacity.value,
         transform: [{ translateX: humuLeftPosition.value }],
+    }));
+
+    const animatedArrowStyle = useAnimatedStyle(() => ({
+        opacity: arrowOpacity.value, // Control arrow opacity here
     }));
 
     const animatedCardStyle = useAnimatedStyle(() => ({
@@ -236,6 +253,22 @@ const FlipCard = ({ item }) => {
                         humuLeftPosition.value = withTiming(width * 0.28, {
                             duration: 200,
                             easing: Easing.bounce,
+                        }, () => {
+                            // Arrow fades in after Humu's animation finishes
+                            arrowOpacity.value = withTiming(0.8, { duration: 500 }, () => {
+                                // Start the arrow loop
+                                arrowOpacity.value = withRepeat(
+                                    withTiming(0.2, { duration: 800 }),
+                                    -1,
+                                    true // This makes it go back and forth between 0.2 and 0.8
+                                );
+                            });
+                            // Start the Humu loop moving back and forth
+                            humuLeftPosition.value = withRepeat(
+                                withTiming(width * 0.3, { duration: 1000 }),
+                                -1,
+                                true // Moves back and forth smoothly
+                            );
                         });
                     }
                 );
@@ -245,6 +278,7 @@ const FlipCard = ({ item }) => {
             humuOpacity.value = withTiming(0, { duration: 300 }, () => {
                 humuLeftPosition.value = -width * 0.008;
             });
+            arrowOpacity.value = withTiming(0, { duration: 300 }); // Hide the arrow when flipped back
             cardOpacity.value = withTiming(0, { duration: 300 });
             cardTranslateX.value = withTiming(-width * 0.43, { duration: 300 });
         }
@@ -256,6 +290,8 @@ const FlipCard = ({ item }) => {
 
         if (translationX > 50) {
             humuLeftPosition.value = withTiming(width, { duration: 300 });
+            // Arrow fades out rapidly when gesture is triggered
+            arrowOpacity.value = withTiming(0, { duration: 100 });
             setTimeout(() => {
                 cardOpacity.value = withTiming(1, { duration: 300 });
                 cardTranslateX.value = withTiming(0, { duration: 300 });
@@ -272,22 +308,27 @@ const FlipCard = ({ item }) => {
                     </Animated.View>
                     <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardBackGreetings2, animatedStyleBack]}>
                         <Text style={styles.translationLabel}>Español:</Text>
-                        <Text style={styles.translationText}>{item.spanish}</Text>
+                        <Text style={styles.spanishText}>{item.spanish}</Text>
                     </Animated.View>
                 </View>
             </TouchableWithoutFeedback>
 
             <PanGestureHandler onGestureEvent={handleGesture}>
                 <Animated.Image
-                    source={require('../../../../../assets/images/humu/humu-talking.png')}
+                    source={humuTalkingPNG}
                     style={[styles.humuImage, animatedHumuStyle]}
                 />
             </PanGestureHandler>
 
+            {/* Arrow that appears after Humu animation */}
+            <Animated.View style={[animatedArrowStyle, { position: 'absolute', left: '65%', top: '50%' }]}>
+                <FontAwesome name="arrow-right" size={24} color="white" />
+            </Animated.View>
+
             <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
                 <CardDefault styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}>
-                    <Text style={styles.translationLabelGreetingsCard2}>Kichwa:</Text>
-                    <Text style={styles.translationTextGreetingsCard2}>{item.kichwa}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
                 </CardDefault>
             </Animated.View>
         </View>
@@ -297,6 +338,8 @@ const FlipCard = ({ item }) => {
 const FamilyPart2 = () => {
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
 
@@ -323,15 +366,54 @@ const FamilyPart2 = () => {
         setShowHelp(!showHelp);
     };
 
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_ToCount_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
+
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>La Familia Parte 2</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -342,12 +424,13 @@ const FamilyPart2 = () => {
 
                     <CardDefault title="La familia extendida">
                         <Text style={styles.cardContent}>
-                            Nuestra familiar puede ser muy grande llena de muchas personas amadas.
-                            Aquí te muestro cómo se dice en Kichwa todos los miembros de la familia.
+                            Existen muchos otros miembros de nuestra familia. Miembros 
+                            con los que seguramente te llevas y aprecias mucho.{`\n\n`}
+                            Aquí te muestro cómo se los llama en Kichwa.
                         </Text>
                     </CardDefault>
 
-                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 470 }} >
+                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 560 }} >
                         <TabView
                             navigationState={{ index, routes }}
                             renderScene={renderScene}
@@ -380,9 +463,9 @@ const FamilyPart2 = () => {
 
                     <CardDefault title="El verbo Charina">
                         <Text style={styles.cardContent}>
-                            En español este verbo significa "tener". Antes de crear oraciones simples con la familia, 
-                            quiero habalrte de este verbo y sus conjugaciones con los pronombres personales.{`\n\n`}
-                            Presiona en la tabla de abajo para ver lo que te menciono.
+                            En español este verbo significa "tener". Antes de crear oraciones simples con la familia,
+                            quiero hablarte de este verbo y sus conjugaciones con los pronombres personales.{`\n\n`}
+                            Presiona en la tabla de abajo para cambiar entre Kichwa o Español.
                         </Text>
                     </CardDefault>
 
@@ -413,7 +496,7 @@ const FamilyPart2 = () => {
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
-                                    arrowDirection="left"
+                                    arrowDirection="leftUp"
                                 />
                             </View>
                         </AccordionDefault>
@@ -431,11 +514,11 @@ const FamilyPart2 = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa. Desliza a Humu para ver la respuesta al saludo.'
-                                        arrowDirection="left"
+                                        text='Presiona en cada tarjeta de la familia y desliza a Humu para ver más varias oraciones acerca de la familia.'
+                                        arrowDirection="leftUp"
                                     />
                                 </View>
                                 <View style={styles.buttonContainerAlphabet}>
@@ -454,7 +537,7 @@ const FamilyPart2 = () => {
                     <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('BodyParts')} />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

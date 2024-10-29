@@ -221,6 +221,7 @@ export const styles = StyleSheet.create({
         fontSize: 14, //antes 20
         color: 'green',
         textAlign: 'center',
+        marginBottom: 6,
     },
     spanishText: {
         fontSize: 14, //antes 20
@@ -339,10 +340,10 @@ export const styles = StyleSheet.create({
         color: 'red',
     },
     translationLabel: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginTop: 10,
+        marginTop: 5,
         color: '#000000',
     },
     translationText: {
@@ -897,7 +898,7 @@ export const styles = StyleSheet.create({
 
     familyBigFlipCardContainer: {
         width: '94%',
-        height: 430,
+        height: 450,
         margin: 10,
         justifyContent: 'center',
         alignItems: 'center',

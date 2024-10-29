@@ -54,6 +54,14 @@
 - End Evaluation: POner haz desbloqueado la insignia y que aparezca o algo [x]
 - Cuando se aplasta la insignia que diga por qué se desbloqueo y una frase info que se vea bonito [x]
 - Las insignias colocar al final despues de la evaluacion y colocar Modulo X al inicio de los temas modulos.[x]
+- Pag pronombres personales (pay el/ella) PARRAFO de verbo kana solo hasta ser o estar, en tarjetas cambiar por tabla., cambiar titulo "algo lindo de los apellidos" [x]
+- Pagina La familia parte 1 (redactar mejor) yo mucho amo [x]
+- En family poner emojis de género para que se vea mejor la tabla de hermanos [x]
+- En levels En lugar de la familia parte 1, colocar solo familia [x]
+- En levels colocar bien las traducciones de modulos etc [x]
+- Dar titulos a modulos (familia, verbos, varios, etc) [x]
+- FAMILIA P2 colocar pachamama entre parentesis el significado (madre tierra) [x]
+
 
 
 - Poner el Kichwa en verdey espanol en azul todos los textos. [en_progreso]
@@ -71,19 +79,11 @@
 - Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral
 - Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
 - Juegos: Info ayuda poner varios bubbles de comic para humu 
+- Arreglar las llamadas asincrónicas de progreso screen
+- adaptar juegos de basicos
 
  
 
-
-- Pag pronombres personales (pay el/ella) PARRAFO de verbo kana solo hasta ser o estar, en tarjetas cambiar por tabla., cambiar titulo "algo lindo de los apellidos"
-- Pagina La familia parte 1 (redactar mejor) yo mucho amo
-- adaptar juegos de basicos
-- En levels En lugar de la familia parte 1, colocar solo familia
-- En levels colocar bien las traducciones de modulos etc
-- Dar titulos a modulos (familia, verbos, varios, etc)
-- MODULO 3
-- En family poner emojis de género para que se vea mejor la tabla de hermanos
-- FAMILIA P2 colocar pachamama entre parentesis el significado (madre tierra)
 -En lugar de cargas en pag partes del cuerpo (colocar tab, la imagen español kichwa), curriosidad rkopa de ellos tradicional es costosa.
 -Pantalla cosas de la casa (la casa dif, una choza)
 -En pantalla de creditos inicial colocar los links de los libros

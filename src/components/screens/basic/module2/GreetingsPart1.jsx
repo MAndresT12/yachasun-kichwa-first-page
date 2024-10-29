@@ -1,21 +1,37 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../../styles/globalStyles';
-import { CardDefault } from '../../../ui/cards/CardDefault';
-import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
-import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
-import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
-import ChatModal from '../../../ui/modals/ChatModal';
-import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
+import { Asset } from 'expo-asset';
+
+import { styles } from '../../../../../styles/globalStyles';
+
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
+import ChatModal from '../../../ui/modals/ChatModal';
+import { CardDefault } from '../../../ui/cards/CardDefault';
+import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
+import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
+import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
+import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
+
 const { width } = Dimensions.get('window');
+
+const images = {
+    greeting1: require('../../../../../assets/images/basic/module2/greetings/greeting1.jpg'),
+};
+
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
+const profilePic = require('../../../../../assets/images/prototype/santigod.jpeg');
+const imageUri = Asset.fromModule(require('../../../../../assets/images/prototype/otavalo.jpg')).uri;
 
 const initial_chat_messages = [
     {
@@ -24,10 +40,10 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 2,
-            name: 'Sisa',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
+            name: 'Humu',
+            avatar: humuTalking,
         },
-        image: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/otavalo.jpg',
+        image: imageUri,
     },
     {
         _id: 2,
@@ -35,8 +51,8 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 1,
-            name: 'Antonio',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
+            name: 'User',
+            avatar: profilePic,
         },
     },
     {
@@ -45,8 +61,8 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 2,
-            name: 'Sisa',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
+            name: 'Humu',
+            avatar: humuTalking,
         },
     },
     {
@@ -55,8 +71,8 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 1,
-            name: 'Antonio',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
+            name: 'User',
+            avatar: profilePic,
         },
     },
     {
@@ -65,8 +81,8 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 2,
-            name: 'Sisa',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
+            name: 'Humu',
+            avatar: humuTalking,
         },
     },
     {
@@ -75,8 +91,8 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 1,
-            name: 'Antonio',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
+            name: 'User',
+            avatar: profilePic,
         },
     },
     {
@@ -85,8 +101,8 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 2,
-            name: 'Sisa',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
+            name: 'Humu',
+            avatar: humuTalking,
         },
     },
     {
@@ -95,8 +111,8 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 1,
-            name: 'Antonio',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
+            name: 'User',
+            avatar: profilePic,
         },
     },
     {
@@ -105,8 +121,8 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 2,
-            name: 'Sisa',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-happy.png',
+            name: 'Humu',
+            avatar: humuTalking,
         },
     },
     {
@@ -115,15 +131,11 @@ const initial_chat_messages = [
         createdAt: new Date(),
         user: {
             _id: 1,
-            name: 'Antonio',
-            avatar: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/chat/profile-example.jpeg',
+            name: 'User',
+            avatar: profilePic,
         },
     },
 ];
-
-const images = {
-    greeting1: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Greetings/greeting1.png',
-};
 
 const greetings_data = [
     { kichwa: "Imanalla", spanish: "Hola, ¿Qué tal?", imageCard: images.greeting1 },
@@ -162,13 +174,13 @@ const curiosity_data = [
         key: '1',
         title: 'Curiosidades - La ciudad de Otavalo',
         text: 'Sabías que Otavalo es una ciudad de Ecuador, conocida por su mercado artesanal.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
     {
         key: '2',
         title: 'Curiosidades - Kichwa hablantes',
         text: 'En Otavalo, puedes practicar Kichwa con las personas que viven ahí.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
 ];
 
@@ -193,12 +205,12 @@ const FlipCard = ({ item }) => {
         <TouchableWithoutFeedback onPress={handleFlip}>
             <View style={styles.flipCard}>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <ImageContainer uri={item.imageCard} style={styles.imageCards} />
+                    <ImageContainer path={item.imageCard} style={styles.imageCards} />
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
-                    <Text style={styles.spanishText}>Español:</Text>
-                    <Text style={styles.spanishText}>{item.spanish}{'\n'}</Text>
-                    <Text style={styles.kichwaText}>Kichwa:</Text>
+                    <Text style={styles.translationLabel}>Español:</Text>
+                    <Text style={styles.spanishText}>{item.spanish}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
                     <Text style={styles.kichwaText}>{item.kichwa}</Text>
                 </Animated.View>
             </View>
@@ -251,11 +263,11 @@ const GoodbyesRoute = () => (
 );
 
 const GreetingsPart1 = () => {
-    const progress = 1 / 6;
-
     const [showHelp, setShowHelp] = useState(null);
-    const [showChat, setShowChat] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [showChat, setShowChat] = useState(false);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
 
@@ -285,6 +297,46 @@ const GreetingsPart1 = () => {
     const toggleChatModal = () => {
         setShowChat(!showChat);
     };
+
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_GreetingsPart2_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
 
     return (
         <LinearGradient
@@ -372,7 +424,7 @@ const GreetingsPart1 = () => {
                         >
                             <View style={styles.curiositiesContent}>
                                 <FloatingHumu >
-                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                    <ImageContainer path={item.imagePath} style={styles.imageModal} />
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
@@ -395,11 +447,11 @@ const GreetingsPart1 = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en cada tarjeta de un saludo para ver su pronunciación en Kichwa.'
-                                        arrowDirection="left"
+                                        text='Presiona en cada tarjeta para ver un saludo en Kichwa y su traducción.'
+                                        arrowDirection="leftUp"
                                     />
                                 </View>
                                 <View style={styles.buttonContainerAlphabet}>
@@ -417,7 +469,16 @@ const GreetingsPart1 = () => {
                 <ChatModal visible={showChat} onClose={toggleChatModal} initialMessages={initial_chat_messages} />
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GreetingsPart2')} />
+                    <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('GreetingsPart2');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>

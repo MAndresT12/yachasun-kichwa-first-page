@@ -154,6 +154,7 @@ const CaminoLevelsScreen = () => {
             <ScrollView contentContainerStyle={localStyles.scrollViewContent}>
 
                 {/* Modulo 1 */}
+                <BouncyTextTitulo>El ABC del Kichwa</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 1 / Shukniki  Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
@@ -229,6 +230,7 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/* Modulo 2 */}
+                <BouncyTextTitulo>Una gran familia</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 2 / Ishkayniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
@@ -239,10 +241,10 @@ const CaminoLevelsScreen = () => {
                         nextScreen="GreetingsPart1"
                         progressKey="level_GreetingsPart1_completed"
                     />
-                    <BouncyText>Los Saludos Parte 1: Básicos / Napaykuna</BouncyText>
+                    <BouncyText> Los Saludos / Napaykuna 1️⃣</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>Los Saludos Parte 2: Diálogos / Napaykuna</BouncyText>
+                    <BouncyText> Los Saludos / Napaykuna 2️⃣</BouncyText>
                     <LevelCard
                         levelKey="level_GreetingsPart2"
                         title="Los Saludos Parte 2: Diálogos / Napaykuna"
@@ -264,7 +266,7 @@ const CaminoLevelsScreen = () => {
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>La Familia Parte 1: Núcleo / Ayllu</BouncyText>
+                    <BouncyText>La Familia / Ayllu 1️⃣</BouncyText>
 
                     <LevelCard
                         levelKey="level_FamilyPart1"
@@ -309,6 +311,7 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/* Modulo 3 */}
+                <BouncyTextTitulo>Objetos del diario</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 3 / Kimsaniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
@@ -319,7 +322,7 @@ const CaminoLevelsScreen = () => {
                         nextScreen="FamilyPart2"
                         progressKey="level_FamilyPart2_completed"
                     />
-                    <BouncyText>La Familia Parte 2: Extendida / Ayllu</BouncyText>
+                    <BouncyText>La Familia / Ayllu 2️⃣</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Las partes del cuerpo humano / Aycha ukkunpak shimikuna</BouncyText>
@@ -389,6 +392,7 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/* Modulo 4 */}
+                <BouncyTextTitulo>La naturaleza y su belleza</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 4 / Chuskuniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
@@ -469,6 +473,7 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/*Modulo 5 */}
+                <BouncyTextTitulo>Describe el mundo</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 5 / Pichkaniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
@@ -549,6 +554,7 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/*Modulo 6 */}
+                <BouncyTextTitulo>El primer gran desafío</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 6 / Suktaniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>

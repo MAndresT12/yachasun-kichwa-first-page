@@ -3,8 +3,9 @@ import { StyleSheet } from 'react-native';
 export const accordionStyles = StyleSheet.create({
     container: {
         width: '100%',
-        paddingHorizontal: '4%',
-        borderRadius: 8,
+        paddingHorizontal: '6%',
+        paddingVertical: '1%',
+        borderRadius: 20,
         backgroundColor: 'white',
         marginBottom: '2%',
     },

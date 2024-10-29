@@ -1,31 +1,42 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing, withRepeat } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../../../styles/globalStyles';
-import { CardDefault } from '../../../ui/cards/CardDefault';
-import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
-import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
-import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
-import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { FontAwesome } from '@expo/vector-icons';
+
+import { styles } from '../../../../../styles/globalStyles';
+
 import { FloatingHumu } from '../../../animations/FloatingHumu';
 import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
 
+import { CardDefault } from '../../../ui/cards/CardDefault';
+import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
+import { WavyLine } from '../../../ui/imageContainers/WavyLine';
+import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
+import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 
 const { width } = Dimensions.get('window');
 
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
+const humuTalkingPNG = require('../../../../../assets/images/humu/humu-talking.png');
+
 const images = {
-    pronoun1: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/Pronouns/pronouns1.png',
+    pronoun1: require('../../../../../assets/images/basic/module2/pronouns/pronouns1.jpg'),
 };
 
 const singular_pronoun_data = [
     { kichwa: "Ñuka", spanish: "Yo" },
     { kichwa: "Kan", spanish: "Tú" },
     { kichwa: "Kikin", spanish: "Usted (cortesía)" },
-    { kichwa: "Pay", spanish: "Ella" },
+    { kichwa: "Pay", spanish: "Él / Ella" },
 ];
 
 const plural_pronoun_data = [
@@ -36,14 +47,62 @@ const plural_pronoun_data = [
 ];
 
 const verb_kana_data = [
-    { numberImage: images.pronoun1, kichwaPron: "Ñuka", kana: "kani", spanishPron: "Yo", be: "soy / estoy" },
-    { numberImage: images.pronoun1, kichwaPron: "Kan", kana: "kanki", spanishPron: "Tú", be: "eres / estás" },
-    { numberImage: images.pronoun1, kichwaPron: "Kikin", kana: "kanki", spanishPron: "Usted", be: "es / está" },
-    { numberImage: images.pronoun1, kichwaPron: "Pay", kana: "kan", spanishPron: "Él / ella", be: "es / está" },
-    { numberImage: images.pronoun1, kichwaPron: "Ñukanchik", kana: "kanchik", spanishPron: "Nosotros", be: "somos / estamos" },
-    { numberImage: images.pronoun1, kichwaPron: "Kankuna", kana: "kankichik", spanishPron: "Ustedes", be: "son / están" },
-    { numberImage: images.pronoun1, kichwaPron: "Kikinkuna", kana: "kankichik", spanishPron: "Ustedes", be: "son / están" },
-    { numberImage: images.pronoun1, kichwaPron: "Paykuna", kana: "kan", spanishPron: "Ellos / ellas", be: "son / están" },
+    {
+        imageCard: images.pronoun1,
+        kichwaPron: "Ñuka",
+        kana: "kani",
+        spanishPron: "Yo",
+        be: "soy / estoy"
+    },
+    {
+        imageCard: images.pronoun1,
+        kichwaPron: "Kan",
+        kana: "kanki",
+        spanishPron: "Tú",
+        be: "eres / estás"
+    },
+    {
+        imageCard: images.pronoun1,
+        kichwaPron: "Kikin",
+        kana: "kanki",
+        spanishPron: "Usted",
+        be: "es / está"
+    },
+    {
+        imageCard: images.pronoun1,
+        kichwaPron: "Pay",
+        kana: "kan",
+        spanishPron: "Él / ella",
+        be: "es / está"
+    },
+    {
+        imageCard: images.pronoun1,
+        kichwaPron: "Ñukanchik",
+        kana: "kanchik",
+        spanishPron: "Nosotros",
+        be: "somos / estamos"
+    },
+    {
+        imageCard: images.pronoun1,
+        kichwaPron: "Kankuna",
+        kana: "kankichik",
+        spanishPron: "Ustedes",
+        be: "son / están"
+    },
+    {
+        imageCard: images.pronoun1,
+        kichwaPron: "Kikinkuna",
+        kana: "kankichik",
+        spanishPron: "Ustedes",
+        be: "son / están"
+    },
+    {
+        imageCard: images.pronoun1,
+        kichwaPron: "Paykuna",
+        kana: "kan",
+        spanishPron: "Ellos / ellas",
+        be: "son / están"
+    },
 ];
 
 const sentence_spanish_struc_data = [
@@ -57,27 +116,32 @@ const sentence_kichwa_struc_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'Un cambio de estructura en la oración',
+        title: 'Reglas - Un cambio de estructura en la oración',
         text: 'Como pudiste ver en Kichwa el complemento viene antes que verbo. En español es al revés.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
     {
         key: '2',
-        title: 'Algo lindo de los Apellidos en Kichwa',
-        text: 'La palabra Ango significa jefe, señor o gobernador. En el idioma Kayambi, significa espíritu y unidad.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        title: 'Curiosidades - La palabra Ango',
+        text: 'Esta significa jefe, señor o gobernador. En el idioma Kayambi, significa espíritu y unidad.',
+        imagePath: humuTalking,
     },
     {
         key: '3',
-        title: 'Personajes importantes',
+        title: 'Curiosidades - Personajes importantes',
         text: 'Dolores Cacuango (-ango) es una líder indígena ecuatoriana que luchó por los derechos de los indígenas y campesinos.',
-        imagePath: 'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png',
+        imagePath: humuTalking,
     },
 ];
 
 const FlipCard = ({ item }) => {
     const [flipped, setFlipped] = useState(false);
     const rotateY = useSharedValue(0);
+    const humuOpacity = useSharedValue(0);
+    const humuLeftPosition = useSharedValue(-width * 0.008);
+    const arrowOpacity = useSharedValue(0); // Arrow opacity control
+    const cardOpacity = useSharedValue(0);
+    const cardTranslateX = useSharedValue(-width * 0.43);
 
     const animatedStyleFront = useAnimatedStyle(() => ({
         transform: [{ rotateY: `${rotateY.value}deg` }],
@@ -87,41 +151,115 @@ const FlipCard = ({ item }) => {
         transform: [{ rotateY: `${rotateY.value + 180}deg` }],
     }));
 
+    const animatedHumuStyle = useAnimatedStyle(() => ({
+        opacity: humuOpacity.value,
+        transform: [{ translateX: humuLeftPosition.value }],
+    }));
+
+    const animatedArrowStyle = useAnimatedStyle(() => ({
+        opacity: arrowOpacity.value, // Control arrow opacity here
+    }));
+
+    const animatedCardStyle = useAnimatedStyle(() => ({
+        opacity: cardOpacity.value,
+        transform: [{ translateX: cardTranslateX.value }],
+    }));
+
     const handleFlip = () => {
-        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        if (!flipped) {
+            rotateY.value = withTiming(180, { duration: 300 });
+            setTimeout(() => {
+                humuOpacity.value = withTiming(1, { duration: 300 });
+                humuLeftPosition.value = withTiming(
+                    width * 0.2,
+                    { duration: 500 },
+                    () => {
+                        humuLeftPosition.value = withTiming(width * 0.28, {
+                            duration: 200,
+                            easing: Easing.bounce,
+                        }, () => {
+                            // Arrow fades in after Humu's animation finishes
+                            arrowOpacity.value = withTiming(0.8, { duration: 500 }, () => {
+                                // Start the arrow loop
+                                arrowOpacity.value = withRepeat(
+                                    withTiming(0.2, { duration: 800 }),
+                                    -1,
+                                    true // This makes it go back and forth between 0.2 and 0.8
+                                );
+                            });
+                            // Start the Humu loop moving back and forth
+                            humuLeftPosition.value = withRepeat(
+                                withTiming(width * 0.3, { duration: 1000 }),
+                                -1,
+                                true // Moves back and forth smoothly
+                            );
+                        });
+                    }
+                );
+            }, 1000);
+        } else {
+            rotateY.value = withTiming(0, { duration: 300 });
+            humuOpacity.value = withTiming(0, { duration: 300 }, () => {
+                humuLeftPosition.value = -width * 0.008;
+            });
+            arrowOpacity.value = withTiming(0, { duration: 300 }); // Hide the arrow when flipped back
+            cardOpacity.value = withTiming(0, { duration: 300 });
+            cardTranslateX.value = withTiming(-width * 0.43, { duration: 300 });
+        }
         setFlipped(!flipped);
     };
 
+    const handleGesture = (event) => {
+        const { translationX } = event.nativeEvent;
+
+        if (translationX > 50) {
+            humuLeftPosition.value = withTiming(width, { duration: 300 });
+            // Arrow fades out rapidly when gesture is triggered
+            arrowOpacity.value = withTiming(0, { duration: 100 });
+            setTimeout(() => {
+                cardOpacity.value = withTiming(1, { duration: 300 });
+                cardTranslateX.value = withTiming(0, { duration: 300 });
+            }, 300);
+        }
+    };
+
     return (
-        <TouchableWithoutFeedback onPress={handleFlip}>
-            <View style={styles.flipCard}>
-                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
-                    <ImageContainer uri={item.numberImage} style={styles.imageCards} />
-                </Animated.View>
-                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
-                    <View style={styles.pronounSmallFlipCard}>
-                        <View>
-                            <Text style={[styles.translationLabelPronouns, styles.pronounsSpanishText]}>P. Español:</Text>
-                            <Text style={[styles.translationTextPronouns, styles.pronounsSpanishText]}>{item.spanishPron}</Text>
-                        </View>
-                        <View>
-                            <Text style={[styles.translationLabelPronouns, styles.pronounsSpanishText]}>Ser / Estar:</Text>
-                            <Text style={[styles.translationTextPronouns, styles.pronounsSpanishText]}>{item.be}</Text>
-                        </View>
-                    </View>
-                    <View style={styles.pronounSmallFlipCard}>
-                        <View>
-                            <Text style={[styles.translationLabelPronouns, styles.pronounsKichwaText]}>P. Kichwa:</Text>
-                            <Text style={[styles.translationTextPronouns, styles.pronounsKichwaText]}>{item.kichwaPron}</Text>
-                        </View>
-                        <View>
-                            <Text style={[styles.translationLabelPronouns, styles.pronounsKichwaText]}>Kana:</Text>
-                            <Text style={[styles.translationTextPronouns, styles.pronounsKichwaText]}>{item.kana}</Text>
-                        </View>
-                    </View>
-                </Animated.View>
-            </View>
-        </TouchableWithoutFeedback>
+        <View style={styles.flipCardContainerBothCardsGreetings2}>
+            <TouchableWithoutFeedback onPress={handleFlip}>
+                <View style={styles.flipCardGreetings2}>
+                    <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardFrontGreetings2, animatedStyleFront]}>
+                        <ImageContainer path={item.imageCard} style={styles.imageCards} />
+                    </Animated.View>
+                    <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardBackGreetings2, animatedStyleBack]}>
+                        <Text style={styles.translationLabel}>P. en Español:</Text>
+                        <Text style={styles.spanishText}>{item.spanishPron}</Text>
+                        <Text style={styles.translationLabel}>Ser / Estar:</Text>
+                        <Text style={styles.kichwaText}>{item.be}</Text>
+                    </Animated.View>
+                </View>
+            </TouchableWithoutFeedback>
+
+            <PanGestureHandler onGestureEvent={handleGesture}>
+                <Animated.Image
+                    source={humuTalkingPNG}
+                    style={[styles.humuImage, animatedHumuStyle]}
+                />
+            </PanGestureHandler>
+
+            {/* Arrow that appears after Humu animation */}
+            <Animated.View style={[animatedArrowStyle, { position: 'absolute', left: '65%', top: '50%' }]}>
+                <FontAwesome name="arrow-right" size={24} color="white" />
+            </Animated.View>
+
+            <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
+                <CardDefault styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}>
+                    <Text style={styles.translationLabel}>P. en Kichwa:</Text>
+                    <Text style={styles.spanishText}>{item.kichwaPron}</Text>
+                    <Text style={styles.translationLabel}>Kana:</Text>
+                    <Text style={styles.kichwaText}>{item.kana}</Text>
+                </CardDefault>
+            </Animated.View>
+        </View>
     );
 };
 
@@ -181,7 +319,7 @@ const BigFlipCard = ({ data1, data2 }) => {
                     <CardDefault title="Kichwa" content="¡Mira! En Kichwa el verbo va antes que el complemento." styleCard={styles.cardDefaultPronouns}>
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>1.{"\n\n"}Sujeto   (Imak)</Text>
+                                <Text style={styles.tableHeaderCell}>1.{"\n\n"}Sujeto (Imak)</Text>
                                 <Text style={styles.tableHeaderCell}>2.{"\n\n"}Complemento (Paktachik)</Text>
                                 <Text style={styles.tableHeaderCell}>3.{"\n\n"}Verbo (Imachik)</Text>
                             </View>
@@ -230,10 +368,11 @@ const PluralPronRoute = () => (
 );
 
 const PronounsSentence = () => {
-    const progress = 1 / 6;
 
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
 
@@ -260,6 +399,46 @@ const PronounsSentence = () => {
         setShowHelp(!showHelp);
     };
 
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_FamilyPart1_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
+
     return (
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
@@ -274,11 +453,12 @@ const PronounsSentence = () => {
                         <FontAwesome name="question-circle" size={40} color="#fff" />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.body}>
+                <View style={styles.bodyGreetings2}>
                     <CardDefault title="¿Cómo podemos hablar con alguien ó de alguien?" >
                         <Text style={styles.cardContent}>
-                            Tenemos que conocer como hablarle a las personas para poder comunicarnos.{"\n\n"}
-                            Para esto sirven los pronombres personales. Estos vienen el plural y singular.
+                            Tenemos que conocer como hablar con las personas para poder comunicarnos.
+                            Para esto sirven los pronombres personales.{"\n\n"}
+                            Existen dos tipos de pronombres, el plural y singular.
                             ¡Veámos cuáles son!
                         </Text>
                     </CardDefault>
@@ -315,14 +495,13 @@ const PronounsSentence = () => {
 
                     <CardDefault title="El verbo kana" >
                         <Text style={styles.cardContent}>
-                            Un verbo muy importante en Kichwa es el conocido como verbo "kana" que significa "ser" o "estar".
-                            Este verbo es muy importante para formar oraciones en Kichwa.{"\n\n"}
+                            Un verbo muy importante en Kichwa es el conocido como verbo "kana" que significa "ser" o "estar".{"\n\n"}
                             Aquí te voy a mostrar su conjugación con los pronombres y como afecta al sujeto de una oración.
                             Abreviaremos el pronombre con un "P".
                         </Text>
                     </CardDefault>
 
-                    <View style={styles.gridContainer}>
+                    <View style={styles.gridContainerGreetings2}>
                         {verb_kana_data.map((item, index) => (
                             <FlipCard key={index} item={item} />
                         ))}
@@ -331,8 +510,8 @@ const PronounsSentence = () => {
                     <CardDefault title="Estructura de una oración" >
                         <Text style={styles.cardContent}>
                             Con todo el conocimiento que tenemos hasta ahora, podemos formar oraciones en Kichwa.
-                            Pero antes de esto, debemos conocer la estructura de ellas.{"\n\n"}
-                            Presiona en la tabla de abajo para ver lo que te menciono.
+                            Pero antes de esto, debemos conocer su estructura.{"\n\n"}
+                            Presiona en la tabla de abajo para cambiar entre Kichwa o Español.
                         </Text>
                     </CardDefault>
 
@@ -347,11 +526,11 @@ const PronounsSentence = () => {
                         >
                             <View style={styles.curiositiesContent}>
                                 <FloatingHumu >
-                                    <ImageContainer uri={item.imagePath} style={styles.imageModal} />
+                                    <ImageContainer path={item.imagePath} style={styles.imageModal} />
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
-                                    arrowDirection="left"
+                                    arrowDirection="leftUp"
                                 />
                             </View>
                         </AccordionDefault>
@@ -369,11 +548,11 @@ const PronounsSentence = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer uri={'https://storage.googleapis.com/yachasun_kichwa_assets/assets/images/humu/humu-talking.png'} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en las tarjetas para darles la vuelta y ver acerca del verbo kana y la oración.'
-                                        arrowDirection="left"
+                                        text='Presiona en cada tarjeta y desliza Humu de un pronombre para ver la traducción en Kichwa.'
+                                        arrowDirection="leftUp"
                                     />
                                 </View>
                                 <View style={styles.buttonContainerAlphabet}>
@@ -389,7 +568,16 @@ const PronounsSentence = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('FamilyPart1')} />
+                    <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('FamilyPart1');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>
