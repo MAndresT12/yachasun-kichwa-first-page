@@ -64,6 +64,8 @@
 -En lugar de cargas en pag partes del cuerpo (colocar tab, la imagen español kichwa), curriosidad rkopa de ellos tradicional es costosa. [x]
 -Pantalla cosas de la casa (la casa dif, una choza) [x]
 -Pantalla Aula la data de los cards esta igual a la de cosas de la casa toca cambiarle bien. [x]
+-AGREGAR EN PANTALLA UN BOTON QUE DIRIJA AL INICIO (CAMINO LEVELS) [x]
+-Paginalos animales (como que para comer=?????) [x]
 
 
 
@@ -71,6 +73,9 @@
 - Cambiar a todos los puntos de vida por los trofeos[en_progreso]
 - Logica primero español luego kichwa [en_progreso]
 - Arreglar todas las imagenes [en_progreso]
+-Pagina La Naturaleza en la tabla colocar imagenes que correspondan [en_progreso]
+-Página Los Alimentos (colocar imagenes en las frutas etc). [en_progreso]
+-Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa [en_progreso]
 - Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 
 
@@ -89,11 +94,6 @@
 
  
 
--AGREGAR EN PANTALLA UN BOTON QUE DIRIJA AL INICIO (CAMINO LEVELS)
--Pagina La Naturaleza en la tabla colocar imagenes que correspondan.
--Página Los Alimentos (colocar imagenes en las frutas etc).
--Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa
--Paginalos animales (como que para comer=?????)
 -Pagina la plurización eliminar en kichwa la descripcion
 -Pagina el genero redundante femenio o masculino desc, tambien tabla masculino/femenino debe haber ambas, colocar mensaje de girar la card masc fem
 -Página la cantidad, colocar español kichwa e imagenes
