@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
 
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing, withRepeat } from 'react-native-reanimated';
@@ -368,7 +368,7 @@ const FamilyPart2 = () => {
 
     const completeLevel = async () => {
         try {
-            await AsyncStorage.setItem('level_ToCount_completed', 'true');
+            await AsyncStorage.setItem('level_BodyParts_completed', 'true');
             setIsNextLevelUnlocked(true);
         } catch (error) {
             console.log('Error guardando el progreso', error);
@@ -424,7 +424,7 @@ const FamilyPart2 = () => {
 
                     <CardDefault title="La familia extendida">
                         <Text style={styles.cardContent}>
-                            Existen muchos otros miembros de nuestra familia. Miembros 
+                            Existen muchos otros miembros de nuestra familia. Miembros
                             con los que seguramente te llevas y aprecias mucho.{`\n\n`}
                             Aquí te muestro cómo se los llama en Kichwa.
                         </Text>
@@ -534,7 +534,16 @@ const FamilyPart2 = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('BodyParts')} />
+                    <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('BodyParts');
+                        }}
+                    />
                 </View>
             </ScrollView>
         </LinearGradient>

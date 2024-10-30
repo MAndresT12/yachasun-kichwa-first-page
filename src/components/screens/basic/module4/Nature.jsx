@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { styles } from '../../../../../styles/globalStyles';
+
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
-import { FontAwesome } from '@expo/vector-icons';
-import { FloatingHumu } from '../../../animations/FloatingHumu';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 
 const { width } = Dimensions.get('window');
+
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
 
 const images = {
     nature1: require('../../../../../assets/images/basic/module4/nature/nature1.png'),
@@ -77,15 +88,15 @@ const weather_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'La naturaleza dentro de nosotros',
-        text: 'Para los indígenas, la naturaleza es parte de uno mismo, y cada actividad requiere pedir permiso a la pachamama para lograr la armonía y la paz.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        title: 'Curiosidades - La naturaleza dentro de nosotros',
+        text: 'Para los indígenas, la naturaleza es parte de uno mismo. La idea es tener paz y armonía con la madre tierra (Pachamama).',
+        imagePath: humuTalking,
     },
     {
         key: '2',
-        title: 'Adoración a la naturaleza',
+        title: 'Curiosidades - Adoración a la naturaleza',
         text: 'La cultura indígena respeta y adora la naturaleza, pidiendo permiso antes de usar sus recursos, como cortar un árbol o lavar la ropa.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: humuTalking,
     },
 ];
 
@@ -104,8 +115,8 @@ const renderDataImages = (data) => {
             <View style={styles.imageContainer}>
                 <ImageContainer path={item.imageCard} style={styles.animalImage} />
             </View>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
         </View>
     ));
 };
@@ -116,8 +127,8 @@ const nature1Route = () => (
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
                 <Text style={styles.tableHeaderCell}>Imagen</Text>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderDataImages(nature2_data)}
         </View>
@@ -130,8 +141,8 @@ const nature2Route = () => (
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
                 <Text style={styles.tableHeaderCell}>Imagen</Text>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderDataImages(nature3_data)}
         </View>
@@ -162,10 +173,10 @@ const FlipCard = ({ item }) => {
                     <ImageContainer path={item.imageCard} style={styles.imageCards} />
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
-                    <Text style={styles.translationLabel}>Kichwa:</Text>
-                    <Text style={styles.translationText}>{item.kichwa}</Text>
                     <Text style={styles.translationLabel}>Español:</Text>
-                    <Text style={styles.translationText}>{item.spanish}</Text>
+                    <Text style={styles.spanishText}>{item.spanish}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
                 </Animated.View>
             </View>
         </TouchableWithoutFeedback>
@@ -175,6 +186,8 @@ const FlipCard = ({ item }) => {
 const Nature = () => {
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
 
@@ -201,15 +214,54 @@ const Nature = () => {
         setShowHelp(!showHelp);
     };
 
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_Foods_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
+
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.titleTema}>La Naturaleza</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -221,7 +273,7 @@ const Nature = () => {
                     <CardDefault title="Tan hermosa">
                         <Text style={styles.cardContent}>
                             Todo lo que nos rodea es naturaleza. Debemos respetarla y cuidarla.
-                            Una forma de hacerlo es conociendo las palabras para habalr sobre la naturaleza.{'\n\n'}
+                            Una forma de hacerlo es conociendo las palabras indicadas para hablar sobre ella.{'\n\n'}
                             Te enseño como hablar de la naturaleza en Kichwa.
                         </Text>
                     </CardDefault>
@@ -233,11 +285,11 @@ const Nature = () => {
 
                     <CardDefault title="Más naturaleza">
                         <Text style={styles.cardContent}>
-                            Acá te mando más palabras para que puedas hablar de la naturaleza en el hermoso lenguaje del Kichwa.
+                            Acá, te mando más palabras para que puedas hablar de la naturaleza en el hermoso lenguaje del Kichwa.
                         </Text>
                     </CardDefault>
 
-                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 1270 }} >
+                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 1286 }} >
                         <TabView
                             navigationState={{ index, routes }}
                             renderScene={renderScene}
@@ -298,7 +350,7 @@ const Nature = () => {
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
-                                    arrowDirection="left"
+                                    arrowDirection="leftUp"
                                 />
                             </View>
                         </AccordionDefault>
@@ -316,10 +368,10 @@ const Nature = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en las tarjetas para ver la información.'
+                                        text='Presiona en cada tarjeta de la naturaleza para ver su traducción.'
                                         arrowDirection="left"
                                     />
                                 </View>
@@ -336,10 +388,19 @@ const Nature = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Foods')} />
+                <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('Foods');
+                        }}
+                    />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

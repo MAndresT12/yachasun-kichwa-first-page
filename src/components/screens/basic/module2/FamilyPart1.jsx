@@ -128,6 +128,7 @@ const FamilyPart1 = () => {
     const completeLevel = async () => {
         try {
             await AsyncStorage.setItem('level_IntroGamesBasic2_completed', 'true');
+            await AsyncStorage.setItem('level_EvaluationBasicModule2_completed', 'true');
             setIsNextLevelUnlocked(true);
         } catch (error) {
             console.log('Error guardando el progreso', error);

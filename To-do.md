@@ -61,6 +61,9 @@
 - En levels colocar bien las traducciones de modulos etc [x]
 - Dar titulos a modulos (familia, verbos, varios, etc) [x]
 - FAMILIA P2 colocar pachamama entre parentesis el significado (madre tierra) [x]
+-En lugar de cargas en pag partes del cuerpo (colocar tab, la imagen español kichwa), curriosidad rkopa de ellos tradicional es costosa. [x]
+-Pantalla cosas de la casa (la casa dif, una choza) [x]
+-Pantalla Aula la data de los cards esta igual a la de cosas de la casa toca cambiarle bien. [x]
 
 
 
@@ -81,13 +84,10 @@
 - Juegos: Info ayuda poner varios bubbles de comic para humu 
 - Arreglar las llamadas asincrónicas de progreso screen
 - adaptar juegos de basicos
+-En pantalla de creditos inicial colocar los links de los libros
 
  
 
--En lugar de cargas en pag partes del cuerpo (colocar tab, la imagen español kichwa), curriosidad rkopa de ellos tradicional es costosa.
--Pantalla cosas de la casa (la casa dif, una choza)
--En pantalla de creditos inicial colocar los links de los libros
--Pantalla Aula la data de los cards esta igual a la de cosas de la casa toca cambiarle bien.
 -AGREGAR EN PANTALLA UN BOTON QUE DIRIJA AL INICIO (CAMINO LEVELS)
 -Pagina La Naturaleza en la tabla colocar imagenes que correspondan.
 -Página Los Alimentos (colocar imagenes en las frutas etc).
