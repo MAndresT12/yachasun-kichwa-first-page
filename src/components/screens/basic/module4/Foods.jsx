@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { styles } from '../../../../../styles/globalStyles';
+
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
+import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
-import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
-import { FontAwesome } from '@expo/vector-icons';
-import { FloatingHumu } from '../../../animations/FloatingHumu';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 
 const { width } = Dimensions.get('window');
+
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
 
 const images = {
     foods1: require('../../../../../assets/images/basic/module4/foods/food1.png'),
@@ -58,27 +69,27 @@ const fruits_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'El Mote',
+        title: 'Curiosidades - El Mote',
         text: 'El mote es un alimento esencial en la dieta indígena y es clave en la preparación de comidas tradicionales como el "mediano".',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: humuTalking,
     },
     {
         key: '2',
-        title: 'Mashua',
+        title: 'Curiosidades - Mashua',
         text: 'La mashua es una planta andina, consumida como verdura y usada medicinalmente.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: humuTalking,
     },
     {
         key: '3',
-        title: 'El Maíz',
+        title: 'Curiosidades - El Maíz',
         text: 'El maíz es un alimento básico en la sierra ecuatoriana, un regalo de la naturaleza, y es venerado en diferentes celebraciones.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: humuTalking,
     },
     {
         key: '4',
-        title: 'La Chicha',
+        title: 'Curiosidades - La Chicha',
         text: 'La chicha es una bebida tradicional indígena hecha con maíz y fermentada, utilizada en celebraciones rituales y fiestas importantes.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: humuTalking,
     }
 ];
 
@@ -88,8 +99,8 @@ const renderDataImages = (data) => {
             <View style={styles.imageContainer}>
                 <ImageContainer path={item.imageCard} style={styles.animalImage} />
             </View>
-            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
             <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+            <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
         </View>
     ));
 };
@@ -100,8 +111,8 @@ const food1Route = () => (
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
                 <Text style={styles.tableHeaderCell}>Imagen</Text>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderDataImages(foods1_data)}
         </View>
@@ -110,23 +121,15 @@ const food1Route = () => (
 
 const food2Route = () => (
     <View>
-        <Text style={styles.title}>Ven, vamos a comer</Text>
+        <Text style={styles.title}>Ven, ¡vamos a comer!</Text>
         <View style={styles.vocabularyTable}>
             <View style={styles.tableHeader}>
                 <Text style={styles.tableHeaderCell}>Imagen</Text>
-                <Text style={styles.tableHeaderCell}>Kichwa</Text>
                 <Text style={styles.tableHeaderCell}>Español</Text>
+                <Text style={styles.tableHeaderCell}>Kichwa</Text>
             </View>
             {renderDataImages(foods2_data)}
         </View>
-    </View>
-);
-
-const renderFruitCard = (item) => (
-    <View style={styles.carouselCard}>
-        <ImageContainer path={item.imageCard} style={styles.carouselImage} />
-        <Text style={styles.carouselTextKichwa}>{item.kichwa}</Text>
-        <Text style={styles.carouselTextSpanish}>{item.spanish}</Text>
     </View>
 );
 
@@ -154,10 +157,10 @@ const FlipCard = ({ item }) => {
                     <ImageContainer path={item.imageCard} style={styles.imageCards} />
                 </Animated.View>
                 <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
-                    <Text style={styles.translationLabel}>Kichwa:</Text>
-                    <Text style={styles.translationText}>{item.kichwa}</Text>
                     <Text style={styles.translationLabel}>Español:</Text>
-                    <Text style={styles.translationText}>{item.spanish}</Text>
+                    <Text style={styles.spanishText}>{item.spanish}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
                 </Animated.View>
             </View>
         </TouchableWithoutFeedback>
@@ -167,6 +170,8 @@ const FlipCard = ({ item }) => {
 const Foods = () => {
     const [showHelp, setShowHelp] = useState(null);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
 
@@ -193,12 +198,54 @@ const Foods = () => {
         setShowHelp(!showHelp);
     };
 
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_Orientation_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
+
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -209,11 +256,11 @@ const Foods = () => {
 
                     <CardDefault title="Una deliciosa aventura">
                         <Text style={styles.cardContent}>
-                            ¿Cuál es tú comida faovrita? La mía es la mapahuira. Es una manteca de chancho con mote. ¡Es delicioso!{'\n\n'}
-                            Quiero que aprendas acerca de cómo se dice algunos alimentos en kichwa.
+                            ¿Cuál es tú comida faovrita? La mía es la mapahuira, una manteca de chancho con mote. ¡Es delicioso!{'\n\n'}
+                            Quiero que aprendas acerca de cómo se dice algunos alimentos en Kichwa.
                         </Text>
                     </CardDefault>
-                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 1270 }} >
+                    <CardDefault styleContainer={{ flex: 1 }} styleCard={{ flex: 1, height: 1190 }} >
                         <TabView
                             navigationState={{ index, routes }}
                             renderScene={renderScene}
@@ -246,8 +293,9 @@ const Foods = () => {
 
                     <CardDefault title="Las frutas">
                         <Text style={styles.cardContent}>
-                            Las frutas me encantan porque, ¡son muy dulces! Espero que a tí también te gusten mucho.{'\n\n'}
-                            Aquí te dejo algunas frutas y su traducción en kichwa.
+                            Un tipo de comida que me encanta son las frutas por su increíble 
+                            ¡dulzura! Espero que a tí también te gusten mucho.{'\n\n'}
+                            Aquí te dejo algunas frutas y su traducción en Kichwa.
                         </Text>
                     </CardDefault>
                     <View style={styles.gridContainer}>
@@ -269,7 +317,7 @@ const Foods = () => {
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={item.text}
-                                    arrowDirection="left"
+                                    arrowDirection="leftUp"
                                 />
                             </View>
                         </AccordionDefault>
@@ -287,11 +335,11 @@ const Foods = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en las tarjetas para ver la información.'
-                                        arrowDirection="left"
+                                        text='Presiona en cada tarjeta de una comida para ver su traducción y en cada pestaña para ver las tablas.'
+                                        arrowDirection="leftUp"
                                     />
                                 </View>
                                 <View style={styles.buttonContainerAlphabet}>
@@ -307,10 +355,19 @@ const Foods = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Orientation')} />
+                <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('Orientation');
+                        }}
+                    />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

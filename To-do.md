@@ -70,6 +70,7 @@
 - Poner el Kichwa en verdey espanol en azul todos los textos. [en_progreso]
 - Cambiar a todos los puntos de vida por los trofeos[en_progreso]
 - Logica primero español luego kichwa [en_progreso]
+- Arreglar todas las imagenes [en_progreso]
 - Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 
 
@@ -122,3 +123,9 @@ Las frases como que el muñeco te habla, colocar el componente del boton siguien
 
 -Modulo 5
 -Curiosidades
+
+
+
+
+## Documento
+- Hacer una primera iteración bien para el documento
