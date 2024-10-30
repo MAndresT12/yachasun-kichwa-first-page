@@ -99,6 +99,7 @@
 -Página la cantidad, colocar español kichwa e imagenes
 -Pagina Tamaño la card de descripcion esta mal habla de familia, en ejemplos en lugar de conversación solo como frases separadas, oraciones, tildes en algunas cards.
 -Pagina la conjugacion en tiempo eliminar chat, solo frases
+-Poner intro de cada módulo como hizo MIlton
 
 
 
