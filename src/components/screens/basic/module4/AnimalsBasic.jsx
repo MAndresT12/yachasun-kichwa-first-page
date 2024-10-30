@@ -83,6 +83,7 @@ const AnimalsBasic = () => {
     const completeLevel = async () => {
         try {
             await AsyncStorage.setItem('level_IntroGamesBasic4_completed', 'true');
+            await AsyncStorage.setItem('level_EvaluationBasicModule4_completed', 'true');
             setIsNextLevelUnlocked(true);
         } catch (error) {
             console.log('Error guardando el progreso', error);

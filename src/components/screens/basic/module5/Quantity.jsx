@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableOpacity, Modal, Dimensions } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { Text, View, ScrollView, TouchableOpacity, Modal, Dimensions } from 'react-native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import Carousel from 'react-native-reanimated-carousel';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { styles } from '../../../../../styles/globalStyles';
+
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
-import { FontAwesome } from '@expo/vector-icons';
-import { FloatingHumu } from '../../../animations/FloatingHumu';
-import Carousel from 'react-native-reanimated-carousel';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
+
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
 
 const { width } = Dimensions.get('window');
 
@@ -26,13 +37,17 @@ const orientation_data = [
 const renderCard = (item) => (
     <View style={styles.carouselCard}>
         <ImageContainer path={item.imageCard} style={styles.carouselImage} />
-        <Text style={styles.carouselTextKichwa}>{item.kichwa}</Text>
-        <Text style={styles.carouselTextSpanish}>{item.spanish}</Text>
+        <Text style={styles.translationLabel}>Español:</Text>
+        <Text style={styles.spanishText}>{item.spanish}</Text>
+        <Text style={styles.translationLabel}>Kichwa:</Text>
+        <Text style={styles.kichwaText}>{item.kichwa}</Text>
     </View>
 );
 
 const Quantity = () => {
     const [showHelp, setShowHelp] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
 
@@ -40,12 +55,54 @@ const Quantity = () => {
         setShowHelp(!showHelp);
     };
 
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_Size_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
+
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -53,16 +110,20 @@ const Quantity = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.body}>
-                    <CardDefault title="Somos muchos">
+                    <CardDefault title="Un millar de cosas">
                         <Text style={styles.cardContent}>
-                            Quiero enseñarte cómo describir la cantidad en Kichwa.
+                            Quiero enseñarte cómo describir la cantidad en Kichwa.{`\n\n`}
+                            Para hablar de "muchas cosas" en Kichwa, decimos "Tawka" y la 
+                            palabra que queremos describir.{`\n\n`}
+                            En cambio, para conversar acerca de "pocas cosas" en Kichwa, 
+                            decimos "Ashalla" y la palabra que queremos describir.
                         </Text>
                     </CardDefault>
 
                     <View>
                         <Carousel
                             width={width * 0.8}
-                            height={300}
+                            height={310}
                             data={orientation_data}
                             renderItem={({ item }) => renderCard(item)}
                             mode="parallax"
@@ -82,10 +143,10 @@ const Quantity = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Mueve el carrusel usando gestos.'
+                                        text='Desliza el carrusel para ver las diferentes cantidades.'
                                         arrowDirection="left"
                                     />
                                 </View>
@@ -102,10 +163,19 @@ const Quantity = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Size')} />
+                    <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('Size');
+                        }}
+                    />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 

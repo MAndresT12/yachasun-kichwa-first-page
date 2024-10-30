@@ -1,15 +1,27 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
-import { useNavigation } from '@react-navigation/native';
+import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing, withRepeat } from 'react-native-reanimated';
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { styles } from '../../../../../styles/globalStyles';
+
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
-import { FontAwesome } from '@expo/vector-icons';
-import { FloatingHumu } from '../../../animations/FloatingHumu';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
+
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
+const humuTalkingPNG = require('../../../../../assets/images/humu/humu-talking.png');
 
 const { width } = Dimensions.get('window');
 
@@ -19,31 +31,31 @@ const images = {
 
 const pluralization_data = [
     {
-        kichwa: "puyu",
-        spanish: "nube",
-        kichwaPlural: "puyukuna",
-        spanishPlural: "nubes",
+        kichwa: "Puyu",
+        spanish: "Nube",
+        kichwaPlural: "Puyukuna",
+        spanishPlural: "Nubes",
         imageCard: images.pluralization1,
     },
     {
-        kichwa: "sisa",
-        spanish: "flor",
-        kichwaPlural: "sisakuna",
-        spanishPlural: "flores",
+        kichwa: "Sisa",
+        spanish: "Flor",
+        kichwaPlural: "Sisakuna",
+        spanishPlural: "Flores",
         imageCard: images.pluralization1,
     },
     {
-        kichwa: "tanta",
-        spanish: "pan",
-        kichwaPlural: "tantakuna",
-        spanishPlural: "panes",
+        kichwa: "Tanta",
+        spanish: "Pan",
+        kichwaPlural: "Tantakuna",
+        spanishPlural: "Panes",
         imageCard: images.pluralization1,
     },
     {
-        kichwa: "kuy",
-        spanish: "cuy",
-        kichwaPlural: "kuykuna",
-        spanishPlural: "cuyes",
+        kichwa: "Kuy",
+        spanish: "Cuy",
+        kichwaPlural: "Kuykuna",
+        spanishPlural: "Cuyes",
         imageCard: images.pluralization1,
     }
 ];
@@ -54,6 +66,7 @@ const FlipCard = ({ item }) => {
     const rotateY = useSharedValue(0);
     const humuOpacity = useSharedValue(0);
     const humuLeftPosition = useSharedValue(-width * 0.008);
+    const arrowOpacity = useSharedValue(0); // Arrow opacity control
     const cardOpacity = useSharedValue(0);
     const cardTranslateX = useSharedValue(-width * 0.43);
 
@@ -68,6 +81,10 @@ const FlipCard = ({ item }) => {
     const animatedHumuStyle = useAnimatedStyle(() => ({
         opacity: humuOpacity.value,
         transform: [{ translateX: humuLeftPosition.value }],
+    }));
+
+    const animatedArrowStyle = useAnimatedStyle(() => ({
+        opacity: arrowOpacity.value, // Control arrow opacity here
     }));
 
     const animatedCardStyle = useAnimatedStyle(() => ({
@@ -87,6 +104,22 @@ const FlipCard = ({ item }) => {
                         humuLeftPosition.value = withTiming(width * 0.28, {
                             duration: 200,
                             easing: Easing.bounce,
+                        }, () => {
+                            // Arrow fades in after Humu's animation finishes
+                            arrowOpacity.value = withTiming(0.8, { duration: 500 }, () => {
+                                // Start the arrow loop
+                                arrowOpacity.value = withRepeat(
+                                    withTiming(0.2, { duration: 800 }),
+                                    -1,
+                                    true // This makes it go back and forth between 0.2 and 0.8
+                                );
+                            });
+                            // Start the Humu loop moving back and forth
+                            humuLeftPosition.value = withRepeat(
+                                withTiming(width * 0.3, { duration: 1000 }),
+                                -1,
+                                true // Moves back and forth smoothly
+                            );
                         });
                     }
                 );
@@ -96,6 +129,7 @@ const FlipCard = ({ item }) => {
             humuOpacity.value = withTiming(0, { duration: 300 }, () => {
                 humuLeftPosition.value = -width * 0.008;
             });
+            arrowOpacity.value = withTiming(0, { duration: 300 }); // Hide the arrow when flipped back
             cardOpacity.value = withTiming(0, { duration: 300 });
             cardTranslateX.value = withTiming(-width * 0.43, { duration: 300 });
         }
@@ -107,6 +141,8 @@ const FlipCard = ({ item }) => {
 
         if (translationX > 50) {
             humuLeftPosition.value = withTiming(width, { duration: 300 });
+            // Arrow fades out rapidly when gesture is triggered
+            arrowOpacity.value = withTiming(0, { duration: 100 });
             setTimeout(() => {
                 cardOpacity.value = withTiming(1, { duration: 300 });
                 cardTranslateX.value = withTiming(0, { duration: 300 });
@@ -123,24 +159,29 @@ const FlipCard = ({ item }) => {
                     </Animated.View>
                     <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardBackGreetings2, animatedStyleBack]}>
                         <Text style={styles.translationLabel}>Singular:</Text>
-                        <Text style={styles.translationText}>{item.spanish}</Text>
-                        <Text style={styles.translationText}>{item.kichwa}</Text>
+                        <Text style={styles.spanishText}>{item.spanish}</Text>
+                        <Text style={styles.kichwaText}>{item.kichwa}</Text>
                     </Animated.View>
                 </View>
             </TouchableWithoutFeedback>
 
             <PanGestureHandler onGestureEvent={handleGesture}>
                 <Animated.Image
-                    source={require('../../../../../assets/images/humu/humu-talking.png')}
+                    source={humuTalkingPNG}
                     style={[styles.humuImage, animatedHumuStyle]}
                 />
             </PanGestureHandler>
 
+            {/* Arrow that appears after Humu animation */}
+            <Animated.View style={[animatedArrowStyle, { position: 'absolute', left: '65%', top: '50%' }]}>
+                <FontAwesome name="arrow-right" size={24} color="white" />
+            </Animated.View>
+
             <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
                 <CardDefault styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}>
-                    <Text style={styles.translationLabelGreetingsCard2}>Plural:</Text>
-                    <Text style={styles.translationText}>{item.spanishPlural}</Text>
-                    <Text style={styles.translationTextGreetingsCard2}>{item.kichwaPlural}</Text>
+                    <Text style={styles.translationLabel}>Plural:</Text>
+                    <Text style={styles.spanishText}>{item.spanishPlural}</Text>
+                    <Text style={styles.kichwaText}>{item.kichwaPlural}</Text>
                 </CardDefault>
             </Animated.View>
         </View>
@@ -149,6 +190,8 @@ const FlipCard = ({ item }) => {
 
 const Pluralization = () => {
     const [showHelp, setShowHelp] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
 
@@ -156,12 +199,54 @@ const Pluralization = () => {
         setShowHelp(!showHelp);
     };
 
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_Gender_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
+
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -173,6 +258,7 @@ const Pluralization = () => {
                         <Text style={styles.cardContent}>
                             Para transformar una palabra del singular al plural, ponemos la
                             partícula -kuna al final de la palabra.{`\n\n`}
+                            Esto se traduce a:{`\n\n`}
                             Shukllachikmanta tawkachikman tikrachinkapakka –kuna
                             shimikutami churanchik.
                         </Text>
@@ -196,10 +282,10 @@ const Pluralization = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Desliza a Humu para ver las respuestas.'
+                                        text='Presiona en las cartas y desliza a Humu para ver las respuestas.'
                                         arrowDirection="left"
                                     />
                                 </View>
@@ -216,10 +302,19 @@ const Pluralization = () => {
                 )}
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('Gender')} />
+                <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('Gender');
+                        }}
+                    />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 
