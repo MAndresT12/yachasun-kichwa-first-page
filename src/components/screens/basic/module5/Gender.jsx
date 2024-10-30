@@ -46,7 +46,7 @@ const gender_femenine_data = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'El género en el mundo indígena',
+        title: 'Curiosidades - El género en el mundo indígena',
         text: 'Dentro de la cultura indígena, todo lo que existe en la tierra y fuera de ella tiene género.',
         imagePath: humuTalking,
     },

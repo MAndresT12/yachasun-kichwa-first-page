@@ -1,20 +1,32 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
-import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { styles } from '../../../../../styles/globalStyles';
+
+import { FloatingHumu } from '../../../animations/FloatingHumu';
+import ProgressCircleWithTrophies from '../../../headers/ProgressCircleWithTophies';
+
+import ChatModal from '../../../ui/modals/ChatModal';
 import { CardDefault } from '../../../ui/cards/CardDefault';
 import { ButtonDefault } from '../../../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../../../ui/imageContainers/ImageContainer';
 import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import { AccordionDefault } from '../../../ui/buttons/AccordionDefault';
-import { FontAwesome } from '@expo/vector-icons';
-import { FloatingHumu } from '../../../animations/FloatingHumu';
-import ChatModal from '../../../ui/modals/ChatModal';
+import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 
 const images = {
     pronoun1: require('../../../../../assets/images/basic/module6/imperative/imperative1.png'),
 };
+
+const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
+const profilePic = require('../../../../../assets/images/prototype/santigod.jpeg');
 
 const imp_informal1_data = [
     { subject: "Kan", root: "miku", ending: "y" },
@@ -61,8 +73,8 @@ const chat_messages1 = [
         createdAt: new Date(),
         user: {
             _id: 1,
-            name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+            name: 'User',
+            avatar: profilePic,
         },
     },
     {
@@ -71,8 +83,8 @@ const chat_messages1 = [
         createdAt: new Date(),
         user: {
             _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            name: 'Humu',
+            avatar: humuTalking,
         },
     },
     {
@@ -81,8 +93,8 @@ const chat_messages1 = [
         createdAt: new Date(),
         user: {
             _id: 1,
-            name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+            name: 'User',
+            avatar: profilePic,
         },
     },
 ];
@@ -94,8 +106,8 @@ const chat_messages2 = [
         createdAt: new Date(),
         user: {
             _id: 2,
-            name: 'Sisa',
-            avatar: require('../../../../../assets/images/humu/humu-talking.png'),
+            name: 'Humu',
+            avatar: humuTalking,
         },
     },
     {
@@ -104,8 +116,8 @@ const chat_messages2 = [
         createdAt: new Date(),
         user: {
             _id: 1,
-            name: 'Antonio',
-            avatar: require('../../../../../assets/images/prototype/nikkiamo.jpeg'),
+            name: 'User',
+            avatar: profilePic,
         },
     },
 ];
@@ -113,15 +125,9 @@ const chat_messages2 = [
 const curiosity_data = [
     {
         key: '1',
-        title: 'La purificación',
-        text: 'En las comunidades indígenas, cuando una persona hace algo mal, en lugar de castigarlo, se busca purificar sus acciones.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
-    },
-    {
-        key: '2',
-        title: 'Por favor',
+        title: 'Curiosidades - Por favor',
         text: 'En kichwa, el uso de la partícula pa en el imperativo puede significar por favor.',
-        imagePath: require('../../../../../assets/images/humu/humu-talking.png'),
+        imagePath: humuTalking,
     },
 ];
 
@@ -155,8 +161,8 @@ const BigFlipCard1 = ({ data1, data2 }) => {
     const renderBack = (data) => {
         return data.map((item, index) => (
             <View key={index} style={styles.tableRow}>
-                <Text style={[styles.tableCell, styles.textCenter]}>{item.conjugation}</Text>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+                <Text style={[styles.tableCell, styles.textCenter]}>{item.conjugation}</Text>
             </View>
         ));
     };
@@ -180,8 +186,8 @@ const BigFlipCard1 = ({ data1, data2 }) => {
                     <CardDefault title="El Verbo completo" styleCard={styles.cardDefaultPronouns}>
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Conjugación</Text>
                                 <Text style={styles.tableHeaderCell}>Español</Text>
+                                <Text style={styles.tableHeaderCell}>Conjugación</Text>
                             </View>
                             {renderBack(data2)}
                         </View>
@@ -223,8 +229,8 @@ const BigFlipCard2 = ({ data1, data2 }) => {
     const renderBack = (data) => {
         return data.map((item, index) => (
             <View key={index} style={styles.tableRow}>
-                <Text style={[styles.tableCell, styles.textCenter]}>{item.conjugation}</Text>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
+                <Text style={[styles.tableCell, styles.textCenter]}>{item.conjugation}</Text>
             </View>
         ));
     };
@@ -249,8 +255,8 @@ const BigFlipCard2 = ({ data1, data2 }) => {
                     <CardDefault title="El Verbo completo" styleCard={styles.cardDefaultPronouns}>
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
-                                <Text style={styles.tableHeaderCell}>Conjugación</Text>
                                 <Text style={styles.tableHeaderCell}>Español</Text>
+                                <Text style={styles.tableHeaderCell}>Conjugación</Text>
                             </View>
                             {renderBack(data2)}
                         </View>
@@ -281,9 +287,9 @@ const BigFlipCard3 = ({ data1, data2 }) => {
     const renderFront = (data) => {
         return data.map((item, index) => (
             <View key={index} style={styles.tableRow}>
+                <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.verb}</Text>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.positive}</Text>
-                <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
             </View>
         ));
     };
@@ -291,9 +297,9 @@ const BigFlipCard3 = ({ data1, data2 }) => {
     const renderBack = (data) => {
         return data.map((item, index) => (
             <View key={index} style={styles.tableRow}>
+                <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.verb}</Text>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.negative}</Text>
-                <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
             </View>
         ));
     };
@@ -305,9 +311,9 @@ const BigFlipCard3 = ({ data1, data2 }) => {
                     <CardDefault title="Forma positiva" styleCard={styles.cardDefaultPronouns}>
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
                                 <Text style={styles.tableHeaderCell}>Verbo</Text>
                                 <Text style={styles.tableHeaderCell}>Positivo</Text>
-                                <Text style={styles.tableHeaderCell}>Español</Text>
                             </View>
                             {renderFront(data1)}
                         </View>
@@ -317,9 +323,9 @@ const BigFlipCard3 = ({ data1, data2 }) => {
                     <CardDefault title="Forma negativa" styleCard={styles.cardDefaultPronouns}>
                         <View style={styles.vocabularyTable}>
                             <View style={styles.tableHeader}>
+                                <Text style={styles.tableHeaderCell}>Español</Text>
                                 <Text style={styles.tableHeaderCell}>Verbo</Text>
                                 <Text style={styles.tableHeaderCell}>Negativo</Text>
-                                <Text style={styles.tableHeaderCell}>Español</Text>
                             </View>
                             {renderBack(data2)}
                         </View>
@@ -335,6 +341,8 @@ const Imperative = () => {
     const [showChat1, setShowChat1] = useState(false);
     const [showChat2, setShowChat2] = useState(false);
     const [activeAccordion, setActiveAccordion] = useState(null);
+    const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
 
@@ -358,12 +366,54 @@ const Imperative = () => {
         setShowChat2(!showChat2);
     };
 
+    const completeLevel = async () => {
+        try {
+            await AsyncStorage.setItem('level_SimplePresent_completed', 'true');
+            setIsNextLevelUnlocked(true);
+        } catch (error) {
+            console.log('Error guardando el progreso', error);
+        }
+    };
+
+    const trofeoKeys = [
+        'trofeo_modulo1_basic',
+        'trofeo_modulo2_basic',
+        'trofeo_modulo3_basic',
+        'trofeo_modulo4_basic',
+        'trofeo_modulo5_basic',
+        'trofeo_modulo6_basic',
+    ];
+    // Función para cargar el estado de los trofeos desde AsyncStorage
+    const loadTrophyProgress = async () => {
+        let obtainedCount = 0;
+
+        // Verificamos cuántos trofeos están desbloqueados
+        for (const key of trofeoKeys) {
+            const obtained = await AsyncStorage.getItem(key);
+            if (obtained === 'true') {
+                obtainedCount++;
+            }
+        }
+
+        // Actualizamos el progreso basado en el número de trofeos obtenidos
+        setProgress(obtainedCount / trofeoKeys.length); // Calcula el progreso como una fracción
+    };
+
+    // Cada vez que la pantalla de CaminoLevelsScreen gana foco, recargar el progreso de trofeos
+    useFocusEffect(
+        React.useCallback(() => {
+            loadTrophyProgress();
+        }, [])
+    );
+
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="default" backgroundColor="#003366" />
+        <LinearGradient
+            colors={['#e9cb60', '#F38181']}
+
+        >
             <ScrollView style={styles.scrollView}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Puntos⭐ Vidas ❤️</Text>
+                    <ProgressCircleWithTrophies progress={progress} level="basic" />
                 </View>
                 <View style={styles.questionIconContainer}>
                     <TouchableOpacity onPress={toggleHelpModal}>
@@ -389,7 +439,9 @@ const Imperative = () => {
                             Esto quiere decir: La forma informal.{'\n\n'}
                             Para transformar un verbo en imperativo solo tomamos la raíz y aumentamos
                             la terminación (variable). El imperativo no existe para ñuka, pay, y
-                            paykuna.
+                            paykuna.{'\n\n'}
+                            Presiona en la tabla de abajo para cambiar entre el verbo completo y los
+                            elementos del verbo.
                         </Text>
                     </CardDefault>
 
@@ -401,7 +453,9 @@ const Imperative = () => {
                         <Text style={styles.cardContent}>
                             Esto se traduce a: La forma cortés.{'\n\n'}
                             También existe la forma cortes. Para esto utilizamos kikin (usted) y kikinkuna
-                            (ustedes), y también anteponemos la partícula -pa antes de la terminación.
+                            (ustedes), y también anteponemos la partícula -pa antes de la terminación.{'\n\n'}
+                            Presiona en la tabla de abajo para cambiar entre el verbo completo y los
+                            elementos del verbo.
                         </Text>
                     </CardDefault>
 
@@ -413,7 +467,9 @@ const Imperative = () => {
                         <Text style={styles.cardContent}>
                             Esto significa: El imperativo negativo.{'\n\n'}
                             Para formar el negativo del imperativo, anteponemos la palabra ama, y
-                            añadimos la partícula chu al final del verbo.
+                            añadimos la partícula chu al final del verbo.{'\n\n'}
+                            Presiona en la tabla de abajo para cambiar entre la forma positiva y
+                            la negativa.
                         </Text>
                     </CardDefault>
 
@@ -450,10 +506,10 @@ const Imperative = () => {
                             <View style={styles.modalContent}>
                                 <View style={styles.helpModalContent}>
                                     <FloatingHumu >
-                                        <ImageContainer path={require('../../../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
+                                        <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en las tarjetas para darles la vuelta y ver acerca del verbo kana y la oración.'
+                                        text='Presiona en las tarjetas grandes para darles la vuelta.'
                                         arrowDirection="left"
                                     />
                                 </View>
@@ -474,10 +530,19 @@ const Imperative = () => {
                 <ChatModal visible={showChat2} onClose={toggleChatModal2} initialMessages={chat_messages2} />
 
                 <View style={styles.footer}>
-                    <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('SimplePresent')} />
+                <ButtonLevelsInicio label="Inicio"
+                        navigationTarget="CaminoLevelsBasic"
+                    />
+                    <ButtonDefault
+                        label="Siguiente"
+                        onPress={() => {
+                            completeLevel();
+                            navigation.navigate('SimplePresent');
+                        }}
+                    />
                 </View>
             </ScrollView>
-        </View>
+        </LinearGradient>
     );
 };
 
