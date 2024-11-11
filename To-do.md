@@ -90,7 +90,7 @@
 - Juegos: Info ayuda poner varios bubbles de comic para humu 
 - Arreglar las llamadas asincrónicas de progreso screen
 - adaptar juegos de basicos
--En pantalla de creditos inicial colocar los links de los libros
+- En pantalla de creditos inicial colocar los links de los libros
 
  
 
@@ -100,6 +100,7 @@
 -Pagina Tamaño la card de descripcion esta mal habla de familia, en ejemplos en lugar de conversación solo como frases separadas, oraciones, tildes en algunas cards.
 -Pagina la conjugacion en tiempo eliminar chat, solo frases
 -Poner intro de cada módulo como hizo MIlton
+-Cambiar cada juego para cada módulo
 
 
 
