@@ -23,6 +23,10 @@ import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
 const profilePic = require('../../../../../assets/images/prototype/santigod.jpeg');
 
+const images = {
+    simpPres1: require('../../../../../assets/images/basic/module6/present/present1.jpg'),
+};
+
 const simp_pres_ejem1a_data = [
     { subject: "Ñuka", root: "rima", ending: "ni" },
     { subject: "Kan", root: "rima", ending: "nki" },
@@ -67,87 +71,15 @@ const simp_pres_ejem2b_data = [
     { conjugation: "Tarpunkuna", spanish: "Ellos o ellas siembran" },
 ];
 
-const chat_messages = [
-    {
-        _id: 1,
-        text: 'Paykunaka ayapata tarpunkuna\n\nEllos/ellas siembran fréjol.',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Humu',
-            avatar: humuTalking,
-        },
-    },
-    {
-        _id: 2,
-        text: 'Kikinkunaka awashta tarpunkichik\n\nUstedes siembran habas.',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'User',
-            avatar: profilePic,
-        },
-    },
-    {
-        _id: 3,
-        text: 'Kankunaka ananasta tarpunkichik\n\nUstedes siembran chirimoya.',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Humu',
-            avatar: humuTalking,
-        },
-    },
-    {
-        _id: 4,
-        text: 'Ñukanchikka kitata tarpunchik\n\nNosotros sembramos cacao.',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'User',
-            avatar: profilePic,
-        },
-    },
-    {
-        _id: 5,
-        text: 'Payka akapita tarpun\n\nÉl o ella siembra cebada.',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Humu',
-            avatar: humuTalking,
-        },
-    },
-    {
-        _id: 6,
-        text: 'Kikinka papata tarpunki\n\nUsted siembra papas.',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'User',
-            avatar: profilePic,
-        },
-    },
-    {
-        _id: 7,
-        text: 'Kanka shañuta tarpunki\n\nTú siembras café.',
-        createdAt: new Date(),
-        user: {
-            _id: 2,
-            name: 'Humu',
-            avatar: humuTalking,
-        },
-    },
-    {
-        _id: 8,
-        text: 'Ñukaka sarata tarpuni\n\nYo siembro maíz.',
-        createdAt: new Date(),
-        user: {
-            _id: 1,
-            name: 'User',
-            avatar: profilePic,
-        },
-    },
+const simp_pres_data = [
+    { kichwa: "Ñukaka sarata tarpuni.", spanish: "Yo siembro maíz.", imageCard: images.simpPres1 },
+    { kichwa: "Kanka shañuta tarpunki.", spanish: "Tú siembras café.", imageCard: images.simpPres1 },
+    { kichwa: "Kikinka papata tarpunki.", spanish: "Usted siembra papas.", imageCard: images.simpPres1 },
+    { kichwa: "Payka akapita tarpun.", spanish: "Él o ella siembra cebada.", imageCard: images.simpPres1 },
+    { kichwa: "Ñukanchikka kitata tarpunchik.", spanish: "Nosotros sembramos cacao.", imageCard: images.simpPres1 },
+    { kichwa: "Kankunaka ananasta tarpunkichik.", spanish: "Ustedes siembran chirimoya.", imageCard: images.simpPres1 },
+    { kichwa: "Kikinkunaka awashta tarpunkichik.", spanish: "Ustedes siembran habas.", imageCard: images.simpPres1 },
+    { kichwa: "Paykunaka ayapata tarpunkuna.", spanish: "Ellos/ellas siembran fréjol.", imageCard: images.simpPres1 },
 ];
 
 const ending_data = [
@@ -160,6 +92,40 @@ const ending_data = [
     { subject: "Kikinkuna", ending: "nkichik" },
     { subject: "Paykuna", ending: "nkuna" },
 ];
+
+const FlipCard = ({ item }) => {
+    const [flipped, setFlipped] = useState(false);
+    const rotateY = useSharedValue(0);
+
+    const animatedStyleFront = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value}deg` }],
+    }));
+
+    const animatedStyleBack = useAnimatedStyle(() => ({
+        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
+    }));
+
+    const handleFlip = () => {
+        rotateY.value = withTiming(flipped ? 0 : 180, { duration: 300 });
+        setFlipped(!flipped);
+    };
+
+    return (
+        <TouchableWithoutFeedback onPress={handleFlip}>
+            <View style={styles.flipCard}>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardFront, animatedStyleFront]}>
+                    <ImageContainer path={item.imageCard} style={styles.imageCards} />
+                </Animated.View>
+                <Animated.View style={[styles.flipCardInner, styles.flipCardBack, animatedStyleBack]}>
+                    <Text style={styles.translationLabel}>Español:</Text>
+                    <Text style={styles.spanishText}>{item.spanish}</Text>
+                    <Text style={styles.translationLabel}>Kichwa:</Text>
+                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
+                </Animated.View>
+            </View>
+        </TouchableWithoutFeedback>
+    );
+};
 
 const BigFlipCard = ({ data1, data2 }) => {
     const [flipped, setFlipped] = useState(false);
@@ -239,7 +205,6 @@ const renderData = (data) => {
 
 const SimplePresent = () => {
     const [showHelp, setShowHelp] = useState(null);
-    const [showChat, setShowChat] = useState(false);
     const [isNextLevelUnlocked, setIsNextLevelUnlocked] = useState(false);
     const [progress, setProgress] = useState(0);
 
@@ -247,10 +212,6 @@ const SimplePresent = () => {
 
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
-    };
-
-    const toggleChatModal = () => {
-        setShowChat(!showChat);
     };
 
     const completeLevel = async () => {
@@ -355,7 +316,17 @@ const SimplePresent = () => {
 
                     <BigFlipCard data1={simp_pres_ejem2a_data} data2={simp_pres_ejem2b_data} />
 
-                    <ButtonDefault label="Oraciones / Yuyaykuna" onPress={toggleChatModal} />
+                    <CardDefault title="Oraciones de ejemplo" >
+                        <Text style={styles.cardContent}>
+                            Por último, veamos algunas oraciones en presente simple de ejemplo.
+                        </Text>
+                    </CardDefault>
+
+                    <View style={styles.gridContainer}>
+                        {simp_pres_data.map((item, index) => (
+                            <FlipCard key={index} item={item} />
+                        ))}
+                    </View>
                 </View>
 
                 {showHelp && (
@@ -372,7 +343,7 @@ const SimplePresent = () => {
                                         <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en las tarjetas para darles la vuelta y ver acerca del verbo kana y la oración.'
+                                        text='Presiona en las tarjetas para darles la vuelta y ver acerca de las conjugaciones.'
                                         arrowDirection="leftUp"
                                     />
                                 </View>
@@ -387,8 +358,6 @@ const SimplePresent = () => {
                         </View>
                     </Modal>
                 )}
-
-                <ChatModal visible={showChat} onClose={toggleChatModal} initialMessages={chat_messages} />
 
                 <View style={styles.footer}>
                     <ButtonLevelsInicio label="Inicio"

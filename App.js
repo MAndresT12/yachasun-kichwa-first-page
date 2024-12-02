@@ -17,6 +17,15 @@ import ProgresoScreen from './src/components/menus/ProgresoScreen.jsx';
 import Levels from './src/components/menus/Levels';
 import InstructionsBasic from './src/components/main/InstructionsBasic.jsx';
 import InstructionsMid from './src/components/main/InstructionsMid.jsx';
+
+//Introducciones a modulos (Basic)
+import IntroduccionModulo1Basic from './src/components/ui/intros/basic/IntroduccionModulo1Basic.jsx';
+import IntroduccionModulo2Basic from './src/components/ui/intros/basic/IntroduccionModulo2Basic.jsx';
+import IntroduccionModulo3Basic from './src/components/ui/intros/basic/IntroduccionModulo3Basic.jsx';
+import IntroduccionModulo4Basic from './src/components/ui/intros/basic/IntroduccionModulo4Basic.jsx';
+import IntroduccionModulo5Basic from './src/components/ui/intros/basic/IntroduccionModulo5Basic.jsx';
+import IntroduccionModulo6Basic from './src/components/ui/intros/basic/IntroduccionModulo6Basic.jsx';
+
 //Introducciones a modulos (Intermedio)
 import IntroduccionModulo1Intermedio from './src/components/ui/IntroduccionModulo1Intermedio.jsx';
 import IntroduccionModulo2Intermedio from './src/components/ui/IntroduccionModulo2Intermedio.jsx';
@@ -289,7 +298,12 @@ function HomeStack() {
       />
 
       {/* BASIC */}
-      {/* Modulo 1 */}
+      {/* Module 1 */}
+      <Stack.Screen
+        name="IntroModuloB1"
+        component={IntroduccionModulo1Basic}
+        options={{ title: 'Módulo 1' }}
+      />
       <Stack.Screen
         name="Alphabet"
         component={Alphabet}
@@ -335,6 +349,11 @@ function HomeStack() {
 
       {/* Module 2 */}
       <Stack.Screen
+        name="IntroModuloB2"
+        component={IntroduccionModulo2Basic}
+        options={{ title: 'Módulo 2' }}
+      />
+      <Stack.Screen
         name="GreetingsPart1"
         component={GreetingsPart1}
         options={{ title: 'Los Saludos Parte 1' }}
@@ -379,6 +398,11 @@ function HomeStack() {
 
       {/* Module 3 */}
       <Stack.Screen
+        name="IntroModuloB3"
+        component={IntroduccionModulo3Basic}
+        options={{ title: 'Módulo 3' }}
+      />
+      <Stack.Screen
         name="FamilyPart2"
         component={FamilyPart2}
         options={{ title: 'La Familia Parte 2' }}
@@ -421,6 +445,11 @@ function HomeStack() {
         options={{ title: 'Básico Módulo 3: Puntuación Final' }}
       />
       {/* Module 4 */}
+      <Stack.Screen
+        name="IntroModuloB4"
+        component={IntroduccionModulo4Basic}
+        options={{ title: 'Módulo 4' }}
+      />
       <Stack.Screen
         name="Nature"
         component={Nature}
@@ -466,6 +495,11 @@ function HomeStack() {
 
       {/* Module 5 */}
       <Stack.Screen
+        name="IntroModuloB5"
+        component={IntroduccionModulo5Basic}
+        options={{ title: 'Módulo 5' }}
+      />
+      <Stack.Screen
         name="Pluralization"
         component={Pluralization}
         options={{ title: 'La Pluralización' }}
@@ -509,6 +543,11 @@ function HomeStack() {
       />
 
       {/* Module 6 */}
+      <Stack.Screen
+        name="IntroModuloB6"
+        component={IntroduccionModulo6Basic}
+        options={{ title: 'Módulo 6' }}
+      />
       <Stack.Screen
         name="Imperative"
         component={Imperative}

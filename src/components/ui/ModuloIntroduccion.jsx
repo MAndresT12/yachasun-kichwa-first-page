@@ -9,7 +9,7 @@ import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ButtonLevelsInicio } from '../ui/buttons/ButtonLevelsInicio';
 import { ComicBubble } from '../ui/bubbles/ComicBubble';
 
-const ModuloIntroduccion = ({ imageSource, introText, nextScreen }) => {
+const ModuloIntroduccion = ({ imageSource, introText, nextScreen, navigationTarget = 'CaminoLevels' }) => {
     const navigation = useNavigation();
 
     return (
@@ -35,7 +35,7 @@ const ModuloIntroduccion = ({ imageSource, introText, nextScreen }) => {
             </View>
 
             <View style={globalStyles.footer}>
-                <ButtonLevelsInicio label="Inicio" />
+                <ButtonLevelsInicio label="Inicio" navigationTarget={navigationTarget} />
                 <ButtonDefault label="Siguiente" onPress={() => navigation.navigate(nextScreen)} />
             </View>
         </LinearGradient>

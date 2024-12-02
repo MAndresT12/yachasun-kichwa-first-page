@@ -42,7 +42,7 @@ const IntroGamesBasic1 = () => {
             </View>
 
             <View style={styles.footer}>
-                <ButtonLevelsInicio label="Inicio" />
+                <ButtonLevelsInicio label="Inicio" navigationTarget="CaminoLevelsBasic" />
 
                 <ButtonDefault label="Siguiente" onPress={() => navigation.navigate('GamesBasicModule3')} />
             </View>

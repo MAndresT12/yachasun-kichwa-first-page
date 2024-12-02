@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, StatusBar, TouchableWithoutFeedback, TouchableOpacity, Modal, Dimensions } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity, Modal, Dimensions } from 'react-native';
 
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing, withRepeat } from 'react-native-reanimated';
-import { PanGestureHandler } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Carousel from 'react-native-reanimated-carousel';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
@@ -21,7 +20,6 @@ import { ComicBubble } from '../../../ui/bubbles/ComicBubble';
 import { ButtonLevelsInicio } from '../../../ui/buttons/ButtonLevelsInicio';
 
 const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg');
-const humuTalkingPNG = require('../../../../../assets/images/humu/humu-talking.png');
 
 const { width } = Dimensions.get('window');
 
@@ -38,131 +36,15 @@ const size_data = [
     { kichwa: "Uchilla", spanish: "Pequeño", imageCard: images.size4, },
 ];
 
-const FlipCard = ({ item }) => {
-    const [flipped, setFlipped] = useState(false);
-    const rotateY = useSharedValue(0);
-    const humuOpacity = useSharedValue(0);
-    const humuLeftPosition = useSharedValue(-width * 0.008);
-    const arrowOpacity = useSharedValue(0); // Arrow opacity control
-    const cardOpacity = useSharedValue(0);
-    const cardTranslateX = useSharedValue(-width * 0.43);
-
-    const animatedStyleFront = useAnimatedStyle(() => ({
-        transform: [{ rotateY: `${rotateY.value}deg` }],
-    }));
-
-    const animatedStyleBack = useAnimatedStyle(() => ({
-        transform: [{ rotateY: `${rotateY.value + 180}deg` }],
-    }));
-
-    const animatedHumuStyle = useAnimatedStyle(() => ({
-        opacity: humuOpacity.value,
-        transform: [{ translateX: humuLeftPosition.value }],
-    }));
-
-    const animatedArrowStyle = useAnimatedStyle(() => ({
-        opacity: arrowOpacity.value, // Control arrow opacity here
-    }));
-
-    const animatedCardStyle = useAnimatedStyle(() => ({
-        opacity: cardOpacity.value,
-        transform: [{ translateX: cardTranslateX.value }],
-    }));
-
-    const handleFlip = () => {
-        if (!flipped) {
-            rotateY.value = withTiming(180, { duration: 300 });
-            setTimeout(() => {
-                humuOpacity.value = withTiming(1, { duration: 300 });
-                humuLeftPosition.value = withTiming(
-                    width * 0.2,
-                    { duration: 500 },
-                    () => {
-                        humuLeftPosition.value = withTiming(width * 0.28, {
-                            duration: 200,
-                            easing: Easing.bounce,
-                        }, () => {
-                            // Arrow fades in after Humu's animation finishes
-                            arrowOpacity.value = withTiming(0.8, { duration: 500 }, () => {
-                                // Start the arrow loop
-                                arrowOpacity.value = withRepeat(
-                                    withTiming(0.2, { duration: 800 }),
-                                    -1,
-                                    true // This makes it go back and forth between 0.2 and 0.8
-                                );
-                            });
-                            // Start the Humu loop moving back and forth
-                            humuLeftPosition.value = withRepeat(
-                                withTiming(width * 0.3, { duration: 1000 }),
-                                -1,
-                                true // Moves back and forth smoothly
-                            );
-                        });
-                    }
-                );
-            }, 1000);
-        } else {
-            rotateY.value = withTiming(0, { duration: 300 });
-            humuOpacity.value = withTiming(0, { duration: 300 }, () => {
-                humuLeftPosition.value = -width * 0.008;
-            });
-            arrowOpacity.value = withTiming(0, { duration: 300 }); // Hide the arrow when flipped back
-            cardOpacity.value = withTiming(0, { duration: 300 });
-            cardTranslateX.value = withTiming(-width * 0.43, { duration: 300 });
-        }
-        setFlipped(!flipped);
-    };
-
-    const handleGesture = (event) => {
-        const { translationX } = event.nativeEvent;
-
-        if (translationX > 50) {
-            humuLeftPosition.value = withTiming(width, { duration: 300 });
-            // Arrow fades out rapidly when gesture is triggered
-            arrowOpacity.value = withTiming(0, { duration: 100 });
-            setTimeout(() => {
-                cardOpacity.value = withTiming(1, { duration: 300 });
-                cardTranslateX.value = withTiming(0, { duration: 300 });
-            }, 300);
-        }
-    };
-
-    return (
-        <View style={styles.flipCardContainerBothCardsGreetings2}>
-            <TouchableWithoutFeedback onPress={handleFlip}>
-                <View style={styles.flipCardGreetings2}>
-                    <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardFrontGreetings2, animatedStyleFront]}>
-                        <ImageContainer path={images.size1} style={styles.imageCards} />
-                    </Animated.View>
-                    <Animated.View style={[styles.flipCardInnerGreetings2, styles.flipCardBackGreetings2, animatedStyleBack]}>
-                        <ImageContainer path={item.imageCard} style={styles.imageCards} />
-                    </Animated.View>
-                </View>
-            </TouchableWithoutFeedback>
-
-            <PanGestureHandler onGestureEvent={handleGesture}>
-                <Animated.Image
-                    source={humuTalkingPNG}
-                    style={[styles.humuImage, animatedHumuStyle]}
-                />
-            </PanGestureHandler>
-
-            {/* Arrow that appears after Humu animation */}
-            <Animated.View style={[animatedArrowStyle, { position: 'absolute', left: '65%', top: '50%' }]}>
-                <FontAwesome name="arrow-right" size={24} color="white" />
-            </Animated.View>
-
-            <Animated.View style={[styles.flipCard2ndGreetings2, animatedCardStyle]}>
-                <CardDefault styleContainer={styles.flipCardSecondCardGreetings2} styleCard={styles.flipCardSecondCardContentGreetings2}>
-                    <Text style={styles.translationLabel}>Español:</Text>
-                    <Text style={styles.spanishText}>{item.spanish}</Text>
-                    <Text style={styles.translationLabel}>Kichwa:</Text>
-                    <Text style={styles.kichwaText}>{item.kichwa}</Text>
-                </CardDefault>
-            </Animated.View>
-        </View>
-    );
-};
+const renderCard = (item) => (
+    <View style={styles.carouselCard}>
+        <ImageContainer path={item.imageCard} style={styles.carouselImage} />
+        <Text style={styles.translationLabel}>Español:</Text>
+        <Text style={styles.spanishText}>{item.spanish}</Text>
+        <Text style={styles.translationLabel}>Kichwa:</Text>
+        <Text style={styles.kichwaText}>{item.kichwa}</Text>
+    </View>
+);
 
 const Size = () => {
     const [showHelp, setShowHelp] = useState(null);
@@ -242,10 +124,15 @@ const Size = () => {
                         </Text>
                     </CardDefault>
 
-                    <View style={styles.gridContainerGreetings2}>
-                        {size_data.map((item, index) => (
-                            <FlipCard key={index} item={item} />
-                        ))}
+                    <View>
+                        <Carousel
+                            width={width * 0.8}
+                            height={310}
+                            data={size_data}
+                            renderItem={({ item }) => renderCard(item)}
+                            mode="parallax"
+                            pagingEnabled={true}
+                        />
                     </View>
                 </View>
 
@@ -263,7 +150,7 @@ const Size = () => {
                                         <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
                                     </FloatingHumu>
                                     <ComicBubble
-                                        text='Presiona en cada tarjeta de tamaño y desliza a Humu para ver los adjetivos de tamaño.'
+                                        text='Desliza el carrusel para ver las palabras de tamaño.'
                                         arrowDirection="leftUp"
                                     />
                                 </View>

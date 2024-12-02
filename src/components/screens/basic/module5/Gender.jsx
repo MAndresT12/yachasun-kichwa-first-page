@@ -207,8 +207,8 @@ const Gender = () => {
                             el Español, ya que en cierta manera no existen.{`\n\n`}
                             En cuanto al género no tenemos terminaciones para identificar si estamos
                             hablando del femenino o masculino, por esta razón utilizamos las palabras
-                            warmi (mujer) o kari (hombre) para establecer si es femenino o
-                            masculino.{`\n\n`}
+                            warmi o kari para establecer si es femenino o
+                            masculino, respectivamente.{`\n\n`}
                             Las palabras warmi y kari las utilizamos antes de cualquier sustantivo 
                             que usemos.{`\n\n`}
                             Presiona en la tabla de abajo para cambiar entre masculino y femenino.

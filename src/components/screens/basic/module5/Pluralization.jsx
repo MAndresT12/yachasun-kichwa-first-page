@@ -257,10 +257,7 @@ const Pluralization = () => {
                     <CardDefault title="¿Cómo hablar de muchas cosas?">
                         <Text style={styles.cardContent}>
                             Para transformar una palabra del singular al plural, ponemos la
-                            partícula -kuna al final de la palabra.{`\n\n`}
-                            Esto se traduce a:{`\n\n`}
-                            Shukllachikmanta tawkachikman tikrachinkapakka –kuna
-                            shimikutami churanchik.
+                            partícula -kuna al final de la palabra.
                         </Text>
                     </CardDefault>
 

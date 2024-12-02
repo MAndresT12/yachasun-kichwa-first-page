@@ -61,22 +61,29 @@
 - En levels colocar bien las traducciones de modulos etc [x]
 - Dar titulos a modulos (familia, verbos, varios, etc) [x]
 - FAMILIA P2 colocar pachamama entre parentesis el significado (madre tierra) [x]
--En lugar de cargas en pag partes del cuerpo (colocar tab, la imagen español kichwa), curriosidad rkopa de ellos tradicional es costosa. [x]
--Pantalla cosas de la casa (la casa dif, una choza) [x]
--Pantalla Aula la data de los cards esta igual a la de cosas de la casa toca cambiarle bien. [x]
--AGREGAR EN PANTALLA UN BOTON QUE DIRIJA AL INICIO (CAMINO LEVELS) [x]
--Paginalos animales (como que para comer=?????) [x]
+- En lugar de cargas en pag partes del cuerpo (colocar tab, la imagen español kichwa), curriosidad rkopa de ellos tradicional es costosa. [x]
+- Pantalla cosas de la casa (la casa dif, una choza) [x]
+- Pantalla Aula la data de los cards esta igual a la de cosas de la casa toca cambiarle bien. [x]
+- AGREGAR EN PANTALLA UN BOTON QUE DIRIJA AL INICIO (CAMINO LEVELS) [x]
+- Paginalos animales (como que para comer=?????) [x]
+- Pagina la plurización eliminar en kichwa la descripcion [x]
+- Pagina el genero redundante femenio o masculino desc, tambien tabla masculino/femenino debe haber ambas, colocar mensaje de girar la card masc fem [x]
+- Pagina Tamaño la card de descripcion esta mal habla de familia, en ejemplos en lugar de conversación solo como frases separadas, oraciones, tildes en algunas cards. [X]
+- Pagina la conjugacion en tiempo eliminar chat, solo frases [x]
+- Poner intro de cada módulo como hizo MIlton [x]
+- Poner el Kichwa en verdey espanol en azul todos los textos. [x]
+- Cambiar a todos los puntos de vida por los trofeos[x]
+- Logica primero español luego kichwa [x]
+- Cambiar cada juego para cada módulo
 
 
 
-- Poner el Kichwa en verdey espanol en azul todos los textos. [en_progreso]
-- Cambiar a todos los puntos de vida por los trofeos[en_progreso]
-- Logica primero español luego kichwa [en_progreso]
 - Arreglar todas las imagenes [en_progreso]
 -Pagina La Naturaleza en la tabla colocar imagenes que correspondan [en_progreso]
 -Página Los Alimentos (colocar imagenes en las frutas etc). [en_progreso]
 -Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa [en_progreso]
 - Progreso falta y perfil también [Progreso_hecho_falta_perfil]
+-Página la cantidad, colocar español kichwa e imagenes [en_progreso]
 
 
 
@@ -93,14 +100,6 @@
 - En pantalla de creditos inicial colocar los links de los libros
 
  
-
--Pagina la plurización eliminar en kichwa la descripcion
--Pagina el genero redundante femenio o masculino desc, tambien tabla masculino/femenino debe haber ambas, colocar mensaje de girar la card masc fem
--Página la cantidad, colocar español kichwa e imagenes
--Pagina Tamaño la card de descripcion esta mal habla de familia, en ejemplos en lugar de conversación solo como frases separadas, oraciones, tildes en algunas cards.
--Pagina la conjugacion en tiempo eliminar chat, solo frases
--Poner intro de cada módulo como hizo MIlton
--Cambiar cada juego para cada módulo
 
 
 

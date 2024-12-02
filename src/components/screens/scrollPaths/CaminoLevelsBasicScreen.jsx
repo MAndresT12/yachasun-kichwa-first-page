@@ -162,7 +162,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_Alphabet"
                         title="El Alfabeto / Llika"
                         iconName="book"
-                        nextScreen="Alphabet"
+                        nextScreen="IntroModuloB1"
                         progressKey="level_Alphabet_completed"
                     />
                     <BouncyText>El Alfabeto / Llika</BouncyText>
@@ -238,7 +238,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_GreetingsPart1"
                         title="Los Saludos Parte 1: Básicos / Napaykuna"
                         iconName="handshake-o"
-                        nextScreen="GreetingsPart1"
+                        nextScreen="IntroModuloB2"
                         progressKey="level_GreetingsPart1_completed"
                     />
                     <BouncyText> Los Saludos / Napaykuna 1️⃣</BouncyText>
@@ -319,7 +319,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_FamilyPart2"
                         title="La Familia Parte 2: Extendida / Ayllu"
                         iconName="user-plus"
-                        nextScreen="FamilyPart2"
+                        nextScreen="IntroModuloB3"
                         progressKey="level_FamilyPart2_completed"
                     />
                     <BouncyText>La Familia / Ayllu 2️⃣</BouncyText>
@@ -400,7 +400,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_Nature"
                         title="La naturaleza / Pachamama"
                         iconName="tree"
-                        nextScreen="Nature"
+                        nextScreen="IntroModuloB4"
                         progressKey="level_Nature_completed"
                     />
                     <BouncyText>La naturaleza / Pachamama</BouncyText>
@@ -472,7 +472,7 @@ const CaminoLevelsScreen = () => {
                     />
                 </TouchableOpacity>
 
-                {/*Modulo 5 */}
+                {/* Modulo 5 */}
                 <BouncyTextTitulo>Describe el mundo</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 5 / Pichkaniki Tantachiy Yachay</BouncyTextTitulo>
 
@@ -481,7 +481,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_Pluralization"
                         title="La pluralización / Tawkachina"
                         iconName="list-ol"
-                        nextScreen="Pluralization"
+                        nextScreen="IntroModuloB5"
                         progressKey="level_Pluralization_completed"
                     />
                     <BouncyText>La pluralización / Tawkachina</BouncyText>
@@ -553,7 +553,7 @@ const CaminoLevelsScreen = () => {
                     />
                 </TouchableOpacity>
 
-                {/*Modulo 6 */}
+                {/* Modulo 6 */}
                 <BouncyTextTitulo>El primer gran desafío</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 6 / Suktaniki Tantachiy Yachay</BouncyTextTitulo>
 
@@ -562,7 +562,7 @@ const CaminoLevelsScreen = () => {
                         levelKey="level_Imperative"
                         title="El imperativo / Rurachik"
                         iconName="hand-o-right"
-                        nextScreen="Imperative"
+                        nextScreen="IntroModuloB6"
                         progressKey="level_Imperative_completed"
                     />
                     <BouncyText>El imperativo / Rurachik</BouncyText>
