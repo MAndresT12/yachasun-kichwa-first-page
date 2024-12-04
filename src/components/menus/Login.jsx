@@ -1,12 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, TextInput, StyleSheet, Animated, TouchableWithoutFeedback, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, Alert } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
+
+import { LinearGradient } from 'expo-linear-gradient';
+
 import { styles } from '../../../styles/globalStyles';
+
+import { FloatingHumu } from '../animations/FloatingHumu';
+
 import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../ui/imageContainers/ImageContainer';
-import { LinearGradient } from 'expo-linear-gradient';
-import { FloatingHumu } from '../animations/FloatingHumu';
 
 const Login = () => {
     const navigation = useNavigation();

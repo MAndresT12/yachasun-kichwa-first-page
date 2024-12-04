@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { styles } from '../../../styles/globalStyles';
-import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 
-const SettingsScreen = () => {
+const CreditsScreen = () => {
   const [volume, setVolume] = useState(0.5);
   const handleVolumeChange = (value) => {
     setVolume(value);
@@ -29,4 +28,4 @@ const SettingsScreen = () => {
   );
 };
 
-export default SettingsScreen;
+export default CreditsScreen;

@@ -1,9 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../../../styles/globalStyles';
-import { ButtonDefault } from '../ui/buttons/ButtonDefault';
+
 import { LinearGradient } from 'expo-linear-gradient';
+
+import { styles } from '../../../styles/globalStyles';
+
+import { FloatingHumu } from '../animations/FloatingHumu';
+import { FloatingWelcome } from '../animations/FloatingWelcome';
+
+import { ButtonDefault } from '../ui/buttons/ButtonDefault';
+import { ImageContainer } from '../ui/imageContainers/ImageContainer';
 
 const HomeScreen = () => {
     const navigation = useNavigation();
@@ -21,7 +29,7 @@ const HomeScreen = () => {
         navigation.navigate('Main', {
             screen: 'Inicio',
             params: {
-                screen: 'SettingsScreen',
+                screen: 'CreditsScreen',
             },
         });
     };
@@ -34,14 +42,18 @@ const HomeScreen = () => {
         <LinearGradient
             colors={['#e9cb60', '#F38181']}
             style={[localStyles.gradientBackground, styles.container, localStyles.loginContainer]}
+
         >
-            <View style={styles.containerHome}>
-                <Text style={styles.titleHome}>Yachasun Kichwa</Text>
-                <View style={styles.buttoncontainerHome}>
-                    <ButtonDefault label="Jugar" onPress={handlePlay} />
-                    <ButtonDefault label="Configuración" onPress={handleSettings} />
-                    <ButtonDefault label="Cerrar Sesión" onPress={handleSessionClose} />
-                </View>
+            <FloatingWelcome>
+                <ImageContainer path={require('../../../assets/images/menus/welcome-letters.png')} style={localStyles.imageWelcome} />
+            </FloatingWelcome>
+            <FloatingHumu initialValue={10}>
+                <ImageContainer path={require('../../../assets/images/humu/humu-fuckup.png')} />
+            </FloatingHumu>
+            <View style={styles.buttoncontainerHome}>
+                <ButtonDefault label="Jugar" onPress={handlePlay} />
+                <ButtonDefault label="Créditos" onPress={handleSettings} />
+                <ButtonDefault label="Cerrar Sesión" onPress={handleSessionClose} />
             </View>
         </LinearGradient>
     );
@@ -79,7 +91,12 @@ const localStyles = StyleSheet.create({
         marginTop: 10,
         color: '#481a0c',
         textDecorationLine: 'underline'
-    }
+    },
+    imageWelcome: {
+        width: 320,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 });
 
 export default HomeScreen;

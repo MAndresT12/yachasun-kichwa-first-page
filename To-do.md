@@ -74,7 +74,8 @@
 - Poner el Kichwa en verdey espanol en azul todos los textos. [x]
 - Cambiar a todos los puntos de vida por los trofeos[x]
 - Logica primero español luego kichwa [x]
-- Cambiar cada juego para cada módulo
+- Juegos: Info ayuda poner varios bubbles de comic para humu [x]
+- Usar el personaje desde el menu de inicio [x]
 
 
 
@@ -87,20 +88,19 @@
 
 
 
-- Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa
 - En menu de inicio, poner creditos, la poli, facu, estudiantes y tutor para el título
-- Usar el personaje desde el menu de inicio
 - Debe salir el nombre del usuario al ingresar, en niveles tambien
 - En pantalla de inicio que diga hola soy hummu y estoy listo para jogar, aquí una descrpción del Kichwa, una intro al idioma (hacer componente para luego ver cómo poner)
 - Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral
 - Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
-- Juegos: Info ayuda poner varios bubbles de comic para humu 
 - Arreglar las llamadas asincrónicas de progreso screen
 - adaptar juegos de basicos
 - En pantalla de creditos inicial colocar los links de los libros
 
  
 
+- Cambiar cada juego para cada módulo
+- Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa
 
 
 

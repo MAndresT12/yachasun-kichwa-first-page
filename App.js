@@ -40,7 +40,7 @@ import IntroduccionModulo6Intermedio from './src/components/ui/IntroduccionModul
 import LoadingScreen from './src/components/menus/LoadingScreen';
 import Login from './src/components/menus/Login';
 import HomeScreen from './src/components/menus/HomeScreen';
-import SettingsScreen from './src/components/menus/SettingsScreen';
+import CreditsScreen from './src/components/menus/CreditsScreen';
 
 import CaminoLevelsScreen from './src/components/screens/scrollPaths/CaminoLevelsScreen.jsx';
 import CaminoLevelsBasicScreen from './src/components/screens/scrollPaths/CaminoLevelsBasicScreen.jsx';
@@ -272,8 +272,8 @@ function HomeStack() {
         options={{ title: 'Niveles' }}
       />
       <Stack.Screen
-        name="SettingsScreen"
-        component={SettingsScreen}
+        name="CreditsScreen"
+        component={CreditsScreen}
         options={{ headerShown: true, title: 'Configuración' }}
       />
       <Stack.Screen
