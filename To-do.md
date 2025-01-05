@@ -94,12 +94,8 @@
 - Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral
 - Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
 - Arreglar las llamadas asincrónicas de progreso screen
-- adaptar juegos de basicos
+- adaptar juegos de basicos, Cambiar cada juego para cada módulo
 - En pantalla de creditos inicial colocar los links de los libros
-
- 
-
-- Cambiar cada juego para cada módulo
 - Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa
 
 
