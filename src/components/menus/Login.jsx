@@ -39,7 +39,7 @@ const Login = () => {
                     <ImageContainer path={require('../../../assets/images/humu/humu-happy.png')} />
                 </FloatingHumu>
                 <CardDefault style={styles.cardContent}>
-                    <Text style={localStyles.title}>Bienvenido a YACHASUN KICHWA</Text>
+                    <Text style={localStyles.title}>Inicio de sesión</Text>
                     <TextInput
                         style={localStyles.input}
                         placeholder="Correo"
