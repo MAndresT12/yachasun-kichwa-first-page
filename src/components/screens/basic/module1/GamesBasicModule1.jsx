@@ -66,10 +66,7 @@ const roulette_data = [
     { spanish: 'primero', kichwa: 'shukniki' },
     { spanish: 'segundo', kichwa: 'ishkayniki' },
     { spanish: 'tercero', kichwa: 'kimsaniki' },
-    { spanish: 'décimo', kichwa: 'chunkaniki' },
     { spanish: 'duodécimo', kichwa: 'chunka ishkayniki' },
-    { spanish: 'decimoquinto', kichwa: 'chunka pichkaniki' },
-    { spanish: 'decimonoveno', kichwa: 'chunka iskunniki' },
     { spanish: 'vigésimo', kichwa: 'ishkay chunkaniki' },
 ];
 
