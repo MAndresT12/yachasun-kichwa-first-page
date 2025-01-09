@@ -1,14 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
+
+import { LinearGradient } from 'expo-linear-gradient';
+
 import { styles } from '../../../styles/globalStyles';
 import { buttonStyles } from '../../../styles/buttonStyles';
 import { cardStyles } from '../../../styles/cardStyles';
 import { imageStyles } from '../../../styles/imageStyles';
+
 import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../ui/imageContainers/ImageContainer';
-import { LinearGradient } from 'expo-linear-gradient';
 
 const Instructions = () => {
     const navigation = useNavigation();

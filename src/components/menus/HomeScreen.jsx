@@ -25,11 +25,20 @@ const HomeScreen = () => {
         });
     };
 
-    const handleSettings = () => {
+    const handleCredits = () => {
         navigation.navigate('Main', {
             screen: 'Inicio',
             params: {
                 screen: 'CreditsScreen',
+            },
+        });
+    };
+
+    const handleTuto = () => {
+        navigation.navigate('Main', {
+            screen: 'Inicio',
+            params: {
+                screen: 'TutoScreen',
             },
         });
     };
@@ -52,7 +61,8 @@ const HomeScreen = () => {
             </FloatingHumu>
             <View style={styles.buttoncontainerHome}>
                 <ButtonDefault label="Jugar" onPress={handlePlay} />
-                <ButtonDefault label="Créditos" onPress={handleSettings} />
+                <ButtonDefault label="Tutorial" onPress={handleTuto} />
+                <ButtonDefault label="Créditos" onPress={handleCredits} />
                 <ButtonDefault label="Cerrar Sesión" onPress={handleSessionClose} />
             </View>
         </LinearGradient>

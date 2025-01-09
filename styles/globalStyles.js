@@ -78,6 +78,15 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         fontSize: 16,
     },
+    cardContentCenter: {
+        paddingTop: 18,
+        backgroundColor: '#f8f8f8',
+        borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: 16,
+        textAlign: 'center',
+    },
     cardContentCardDefault: {
         marginTop: 10,
         fontSize: 16,
@@ -817,7 +826,7 @@ export const styles = StyleSheet.create({
     buttoncontainerHome: {
         width: '80%',
         justifyContent: 'space-around',
-        height: 200,
+        height: 260,
     },
 
     containerSettings: {
