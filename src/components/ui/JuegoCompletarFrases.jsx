@@ -1,23 +1,38 @@
 // src/components/JuegoCompletarFrases.jsx
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Modal, Image } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
-import DraggableWord from '../customs/DraggableWord';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Modal } from 'react-native';
+
 import ConfettiCannon from 'react-native-confetti-cannon';
+
 import { LinearGradient } from 'expo-linear-gradient';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { styles as globalStyles } from '../../../styles/globalStyles';
+
+import DraggableWord from '../customs/DraggableWord';
+
+import { FloatingHumu } from '../animations/FloatingHumu';
+
+import { ImageContainer } from '../ui/imageContainers/ImageContainer';
+import { ComicBubble } from '../ui/bubbles/ComicBubble';
 import { ButtonDefault } from './buttons/ButtonDefault';
 import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
 
-const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
+const humuTalking = require('../../../assets/images/humu/humu-talking.jpg');
+
+const JuegoCompletarFrases = ({ data, onNext, helpText, navigationTarget = 'CaminoLevels' }) => {
     const [currentSentenceIndex, setCurrentSentenceIndex] = useState(Math.floor(Math.random() * data.length));
     const [selectedWord, setSelectedWord] = useState(null);
     const [showConfetti, setShowConfetti] = useState(false);
     const [showNextButton, setShowNextButton] = useState(false);
-    const [showHelp, setShowHelp] = useState(false);
+    const [showHelp, setShowHelp] = useState(null);
 
     const currentSentence = data[currentSentenceIndex];
 
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
+    };
+    
     const handleDrop = (position) => {
         if (position.word === currentSentence.correctWords[0]) {
             setSelectedWord(position.word);
@@ -35,6 +50,7 @@ const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
         setShowConfetti(false);
         setShowNextButton(false);
     };
+
 
     return (
         <LinearGradient
@@ -73,26 +89,39 @@ const JuegoCompletarFrases = ({ data, onNext, helpText }) => {
                 )}
 
                 <ButtonLevelsInicio label="Reiniciar" onPress={handleRestart} />
-                <ButtonLevelsInicio label="Inicio" />
+                <ButtonLevelsInicio navigationTarget={navigationTarget} label="Inicio" />
 
 
                 {/* Modal de ayuda */}
-                <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
-                    <View style={styles.modalContainer}>
-                        <View style={styles.modalContent}>
-                            <View style={styles.contentContainer}>
-                                <Image source={require('../../../assets/images/humu/humu-talking.png')} style={styles.image} />
-                                <View style={styles.speechBubble}>
-                                    <Text style={styles.bubbleText}>{helpText}</Text>
-                                    <View style={styles.bubbleTail} />
+                {showHelp && (
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={showHelp}
+                        onRequestClose={() => toggleHelpModal()}
+                    >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <View style={globalStyles.helpModalContent}>
+                                    <FloatingHumu >
+                                        <ImageContainer path={humuTalking} style={globalStyles.imageModalHelp} />
+                                    </FloatingHumu>
+                                    <ComicBubble
+                                        text={helpText}
+                                        arrowDirection="leftUp"
+                                    />
+                                </View>
+                                <View style={globalStyles.buttonContainerAlphabet}>
+                                    <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                        <View style={globalStyles.buttonDefaultAlphabet}>
+                                            <Text style={globalStyles.buttonTextAlphabet}>Cerrar</Text>
+                                        </View>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
-                            <TouchableOpacity onPress={() => setShowHelp(false)}>
-                                <Text style={styles.closeButtonText}>Cerrar</Text>
-                            </TouchableOpacity>
                         </View>
-                    </View>
-                </Modal>
+                    </Modal>
+                )}
             </ScrollView>
         </LinearGradient>
     );

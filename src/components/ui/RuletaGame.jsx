@@ -9,7 +9,7 @@ import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
 import { ButtonDefault } from './buttons/ButtonDefault';
 import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
-const RuletaGame = ({ data, onNext, helpText }) => {
+const RuletaGame = ({ data, onNext, helpText, navigationTarget = 'CaminoLevels' }) => {
     const [selectedWord, setSelectedWord] = useState(null);
     const [inputTranslation, setInputTranslation] = useState('');
     const [isSpinning, setIsSpinning] = useState(false);
@@ -95,7 +95,7 @@ const RuletaGame = ({ data, onNext, helpText }) => {
                 </TouchableOpacity> */}
 
                 <ButtonLevelsInicio label="Girar" onPress={spinPointer} disabled={isSpinning} />
-                <ButtonLevelsInicio label="Inicio" />
+                <ButtonLevelsInicio navigationTarget={navigationTarget} label="Inicio" />
 
                 {selectedWord && (
                     <View style={stylesRuleta.resultContainer}>
@@ -117,7 +117,7 @@ const RuletaGame = ({ data, onNext, helpText }) => {
                     </View>
                 )}
                 {/* Modal de ayuda */}
-                <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
+                <Modal animationType="fade" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                     <View style={stylesRuleta.modalContainer}>
                         <View style={stylesRuleta.modalContent}>
                             <View style={styles.helpModalContent}>
@@ -126,7 +126,7 @@ const RuletaGame = ({ data, onNext, helpText }) => {
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={helpText}
-                                    arrowDirection="left"
+                                    arrowDirection="leftUp"
                                 />
                             </View>
                             <View style={styles.buttonContainerAlphabet}>

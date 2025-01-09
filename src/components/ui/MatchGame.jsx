@@ -1,15 +1,24 @@
 // src/components/MatchGame.jsx
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image, TouchableWithoutFeedback, Modal } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image, Modal } from 'react-native';
+
 import ConfettiCannon from 'react-native-confetti-cannon';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+
+import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
+
 import { styles } from '../../../styles/globalStyles';
-import { ComicBubble } from './bubbles/ComicBubble';
+
 import { FloatingHumu } from '../animations/FloatingHumu';
+
+import { ComicBubble } from './bubbles/ComicBubble';
 import { ImageContainer } from './imageContainers/ImageContainer';
 import { ButtonDefault } from './buttons/ButtonDefault';
 import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
+
+const humuTalking = require('../../../assets/images/humu/humu-talking.jpg');
+
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
 const Card = ({ card, isFlipped, onPress }) => {
@@ -43,13 +52,17 @@ const Card = ({ card, isFlipped, onPress }) => {
     );
 };
 
-const MatchGame = ({ data, onNext, helpText }) => {
+const MatchGame = ({ data, onNext, helpText, navigationTarget = 'CaminoLevels' }) => {
     const [cards, setCards] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
     const [matchedPairs, setMatchedPairs] = useState([]);
     const [showConfetti, setShowConfetti] = useState(false);
     const [showNextButton, setShowNextButton] = useState(false);
-    const [showHelp, setShowHelp] = useState(false);  // Estado para mostrar la ayuda del juego
+    const [showHelp, setShowHelp] = useState(null);
+
+    const toggleHelpModal = () => {
+        setShowHelp(!showHelp);
+    };
 
     const resetGame = useCallback(() => {
         const shuffledCards = shuffleArray([...data, ...data]);
@@ -105,40 +118,38 @@ const MatchGame = ({ data, onNext, helpText }) => {
             </View>
 
             <ButtonLevelsInicio label="Reiniciar" onPress={resetGame} />
-            <ButtonLevelsInicio label="Inicio" />
+            <ButtonLevelsInicio navigationTarget={navigationTarget} label="Inicio" />
             {/* Modal de ayuda */}
-            <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
-                <View style={stylesMatch.modalContainer}>
-                    <View style={stylesMatch.modalContent}>
-                        <View style={styles.helpModalContent}>
-                            <FloatingHumu >
-                                <ImageContainer path={require('../../../assets/images/humu/humu-talking.png')} style={styles.imageModalHelp} />
-                            </FloatingHumu>
-                            <ComicBubble
-                                text={helpText}
-                                arrowDirection="left"
-                            />
-                        </View>
-                        <View style={styles.buttonContainerAlphabet}>
-                            <TouchableOpacity onPress={() => setShowHelp(false)}>
-                                <View style={styles.buttonDefaultAlphabet}>
-                                    <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                        {/* <View style={stylesMatch.contentContainer}>
-                            <Image source={require('../../../assets/images/humu/humu-talking.png')} style={stylesMatch.image} />
-                            <View style={stylesMatch.speechBubble}>
-                                <Text style={stylesMatch.bubbleText}>{helpText}</Text>
-                                <View style={stylesMatch.bubbleTail} />
+            {showHelp && (
+                <Modal
+                    animationType="fade"
+                    transparent={true}
+                    visible={showHelp}
+                    onRequestClose={() => toggleHelpModal()}
+                >
+                    <View style={styles.modalContainer}>
+                        <View style={styles.modalContent}>
+                            <View style={styles.helpModalContent}>
+                                <FloatingHumu >
+                                    <ImageContainer path={humuTalking} style={styles.imageModalHelp} />
+                                </FloatingHumu>
+                                <ComicBubble
+                                    text={helpText}
+                                    arrowDirection="leftUp"
+                                />
+                            </View>
+                            <View style={styles.buttonContainerAlphabet}>
+                                <TouchableOpacity onPress={() => toggleHelpModal()}>
+                                    <View style={styles.buttonDefaultAlphabet}>
+                                        <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
+                                    </View>
+                                </TouchableOpacity>
                             </View>
                         </View>
-                        <TouchableOpacity onPress={() => setShowHelp(false)}>
-                            <Text style={stylesMatch.closeButtonText}>Cerrar</Text>
-                        </TouchableOpacity> */}
                     </View>
-                </View>
-            </Modal>
+                </Modal>
+            )}
+
             {showNextButton && (
                 <View style={styles.buttonContainerAlphabet}>
                     <ButtonDefault label="Siguiente" onPress={onNext} />

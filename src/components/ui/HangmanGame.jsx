@@ -10,7 +10,7 @@ import { FloatingHumu } from '../animations/FloatingHumu';
 import { ImageContainer } from './imageContainers/ImageContainer';
 import { ButtonDefault } from './buttons/ButtonDefault';
 import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
-const HangmanGame = ({ words, onNext, helpText }) => {
+const HangmanGame = ({ words, onNext, helpText, navigationTarget = 'CaminoLevels' }) => {
     const navigation = useNavigation();
 
     const [selectedWord, setSelectedWord] = useState(words[Math.floor(Math.random() * words.length)]);
@@ -110,9 +110,9 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                     setShowConfetti(false);
                     setGameWon(false);
                 }} />
-                <ButtonLevelsInicio label="Inicio" />
+                <ButtonLevelsInicio navigationTarget={navigationTarget} label="Inicio" />
                 {/* Modal de ayuda */}
-                <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
+                <Modal animationType="fade" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                     <View style={stylesHangman.modalContainer}>
                         <View style={stylesHangman.modalContent}>
                             <View style={styles.helpModalContent}>
@@ -121,7 +121,7 @@ const HangmanGame = ({ words, onNext, helpText }) => {
                                 </FloatingHumu>
                                 <ComicBubble
                                     text={helpText}
-                                    arrowDirection="left"
+                                    arrowDirection="leftUp"
                                 />
                             </View>
                             <View style={styles.buttonContainerAlphabet}>

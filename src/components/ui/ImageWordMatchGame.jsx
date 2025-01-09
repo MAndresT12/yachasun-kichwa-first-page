@@ -19,7 +19,7 @@ const getRandomLightColor = () => {
 
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
-const ImageWordMatchGame = ({ data, onNext, helpText }) => {
+const ImageWordMatchGame = ({ data, onNext, helpText, navigationTarget = 'CaminoLevels' }) => {
     const [images, setImages] = useState([]);
     const [words, setWords] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
@@ -145,9 +145,9 @@ const ImageWordMatchGame = ({ data, onNext, helpText }) => {
             </View>
 
             <ButtonLevelsInicio label="Reiniciar" onPress={resetGame} />
-            <ButtonLevelsInicio label="Inicio" />
+            <ButtonLevelsInicio navigationTarget={navigationTarget} label="Inicio" />
             {/* Modal de ayuda */}
-            <Modal animationType="slide" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
+            <Modal animationType="fade" transparent={true} visible={showHelp} onRequestClose={() => setShowHelp(false)}>
                 <View style={stylesGame.modalContainer}>
                     <View style={stylesGame.modalContent}>
                         <View style={styles.helpModalContent}>
@@ -156,7 +156,7 @@ const ImageWordMatchGame = ({ data, onNext, helpText }) => {
                             </FloatingHumu>
                             <ComicBubble
                                 text={helpText}
-                                arrowDirection="left"
+                                arrowDirection="leftUp"
                             />
                         </View>
                         <View style={styles.buttonContainerAlphabet}>

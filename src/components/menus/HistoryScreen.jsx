@@ -30,6 +30,10 @@ const HistoryScreen = () => {
       <ScrollView style={styles.scrollView}>
         <View style={cardStyles.cardContainer}>
 
+          <View style={[buttonStyles.buttonContainerSpaceAround, { marginTop: 20 }, {marginBottom: 2}]} >
+            <ButtonDefault label="¡A comenzar nuestra aventura!" onPress={handleHomeScreen} />
+          </View>
+
           <FloatingHumu initialValue={10}>
             <ImageContainer path={require('../../../assets/images/humu/humu-talking.png')} />
           </FloatingHumu>
