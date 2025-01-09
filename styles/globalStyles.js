@@ -79,7 +79,7 @@ export const styles = StyleSheet.create({
         fontSize: 16,
     },
     cardContentCenter: {
-        paddingTop: 18,
+        paddingTop: 10,
         backgroundColor: '#f8f8f8',
         borderRadius: 8,
         justifyContent: 'center',
