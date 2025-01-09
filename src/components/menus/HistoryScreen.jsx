@@ -26,7 +26,6 @@ const HistoryScreen = () => {
     <LinearGradient
       colors={['#e9cb60', '#F38181']}
       style={[localStyles.gradientBackground, styles.container, localStyles.loginContainer]}
-
     >
       <ScrollView style={styles.scrollView}>
         <View style={cardStyles.cardContainer}>
@@ -37,16 +36,16 @@ const HistoryScreen = () => {
 
           <CardDefault title="Pequeño aventurero..." style={cardStyles.instructionsCardStyle} >
             <Text style={styles.cardContent}>
-              Yo soy Humu, ¡el mejor hablante del Kichwa que ha existido! y que nadie te diga lo contrario mi amigo.
-              Estoy aquí para ayudarte a aprender este idioma tan hermoso y lleno de historia. Si aún no te haz dado cuenta
-              soy una máscara del diablo huma, un personaje muy conocido en varias festividades en Ecuador.{'\n\n'} 
-              
+              Yo soy Humu, ¡el mejor hablante del Kichwa que ha existido! Y que nadie te diga lo contrario, mi amigo.
+              Estoy aquí para ayudarte a aprender este idioma tan hermoso y lleno de historia. Si aún no te has dado cuenta,
+              soy una máscara del diablo huma, un personaje muy conocido en varias festividades del Ecuador.{'\n\n'}
+
               Aunque yo soy la máscara más especial de entre todas las demás, ¡lo juro!{'\n\n'}
 
-              No te mentiré compañero, tenemos una misión muy grande en frente de nosotros pero juntos lo lograremos.
+              No te mentiré, compañero, tenemos una misión muy grande frente a nosotros, pero juntos lo lograremos.
               Yo estaré contigo en cada paso del camino, así que no te preocupes, ¡estamos en esto juntos!{'\n\n'}
 
-              Seré como tú guía personal y te enseñaré todo lo que sé para que algún seas "casi" tan bueno como yo.
+              Seré tu guía personal y te enseñaré todo lo que sé para que algún día seas "casi" tan bueno como yo.
             </Text>
           </CardDefault>
 
@@ -56,13 +55,13 @@ const HistoryScreen = () => {
 
           <CardDefault title="Un poco de historia" style={cardStyles.instructionsCardStyle} >
             <Text style={styles.cardContent}>
-              Antes de comenzar quiero comentarte acerca de qué es el Kichwa. Este idioma se ha hablado en Ecuador con cientos de años.
-              Es muy antiguo mi aventurero entrépido. También es un lengua cercana al Quechua, la cual fue extendida por el imperio Inca
+              Antes de comenzar, quiero comentarte acerca de qué es el Kichwa. Este idioma se ha hablado en Ecuador durante cientos de años.
+              Es muy antiguo, mi aventurero intrépido. También es una lengua cercana al Quechua, la cual fue extendida por el imperio Inca
               hace ya siglos.{'\n\n'}
 
-              Ahora es hablado por más de 2 millones de personas en Ecuador, Perú y Colombia, en especial en la región de los Andes 
-              por la gente indígena. Se lo reconoce como lengua oficial en Ecuador y es una de las lenguas más habladas en el país. 
-              Este idioma tiene mucha cultura y tradición, y es por eso que es importante que lo aprendamos juntos y preservemos 
+              Ahora es hablado por más de 2 millones de personas en Ecuador, Perú y Colombia, en especial en la región de los Andes
+              por la gente indígena. Se lo reconoce como lengua oficial en Ecuador y es una de las lenguas más habladas en el país.
+              Este idioma tiene mucha cultura y tradición, y es por eso que es importante que lo aprendamos juntos y preservemos
               este pasado tan rico.
             </Text>
           </CardDefault>
@@ -73,7 +72,6 @@ const HistoryScreen = () => {
             </Text>
           </CardDefault>
         </View>
-
 
         <View style={buttonStyles.buttonContainerSpaceAround}>
           <ButtonDefault label="¡A comenzar nuestra aventura!" onPress={handleHomeScreen} />

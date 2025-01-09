@@ -33,9 +33,10 @@ const CreditsScreen = () => {
 
           <CardDefault title="Acerca de:" style={cardStyles.instructionsCardStyle} >
             <Text style={styles.cardContentCenter}>
-              Este software es una aplicación móvil que tiene como objetivo enseñar el idioma kichwa a través de juegos y 
-              actividades interactivas para un público infantil y preadolecente. Es un trabajo de fin de grado y se desarrollo
-              con el objetivo de preservar esta lengua ancestral y poder expandir su uso por el Ecuador. 
+            Este software es una aplicación móvil que tiene como objetivo enseñar el idioma Kichwa a través de 
+            juegos y actividades interactivas para un público infantil y preadolescente. Es un trabajo de fin 
+            de grado y se desarrolló con el objetivo de preservar esta lengua ancestral y expandir su uso 
+            por el Ecuador. 
             </Text>
           </CardDefault>
         </View>

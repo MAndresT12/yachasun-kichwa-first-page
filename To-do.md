@@ -90,8 +90,9 @@
 -Pagina La Naturaleza en la tabla colocar imagenes que correspondan [en_progreso]
 -Página Los Alimentos (colocar imagenes en las frutas etc). [en_progreso]
 -Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa [en_progreso]
-- Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 -Página la cantidad, colocar español kichwa e imagenes [en_progreso]
+
+- Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 - Debe salir el nombre del usuario al ingresar, en niveles tambien [en_progreso]
 
 
