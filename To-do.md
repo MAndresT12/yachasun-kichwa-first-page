@@ -76,6 +76,10 @@
 - Logica primero español luego kichwa [x]
 - Juegos: Info ayuda poner varios bubbles de comic para humu [x]
 - Usar el personaje desde el menu de inicio [x]
+- En menu de inicio, poner creditos, la poli, facu, estudiantes y tutor para el título [x]
+- Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral [x]
+- Arreglar las llamadas asincrónicas de progreso screen [x]
+- En pantalla de creditos inicial colocar los links de los libros [x]
 
 
 
@@ -88,14 +92,10 @@
 
 
 
-- En menu de inicio, poner creditos, la poli, facu, estudiantes y tutor para el título
 - Debe salir el nombre del usuario al ingresar, en niveles tambien
 - En pantalla de inicio que diga hola soy hummu y estoy listo para jogar, aquí una descrpción del Kichwa, una intro al idioma (hacer componente para luego ver cómo poner)
-- Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral
 - Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
-- Arreglar las llamadas asincrónicas de progreso screen
 - adaptar juegos de basicos, Cambiar cada juego para cada módulo
-- En pantalla de creditos inicial colocar los links de los libros
 - Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa
 
 

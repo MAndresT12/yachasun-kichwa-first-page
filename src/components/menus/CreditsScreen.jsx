@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,7 +8,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { styles } from '../../../styles/globalStyles';
 import { buttonStyles } from '../../../styles/buttonStyles';
 import { cardStyles } from '../../../styles/cardStyles';
-import { imageStyles } from '../../../styles/imageStyles';
 
 import { FloatingHumu } from '../animations/FloatingHumu';
 
@@ -86,9 +85,12 @@ const CreditsScreen = () => {
 
         <View style={cardStyles.cardContainerInstructions}>
 
-          <CardDefault title="Facultad:" style={cardStyles.instructionsCardStyle} >
+          <CardDefault title="Facultad e Institución:" style={cardStyles.instructionsCardStyle} >
             <Text style={styles.cardContentCenter}>
               Facultad de Ingeniería en Sistemas
+            </Text>
+            <Text style={styles.cardContentCenter}>
+              Escuela Politécnica Nacional
             </Text>
           </CardDefault>
         </View>
@@ -101,9 +103,15 @@ const CreditsScreen = () => {
 
         <View style={cardStyles.cardContainerInstructions}>
 
-          <CardDefault title="Institución:" style={cardStyles.instructionsCardStyle} >
+          <CardDefault title="Bibliografía:" style={cardStyles.instructionsCardStyle} >
             <Text style={styles.cardContentCenter}>
-              Escuela Politécnica Nacional
+              KICHWA.net - Curso de Kichwa:
+            </Text>
+            <Text
+              style={[styles.cardContentCenter, { color: 'blue', textDecorationLine: 'underline' }]}
+              onPress={() => Linking.openURL('https://libros.kichwa.net/books/curso-de-kichwa/')}
+            >
+              https://libros.kichwa.net/books/curso-de-kichwa/
             </Text>
           </CardDefault>
         </View>
