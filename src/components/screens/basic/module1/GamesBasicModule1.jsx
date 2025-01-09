@@ -13,22 +13,22 @@ import RuletaGame from '../../../ui/RuletaGame';
 
 const complete_sentence_data = [
     {
-        sentenceParts: ["Ñukaka aycha", " yanuni"],
-        correctWords: ["ta"],
-        options: ["tak", "ta", "pak"],
-        translation: "Cocino carne",
+        sentenceParts: ["Chawa An", ""],
+        correctWords: ["kas"],
+        options: ["cish", "kos", "kas"],
+        translation: "Celeste",
     },
     {
-        sentenceParts: ["Kan", " wasi"],
-        correctWords: ["pak"],
-        options: ["pak", "ta", "ñuka"],
-        translation: "Tu casa",
+        sentenceParts: ["Pu", "a"],
+        correctWords: ["k"],
+        options: ["k", "c", "ñ"],
+        translation: "Rojo",
     },
     {
-        sentenceParts: ["Ñukanchik tushu", ""],
-        correctWords: ["nkapak"],
-        options: ["nkapak", "pak", "ta"],
-        translation: "Nos vamos a bailar",
+        sentenceParts: ["Chawa", " llu"],
+        correctWords: ["Way"],
+        options: ["Way", "Uay", "Pay"],
+        translation: "Verde Claro",
     },
 ];
 
@@ -46,9 +46,9 @@ const match_image_data = [
     { kichwa: "illak", spanish: "cero", image: "https://i.ytimg.com/vi/keR4Ppw57DY/maxresdefault.jpg" },
     { kichwa: "pichka", spanish: "cinco", image: "https://thumbs.dreamstime.com/z/divertido-naranja-n%C3%BAmero-cinco-personaje-de-dibujos-animados-que-muestra-la-mano-ilustraci%C3%B3n-vectorial-dibujada-aislada-sobre-220165915.jpg" },
     { kichwa: "chunka shuk", spanish: "once", image: "https://thumbs.dreamstime.com/b/n%C3%BAmero-once-animaci%C3%B3n-de-dibujos-animados-sobre-fondo-blanco-k-v%C3%ADdeo-gr%C3%A1ficos-movimiento-para-elementos-277161101.jpg" },
-    { kichwa: "kimsaniki", spanish: "tercero", image: "https://cdn-icons-png.flaticon.com/512/1435/1435677.png" },
+    { kichwa: "kimsa", spanish: "tres", image: "https://cdn-icons-png.flaticon.com/512/1435/1435677.png" },
     { kichwa: "kanchis chunka", spanish: "setenta", image: "https://cdn-icons-png.flaticon.com/512/9061/9061673.png" },
-    { kichwa: "ishkay chunkaniki", spanish: "vigésimo", image: "https://png.pngtree.com/png-vector/20220521/ourmid/pngtree-20th-golden-anniversary-logo-png-image_4693977.png" },
+    { kichwa: "ishkay chunka", spanish: "veinte", image: "https://png.pngtree.com/png-vector/20220521/ourmid/pngtree-20th-golden-anniversary-logo-png-image_4693977.png" },
     { kichwa: "patsak shuk", spanish: "ciento uno", image: "https://www.shutterstock.com/shutterstock/photos/1287903910/display_1500/stock-photo-gold-number-isolated-on-white-background-d-illustration-1287903910.jpg" },
     { kichwa: "pichka patsak", spanish: "quinientos", image: "https://i.pinimg.com/736x/f4/01/be/f401be73d9508c498e2a2dff05ad0f00.jpg" },
     { kichwa: "ishkay", spanish: "dos", image: "https://img.freepik.com/vector-premium/numero-dos-personaje-comico-kawaii_24911-19182.jpg?semt=ais_hybrid" },
@@ -63,14 +63,14 @@ const hangman_data = [
 ];
 
 const roulette_data = [
-    { spanish: 'pato', kichwa: 'kulta' },
-    { spanish: 'cuy', kichwa: 'kuy' },
-    { spanish: 'gallina', kichwa: 'atallpa' },
-    { spanish: 'ratón', kichwa: 'ukucha' },
-    { spanish: 'pulga', kichwa: 'piki' },
-    { spanish: 'conejo', kichwa: 'wallinku' },
-    { spanish: 'perro', kichwa: 'allku' },
-    { spanish: 'Gato', kichwa: 'misi' },
+    { spanish: 'primero', kichwa: 'shukniki' },
+    { spanish: 'segundo', kichwa: 'ishkayniki' },
+    { spanish: 'tercero', kichwa: 'kimsaniki' },
+    { spanish: 'décimo', kichwa: 'chunkaniki' },
+    { spanish: 'duodécimo', kichwa: 'chunka ishkayniki' },
+    { spanish: 'decimoquinto', kichwa: 'chunka pichkaniki' },
+    { spanish: 'decimonoveno', kichwa: 'chunka iskunniki' },
+    { spanish: 'vigésimo', kichwa: 'ishkay chunkaniki' },
 ];
 
 const GamesBasicModule1 = () => {

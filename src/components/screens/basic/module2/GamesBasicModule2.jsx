@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -87,7 +87,7 @@ const GamesBasicModule2 = () => {
         <HangmanGame navigationTarget="CaminoLevelsBasic" key="hangman" words={hangman_data} helpText="¡Bienvenido al Ahorcado! Debes adivinar las letras de la palabra secreta. Si te equivocas 6 veces, ¡el muñequito se colgará! ¡Piensa rápido y diviértete!"
             onNext={() => setCurrentGame(currentGame + 1)} />,
         <RuletaGame navigationTarget="CaminoLevelsBasic" key="ruleta" data={roulette_data} helpText="En este juego debes girar la ruleta y adivinar la palabra en kichwa."
-            onNext={() => navigation.navigate('EvaluationBasicModule1')} />,
+            onNext={() => navigation.navigate('EvaluationBasicModule2')} />,
         //Aca iran mas juegos, en el ultimo juego colocar el navigation.navigate('Game') para que diriga a pantalla de evaluacion
         //Caso contrario setCurrentGame(currentGame + 1) para que siga pasando por todos los juegos
     ];
