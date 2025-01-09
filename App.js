@@ -43,6 +43,8 @@ import HomeScreen from './src/components/menus/HomeScreen';
 import CreditsScreen from './src/components/menus/CreditsScreen';
 import TutoScreen from './src/components/menus/TutoScreen';
 
+import HistoryScreen from './src/components/menus/HistoryScreen';
+
 import CaminoLevelsScreen from './src/components/screens/scrollPaths/CaminoLevelsScreen.jsx';
 import CaminoLevelsBasicScreen from './src/components/screens/scrollPaths/CaminoLevelsBasicScreen.jsx';
 
@@ -281,6 +283,11 @@ function HomeStack() {
         name="TutoScreen"
         component={TutoScreen}
         options={{ headerShown: true, title: 'Tutorial' }}
+      />
+      <Stack.Screen
+        name="HistoryScreen"
+        component={HistoryScreen}
+        options={{ headerShown: true, title: 'Tú primer paso...' }}
       />
       <Stack.Screen
         name="InstructionsBasic"

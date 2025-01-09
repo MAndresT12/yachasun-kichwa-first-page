@@ -29,6 +29,17 @@ const CreditsScreen = () => {
 
     >
       <ScrollView style={styles.scrollView}>
+        <View style={cardStyles.cardContainerInstructions}>
+
+          <CardDefault title="Acerca de:" style={cardStyles.instructionsCardStyle} >
+            <Text style={styles.cardContentCenter}>
+              Este software es una aplicación móvil que tiene como objetivo enseñar el idioma kichwa a través de juegos y 
+              actividades interactivas para un público infantil y preadolecente. Es un trabajo de fin de grado y se desarrollo
+              con el objetivo de preservar esta lengua ancestral y poder expandir su uso por el Ecuador. 
+            </Text>
+          </CardDefault>
+        </View>
+
         <View style={localStyles.floatingHumuBoxLeft}>
           <FloatingHumu initialValue={10}>
             <ImageContainer path={require('../../../assets/images/humu/humu-happy.png')} />

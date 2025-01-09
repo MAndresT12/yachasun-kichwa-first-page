@@ -80,6 +80,9 @@
 - Redactar mejor instrucciones básicas lo de un mundo maravilloso mejor por este lenguaje ancestral [x]
 - Arreglar las llamadas asincrónicas de progreso screen [x]
 - En pantalla de creditos inicial colocar los links de los libros [x]
+- Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info [x]
+- Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa [x]
+- En pantalla de inicio que diga hola soy hummu y estoy listo para jogar, aquí una descrpción del Kichwa, una intro al idioma (hacer componente para luego ver cómo poner) [x]
 
 
 
@@ -89,14 +92,11 @@
 -Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa [en_progreso]
 - Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 -Página la cantidad, colocar español kichwa e imagenes [en_progreso]
+- Debe salir el nombre del usuario al ingresar, en niveles tambien [en_progreso]
 
 
 
-- Falta un tutorial de toda la aplicación, que pasa con cada botón, como desbloquear trofeso, como entrar a lecciones, etc. también debe decir que cuando pulses en interrogacion te da info
-- Debe salir el nombre del usuario al ingresar, en niveles tambien
-- En pantalla de inicio que diga hola soy hummu y estoy listo para jogar, aquí una descrpción del Kichwa, una intro al idioma (hacer componente para luego ver cómo poner)
 - adaptar juegos de basicos, Cambiar cada juego para cada módulo
-- Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa
 
 
 

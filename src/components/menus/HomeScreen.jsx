@@ -20,7 +20,7 @@ const HomeScreen = () => {
         navigation.navigate('Main', {
             screen: 'Inicio',
             params: {
-                screen: 'Levels',
+                screen: 'HistoryScreen',
             },
         });
     };
