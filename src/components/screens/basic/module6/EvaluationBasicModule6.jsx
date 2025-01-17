@@ -10,30 +10,30 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const questions = [
     {
-        question: "¿Cuál es la pronunciación de la letra W en Kichwa?",
-        options: ["/ua/", "/wa/", "/ah/", "/uu/"],
-        answer: "/ua/"
+        question: "¿Cuál es la palabra correcta para completar 'Tankapay ___'?",
+        options: ["chik", "chic", "chiq", "chak"],
+        answer: "chik",
     },
     {
-        question: "¿Cómo se dice el número '5' en Kichwa?",
-        options: ["Chusku", "Pichka", "Kimsa", "Sukta"],
-        answer: "Pichka"
+        question: "¿Qué significa 'Rimashunk' en español?",
+        options: ["Hablemos", "Trabaje", "Tú siembras café", "Ella siembra cebada"],
+        answer: "Hablemos",
     },
     {
-        question: "¿Qué color representa 'Ankas' en español?",
-        options: ["Rojo", "Amarillo", "Azul", "Verde"],
-        answer: "Azul"
+        question: "¿Qué significa 'Payka akapita tarpun' en español?",
+        options: ["Ella siembra cebada", "Tú siembras café", "Hablemos", "Yo siembro"],
+        answer: "Ella siembra cebada",
     },
     {
-        question: "¿Cómo se dice el número '17' en Kichwa?",
-        options: ["Chunka kanchis", "Pichka", "Ishkay chunka", "Chunka pusak"],
-        answer: "Chunka kanchis"
+        question: "¿Cómo se dice 'No comas' en Kichwa?",
+        options: ["Ama mikuychu", "Ama kayaychikchu", "Kikinka papata tarpunki", "Ama mikunkichu"],
+        answer: "Ama mikuychu",
     },
     {
-        question: "¿Qué significa 'Kimsaniki' en español?",
-        options: ["Segundo", "Primero", "Quinto", "Tercero"],
-        answer: "Tercero"
-    }
+        question: "¿Cómo se dice 'Usted siembra papas' en Kichwa?",
+        options: ["Kikinka papata tarpunki", "Ama mikuychu", "Ama kayaychikchu", "Payka akapita tarpun"],
+        answer: "Kikinka papata tarpunki",
+    },
 ];
 
 const EvaluationBasicModule6 = () => {

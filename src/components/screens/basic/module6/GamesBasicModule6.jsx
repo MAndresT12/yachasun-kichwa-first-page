@@ -13,60 +13,32 @@ import RuletaGame from '../../../ui/RuletaGame';
 
 const complete_sentence_data = [
     {
-        sentenceParts: ["Killkana ", "pi"],
-        correctWords: ["kas"],
-        options: ["kas", "qus", "pas"],
-        translation: "Lápiz",
-    },
-    {
-        sentenceParts: ["Ti", "ina"],
-        correctWords: ["yar"],
-        options: ["kar", "yar", "par"],
-        translation: "Silla",
-    },
-    {
-        sentenceParts: ["Yacha", ""],
-        correctWords: ["kuna"],
-        options: ["shuna", "puna", "kuna"],
-        translation: "Aprender",
+        sentenceParts: ["Tankapay", ""],
+        correctWords: ["chik"],
+        options: ["chik", "chic", "chiq"],
+        translation: "Empujen",
     },
 ];
 
 const match_game_data = [
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "Rimashunk", spanish: "Hablemos", image: "https://st2.depositphotos.com/5471768/8262/v/600/depositphotos_82624828-stock-illustration-two-men-talk-discussion-exchange.jpg" },
+    { kichwa: "Llamkapay", spanish: "Trabaje", image: "https://st2.depositphotos.com/3474805/6296/v/600/depositphotos_62960855-stock-illustration-tired-businessman-at-work.jpg" },
 ];
 
 
 const match_image_data = [
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "Kanka shañuta tarpunki", spanish: "Tú siembras café", image: "https://st.depositphotos.com/1557418/1838/v/600/depositphotos_18383879-stock-illustration-coffee.jpg" },
+    { kichwa: "Payka akapita tarpun", spanish: "Ella siembra cebada", image: "https://static7.depositphotos.com/1168906/739/v/600/depositphotos_7390865-stock-illustration-wheat-ear-vector-illustration.jpg" },
 ];
 
 const hangman_data = [
-    { word: '', translation: '' },
-    { word: '', translation: '' },
-    { word: '', translation: '' },
-    { word: '', translation: '' },
-    { word: '', translation: '' },
+    { word: 'Tarpuni', translation: 'Yo siembro' },
 ];
 
 const roulette_data = [
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
+    { spanish: 'No comas', kichwa: 'Ama mikuychu' },
+    { spanish: 'No llamen', kichwa: 'Ama kayaychikchu' },
+    { spanish: 'Usted siembra papas', kichwa: 'Kikinka papata tarpunki' },
 ];
 
 const GamesBasicModule6 = () => {
