@@ -14,7 +14,7 @@ const HangmanGame = ({ words, onNext, helpText, navigationTarget = 'CaminoLevels
     const navigation = useNavigation();
 
     const [selectedWord, setSelectedWord] = useState(words[Math.floor(Math.random() * words.length)]);
-    const [guessedLetters, setGuessedLetters] = useState([]);
+    const [guessedLetters, setGuessedLetters] = useState([' ']); // Add space as pre-guessed
     const [wrongGuesses, setWrongGuesses] = useState(0);
     const [showConfetti, setShowConfetti] = useState(false);
     const [gameWon, setGameWon] = useState(false);
@@ -23,7 +23,12 @@ const HangmanGame = ({ words, onNext, helpText, navigationTarget = 'CaminoLevels
     const handleGuess = (letter) => {
         if (selectedWord.word.includes(letter)) {
             setGuessedLetters([...guessedLetters, letter]);
-            if (selectedWord.word.split('').every((l) => guessedLetters.includes(l) || l === letter)) {
+    
+            // Check if all non-space letters are guessed
+            const nonSpaceLetters = selectedWord.word.replace(/ /g, ''); // Remove spaces from the word
+            const allGuessed = nonSpaceLetters.split('').every((l) => guessedLetters.includes(l) || l === letter);
+    
+            if (allGuessed) {
                 setShowConfetti(true);
                 setGameWon(true);
                 setTimeout(() => {
@@ -41,7 +46,11 @@ const HangmanGame = ({ words, onNext, helpText, navigationTarget = 'CaminoLevels
     const renderWord = () => {
         return selectedWord.word.split('').map((letter, index) => (
             <Text key={index} style={stylesHangman.letter}>
-                {guessedLetters.includes(letter) ? letter : '_'}
+                {letter === ' ' 
+                    ? ' '  // Show space as "_____"
+                    : guessedLetters.includes(letter) 
+                    ? letter 
+                    : '_'}
             </Text>
         ));
     };

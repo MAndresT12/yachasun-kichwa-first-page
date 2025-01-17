@@ -13,64 +13,60 @@ import RuletaGame from '../../../ui/RuletaGame';
 
 const complete_sentence_data = [
     {
-        sentenceParts: ["Ñukaka aycha", " yanuni"],
-        correctWords: ["ta"],
-        options: ["tak", "ta", "pak"],
-        translation: "Cocino carne",
+        sentenceParts: ["A", " puncha"],
+        correctWords: ["lli"],
+        options: ["lli", "yi", "lii"],
+        translation: "Buenos días",
     },
     {
-        sentenceParts: ["Kan", " wasi"],
-        correctWords: ["pak"],
-        options: ["pak", "ta", "ñuka"],
-        translation: "Tu casa",
+        sentenceParts: ["Imana", ""],
+        correctWords: ["lla"],
+        options: ["sha", "lla", "ña"],
+        translation: "Hola, ¿Qué tal?",
     },
     {
-        sentenceParts: ["Ñukanchik tushu", ""],
-        correctWords: ["nkapak"],
-        options: ["nkapak", "pak", "ta"],
-        translation: "Nos vamos a bailar",
+        sentenceParts: ["Alli", " kani"],
+        correctWords: ["mi"],
+        options: ["vi", "yi", "mi"],
+        translation: "Estoy bien",
     },
 ];
 
 const match_game_data = [
-    { kichwa: "/a/", spanish: "A a", image: "https://cdn-icons-png.flaticon.com/512/4552/4552937.png" },
-    { kichwa: "/lla/-/sha/", spanish: "Ll ll", image: "https://st4.depositphotos.com/27130226/29524/i/450/depositphotos_295240468-stock-photo-delicious-letter-ll.jpg" },
-    { kichwa: "/tsa/", spanish: "Ts ts", image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" },
-    { kichwa: "/cha/", spanish: "Ch ch", image: "https://dictaventura.com/wp-content/uploads/2023/08/DICTADOS-SILABAS-4.webp" },
-    { kichwa: "/u/", spanish: "U u", image: "https://w7.pngwing.com/pngs/407/6/png-transparent-blue-letter-u-alphabet-letters-letters-and-numbers-icon.png" },
-    { kichwa: "/ua/", spanish: "W w", image: "https://as1.ftcdn.net/v2/jpg/02/43/23/54/1000_F_243235478_RD65Ovg86uldR1t3p6aKfUtl7l52SvJj.jpg" },
+    { kichwa: "Ñuka", spanish: "Yo", image: "https://st2.depositphotos.com/1001911/11544/v/380/depositphotos_115445586-stock-illustration-girl-pointing-at-herself.jpg" },
+    { kichwa: "Kan", spanish: "Tú", image: "https://static6.depositphotos.com/1157310/657/v/600/depositphotos_6578873-stock-illustration-cartoon-angry-army-drill-sergeant.jpg" },
+    { kichwa: "Kikin", spanish: "Usted (cortesía)", image: "https://st2.depositphotos.com/4323461/8433/v/600/depositphotos_84335620-stock-illustration-man-pointing-finger.jpg" },
+    { kichwa: "Pay", spanish: "Él / Ella", image: "https://st.depositphotos.com/1373553/2467/v/600/depositphotos_24672577-stock-illustration-discrimination.jpg" },
+    { kichwa: "Ñukanchik", spanish: "Nosotros", image: "https://st5.depositphotos.com/2419757/68585/v/600/depositphotos_685852348-stock-illustration-set-people-celebrate-win-goal.jpg" },
+    { kichwa: "Kankuna", spanish: "Ustedes", image: "https://img.freepik.com/premium-vector/nonbinary-person-with-posters-with-pronouns_714607-47.jpg?w=740" },
+    { kichwa: "Kikinkuna", spanish: "Ustedes (cortesía)", image: "https://img.freepik.com/free-vector/group-happy-smiling-people-looking-up-top-view-white-background-flat-vector-illustration_1284-78599.jpg?t=st=1737132584~exp=1737136184~hmac=b6265683b5f3c2579d96d995b5307876bf20f5292bbe064cd3011b9532894178&w=740" },
+    { kichwa: "Paykuna", spanish: "Ellos / Ellas", image: "https://img.freepik.com/free-vector/group-concept-illustration_114360-8541.jpg?t=st=1737132533~exp=1737136133~hmac=1018c3fb0c53b92fd87dd4d7e23fc1cb6b04ecb81ee5f827d5e54db8385631ab&w=740" },
 ];
 
 
 const match_image_data = [
-    { kichwa: "illak", spanish: "cero", image: "https://i.ytimg.com/vi/keR4Ppw57DY/maxresdefault.jpg" },
-    { kichwa: "pichka", spanish: "cinco", image: "https://thumbs.dreamstime.com/z/divertido-naranja-n%C3%BAmero-cinco-personaje-de-dibujos-animados-que-muestra-la-mano-ilustraci%C3%B3n-vectorial-dibujada-aislada-sobre-220165915.jpg" },
-    { kichwa: "chunka shuk", spanish: "once", image: "https://thumbs.dreamstime.com/b/n%C3%BAmero-once-animaci%C3%B3n-de-dibujos-animados-sobre-fondo-blanco-k-v%C3%ADdeo-gr%C3%A1ficos-movimiento-para-elementos-277161101.jpg" },
-    { kichwa: "kimsaniki", spanish: "tercero", image: "https://cdn-icons-png.flaticon.com/512/1435/1435677.png" },
-    { kichwa: "kanchis chunka", spanish: "setenta", image: "https://cdn-icons-png.flaticon.com/512/9061/9061673.png" },
-    { kichwa: "ishkay chunkaniki", spanish: "vigésimo", image: "https://png.pngtree.com/png-vector/20220521/ourmid/pngtree-20th-golden-anniversary-logo-png-image_4693977.png" },
-    { kichwa: "patsak shuk", spanish: "ciento uno", image: "https://www.shutterstock.com/shutterstock/photos/1287903910/display_1500/stock-photo-gold-number-isolated-on-white-background-d-illustration-1287903910.jpg" },
-    { kichwa: "pichka patsak", spanish: "quinientos", image: "https://i.pinimg.com/736x/f4/01/be/f401be73d9508c498e2a2dff05ad0f00.jpg" },
-    { kichwa: "ishkay", spanish: "dos", image: "https://img.freepik.com/vector-premium/numero-dos-personaje-comico-kawaii_24911-19182.jpg?semt=ais_hybrid" },
+    { kichwa: "Hatun tayta", spanish: "Abuelo", image: "https://img.freepik.com/free-vector/cute-grandfather-walking-with-cane-cartoon-vector-icon-illustration-people-health-icon-isolated_138676-6784.jpg?t=st=1737072532~exp=1737076132~hmac=df009ee28e52b3af883a272af2ceaecc7bcc3c8405b109edf0f9a8c39ee48174&w=740" },
+    { kichwa: "Kusa", spanish: "Esposo", image: "https://img.freepik.com/free-vector/save-date-pink-background-with-cute-couple_23-2148048278.jpg?t=st=1737125128~exp=1737128728~hmac=7cfe898ffa9e27234739dac64271e678d8615a6ff01b0b4a9eeecc26de2ceef2&w=740" },
+    { kichwa: "Churi", spanish: "Hijo", image: "https://img.freepik.com/free-vector/cute-father-son-walking-together-cartoon-vector-icon-illustration-people-holidays-isolated-flat_138676-5718.jpg?t=st=1737130404~exp=1737134004~hmac=c1e91f2585d6d84451ad4f0c9a6c28ba21519e586720729adf4340835ec06c08&w=740" },
+    { kichwa: "Hatun ushushi", spanish: "Nieta", image: "https://img.freepik.com/free-vector/grandmother-grandchild-sharing-story_1308-165899.jpg?t=st=1737130447~exp=1737134047~hmac=34e17419aeab10059f69df3fc126c9d1a512e39465acfb12d584f04c3e60d003&w=740" },
+    { kichwa: "Wawki", spanish: "Hermano", image: "https://img.freepik.com/free-vector/hand-drawn-siblings-illustration_23-2149604227.jpg?t=st=1737130504~exp=1737134104~hmac=cb376dc661fb0e3129e468b0858e3e17e28ffd5058cad159288cf6657033df8e&w=740" },
+    { kichwa: "Mama", spanish: "Mamá", image: "https://img.freepik.com/free-vector/best-mom-ever_603843-3169.jpg?t=st=1737130569~exp=1737134169~hmac=50f5e05f52842c8956f2a0ab0fc63ae79b173f98e0ab3bd52be57c7f794837c3&w=996" },
 ];
 
 const hangman_data = [
-    { word: 'puka', translation: 'rojo' },
-    { word: 'yanalla ankas', translation: 'azul marino' },
-    { word: 'waylla', translation: 'verde' },
-    { word: 'maywa', translation: 'morado' },
-    { word: 'yurak', translation: 'blanco' },
+    { word: 'kawsankichu', translation: 'Hola, ¿Vives?' },
+    { word: 'chishiyakunimi', translation: 'Estoy atardeciendo' },
+    { word: 'shamushunn', translation: '¿Puedo entrar?' },
+    { word: 'shamupaylla', translation: 'Ven no más' },
+    { word: 'pakarishkanki', translation: '¡Has amanecido!' },
 ];
 
 const roulette_data = [
-    { spanish: 'pato', kichwa: 'kulta' },
-    { spanish: 'cuy', kichwa: 'kuy' },
-    { spanish: 'gallina', kichwa: 'atallpa' },
-    { spanish: 'ratón', kichwa: 'ukucha' },
-    { spanish: 'pulga', kichwa: 'piki' },
-    { spanish: 'conejo', kichwa: 'wallinku' },
-    { spanish: 'perro', kichwa: 'allku' },
-    { spanish: 'Gato', kichwa: 'misi' },
+    { spanish: 'Somos/Estamos', kichwa: 'kanchik' },
+    { spanish: 'Soy/Estoy', kichwa: 'kani' },
+    { spanish: 'Eres/Estás', kichwa: 'kanki' },
+    { spanish: 'Gracias', kichwa: 'yupaychani' },
+    { spanish: 'Son/Están', kichwa: 'kankichik' },
 ];
 
 const GamesBasicModule2 = () => {

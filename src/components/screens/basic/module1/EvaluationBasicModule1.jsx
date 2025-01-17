@@ -103,7 +103,7 @@ const localStyles = StyleSheet.create({
     },
 
     optionButton: {
-        backgroundColor: '#5B4D28',
+        backgroundColor: '#822929',
         padding: 15,
         borderRadius: 10,
         marginVertical: 5,

@@ -10,30 +10,30 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const questions = [
     {
-        question: "¿Cuál es la pronunciación de la letra W en Kichwa?",
-        options: ["/ua/", "/wa/", "/ah/", "/uu/"],
-        answer: "/ua/"
+        question: "¿Cuál es la palabra correcta para completar 'A ___ puncha'?",
+        options: ["lli", "yi", "lii", "lla"],
+        answer: "lli",
     },
     {
-        question: "¿Cómo se dice el número '5' en Kichwa?",
-        options: ["Chusku", "Pichka", "Kimsa", "Sukta"],
-        answer: "Pichka"
+        question: "¿Qué significa 'Ñuka' en español?",
+        options: ["Yo", "Tú", "Nosotros", "Ellos"],
+        answer: "Yo",
     },
     {
-        question: "¿Qué color representa 'Ankas' en español?",
-        options: ["Rojo", "Amarillo", "Azul", "Verde"],
-        answer: "Azul"
+        question: "¿Cómo se traduce 'Hatun tayta' al español?",
+        options: ["Abuelo", "Hermano", "Hijo", "Mamá"],
+        answer: "Abuelo",
     },
     {
-        question: "¿Cómo se dice el número '17' en Kichwa?",
-        options: ["Chunka kanchis", "Pichka", "Ishkay chunka", "Chunka pusak"],
-        answer: "Chunka kanchis"
+        question: "¿Cuál es la traducción de 'kawsankichu'?",
+        options: ["Hola, ¿Vives?", "Ven no más", "Estoy atardeciendo", "Gracias"],
+        answer: "Hola, ¿Vives?",
     },
     {
-        question: "¿Qué significa 'Kimsaniki' en español?",
-        options: ["Segundo", "Primero", "Quinto", "Tercero"],
-        answer: "Tercero"
-    }
+        question: "¿Qué significa 'yupaychani' en español?",
+        options: ["Gracias", "Soy/Estoy", "Son/Están", "Nosotros"],
+        answer: "Gracias",
+    },
 ];
 
 const EvaluationBasicModule2 = () => {
@@ -103,7 +103,7 @@ const localStyles = StyleSheet.create({
     },
 
     optionButton: {
-        backgroundColor: '#5B4D28',
+        backgroundColor: '#822929',
         padding: 15,
         borderRadius: 10,
         marginVertical: 5,

@@ -13,64 +13,60 @@ import RuletaGame from '../../../ui/RuletaGame';
 
 const complete_sentence_data = [
     {
-        sentenceParts: ["Ñukaka aycha", " yanuni"],
-        correctWords: ["ta"],
-        options: ["tak", "ta", "pak"],
-        translation: "Cocino carne",
+        sentenceParts: ["Killkana ", "pi"],
+        correctWords: ["kas"],
+        options: ["kas", "qus", "pas"],
+        translation: "Lápiz",
     },
     {
-        sentenceParts: ["Kan", " wasi"],
-        correctWords: ["pak"],
-        options: ["pak", "ta", "ñuka"],
-        translation: "Tu casa",
+        sentenceParts: ["Ti", "ina"],
+        correctWords: ["yar"],
+        options: ["kar", "yar", "par"],
+        translation: "Silla",
     },
     {
-        sentenceParts: ["Ñukanchik tushu", ""],
-        correctWords: ["nkapak"],
-        options: ["nkapak", "pak", "ta"],
-        translation: "Nos vamos a bailar",
+        sentenceParts: ["Yacha", ""],
+        correctWords: ["kuna"],
+        options: ["shuna", "puna", "kuna"],
+        translation: "Aprender",
     },
 ];
 
 const match_game_data = [
-    { kichwa: "/a/", spanish: "A a", image: "https://cdn-icons-png.flaticon.com/512/4552/4552937.png" },
-    { kichwa: "/lla/-/sha/", spanish: "Ll ll", image: "https://st4.depositphotos.com/27130226/29524/i/450/depositphotos_295240468-stock-photo-delicious-letter-ll.jpg" },
-    { kichwa: "/tsa/", spanish: "Ts ts", image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" },
-    { kichwa: "/cha/", spanish: "Ch ch", image: "https://dictaventura.com/wp-content/uploads/2023/08/DICTADOS-SILABAS-4.webp" },
-    { kichwa: "/u/", spanish: "U u", image: "https://w7.pngwing.com/pngs/407/6/png-transparent-blue-letter-u-alphabet-letters-letters-and-numbers-icon.png" },
-    { kichwa: "/ua/", spanish: "W w", image: "https://as1.ftcdn.net/v2/jpg/02/43/23/54/1000_F_243235478_RD65Ovg86uldR1t3p6aKfUtl7l52SvJj.jpg" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
 ];
 
 
 const match_image_data = [
-    { kichwa: "illak", spanish: "cero", image: "https://i.ytimg.com/vi/keR4Ppw57DY/maxresdefault.jpg" },
-    { kichwa: "pichka", spanish: "cinco", image: "https://thumbs.dreamstime.com/z/divertido-naranja-n%C3%BAmero-cinco-personaje-de-dibujos-animados-que-muestra-la-mano-ilustraci%C3%B3n-vectorial-dibujada-aislada-sobre-220165915.jpg" },
-    { kichwa: "chunka shuk", spanish: "once", image: "https://thumbs.dreamstime.com/b/n%C3%BAmero-once-animaci%C3%B3n-de-dibujos-animados-sobre-fondo-blanco-k-v%C3%ADdeo-gr%C3%A1ficos-movimiento-para-elementos-277161101.jpg" },
-    { kichwa: "kimsaniki", spanish: "tercero", image: "https://cdn-icons-png.flaticon.com/512/1435/1435677.png" },
-    { kichwa: "kanchis chunka", spanish: "setenta", image: "https://cdn-icons-png.flaticon.com/512/9061/9061673.png" },
-    { kichwa: "ishkay chunkaniki", spanish: "vigésimo", image: "https://png.pngtree.com/png-vector/20220521/ourmid/pngtree-20th-golden-anniversary-logo-png-image_4693977.png" },
-    { kichwa: "patsak shuk", spanish: "ciento uno", image: "https://www.shutterstock.com/shutterstock/photos/1287903910/display_1500/stock-photo-gold-number-isolated-on-white-background-d-illustration-1287903910.jpg" },
-    { kichwa: "pichka patsak", spanish: "quinientos", image: "https://i.pinimg.com/736x/f4/01/be/f401be73d9508c498e2a2dff05ad0f00.jpg" },
-    { kichwa: "ishkay", spanish: "dos", image: "https://img.freepik.com/vector-premium/numero-dos-personaje-comico-kawaii_24911-19182.jpg?semt=ais_hybrid" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "", spanish: "", image: "" },
 ];
 
 const hangman_data = [
-    { word: 'puka', translation: 'rojo' },
-    { word: 'yanalla ankas', translation: 'azul marino' },
-    { word: 'waylla', translation: 'verde' },
-    { word: 'maywa', translation: 'morado' },
-    { word: 'yurak', translation: 'blanco' },
+    { word: '', translation: '' },
+    { word: '', translation: '' },
+    { word: '', translation: '' },
+    { word: '', translation: '' },
+    { word: '', translation: '' },
 ];
 
 const roulette_data = [
-    { spanish: 'pato', kichwa: 'kulta' },
-    { spanish: 'cuy', kichwa: 'kuy' },
-    { spanish: 'gallina', kichwa: 'atallpa' },
-    { spanish: 'ratón', kichwa: 'ukucha' },
-    { spanish: 'pulga', kichwa: 'piki' },
-    { spanish: 'conejo', kichwa: 'wallinku' },
-    { spanish: 'perro', kichwa: 'allku' },
-    { spanish: 'Gato', kichwa: 'misi' },
+    { spanish: '', kichwa: '' },
+    { spanish: '', kichwa: '' },
+    { spanish: '', kichwa: '' },
+    { spanish: '', kichwa: '' },
+    { spanish: '', kichwa: '' },
 ];
 
 const GamesBasicModule4 = () => {

@@ -10,30 +10,30 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const questions = [
     {
-        question: "¿Cuál es la pronunciación de la letra W en Kichwa?",
-        options: ["/ua/", "/wa/", "/ah/", "/uu/"],
-        answer: "/ua/"
+        question: "¿Cuál es la palabra correcta para completar 'Killkana ___ pi'?",
+        options: ["kas", "qus", "pas", "yar"],
+        answer: "kas",
     },
     {
-        question: "¿Cómo se dice el número '5' en Kichwa?",
-        options: ["Chusku", "Pichka", "Kimsa", "Sukta"],
-        answer: "Pichka"
+        question: "¿Qué significa 'Shimi' en español?",
+        options: ["Boca", "Mano", "Cara", "Pierna"],
+        answer: "Boca",
     },
     {
-        question: "¿Qué color representa 'Ankas' en español?",
-        options: ["Rojo", "Amarillo", "Azul", "Verde"],
-        answer: "Azul"
+        question: "¿Cómo se traduce 'Punku' al español?",
+        options: ["Ventana", "Mesa", "Puerta", "Fuego"],
+        answer: "Puerta",
     },
     {
-        question: "¿Cómo se dice el número '17' en Kichwa?",
-        options: ["Chunka kanchis", "Pichka", "Ishkay chunka", "Chunka pusak"],
-        answer: "Chunka kanchis"
+        question: "¿Qué significa 'kuncha' en español?",
+        options: ["Bisnieto", "Tía", "Cuñada", "Sobrino"],
+        answer: "Sobrino",
     },
     {
-        question: "¿Qué significa 'Kimsaniki' en español?",
-        options: ["Segundo", "Primero", "Quinto", "Tercero"],
-        answer: "Tercero"
-    }
+        question: "¿Cómo se dice 'Rodilla' en Kichwa?",
+        options: ["Kachun", "Kunkuri", "Allpa", "Killkakatina"],
+        answer: "Kunkuri",
+    },
 ];
 
 const EvaluationBasicModule3 = () => {

@@ -18,6 +18,7 @@ import { ButtonDefault } from './buttons/ButtonDefault';
 import { ButtonLevelsInicio } from './buttons/ButtonLevelsInicio';
 
 const humuTalking = require('../../../assets/images/humu/humu-talking.jpg');
+const humuHappyPNG = require('../../../assets/images/humu/humu-happy.png');
 
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
@@ -40,7 +41,7 @@ const Card = ({ card, isFlipped, onPress }) => {
         <TouchableOpacity onPress={onPress}>
             <View style={stylesMatch.cardContainer}>
                 <Animated.View style={[stylesMatch.cardFace, animatedStyleFront]}>
-                    <Image source={{ uri: "https://i.pinimg.com/originals/14/02/72/1402722b43c3c92d51ae2ec0eebdf93a.jpg" }} style={stylesMatch.cardImage} />
+                    <ImageContainer path={humuHappyPNG} style={stylesMatch.cardImage} />
                 </Animated.View>
                 <Animated.View style={[stylesMatch.cardFace, animatedStyleBack, stylesMatch.cardBack]}>
                     <Text style={stylesMatch.cardText}>{card.spanish}</Text>
