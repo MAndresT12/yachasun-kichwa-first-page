@@ -10,30 +10,30 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const questions = [
     {
-        question: "¿Cuál es la pronunciación de la letra W en Kichwa?",
-        options: ["/ua/", "/wa/", "/ah/", "/uu/"],
-        answer: "/ua/"
+        question: "¿Cuál es la palabra correcta para completar 'Puyu ___ a'?",
+        options: ["kun", "qun", "cun", "zun"],
+        answer: "kun",
     },
     {
-        question: "¿Cómo se dice el número '5' en Kichwa?",
-        options: ["Chusku", "Pichka", "Kimsa", "Sukta"],
-        answer: "Pichka"
+        question: "¿Qué significa 'Warmi allku' en español?",
+        options: ["Perra", "Chancho", "Gato", "Flor delicada"],
+        answer: "Perra",
     },
     {
-        question: "¿Qué color representa 'Ankas' en español?",
-        options: ["Rojo", "Amarillo", "Azul", "Verde"],
-        answer: "Azul"
+        question: "¿Qué significa 'Kari atallpa' en español?",
+        options: ["Gallo", "Flor delicada", "Chancho", "Mucha gente"],
+        answer: "Gallo",
     },
     {
-        question: "¿Cómo se dice el número '17' en Kichwa?",
-        options: ["Chunka kanchis", "Pichka", "Ishkay chunka", "Chunka pusak"],
-        answer: "Chunka kanchis"
+        question: "¿Cómo se dice 'Mediano' en Kichwa?",
+        options: ["Malta", "Hatun", "Uchilla", "Tantakuna"],
+        answer: "Malta",
     },
     {
-        question: "¿Qué significa 'Kimsaniki' en español?",
-        options: ["Segundo", "Primero", "Quinto", "Tercero"],
-        answer: "Tercero"
-    }
+        question: "¿Cómo se dice 'Grande' en Kichwa?",
+        options: ["Hatun", "Uchilla", "Malta", "Tantakuna"],
+        answer: "Hatun",
+    },
 ];
 
 const EvaluationBasicModule5 = () => {

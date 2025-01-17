@@ -13,60 +13,48 @@ import RuletaGame from '../../../ui/RuletaGame';
 
 const complete_sentence_data = [
     {
-        sentenceParts: ["Killkana ", "pi"],
-        correctWords: ["kas"],
-        options: ["kas", "qus", "pas"],
-        translation: "Lápiz",
+        sentenceParts: ["Puyu", "a"],
+        correctWords: ["kun"],
+        options: ["kun", "qun", "cun"],
+        translation: "Nubes",
     },
     {
-        sentenceParts: ["Ti", "ina"],
-        correctWords: ["yar"],
-        options: ["kar", "yar", "par"],
-        translation: "Silla",
+        sentenceParts: ["", "akuna"],
+        correctWords: ["Sis"],
+        options: ["Cis", "Sis", "Zis"],
+        translation: "Flores",
     },
     {
-        sentenceParts: ["Yacha", ""],
-        correctWords: ["kuna"],
-        options: ["shuna", "puna", "kuna"],
-        translation: "Aprender",
+        sentenceParts: ["K", "una"],
+        correctWords: ["uyk"],
+        options: ["uyq", "uyc", "uyk"],
+        translation: "Cuyes",
     },
 ];
 
 const match_game_data = [
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "Kari kuchi", spanish: "Chancho", image: "https://st2.depositphotos.com/1724125/46903/v/600/depositphotos_469034328-stock-illustration-strong-boxer-pig-posing-smiling.jpg" },
+    { kichwa: "Warmi allku", spanish: "Perra", image: "https://st3.depositphotos.com/4155807/16049/v/600/depositphotos_160493412-stock-illustration-little-cute-dog-with-long.jpg" },
+    { kichwa: "Warmi rumi", spanish: "Piedra fina", image: "https://st2.depositphotos.com/18747850/49225/v/600/depositphotos_492254054-stock-illustration-gray-stone-on-white-background.jpg" },
+    { kichwa: "Ashalla sisakuna", spanish: "Pocas flores", image: "https://st4.depositphotos.com/1526816/29611/v/600/depositphotos_296113446-stock-illustration-yellow-daffodil-flowers-on-white.jpg" },
 ];
 
 
 const match_image_data = [
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "Warmi kuchi", spanish: "Chancha", image: "https://st4.depositphotos.com/1000489/21148/v/600/depositphotos_211488650-stock-illustration-fun-pig-pink-hat-suitcase.jpg" },
+    { kichwa: "Kari atallpa", spanish: "Gallo", image: "https://st3.depositphotos.com/1008632/13102/v/600/depositphotos_131026622-stock-illustration-mr-rooster-illustration.jpg" },
+    { kichwa: "Warmi sisa", spanish: "Flor delicada", image: "https://st5.depositphotos.com/1007566/68826/v/600/depositphotos_688261274-stock-illustration-japan-sakura-flower-illustration-isolated.jpg" },
+    { kichwa: "Tawka runakuna", spanish: "Mucha gente", image: "https://st5.depositphotos.com/2850905/75383/v/600/depositphotos_753834036-stock-illustration-large-group-people-form-square.jpg" },
 ];
 
 const hangman_data = [
-    { word: '', translation: '' },
-    { word: '', translation: '' },
-    { word: '', translation: '' },
-    { word: '', translation: '' },
-    { word: '', translation: '' },
+    { word: 'Tantakuna', translation: 'Panes' },
 ];
 
 const roulette_data = [
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
+    { spanish: 'Hatun', kichwa: 'Grande' },
+    { spanish: 'Malta', kichwa: 'Mediano' },
+    { spanish: 'Uchilla', kichwa: 'Pequeño' },
 ];
 
 const GamesBasicModule5 = () => {
