@@ -13,22 +13,22 @@ import RuletaGame from '../../../ui/RuletaGame';
 
 const complete_sentence_data = [
     {
-        sentenceParts: ["Killkana ", "pi"],
-        correctWords: ["kas"],
-        options: ["kas", "qus", "pas"],
-        translation: "Lápiz",
+        sentenceParts: ["", "willa"],
+        correctWords: ["Chi"],
+        options: ["Chi", "Qui", "Kill"],
+        translation: "Piña",
     },
     {
-        sentenceParts: ["Ti", "ina"],
-        correctWords: ["yar"],
-        options: ["kar", "yar", "par"],
-        translation: "Silla",
+        sentenceParts: ["Chi", "kan"],
+        correctWords: ["wall"],
+        options: ["shall", "wall", "call"],
+        translation: "Babaco",
     },
     {
-        sentenceParts: ["Yacha", ""],
-        correctWords: ["kuna"],
-        options: ["shuna", "puna", "kuna"],
-        translation: "Aprender",
+        sentenceParts: ["Ka", "ay"],
+        correctWords: ["ws"],
+        options: ["us", "ls", "ws"],
+        translation: "Vida",
     },
 ];
 
@@ -37,28 +37,52 @@ const match_game_data = [
     { kichwa: "Makinchu", spanish: "Queso", image: "https://st5.depositphotos.com/19075028/71596/v/600/depositphotos_715962096-stock-illustration-piece-tasty-gourmet-cheese-isolated.jpg" },
     { kichwa: "Haku", spanish: "Harina", image: "https://st.depositphotos.com/23654100/60380/v/600/depositphotos_603801318-stock-illustration-sack-wheat-flour-golden-ears.jpg" },
     { kichwa: "Tanta", spanish: "Pan", image: "https://st.depositphotos.com/1526816/1313/v/600/depositphotos_13130709-stock-illustration-bread-slices.jpg" },
-    { kichwa: "Yaku", spanish: "Agua", image: "https://st2.depositphotos.com/1007168/6106/v/600/depositphotos_61064019-stock-illustration-water-drop-holding-water-glass.jpg" },
-    { kichwa: "Ñuñu", spanish: "Leche", image: "https://st3.depositphotos.com/1007566/13756/v/600/depositphotos_137563310-stock-illustration-milk-box-with-glass.jpg" },
+    { kichwa: "Sara", spanish: "Maíz", image: "https://st3.depositphotos.com/1724125/17973/v/600/depositphotos_179738808-stock-illustration-happy-cartoon-corn-with-fist.jpg" },
+    { kichwa: "Challwa", spanish: "Pescado", image: "https://st5.depositphotos.com/72771704/76627/v/600/depositphotos_766275576-stock-illustration-bluegill-fish-isolated-flat-vector.jpg" },
 ];
 
 
 const match_image_data = [
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
+    {
+        kichwa: "Allku",
+        spanish: "Perro", image: "https://static4.depositphotos.com/1000792/366/v/600/depositphotos_3660872-stock-illustration-running-funny-puppy.jpg"
+    },
+    {
+        kichwa: "Misi",
+        spanish: "Gato", image: "https://st5.depositphotos.com/23146722/73880/v/600/depositphotos_738807042-stock-illustration-vector-illustration-white-background-childrens.jpg"
+    },
+    {
+        kichwa: "Atallpa",
+        spanish: "Gallina", image: "https://st3.depositphotos.com/1724125/13418/v/600/depositphotos_134186352-stock-illustration-happy-cartoon-chicken.jpg"
+    },
+    {
+        kichwa: "Kuy",
+        spanish: "Cuy", image: "https://st5.depositphotos.com/3369547/65830/v/600/depositphotos_658304596-stock-illustration-cheerful-guinea-pig-cute-fluffy.jpg"
+    },
+    {
+        kichwa: "Kuchi",
+        spanish: "Chancho", image: "https://st2.depositphotos.com/1000792/5623/v/600/depositphotos_56232093-stock-illustration-very-cute-piggy.jpg"
+    },
+    {
+        kichwa: "Llama",
+        spanish: "Oveja", image: "https://st5.depositphotos.com/46060006/65751/v/600/depositphotos_657515552-stock-illustration-cute-sheep-white-background.jpg"
+    },
+    {
+        kichwa: "Apyu",
+        spanish: "Caballo", image: "https://st5.depositphotos.com/20923550/70476/v/600/depositphotos_704764502-stock-illustration-horse-running-meadow-vector-illustration.jpg"
+    },
+    {
+        kichwa: "Wakra",
+        spanish: "Ganado", image: "https://st5.depositphotos.com/28052602/69001/v/600/depositphotos_690013718-stock-illustration-illustration-milk-cow-grass.jpg"
+    },
 ];
 
 const hangman_data = [
-    { word: '', translation: '' },
-    { word: '', translation: '' },
-    { word: '', translation: '' },
-    { word: '', translation: '' },
-    { word: '', translation: '' },
+    { word: 'Puyu', translation: 'Nube' },
+    { word: 'Pakcha', translation: 'Cascada' },
+    { word: 'Kiwa', translation: 'Hierba' },
+    { word: 'Tamya', translation: 'Lluvia' },
+    { word: 'Sacha', translation: 'Selva' },
 ];
 
 const roulette_data = [

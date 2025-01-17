@@ -10,30 +10,30 @@ import { CardDefault } from '../../../ui/cards/CardDefault';
 
 const questions = [
     {
-        question: "¿Cuál es la pronunciación de la letra W en Kichwa?",
-        options: ["/ua/", "/wa/", "/ah/", "/uu/"],
-        answer: "/ua/"
+        question: "¿Cuál es la palabra correcta para completar 'Chi ___ willa'?",
+        options: ["Qui", "Chi", "Kill", "Wall"],
+        answer: "Chi",
     },
     {
-        question: "¿Cómo se dice el número '5' en Kichwa?",
-        options: ["Chusku", "Pichka", "Kimsa", "Sukta"],
-        answer: "Pichka"
+        question: "¿Cómo se traduce 'Makinchu' al español?",
+        options: ["Carne", "Queso", "Harina", "Pan"],
+        answer: "Queso",
     },
     {
-        question: "¿Qué color representa 'Ankas' en español?",
-        options: ["Rojo", "Amarillo", "Azul", "Verde"],
-        answer: "Azul"
+        question: "¿Qué animal representa 'Atallpa' en Kichwa?",
+        options: ["Perro", "Gallina", "Cuy", "Gato"],
+        answer: "Gallina",
     },
     {
-        question: "¿Cómo se dice el número '17' en Kichwa?",
-        options: ["Chunka kanchis", "Pichka", "Ishkay chunka", "Chunka pusak"],
-        answer: "Chunka kanchis"
+        question: "¿Qué significa 'Tamya' en español?",
+        options: ["Hierba", "Selva", "Cascada", "Lluvia"],
+        answer: "Lluvia",
     },
     {
-        question: "¿Qué significa 'Kimsaniki' en español?",
-        options: ["Segundo", "Primero", "Quinto", "Tercero"],
-        answer: "Tercero"
-    }
+        question: "¿Cómo se dice 'Derecha' en Kichwa?",
+        options: ["Uray", "Lluki", "Wichay", "Allawka"],
+        answer: "Allawka",
+    },
 ];
 
 const EvaluationBasicModule4 = () => {
