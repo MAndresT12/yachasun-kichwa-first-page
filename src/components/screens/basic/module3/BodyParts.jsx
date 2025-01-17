@@ -109,17 +109,16 @@ const images = {
 };
 
 const clothes_data = [
-    { kichwa: "Muchiku", spanish: "Sombrero", imageCard: images.body1 },
-    { kichwa: "Wallka", spanish: "Collar", imageCard: images.body1 },
-    { kichwa: "Talpa", spanish: "Blusa", imageCard: images.body1 },
-    { kichwa: "Washa hatana", spanish: "Bufanda / Tela", imageCard: images.body1 },
-    { kichwa: "Chumpi", spanish: "Faja", imageCard: images.body1 },
-    { kichwa: "Anaku", spanish: "Falda", imageCard: images.body1 },
-    { kichwa: "Ushuta", spanish: "Alpargatas", imageCard: images.body1 },
-    { kichwa: "Ruwana", spanish: "Poncho", imageCard: images.body1 },
-    { kichwa: "Kushma", spanish: "Camisa", imageCard: images.body1 },
-    { kichwa: "Muchiku", spanish: "Sombrero", imageCard: images.body1 },
-    { kichwa: "Wara", spanish: "Pantalón de lana", imageCard: images.body1 },
+    { kichwa: "Muchiku", spanish: "Sombrero", imageCard: "https://st4.depositphotos.com/1732591/21398/v/600/depositphotos_213982566-stock-illustration-straw-hat-vector-illustration.jpg" },
+    { kichwa: "Wallka", spanish: "Collar", imageCard: "https://st5.depositphotos.com/54941994/74237/v/600/depositphotos_742375596-stock-illustration-necklace-icon-vector-illustration.jpg" },
+    { kichwa: "Talpa", spanish: "Blusa", imageCard: "https://st4.depositphotos.com/27230386/39517/v/600/depositphotos_395172622-stock-illustration-knotted-cutout-blouse-technical-fashion.jpg" },
+    { kichwa: "Washa hatana", spanish: "Bufanda / Tela", imageCard: "https://st3.depositphotos.com/1007566/13078/v/600/depositphotos_130782040-stock-illustration-winter-scarf-clothes-icon.jpg" },
+    { kichwa: "Chumpi", spanish: "Faja", imageCard: "https://st2.depositphotos.com/5333766/8342/v/600/depositphotos_83426848-stock-illustration-corset.jpg" },
+    { kichwa: "Anaku", spanish: "Falda", imageCard: "https://st5.depositphotos.com/28379836/66520/v/600/depositphotos_665208386-stock-illustration-pink-skirt-pink-background.jpg" },
+    { kichwa: "Ushuta", spanish: "Alpargatas", imageCard: "https://img.freepik.com/premium-vector/espadrilles-vector-clip-art-illustration_296703-1598.jpg?w=740" },
+    { kichwa: "Ruwana", spanish: "Poncho", imageCard: "https://st2.depositphotos.com/3864435/7476/v/600/depositphotos_74767059-stock-illustration-mexican-poncho.jpg" },
+    { kichwa: "Kushma", spanish: "Camisa", imageCard: "https://st.depositphotos.com/57803962/55707/v/600/depositphotos_557076060-stock-illustration-shirt-icon-vector-illustration.jpg" },
+    { kichwa: "Wara", spanish: "Pantalón de lana", imageCard: "https://st.depositphotos.com/1033941/2143/v/600/depositphotos_21439093-stock-illustration-sweatpants.jpg" },
 ];
 
 const curiosity_data = [
@@ -316,7 +315,7 @@ const BodyParts = () => {
                             {clothes_data.map((item, index) => (
                                 <View key={index} style={styles.tableRow}>
                                     <View style={styles.imageContainer}>
-                                        <ImageContainer path={item.imageCard} style={styles.animalImage} />
+                                        <ImageContainer uri={item.imageCard} style={styles.animalImage} />
                                     </View>
                                     <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
                                     <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
