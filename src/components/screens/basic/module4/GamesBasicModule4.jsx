@@ -33,12 +33,12 @@ const complete_sentence_data = [
 ];
 
 const match_game_data = [
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
-    { kichwa: "", spanish: "", image: "" },
+    { kichwa: "Aycha", spanish: "Carne", image: "https://static8.depositphotos.com/1505860/978/v/600/depositphotos_9780210-stock-illustration-fresh-meat.jpg" },
+    { kichwa: "Makinchu", spanish: "Queso", image: "https://st5.depositphotos.com/19075028/71596/v/600/depositphotos_715962096-stock-illustration-piece-tasty-gourmet-cheese-isolated.jpg" },
+    { kichwa: "Haku", spanish: "Harina", image: "https://st.depositphotos.com/23654100/60380/v/600/depositphotos_603801318-stock-illustration-sack-wheat-flour-golden-ears.jpg" },
+    { kichwa: "Tanta", spanish: "Pan", image: "https://st.depositphotos.com/1526816/1313/v/600/depositphotos_13130709-stock-illustration-bread-slices.jpg" },
+    { kichwa: "Yaku", spanish: "Agua", image: "https://st2.depositphotos.com/1007168/6106/v/600/depositphotos_61064019-stock-illustration-water-drop-holding-water-glass.jpg" },
+    { kichwa: "Ñuñu", spanish: "Leche", image: "https://st3.depositphotos.com/1007566/13756/v/600/depositphotos_137563310-stock-illustration-milk-box-with-glass.jpg" },
 ];
 
 
@@ -62,11 +62,10 @@ const hangman_data = [
 ];
 
 const roulette_data = [
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
-    { spanish: '', kichwa: '' },
+    { spanish: 'Wichay', kichwa: 'Arriba' },
+    { spanish: 'Uray', kichwa: 'Abajo' },
+    { spanish: 'Lluki', kichwa: 'Izquierda' },
+    { spanish: 'Allawka', kichwa: 'Derecha' },
 ];
 
 const GamesBasicModule4 = () => {

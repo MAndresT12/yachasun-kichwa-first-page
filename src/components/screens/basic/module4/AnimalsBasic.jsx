@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
+import { Audio } from 'expo-av';
 
 import { styles } from '../../../../../styles/globalStyles';
 
@@ -70,6 +71,7 @@ const AnimalsBasic = () => {
     const [progress, setProgress] = useState(0);
 
     const navigation = useNavigation();
+    const [sound, setSound] = useState(null);
 
     const handlePress = (data) => {
         setSelected(data);
@@ -79,6 +81,28 @@ const AnimalsBasic = () => {
     const toggleHelpModal = () => {
         setShowHelp(!showHelp);
     };
+
+    const playSound = async (audioFile) => {
+        try {
+            const { sound } = await Audio.Sound.createAsync(audioFile);
+            setSound(sound);
+            await sound.playAsync();
+        } catch (error) {
+            console.error('Error al reproducir el sonido:', error);
+        }
+    };
+
+    const stopSound = async () => {
+        if (sound) {
+            await sound.stopAsync();
+            await sound.unloadAsync();
+            setSound(null);
+        }
+    };
+
+    React.useEffect(() => {
+        return sound ? () => stopSound() : undefined;
+    }, [sound]);
 
     const completeLevel = async () => {
         try {
@@ -203,7 +227,9 @@ const AnimalsBasic = () => {
                                 <Text style={styles.translationLabel}>Kichwa:</Text>
                                 <Text style={styles.kichwaText}>{selectedAnimal.kichwa}</Text>
                                 <Text style={styles.translationLabel}>Sonido:</Text>
-                                <Text style={styles.spanishText}>{selectedAnimal.sound}</Text>
+                                <TouchableOpacity onPress={() => playSound(selectedAnimal.sound)}>
+                                    <FontAwesome name="play-circle" size={50} color="blue" />
+                                </TouchableOpacity>
                                 <ImageContainer path={selectedAnimal.imageCard} style={styles.imageModal} />
                                 <View style={styles.buttonContainerAlphabet}>
                                     <TouchableOpacity onPress={() => setModalVisible(false)}>
