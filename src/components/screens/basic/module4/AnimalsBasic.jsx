@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal } from 'react-native';
+import { Text, View, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -28,35 +28,51 @@ const images = {
 
 const animal_data = [
     {
-        sound: "guau", kichwa: "Allku", spanish: "Perro",
+        sound: require('../../../../../assets/sounds/animals/dog.mp3'),
+        kichwa: "Allku",
+        spanish: "Perro",
         imageCard: images.animal1,
     },
     {
-        sound: "miau", kichwa: "Misi", spanish: "Gato",
+        sound: require('../../../../../assets/sounds/animals/cat.mp3'),
+        kichwa: "Misi",
+        spanish: "Gato",
         imageCard: images.animal1,
     },
     {
-        sound: "clo-clo", kichwa: "Atallpa", spanish: "Gallina",
+        sound: require('../../../../../assets/sounds/animals/chicken.mp3'),
+        kichwa: "Atallpa",
+        spanish: "Gallina",
         imageCard: images.animal1,
     },
     {
-        sound: "cui-cui", kichwa: "Kuy", spanish: "Cuy",
+        sound: require('../../../../../assets/sounds/animals/guineapig.mp3'),
+        kichwa: "Kuy",
+        spanish: "Cuy",
         imageCard: images.animal1,
     },
     {
-        sound: "oink", kichwa: "Kuchi", spanish: "Chancho",
+        sound: require('../../../../../assets/sounds/animals/pig.mp3'),
+        kichwa: "Kuchi",
+        spanish: "Chancho",
         imageCard: images.animal1,
     },
     {
-        sound: "bee", kichwa: "Llama", spanish: "Oveja",
+        sound: require('../../../../../assets/sounds/animals/sheep.mp3'),
+        kichwa: "Llama",
+        spanish: "Oveja",
         imageCard: images.animal1,
     },
     {
-        sound: "neigh", kichwa: "Apyu", spanish: "Caballo",
+        sound: require('../../../../../assets/sounds/animals/horse.mp3'),
+        kichwa: "Apyu",
+        spanish: "Caballo",
         imageCard: images.animal1,
     },
     {
-        sound: "muuu", kichwa: "Wakra", spanish: "Ganado",
+        sound: require('../../../../../assets/sounds/animals/cow.mp3'),
+        kichwa: "Wakra",
+        spanish: "Ganado",
         imageCard: images.animal1,
     },
 ];
@@ -84,20 +100,50 @@ const AnimalsBasic = () => {
 
     const playSound = async (audioFile) => {
         try {
-            const { sound } = await Audio.Sound.createAsync(audioFile);
-            setSound(sound);
-            await sound.playAsync();
+            if (sound) {
+                // Detener y descargar el sonido actual si ya existe
+                await sound.stopAsync();
+                await sound.unloadAsync();
+                setSound(null);
+            }
+
+            // Crear y cargar un nuevo sonido
+            const { sound: newSound } = await Audio.Sound.createAsync(audioFile);
+            setSound(newSound);
+            await newSound.playAsync();
         } catch (error) {
-            console.error('Error al reproducir el sonido:', error);
+            console.error("Error al reproducir el sonido:", error);
         }
     };
 
     const stopSound = async () => {
-        if (sound) {
-            await sound.stopAsync();
-            await sound.unloadAsync();
-            setSound(null);
+        try {
+            if (sound) {
+                const status = await sound.getStatusAsync();
+                if (status.isLoaded) {
+                    await sound.stopAsync(); // Stop the sound
+                    await sound.unloadAsync(); // Unload the sound
+                }
+                setSound(null); // Reset the state to ensure no further operations
+            }
+        } catch (error) {
+            // Ignore this specific error if it's about an unloaded sound
+            if (error.message.includes("Cannot complete operation because sound is not loaded")) {
+                console.warn("Sound was already unloaded, ignoring further stop attempts.");
+            } else {
+                console.error("Error al detener el sonido:", error);
+            }
         }
+    };
+
+    // Detener el sonido al cerrar el modal
+    const closeModal = async () => {
+        try {
+            await stopSound(); // Detener cualquier sonido en reproducción
+        } catch (error) {
+            console.error("Error al cerrar el modal:", error);
+        }
+        setModalVisible(false); // Cerrar el modal
     };
 
     React.useEffect(() => {
@@ -227,12 +273,12 @@ const AnimalsBasic = () => {
                                 <Text style={styles.translationLabel}>Kichwa:</Text>
                                 <Text style={styles.kichwaText}>{selectedAnimal.kichwa}</Text>
                                 <Text style={styles.translationLabel}>Sonido:</Text>
-                                <TouchableOpacity onPress={() => playSound(selectedAnimal.sound)}>
-                                    <FontAwesome name="play-circle" size={50} color="blue" />
+                                <TouchableOpacity onPress={() => playSound(selectedAnimal.sound)} style={localStyles.containerSound}>
+                                    <FontAwesome name="play-circle" size={50} color="black" />
                                 </TouchableOpacity>
                                 <ImageContainer path={selectedAnimal.imageCard} style={styles.imageModal} />
                                 <View style={styles.buttonContainerAlphabet}>
-                                    <TouchableOpacity onPress={() => setModalVisible(false)}>
+                                    <TouchableOpacity onPress={() => closeModal()}>
                                         <View style={styles.buttonDefaultAlphabet}>
                                             <Text style={styles.buttonTextAlphabet}>Cerrar</Text>
                                         </View>
@@ -258,5 +304,12 @@ const AnimalsBasic = () => {
         </LinearGradient>
     );
 };
+
+const localStyles = StyleSheet.create({
+    containerSound: {
+        marginTop: 10,
+        marginBottom: 10,
+    },
+});
 
 export default AnimalsBasic;
