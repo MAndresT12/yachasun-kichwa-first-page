@@ -91,7 +91,7 @@
 
 
 - Arreglar todas las imagenes [en_progreso]
--Página la cantidad, colocar español kichwa e imagenes [en_progreso]
+-Página la cantidad, gender, animals colocar español kichwa e imagenes [en_progreso]
 
 - Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 - Debe salir el nombre del usuario al ingresar, en niveles tambien [en_progreso]

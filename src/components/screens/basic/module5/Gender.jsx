@@ -27,19 +27,19 @@ const images = {
 };
 
 const gender_masculine_data = [
-    { kichwa: "Kari kuchi", spanish: "Chancho", imageCard: images.gender1 },
-    { kichwa: "Kari atallpa", spanish: "Gallo", imageCard: images.gender1 },
-    { kichwa: "Kari allku", spanish: "Perro", imageCard: images.gender1 },
-    { kichwa: "Kari sisa", spanish: "Flor rústica", imageCard: images.gender1 },
-    { kichwa: "Kari rumi", spanish: "Piedra rústica", imageCard: images.gender1 },
+    { kichwa: "Kari kuchi", spanish: "Chancho", imageCard: "https://st2.depositphotos.com/1724125/10425/v/600/depositphotos_104258820-stock-illustration-cartoon-pig-coming-out-of.jpg" },
+    { kichwa: "Kari atallpa", spanish: "Gallo", imageCard: "https://st5.depositphotos.com/12546280/67665/v/600/depositphotos_676652884-stock-illustration-rooster-head-vector-logo-template.jpg" },
+    { kichwa: "Kari allku", spanish: "Perro", imageCard: "https://st2.depositphotos.com/28846920/44203/v/600/depositphotos_442034764-stock-illustration-golden-labrador-retriever-head-vector.jpg" },
+    { kichwa: "Kari sisa", spanish: "Flor rústica", imageCard: "https://st3.depositphotos.com/4398873/34470/v/600/depositphotos_344703650-stock-illustration-wilted-rose-flower-faded-plant.jpg" },
+    { kichwa: "Kari rumi", spanish: "Piedra rústica", imageCard: "https://st5.depositphotos.com/4097503/61932/v/600/depositphotos_619322180-stock-illustration-stone-solid-natural-building-material.jpg" },
 ];
 
 const gender_femenine_data = [
-    { kichwa: "Warmi kuchi", spanish: "Chancha", imageCard: images.gender1 },
-    { kichwa: "Warmi atallpa", spanish: "Gallina", imageCard: images.gender1 },
-    { kichwa: "Warmi allku", spanish: "Perra", imageCard: images.gender1 },
-    { kichwa: "Warmi sisa", spanish: "Flor delicada", imageCard: images.gender1 },
-    { kichwa: "Warmi rumi", spanish: "Piedra fina", imageCard: images.gender1 },
+    { kichwa: "Warmi kuchi", spanish: "Chancha", imageCard: "https://st4.depositphotos.com/1000489/24772/v/600/depositphotos_247720474-stock-illustration-housewife-pig-female-bakes-pancakes.jpg" },
+    { kichwa: "Warmi atallpa", spanish: "Gallina", imageCard: "https://st2.depositphotos.com/3687485/9342/v/600/depositphotos_93423976-stock-illustration-cute-cartoon-chicken-mother-and.jpg" },
+    { kichwa: "Warmi allku", spanish: "Perra", imageCard: "https://st3.depositphotos.com/4155807/16049/v/600/depositphotos_160493412-stock-illustration-little-cute-dog-with-long.jpg" },
+    { kichwa: "Warmi sisa", spanish: "Flor delicada", imageCard: "https://st5.depositphotos.com/1007566/68826/v/600/depositphotos_688261274-stock-illustration-japan-sakura-flower-illustration-isolated.jpg" },
+    { kichwa: "Warmi rumi", spanish: "Piedra fina", imageCard: "https://static6.depositphotos.com/1007682/636/v/600/depositphotos_6366738-stock-illustration-abstract-meditation-background.jpg" },
 ];
 
 
@@ -73,7 +73,7 @@ const BigFlipCard = ({ data1, data2 }) => {
         return data.map((item, index) => (
             <View key={index} style={styles.tableRow}>
                 <View style={styles.imageContainer}>
-                    <ImageContainer path={item.imageCard} style={styles.animalImage} />
+                    <ImageContainer uri={item.imageCard} style={styles.animalImage} />
                 </View>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
@@ -85,7 +85,7 @@ const BigFlipCard = ({ data1, data2 }) => {
         return data.map((item, index) => (
             <View key={index} style={styles.tableRow}>
                 <View style={styles.imageContainer}>
-                    <ImageContainer path={item.imageCard} style={styles.animalImage} />
+                    <ImageContainer uri={item.imageCard} style={styles.animalImage} />
                 </View>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
                 <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
