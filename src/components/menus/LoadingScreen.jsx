@@ -21,7 +21,9 @@ const LoadingScreen = () => {
           return prev + 1;
         } else {
           clearInterval(loadingInterval);
-          const timer = setTimeout(() => {
+          // Trigger skip button visibility after a delay
+          const skipTimer = setTimeout(() => {
+            console.log('Skip button enabled'); // Debug log
             setSkipEnabled(true);
           }, 2000);
           return prev;
@@ -34,11 +36,13 @@ const LoadingScreen = () => {
 
   useEffect(() => {
     if (videoFinished && loadingProgress === 100) {
+      console.log('Navigation triggered to Login'); // Debugging log
       navigation.replace('Login');
     }
-  }, [videoFinished, loadingProgress]);
+  }, [videoFinished, loadingProgress, navigation]);
 
   const handleSkip = () => {
+    console.log('Skipped to Login'); // Debugging log
     navigation.replace('Login');
   };
 
@@ -52,6 +56,7 @@ const LoadingScreen = () => {
         shouldPlay
         onPlaybackStatusUpdate={(status) => {
           if (status.didJustFinish) {
+            console.log('Video finished playing'); // Debugging log
             setVideoFinished(true);
           }
         }}
