@@ -84,12 +84,12 @@
 - Pantalla de inicio con los integrantes y de qué se trata el software o en el video, algo que diga esto es un juego direcccionado a estoa de la POli, se hizo porque. Que explique que es Yachasun Kichwa [x]
 - En pantalla de inicio que diga hola soy hummu y estoy listo para jogar, aquí una descrpción del Kichwa, una intro al idioma (hacer componente para luego ver cómo poner) [x]
 - adaptar juegos de basicos, Cambiar cada juego para cada módulo [x]
+-Pagina La Naturaleza en la tabla colocar imagenes que correspondan [x]
+-Página Los Alimentos (colocar imagenes en las frutas etc). [x]
 
 
 
 - Arreglar todas las imagenes [en_progreso]
--Pagina La Naturaleza en la tabla colocar imagenes que correspondan [en_progreso]
--Página Los Alimentos (colocar imagenes en las frutas etc). [en_progreso]
 -Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa [en_progreso]
 -Página la cantidad, colocar español kichwa e imagenes [en_progreso]
 
