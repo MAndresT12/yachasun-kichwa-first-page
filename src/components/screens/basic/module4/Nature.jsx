@@ -44,32 +44,32 @@ const nature1_data = [
 ];
 
 const nature2_data = [
-    { imageCard: images.nature1, kichwa: "Sacha", spanish: "Selva" },
-    { imageCard: images.nature1, kichwa: "Turu", spanish: "Lodo" },
-    { imageCard: images.nature1, kichwa: "Uksha", spanish: "Paja" },
-    { imageCard: images.nature1, kichwa: "Kiwa", spanish: "Hierba" },
-    { imageCard: images.nature1, kichwa: "Inti", spanish: "Sol" },
-    { imageCard: images.nature1, kichwa: "Pampa", spanish: "Valle" },
-    { imageCard: images.nature1, kichwa: "Tamya", spanish: "Lluvia" },
-    { imageCard: images.nature1, kichwa: "Allpa", spanish: "Tierra" },
-    { imageCard: images.nature1, kichwa: "Pata", spanish: "Borde, Orilla" },
-    { imageCard: images.nature1, kichwa: "Yunka", spanish: "Costa" },
-    { imageCard: images.nature1, kichwa: "Mama Kucha", spanish: "Océano, Mar" },
-    { imageCard: images.nature1, kichwa: "Wayra", spanish: "Viento" },
+    { imageCard: "https://st5.depositphotos.com/8982612/65190/v/600/depositphotos_651905044-stock-illustration-beautiful-tropical-forest-landscape-vector.jpg", kichwa: "Sacha", spanish: "Selva" },
+    { imageCard: "https://st.depositphotos.com/1024345/53680/v/600/depositphotos_536804950-stock-illustration-shovels-in-a-pile-of.jpg", kichwa: "Turu", spanish: "Lodo" },
+    { imageCard: "https://st2.depositphotos.com/5777248/10046/v/600/depositphotos_100463390-stock-illustration-haystack-cartoon-icon.jpg", kichwa: "Uksha", spanish: "Paja" },
+    { imageCard: "https://st.depositphotos.com/1024232/1876/v/600/depositphotos_18760421-stock-illustration-vector-grass-with-ladybird-isolated.jpg", kichwa: "Kiwa", spanish: "Hierba" },
+    { imageCard: "https://st5.depositphotos.com/79395200/76229/v/600/depositphotos_762291830-stock-illustration-sun-bright-sun-icon-white.jpg", kichwa: "Inti", spanish: "Sol" },
+    { imageCard: "https://st5.depositphotos.com/50730154/74689/v/600/depositphotos_746891830-stock-illustration-countryside-landscape-scene-green-wheat.jpg", kichwa: "Pampa", spanish: "Valle" },
+    { imageCard: "https://st2.depositphotos.com/2507337/12422/v/600/depositphotos_124220334-stock-illustration-cloud-and-rain.jpg", kichwa: "Tamya", spanish: "Lluvia" },
+    { imageCard: "https://st2.depositphotos.com/1796420/8408/v/600/depositphotos_84083416-stock-illustration-texture-for-platformers-pixel-art.jpg", kichwa: "Allpa", spanish: "Tierra" },
+    { imageCard: "https://st3.depositphotos.com/11615252/17386/v/600/depositphotos_173869946-stock-illustration-businesswoman-fall-cliff.jpg", kichwa: "Pata", spanish: "Borde, Orilla" },
+    { imageCard: "https://st5.depositphotos.com/49807348/77224/v/600/depositphotos_772246628-stock-illustration-seascape-sand-dunes-seashore-vector.jpg", kichwa: "Yunka", spanish: "Costa" },
+    { imageCard: "https://static8.depositphotos.com/1336457/1016/v/600/depositphotos_10165788-stock-illustration-cartoon-colored-coral-reef-and.jpg", kichwa: "Mama Kucha", spanish: "Océano, Mar" },
+    { imageCard: "https://st3.depositphotos.com/1030387/18838/v/600/depositphotos_188380172-stock-illustration-wind-blowing-design-element.jpg", kichwa: "Wayra", spanish: "Viento" },
 ];
 
 const nature3_data = [
-    { imageCard: images.nature1, kichwa: "Yura", spanish: "Planta" },
-    { imageCard: images.nature1, kichwa: "Panka", spanish: "Hoja" },
-    { imageCard: images.nature1, kichwa: "Muyu", spanish: "Semilla" },
-    { imageCard: images.nature1, kichwa: "Sisa", spanish: "Flor" },
-    { imageCard: images.nature1, kichwa: "Sapi", spanish: "Raíz" },
-    { imageCard: images.nature1, kichwa: "Kiru", spanish: "Árbol" },
-    { imageCard: images.nature1, kichwa: "Killa", spanish: "Luna" },
-    { imageCard: images.nature1, kichwa: "Yaku", spanish: "Agua" },
-    { imageCard: images.nature1, kichwa: "Kawsay", spanish: "Vida" },
-    { imageCard: images.nature1, kichwa: "Warmi", spanish: "Mujer" },
-    { imageCard: images.nature1, kichwa: "Kari", spanish: "Hombre" }
+    { imageCard: "https://st5.depositphotos.com/88030504/77281/v/600/depositphotos_772818468-stock-illustration-growing-seedling-pot-vector-illustration.jpg", kichwa: "Yura", spanish: "Planta" },
+    { imageCard: "https://st5.depositphotos.com/90884748/76338/v/600/depositphotos_763382434-stock-illustration-green-leaf-isolated-white-background.jpg", kichwa: "Panka", spanish: "Hoja" },
+    { imageCard: "https://st2.depositphotos.com/1526816/11570/v/600/depositphotos_115707062-stock-illustration-seed-germination-in-clay-pot.jpg", kichwa: "Muyu", spanish: "Semilla" },
+    { imageCard: "https://static8.depositphotos.com/1526816/999/v/600/depositphotos_9994393-stock-illustration-flower.jpg", kichwa: "Sisa", spanish: "Flor" },
+    { imageCard: "https://img.freepik.com/premium-vector/tree-roots-vector_1119897-5199.jpg?w=740", kichwa: "Sapi", spanish: "Raíz" },
+    { imageCard: "https://st.depositphotos.com/2208320/1928/v/600/depositphotos_19281707-stock-illustration-nature-vector-green-tree-banner.jpg", kichwa: "Kiru", spanish: "Árbol" },
+    { imageCard: "https://st5.depositphotos.com/82227364/72583/v/600/depositphotos_725832048-stock-illustration-moon-stars-black-background.jpg", kichwa: "Killa", spanish: "Luna" },
+    { imageCard: "https://st4.depositphotos.com/11953928/23967/v/600/depositphotos_239679154-stock-illustration-silhouette-kawaii-nice-shy-drop.jpg", kichwa: "Yaku", spanish: "Agua" },
+    { imageCard: "https://st2.depositphotos.com/1093689/5333/v/600/depositphotos_53334773-stock-illustration-happy-joyous-people-as-trees.jpg", kichwa: "Kawsay", spanish: "Vida" },
+    { imageCard: "https://st5.depositphotos.com/76722222/67148/v/600/depositphotos_671488418-stock-illustration-happy-smiling-woman-purple-clothes.jpg", kichwa: "Warmi", spanish: "Mujer" },
+    { imageCard: "https://st5.depositphotos.com/80218270/66272/v/600/depositphotos_662720220-stock-illustration-confident-man-pointing-finger-camera.jpg", kichwa: "Kari", spanish: "Hombre" }
 ];
 
 const weather_data = [
@@ -113,7 +113,7 @@ const renderDataImages = (data) => {
     return data.map((item, index) => (
         <View key={index} style={styles.tableRow}>
             <View style={styles.imageContainer}>
-                <ImageContainer path={item.imageCard} style={styles.animalImage} />
+                <ImageContainer uri={item.imageCard} style={styles.animalImage} />
             </View>
             <Text style={[styles.tableCell, styles.textCenter]}>{item.spanish}</Text>
             <Text style={[styles.tableCell, styles.textCenter]}>{item.kichwa}</Text>
