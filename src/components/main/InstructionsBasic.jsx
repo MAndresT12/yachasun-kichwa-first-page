@@ -5,6 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
+import { FloatingHumu } from '../animations/FloatingHumu';
+
 import { styles } from '../../../styles/globalStyles';
 import { buttonStyles } from '../../../styles/buttonStyles';
 import { cardStyles } from '../../../styles/cardStyles';
@@ -32,20 +34,22 @@ const Instructions = () => {
             style={[localStyles.gradientBackground, styles.container]}
         >
             <View style={imageStyles.halfImageContainer}>
-                <ImageContainer
-                    path={require('../../../assets/images/humu/humu-happy.png')}
-                    style={imageStyles.halfImage}
-                />
+                <FloatingHumu >
+                    <ImageContainer
+                        path={require('../../../assets/images/humu/humu-talking.png')}
+                        style={imageStyles.halfImage}
+                    />
+                </FloatingHumu>
             </View>
             <View style={cardStyles.cardContainerInstructions}>
 
                 <CardDefault title="Básico" style={cardStyles.instructionsCardStyle} >
                     <Text style={styles.cardContent}>
-                    En este nivel de dificultad, aprenderás los elementos básicos del Kichwa. 
-                    Comenzaremos por temas como los números, los colores y los saludos, para 
-                    terminar con la creación de oraciones simples. Será una aventura llena de 
-                    conocimiento y diversión.
-                    {"\n\n"}Sostente fuerte que aquí comienza tu camino por un mundo maravilloso.
+                        En este nivel de dificultad, aprenderás los elementos básicos del Kichwa.
+                        Comenzaremos por temas como los números, los colores y los saludos, para
+                        terminar con la creación de oraciones simples. Será una aventura llena de
+                        conocimiento y diversión.
+                        {"\n\n"}Sostente fuerte que aquí comienza tu camino por un mundo maravilloso.
                     </Text>
                 </CardDefault>
             </View>

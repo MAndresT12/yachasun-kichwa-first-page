@@ -6,6 +6,7 @@ import { styles as globalStyles } from '../../../styles/globalStyles';
 import { buttonStyles } from '../../../styles/buttonStyles';
 import { cardStyles } from '../../../styles/cardStyles';
 import { imageStyles } from '../../../styles/imageStyles';
+import { FloatingHumu } from '../animations/FloatingHumu';
 import { CardDefault } from '../ui/cards/CardDefault';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ImageContainer } from '../ui/imageContainers/ImageContainer';
@@ -28,10 +29,12 @@ const Instructions = () => {
             style={[localStyles.gradientBackground, globalStyles.container]}
         >
             <View style={imageStyles.halfImageContainer}>
-                <ImageContainer
-                    path={require('../../../assets/images/humu/humu-fuckup.png')}
-                    style={imageStyles.halfImage}
-                />
+                <FloatingHumu >
+                    <ImageContainer
+                        path={require('../../../assets/images/humu/humu-talking.png')}
+                        style={imageStyles.halfImage}
+                    />
+                </FloatingHumu>
             </View>
             <View style={cardStyles.cardContainerInstructions}>
 
