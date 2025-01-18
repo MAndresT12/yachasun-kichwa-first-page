@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import FlashMessage from 'react-native-flash-message';
+
 import { StatusBar } from 'expo-status-bar';
-import { Ionicons, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
-import { View, Text } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+
 import { styles } from './styles/globalStyles';
+
+import { UserContext } from './src/context/UserContext';
 
 import IntroduccionJuegoScreen from './src/components/screens/misc/IntroduccionJuegosScreen.jsx';
 import IntroduccionJuegoScreenModule2 from './src/components/screens/misc/IntroduccionJuegosScreenModule2.jsx';
@@ -42,6 +47,7 @@ import Login from './src/components/menus/Login';
 import HomeScreen from './src/components/menus/HomeScreen';
 import CreditsScreen from './src/components/menus/CreditsScreen';
 import TutoScreen from './src/components/menus/TutoScreen';
+import ProfileScreen from './src/components/menus/ProfileScreen';
 
 import HistoryScreen from './src/components/menus/HistoryScreen';
 
@@ -875,17 +881,16 @@ function HomeStack() {
   );
 }
 
-const ProfileScreen = () => (
-  <View style={styles.container}>
-    <Text>Perfil</Text>
-  </View>
-);
-
 export default function App() {
+  const [username, setUsername] = useState('');
+
   return (
-    <NavigationContainer>
-      <StatusBar style="auto" />
-      <AppNavigator />
-    </NavigationContainer>
+    <UserContext.Provider value={{ username, setUsername }}>
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        <AppNavigator />
+        <FlashMessage position="bottom" />
+      </NavigationContainer>
+    </UserContext.Provider>
   );
 }
