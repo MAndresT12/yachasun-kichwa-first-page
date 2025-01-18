@@ -23,6 +23,14 @@ const humuTalking = require('../../../../../assets/images/humu/humu-talking.jpg'
 
 const images = {
     animal1: require('../../../../../assets/images/basic/module4/animals/animal1.png'),
+    cat: require('../../../../../assets/images/basic/module4/animals/cat.jpg'),
+    chicken: require('../../../../../assets/images/basic/module4/animals/chicken.jpg'),
+    cow: require('../../../../../assets/images/basic/module4/animals/cow.jpg'),
+    dog: require('../../../../../assets/images/basic/module4/animals/dog.jpg'),
+    guineapig: require('../../../../../assets/images/basic/module4/animals/guineapig.jpg'),
+    horse: require('../../../../../assets/images/basic/module4/animals/horse.jpg'),
+    pig: require('../../../../../assets/images/basic/module4/animals/pig.jpg'),
+    sheep: require('../../../../../assets/images/basic/module4/animals/sheep.jpg'),
 };
 
 
@@ -31,49 +39,49 @@ const animal_data = [
         sound: require('../../../../../assets/sounds/animals/dog.mp3'),
         kichwa: "Allku",
         spanish: "Perro",
-        imageCard: images.animal1,
+        imageCard: images.dog,
     },
     {
         sound: require('../../../../../assets/sounds/animals/cat.mp3'),
         kichwa: "Misi",
         spanish: "Gato",
-        imageCard: images.animal1,
+        imageCard: images.cat,
     },
     {
         sound: require('../../../../../assets/sounds/animals/chicken.mp3'),
         kichwa: "Atallpa",
         spanish: "Gallina",
-        imageCard: images.animal1,
+        imageCard: images.chicken,
     },
     {
         sound: require('../../../../../assets/sounds/animals/guineapig.mp3'),
         kichwa: "Kuy",
         spanish: "Cuy",
-        imageCard: images.animal1,
+        imageCard: images.guineapig,
     },
     {
         sound: require('../../../../../assets/sounds/animals/pig.mp3'),
         kichwa: "Kuchi",
         spanish: "Chancho",
-        imageCard: images.animal1,
+        imageCard: images.pig,
     },
     {
         sound: require('../../../../../assets/sounds/animals/sheep.mp3'),
         kichwa: "Llama",
         spanish: "Oveja",
-        imageCard: images.animal1,
+        imageCard: images.sheep,
     },
     {
         sound: require('../../../../../assets/sounds/animals/horse.mp3'),
         kichwa: "Apyu",
         spanish: "Caballo",
-        imageCard: images.animal1,
+        imageCard: images.horse,
     },
     {
         sound: require('../../../../../assets/sounds/animals/cow.mp3'),
         kichwa: "Wakra",
         spanish: "Ganado",
-        imageCard: images.animal1,
+        imageCard: images.cow,
     },
 ];
 
@@ -221,7 +229,7 @@ const AnimalsBasic = () => {
                             <TouchableWithoutFeedback key={item.spanish} onPress={() => handlePress(item)}>
                                 <View style={styles.cardInGrid}>
                                     <CardDefault styleCard={styles.cardPopUp} styleTitle={styles.cardTitleAlphabet} >
-                                        <ImageContainer path={item.imageCard} style={styles.imageCards} />
+                                        <ImageContainer path={images.animal1} style={styles.imageCards} />
                                     </CardDefault>
                                 </View>
                             </TouchableWithoutFeedback>

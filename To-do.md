@@ -87,11 +87,11 @@
 -Pagina La Naturaleza en la tabla colocar imagenes que correspondan [x]
 -Página Los Alimentos (colocar imagenes en las frutas etc). [x]
 -Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa [x]
+- Arreglar todas las imagenes [x]
+-Página la cantidad, gender, animals colocar español kichwa e imagenes [x]
 
 
 
-- Arreglar todas las imagenes [en_progreso]
--Página la cantidad, gender, animals colocar español kichwa e imagenes [en_progreso]
 
 - Progreso falta y perfil también [Progreso_hecho_falta_perfil]
 - Debe salir el nombre del usuario al ingresar, en niveles tambien [en_progreso]
