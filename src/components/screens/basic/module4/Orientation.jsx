@@ -25,13 +25,17 @@ const { width } = Dimensions.get('window');
 
 const images = {
     orientation1: require('../../../../../assets/images/basic/module4/orientation/orientation1.png'),
+    up: require('../../../../../assets/images/basic/module4/orientation/up.jpg'),
+    right: require('../../../../../assets/images/basic/module4/orientation/right.jpg'),
+    down: require('../../../../../assets/images/basic/module4/orientation/down.jpg'),
+    left: require('../../../../../assets/images/basic/module4/orientation/left.jpg'),
 };
 
 const orientation_data = [
-    { imageCard: images.orientation1, kichwa: "Wichay", spanish: "Arriba" },
-    { imageCard: images.orientation1, kichwa: "Uray", spanish: "Abajo" },
-    { imageCard: images.orientation1, kichwa: "Lluki", spanish: "Izquierda" },
-    { imageCard: images.orientation1, kichwa: "Allawka", spanish: "Derecha" },
+    { imageCard: images.up, kichwa: "Wichay", spanish: "Arriba" },
+    { imageCard: images.down, kichwa: "Uray", spanish: "Abajo" },
+    { imageCard: images.left, kichwa: "Lluki", spanish: "Izquierda" },
+    { imageCard: images.right, kichwa: "Allawka", spanish: "Derecha" },
 ];
 
 const renderCard = (item) => (

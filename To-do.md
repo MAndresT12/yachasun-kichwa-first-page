@@ -86,11 +86,11 @@
 - adaptar juegos de basicos, Cambiar cada juego para cada módulo [x]
 -Pagina La Naturaleza en la tabla colocar imagenes que correspondan [x]
 -Página Los Alimentos (colocar imagenes en las frutas etc). [x]
+-Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa [x]
 
 
 
 - Arreglar todas las imagenes [en_progreso]
--Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa [en_progreso]
 -Página la cantidad, colocar español kichwa e imagenes [en_progreso]
 
 - Progreso falta y perfil también [Progreso_hecho_falta_perfil]
