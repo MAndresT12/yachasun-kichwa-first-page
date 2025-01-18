@@ -38,11 +38,11 @@ const localStyles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#481a0c',
+    color: '#fff',
   },
   subText: {
     fontSize: 16,
-    color: '#6b422a',
+    color: '#fff',
     marginTop: 10,
   },
 });

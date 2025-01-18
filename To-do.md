@@ -89,12 +89,12 @@
 -Pagina La Orientacion graficos para arriba, abajo, etc. y colocar español/kichwa [x]
 - Arreglar todas las imagenes [x]
 -Página la cantidad, gender, animals colocar español kichwa e imagenes [x]
+- Progreso falta y perfil también [x]
+- Debe salir el nombre del usuario al ingresar, en niveles tambien [x]
 
 
 
 
-- Progreso falta y perfil también [Progreso_hecho_falta_perfil]
-- Debe salir el nombre del usuario al ingresar, en niveles tambien [en_progreso]
 
 
 
