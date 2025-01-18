@@ -28,15 +28,15 @@ const images = {
 };
 
 const orientation_data = [
-    { imageCard: images.quantity1, kichwa: "Tawka runakuna", spanish: "Mucha gente" },
-    { imageCard: images.quantity1, kichwa: "Ashalla wawakuna", spanish: "Pocos niños" },
-    { imageCard: images.quantity1, kichwa: "Tawka sisakuna", spanish: "Muchas flores" },
-    { imageCard: images.quantity1, kichwa: "Ashalla sisakuna", spanish: "Pocas flores" },
+    { imageCard: "https://st3.depositphotos.com/1829203/35511/v/600/depositphotos_355113318-stock-illustration-group-people-wearing-protection-medical.jpg", kichwa: "Tawka runakuna", spanish: "Mucha gente" },
+    { imageCard: "https://st.depositphotos.com/17675380/59955/v/600/depositphotos_599557138-stock-illustration-cymbal-playing-dancing-school-children.jpg", kichwa: "Ashalla wawakuna", spanish: "Pocos niños" },
+    { imageCard: "https://st2.depositphotos.com/1007301/8961/v/600/depositphotos_89615240-stock-illustration-seamless-pattern-from-many-flowers.jpg", kichwa: "Tawka sisakuna", spanish: "Muchas flores" },
+    { imageCard: "https://st4.depositphotos.com/21087722/24476/v/600/depositphotos_244760126-stock-illustration-vector-blue-flax-floral-botanical.jpg", kichwa: "Ashalla sisakuna", spanish: "Pocas flores" },
 ];
 
 const renderCard = (item) => (
     <View style={styles.carouselCard}>
-        <ImageContainer path={item.imageCard} style={styles.carouselImage} />
+        <ImageContainer uri={item.imageCard} style={styles.carouselImage} />
         <Text style={styles.translationLabel}>Español:</Text>
         <Text style={styles.spanishText}>{item.spanish}</Text>
         <Text style={styles.translationLabel}>Kichwa:</Text>
