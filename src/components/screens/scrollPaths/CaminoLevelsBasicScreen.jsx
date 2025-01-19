@@ -257,12 +257,12 @@ const CaminoLevelsScreen = () => {
 
                     <LevelCard
                         levelKey="level_PronounsSentence"
-                        title="Los pronombres personales, el verbo kana y la estructura de una oración / Shutipakrantikuna, imachik kana, yuyayki wallpa"
+                        title="Los Pronombres Personales, el Verbo Kana y la Estructura de una Oración / Shutipakrantikuna, imachik kana, yuyayki wallpa"
                         iconName="address-card"
                         nextScreen="PronounsSentence"
                         progressKey="level_PronounsSentence_completed"
                     />
-                    <BouncyText>Los pronombres personales, el verbo kana y la estructura de una oración / Shutipakrantikuna, imachik kana, yuyayki wallpa</BouncyText>
+                    <BouncyText>Los Pronombres Personales, el Verbo Kana y la Estructura de una Oración / Shutipakrantikuna, imachik kana, yuyayki wallpa</BouncyText>
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
@@ -325,10 +325,10 @@ const CaminoLevelsScreen = () => {
                     <BouncyText>La Familia / Ayllu 2️⃣</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>Las partes del cuerpo humano / Aycha ukkunpak shimikuna</BouncyText>
+                    <BouncyText>Las Partes del Cuerpo Humano / Aycha ukkunpak shimikuna</BouncyText>
                     <LevelCard
                         levelKey="level_BodyParts"
-                        title="Las partes del cuerpo humano / Aycha ukkunpak shimikuna"
+                        title="Las Partes del Cuerpo Humano / Aycha ukkunpak shimikuna"
                         iconName="female"
                         nextScreen="BodyParts"
                         progressKey="level_BodyParts_completed"
@@ -338,12 +338,12 @@ const CaminoLevelsScreen = () => {
 
                     <LevelCard
                         levelKey="level_House"
-                        title="Las cosas de la casa / Wasipi imakunamanta"
+                        title="Las Cosas de la Casa / Wasipi imakunamanta"
                         iconName="bed"
                         nextScreen="House"
                         progressKey="level_House_completed"
                     />
-                    <BouncyText>Las cosas de la casa / Wasipi imakunamanta</BouncyText>
+                    <BouncyText>Las Cosas de la Casa / Wasipi imakunamanta</BouncyText>
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
