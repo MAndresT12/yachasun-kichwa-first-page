@@ -1,13 +1,8 @@
 # Organización del contenido
 
-## Temas
-
-- El imperativo -> ELEMENTAL 
-- La conjugación en tiempo presente -> ELEMENTAL 
-
 ## Esquema para el nivel básico en niños y adolecentes en la aplicación móvil
 
-### Módulo 1 [Hecho]
+### Módulo 1
 
 - El alfabeto y las vocales
 - Los número del 0 - 500
@@ -16,7 +11,7 @@
 - Juego 1
 - Evaluación 1
 
-### Módulo 2 [Hecho]
+### Módulo 2
 
 - Los saludos, cortesía y despedidas Parte 1
 - Los saludos, cortesía y despedidas Parte 2
@@ -25,7 +20,7 @@
 - Juego 2
 - Evaluación 2
 
-### Módulo 3 [Hecho]
+### Módulo 3
 
 - La familia Parte 2
 - Las partes del cuerpo
@@ -34,7 +29,7 @@
 - Juego 3
 - Evaluación 3
 
-### Módulo 4 [Hecho]
+### Módulo 4
 
 - La naturaleza
 - Los alimentos y las frutas (de dónde sacamos frutas o por qué separamos?, también los alimentos tiene el mismo problema que los animales) -> Básico
@@ -43,7 +38,7 @@
 - Juego 4
 - Evaluación 4
 
-### Módulo 5 [Hecho]
+### Módulo 5
 
 - La pluralización
 - El género
@@ -52,7 +47,7 @@
 - Juego 5
 - Evaluación 5
 
-### Módulo 6 [Hecho]
+### Módulo 6
 
 - El imperativo
 - La conjugación en tiempo presente
