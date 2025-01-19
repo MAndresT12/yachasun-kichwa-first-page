@@ -230,7 +230,7 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/* Modulo 2 */}
-                <BouncyTextTitulo>Una gran familia</BouncyTextTitulo>
+                <BouncyTextTitulo>Una Gran Familia</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 2 / Ishkayniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
@@ -311,7 +311,7 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/* Modulo 3 */}
-                <BouncyTextTitulo>Objetos del diario</BouncyTextTitulo>
+                <BouncyTextTitulo>Objetos del Diario</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 3 / Kimsaniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
@@ -392,24 +392,24 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/* Modulo 4 */}
-                <BouncyTextTitulo>La naturaleza y su belleza</BouncyTextTitulo>
+                <BouncyTextTitulo>La Naturaleza y su Belleza</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 4 / Chuskuniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
                     <LevelCard
                         levelKey="level_Nature"
-                        title="La naturaleza / Pachamama"
+                        title="La Naturaleza / Pachamama"
                         iconName="tree"
                         nextScreen="IntroModuloB4"
                         progressKey="level_Nature_completed"
                     />
-                    <BouncyText>La naturaleza / Pachamama</BouncyText>
+                    <BouncyText>La Naturaleza / Pachamama</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>Los alimentos / Mikunakuna</BouncyText>
+                    <BouncyText>Los Alimentos / Mikunakuna</BouncyText>
                     <LevelCard
                         levelKey="level_Foods"
-                        title="Los alimentos / Mikunakuna"
+                        title="Los Alimentos / Mikunakuna"
                         iconName="cutlery"
                         nextScreen="Foods"
                         progressKey="level_Foods_completed"
@@ -419,20 +419,20 @@ const CaminoLevelsScreen = () => {
 
                     <LevelCard
                         levelKey="level_Orientation"
-                        title="La orientación / Suyumanta rimashun"
+                        title="La Orientación / Suyumanta rimashun"
                         iconName="arrows"
                         nextScreen="Orientation"
                         progressKey="level_Orientation_completed"
                     />
-                    <BouncyText>La orientación / Suyumanta rimashun</BouncyText>
+                    <BouncyText>La Orientación / Suyumanta rimashun</BouncyText>
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>Los animales / Wiwakuna</BouncyText>
+                    <BouncyText>Los Animales / Wiwakuna</BouncyText>
 
                     <LevelCard
                         levelKey="level_AnimalsBasic"
-                        title="Los animales / Wiwakuna"
+                        title="Los Animales / Wiwakuna"
                         iconName="paw"
                         nextScreen="AnimalsBasic"
                         progressKey="level_AnimalsBasic_completed"
@@ -473,18 +473,18 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/* Modulo 5 */}
-                <BouncyTextTitulo>Describe el mundo</BouncyTextTitulo>
+                <BouncyTextTitulo>Describe el Mundo</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 5 / Pichkaniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
                     <LevelCard
                         levelKey="level_Pluralization"
-                        title="La pluralización / Tawkachina"
+                        title="La Pluralización / Tawkachina"
                         iconName="list-ol"
                         nextScreen="IntroModuloB5"
                         progressKey="level_Pluralization_completed"
                     />
-                    <BouncyText>La pluralización / Tawkachina</BouncyText>
+                    <BouncyText>La Pluralización / Tawkachina</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
                     <BouncyText>Género / Kariwarmiyachik</BouncyText>
@@ -500,12 +500,12 @@ const CaminoLevelsScreen = () => {
 
                     <LevelCard
                         levelKey="level_Quantity"
-                        title="La cantidad / Mashnaykuna"
+                        title="La Cantidad / Mashnaykuna"
                         iconName="cubes"
                         nextScreen="Quantity"
                         progressKey="level_Quantity_completed"
                     />
-                    <BouncyText>La cantidad / Mashnaykuna</BouncyText>
+                    <BouncyText>La Cantidad / Mashnaykuna</BouncyText>
                 </View>
 
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
@@ -554,24 +554,24 @@ const CaminoLevelsScreen = () => {
                 </TouchableOpacity>
 
                 {/* Modulo 6 */}
-                <BouncyTextTitulo>El primer gran desafío</BouncyTextTitulo>
+                <BouncyTextTitulo>El Primer Gran Desafío</BouncyTextTitulo>
                 <BouncyTextTitulo>Módulo 6 / Suktaniki Tantachiy Yachay</BouncyTextTitulo>
 
                 <View style={localStyles.pathRow}>
                     <LevelCard
                         levelKey="level_Imperative"
-                        title="El imperativo / Rurachik"
+                        title="El Imperativo / Rurachik"
                         iconName="hand-o-right"
                         nextScreen="IntroModuloB6"
                         progressKey="level_Imperative_completed"
                     />
-                    <BouncyText>El imperativo / Rurachik</BouncyText>
+                    <BouncyText>El Imperativo / Rurachik</BouncyText>
                 </View>
                 <View style={[localStyles.pathRow, localStyles.pathRowRight]}>
-                    <BouncyText>La conjugación en tiempo presente / Kunan pachamanta rimarikuna</BouncyText>
+                    <BouncyText>La Conjugación en Tiempo Presente / Kunan pachamanta rimarikuna</BouncyText>
                     <LevelCard
                         levelKey="level_SimplePresent"
-                        title="La conjugación en tiempo presente / Kunan pachamanta rimarikuna"
+                        title="La Conjugación en Tiempo Presente / Kunan pachamanta rimarikuna"
                         iconName="font"
                         nextScreen="SimplePresent"
                         progressKey="level_SimplePresent_completed"
