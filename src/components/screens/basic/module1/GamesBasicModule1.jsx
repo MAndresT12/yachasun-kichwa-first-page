@@ -55,11 +55,11 @@ const match_image_data = [
 ];
 
 const hangman_data = [
-    { word: 'Puka', translation: 'Rojo' },
-    { word: 'Yanalla ankas', translation: 'ASzul marino' },
-    { word: 'Waylla', translation: 'Verde' },
-    { word: 'Maywa', translation: 'Morado' },
-    { word: 'Yurak', translation: 'Blanco' },
+    { word: 'puka', translation: 'Rojo' },
+    { word: 'yanalla ankas', translation: 'Azul marino' },
+    { word: 'waylla', translation: 'Verde' },
+    { word: 'maywa', translation: 'Morado' },
+    { word: 'yurak', translation: 'Blanco' },
 ];
 
 const roulette_data = [
