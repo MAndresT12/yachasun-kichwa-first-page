@@ -11,7 +11,8 @@ import { UserContext } from '../../context/UserContext';
 import { FloatingHumu } from '../animations/FloatingHumu';
 
 import { ImageContainer } from '../ui/imageContainers/ImageContainer';
-import ProgressCircleWithTrophies from '../headers/ProgressCircleWithTophies';
+import { CardDefault } from '../ui/cards/CardDefault';
+import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 
 import { styles } from '../../../styles/globalStyles';
 
@@ -36,7 +37,7 @@ const ProfileScreen = () => {
     'trofeo_modulo4_intermedio',
     'trofeo_modulo5_intermedio',
     'trofeo_modulo6_intermedio',
-];
+  ];
 
   const loadTrophyProgressBasic = async () => {
     let obtainedCount = 0;
@@ -76,23 +77,28 @@ const ProfileScreen = () => {
           <ImageContainer path={require('../../../assets/images/humu/humu-talking.png')} />
         </FloatingHumu>
         <View style={localStyles.contentContainer}>
-          <Text style={localStyles.welcomeText}>¡Bienvenido, {username}!</Text>
-          
-          {/* Progreso básico */}
-          <Text style={localStyles.subText}>Este es tu progreso básico.</Text>
-          <View style={localStyles.progressBarContainer}>
-            <View style={localStyles.progressBar}>
-              <View style={[localStyles.progress, { width: `${progressBasic * 100}%` }]} />
-            </View>
-          </View>
+          <CardDefault title="Tú Perfil" style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={[styles.cardContent, localStyles.welcomeText]}>
+              ¡Bienvenido, {username}!{"\n\n"}
+              Este es tú perfil donde podrás ver tu progreso en los módulos de aprendizaje.
+            </Text>
+          </CardDefault>
 
-          {/* Progreso intermedio */}
-          <Text style={localStyles.subText}>Este es tu progreso intermedio.</Text>
-          <View style={localStyles.progressBarContainer}>
-            <View style={localStyles.progressBar}>
-              <View style={[localStyles.progress, { width: `${progress * 100}%` }]} />
+          {/* Progreso básico e intermedio */}
+          <CardDefault title="Progreso" style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={localStyles.subText}>Este es tu progreso del nivel básico.</Text>
+            <View style={localStyles.progressBarContainer}>
+              <View style={localStyles.progressBar}>
+                <View style={[localStyles.progress, { width: `${progressBasic * 100}%` }]} />
+              </View>
             </View>
-          </View>
+            <Text style={localStyles.subText}>Este es tu progreso del nivel intermedio.</Text>
+            <View style={localStyles.progressBarContainer}>
+              <View style={localStyles.progressBar}>
+                <View style={[localStyles.progress, { width: `${progress * 100}%` }]} />
+              </View>
+            </View>
+          </CardDefault>
         </View>
       </ScrollView>
     </LinearGradient>
@@ -111,14 +117,13 @@ const localStyles = StyleSheet.create({
     paddingHorizontal: 20, // Add padding to prevent overflow
   },
   welcomeText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-    textAlign: 'center',
+    padding: 10,
+    fontSize: 18,
+    color: '#000',
   },
   subText: {
     fontSize: 16,
-    color: '#fff',
+    color: '#000',
     marginTop: 20, // Add spacing between text and previous elements
     textAlign: 'center',
   },
@@ -138,6 +143,11 @@ const localStyles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#4caf50',
     borderRadius: 10,
+  },
+  welcomeTextAux: {
+    padding: 10,
+    fontSize: 24,
+    textAlign: 'center',
   },
 });
 
