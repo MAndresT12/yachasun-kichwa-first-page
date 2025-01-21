@@ -8,6 +8,8 @@ import { styles as globalStyles } from '../../../styles/globalStyles';
 import { ButtonDefault } from '../ui/buttons/ButtonDefault';
 import { ButtonLevelsInicio } from '../ui/buttons/ButtonLevelsInicio';
 import { ComicBubble } from '../ui/bubbles/ComicBubble';
+import { FloatingHumu } from '../animations/FloatingHumu';
+import { ImageContainer } from './imageContainers/ImageContainer';
 
 const ModuloIntroduccion = ({ imageSource, introText, nextScreen, navigationTarget = 'CaminoLevels' }) => {
     const navigation = useNavigation();
@@ -19,10 +21,9 @@ const ModuloIntroduccion = ({ imageSource, introText, nextScreen, navigationTarg
         >
             <View style={localStyles.contentContainer}>
                 {/* Imagen del personaje al lado izquierdo */}
-                <Image
-                    source={imageSource}
-                    style={localStyles.image}
-                />
+                <FloatingHumu >
+                    <ImageContainer path={imageSource} style={localStyles.image} />
+                </FloatingHumu>
 
                 {/* Speech bubble para el diálogo explicativo */}
                 <View style={localStyles.speechBubbleContainer}>
