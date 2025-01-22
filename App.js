@@ -293,7 +293,7 @@ function HomeStack() {
       <Stack.Screen
         name="HistoryScreen"
         component={HistoryScreen}
-        options={{ headerShown: true, title: 'Tú primer paso...' }}
+        options={{ headerShown: true, title: 'Historia: Tú primer paso...' }}
       />
       <Stack.Screen
         name="InstructionsBasic"
