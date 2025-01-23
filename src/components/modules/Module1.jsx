@@ -79,13 +79,13 @@ const Module1 = () => {
     const games = [
 
 
+        <HangmanGame key="hangman" words={ahorcadoDataModule1} helpText="¡Bienvenido al Ahorcado! Debes adivinar las letras de la palabra secreta. Si te equivocas 6 veces, ¡el muñequito se colgará! ¡Piensa rápido y diviértete!"
+            onNext={() => setCurrentGame(currentGame + 1)} />,
         <JuegoCompletarFrases key="frases" data={sentenceDataModule1} helpText="¡Hola pequeño aventurero! En este juego debes completar las frases en kichwa. Arrastra la palabra correcta y colócala en el espacio vacío para formar la frase perfecta. ¡Diviertete aprendiendo mientras juegas!"
             onNext={() => setCurrentGame(currentGame + 1)} />,
         <MatchGame key="match" data={matchDataModule1} helpText="¡Hola, pequeño aventurero! En este juego debes emparejar las cartas. Encuentra las imágenes que son iguales y haz clic en ellas. ¡Recuerda bien las cartas y diviértete encontrando todos los pares!"
             onNext={() => setCurrentGame(currentGame + 1)} />,
         <ImageWordMatchGame key="matching" data={unirDataModule1} helpText="¡Bienvenido a la aventura! En este juego debes unir las imágenes con su nombre en kichwa. Mira con atención los dibujos y selecciona la palabra correcta que lo describe. ¡A divertirse mientras aprendes kichwa!"
-            onNext={() => setCurrentGame(currentGame + 1)} />,
-        <HangmanGame key="hangman" words={ahorcadoDataModule1} helpText="¡Bienvenido al Ahorcado! Debes adivinar las letras de la palabra secreta. Si te equivocas 6 veces, ¡el muñequito se colgará! ¡Piensa rápido y diviértete!"
             onNext={() => setCurrentGame(currentGame + 1)} />,
         <RuletaGame key="ruleta" data={dataRuletaModule2} helpText="¡Hola, pequeño aventurero! En este juego debes girar la ruleta y adivinar la palabra en kichwa. ¡Diviértete aprendiendo mientras juegas!"
             onNext={() => navigation.navigate('Game1')} />,
