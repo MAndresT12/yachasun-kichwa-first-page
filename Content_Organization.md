@@ -2,7 +2,7 @@
 
 ## Esquema para el nivel básico en niños y adolecentes en la aplicación móvil
 
-### Módulo 1
+### Módulo 1: El ABC del Kichwa
 
 - El alfabeto y las vocales
 - Los número del 0 - 500
@@ -11,7 +11,7 @@
 - Juego 1
 - Evaluación 1
 
-### Módulo 2
+### Módulo 2: Una Gran Familia
 
 - Los saludos, cortesía y despedidas Parte 1
 - Los saludos, cortesía y despedidas Parte 2
@@ -20,7 +20,7 @@
 - Juego 2
 - Evaluación 2
 
-### Módulo 3
+### Módulo 3: Objetos del Diario
 
 - La familia Parte 2
 - Las partes del cuerpo
@@ -29,7 +29,7 @@
 - Juego 3
 - Evaluación 3
 
-### Módulo 4
+### Módulo 4: La Naturaleza y su Belleza
 
 - La naturaleza
 - Los alimentos y las frutas
@@ -38,7 +38,7 @@
 - Juego 4
 - Evaluación 4
 
-### Módulo 5
+### Módulo 5: Describe el Mundo
 
 - La pluralización
 - El género
@@ -47,7 +47,7 @@
 - Juego 5
 - Evaluación 5
 
-### Módulo 6
+### Módulo 6: El Primer Gran Desafío
 
 - El imperativo
 - La conjugación en tiempo presente
