@@ -104,6 +104,7 @@ const FlipCard = ({ item, fontsLoaded }) => {
                     <Text style={styles.kichwaText}>Kichwa:</Text>
                     <Text style={styles.kichwaText}>{item.kichwa}</Text>
                     <View style={[styles.colorBox]}>
+                        {/*Use of splash bubble for colors lecture*/}
                         <SplashBubble fillColor={item.hexadecimalColor} />
                     </View>
                 </Animated.View>

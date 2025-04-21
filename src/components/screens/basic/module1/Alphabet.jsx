@@ -194,6 +194,7 @@ const curiosity_data = [
 
 
 const Alphabet = () => {
+    {/* State variables for controlling modals and progress*/ }
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedLetter, setSelectedLetter] = useState(null);
     const [showHelp, setShowHelp] = useState(null);
@@ -349,6 +350,8 @@ const Alphabet = () => {
                         </View>
                     </Modal>
                 )}
+
+                {/* Modal for showing a letter and the associated info for the letter */}
 
                 {selectedLetter && (
                     <Modal

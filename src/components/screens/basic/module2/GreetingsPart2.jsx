@@ -269,6 +269,8 @@ const FlipCard = ({ item }) => {
                 </View>
             </TouchableWithoutFeedback>
 
+            {/* Use of gestures for animation of Humu */}
+
             <PanGestureHandler onGestureEvent={handleGesture}>
                 <Animated.Image
                     source={humuTalkingPNG}
